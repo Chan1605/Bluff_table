@@ -18,10 +18,20 @@ namespace LiarsBar.Server
         [SyncVar(hook = nameof(OnReadyChanged))]
         private bool isReady;
 
+        [SyncVar]
+        private int wins;
+
+        // -1 = 전적 없음 (DB 미사용 · 로딩 전)
+        [SyncVar(hook = nameof(OnStatsChanged))]
+        private int gamesPlayed = -1;
+
         public int Seat => seat;
         public string Nickname => nickname;
         public bool IsLoggedIn => !string.IsNullOrEmpty(nickname);
         public bool IsReady => isReady;
+        public int GamesPlayed => gamesPlayed;
+        public int Wins => wins;
+        public bool HasStats => gamesPlayed >= 0;
 
         public static PlayerProfile Local { get; private set; }
 
@@ -133,6 +143,7 @@ namespace LiarsBar.Server
             }
 
             CompleteLogin(cleanedNick, outcome.UserId, outcome.Message);
+            _ = ServerLoadStatsAsync();
         }
 
         [Server]
@@ -142,6 +153,26 @@ namespace LiarsBar.Server
             nickname = cleanedNick;
             TargetLoginResult(true, message);
             Debug.Log($"[Server] 좌석 {seat} 로그인 - '{cleanedNick}' (user_id {dbUserId})");
+        }
+
+        // 서버 전용 (async라 [Server] 미사용)
+        public async Task ServerLoadStatsAsync()
+        {
+            if (userId <= 0 || !Db.IsAvailable) return;
+
+            UserStats? stats = await UserRepository.GetStatsAsync(userId);
+
+            // await 중 나갔으면 중단
+            if (this == null || stats == null) return;
+
+            wins = stats.Value.Wins;
+            gamesPlayed = stats.Value.GamesPlayed;
+            Debug.Log($"[Server] 좌석 {seat} 전적 로드 - {gamesPlayed}전 {wins}승 (user_id {userId})");
+        }
+
+        private void OnStatsChanged(int oldValue, int newValue)
+        {
+            Debug.Log($"[Client] 좌석 {seat} 전적 {newValue}전 {wins}승");
         }
 
         [Server]
