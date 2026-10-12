@@ -1,0 +1,6 @@
+root = true
+
+# Visual Studio가 C# 파일을 CP949로 저장하지 않도록 고정
+[*.cs]
+charset = utf-8-bom
+end_of_line = crlf
