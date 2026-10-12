@@ -18,6 +18,8 @@ public class PlayerLook : MonoBehaviour
     private Quaternion lastBaseRotation;
     private Quaternion lastAppliedRotation;
 
+    public Transform Head => head;
+
     void Awake()
     {
         head = animator.GetBoneTransform(HumanBodyBones.Head);
