@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2917152809749998340
+--- !u!1 &3298989736239962170
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2237703785572014286}
-  - component: {fileID: 5036416665268869046}
-  - component: {fileID: 1302965567165644195}
-  - component: {fileID: 5471174339517604415}
-  - component: {fileID: 4143414140896340867}
+  - component: {fileID: 5154139775015844827}
+  - component: {fileID: 2579985073930551626}
+  - component: {fileID: 2269702147578131204}
+  - component: {fileID: 2324507997690114150}
+  - component: {fileID: 2599445102700859353}
+  - component: {fileID: -6183377151534730211}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -20,13 +21,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2237703785572014286
+--- !u!4 &5154139775015844827
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2917152809749998340}
+  m_GameObject: {fileID: 3298989736239962170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -35,25 +36,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5036416665268869046
+--- !u!114 &2579985073930551626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2917152809749998340}
+  m_GameObject: {fileID: 3298989736239962170}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eece5111c5cdc848b65fb18c1db3c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DevLobbyPanel
---- !u!114 &1302965567165644195
+--- !u!114 &2269702147578131204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2917152809749998340}
+  m_GameObject: {fileID: 3298989736239962170}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
@@ -76,13 +77,13 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
---- !u!114 &5471174339517604415
+--- !u!114 &2324507997690114150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2917152809749998340}
+  m_GameObject: {fileID: 3298989736239962170}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4844acfe1f053ee479d15bb99c13f0cb, type: 3}
@@ -96,13 +97,13 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   offlineSceneLoadDelay: 0
-  transport: {fileID: 1302965567165644195}
+  transport: {fileID: -6183377151534730211}
   networkAddress: localhost
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 6642765727471942334, guid: 0df7d98017528324fbe92d0128ce32d2, type: 3}
+  playerPrefab: {fileID: 3367960496955974029, guid: 1bf7c78bae304aa4897ef210d67f2d98, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
@@ -128,16 +129,34 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   gameFlowBehaviour: {fileID: 0}
---- !u!114 &4143414140896340867
+--- !u!114 &2599445102700859353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2917152809749998340}
+  m_GameObject: {fileID: 3298989736239962170}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be461ec848201564ca6b1dfb2d934c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyGameFlow
   autoFinishSeconds: 15
+--- !u!114 &-6183377151534730211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3298989736239962170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa135acc32a4383ae9a5817f018cb06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Transports::Mirror.Transports.Encryption.EncryptionTransport
+  Inner: {fileID: 2269702147578131204}
+  ClientValidateServerPubKey: 1
+  ClientTrustedPubKeySignatures:
+  - d0c09faff67634fbfbe5faa0a3f8e2b3700e541595e5f2ddae479b2c29f9e031
+  ServerLoadKeyPairFromFile: 1
+  ServerKeypairPath: ServerKeys/server-keys.json
