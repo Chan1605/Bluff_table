@@ -302,7 +302,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: KartsParent
+    - boneName: RHINO_LDigit11
       humanName: Left Thumb Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -310,7 +310,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Kartlar
+    - boneName: RHINO_LDigit12
       humanName: Left Thumb Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -318,7 +318,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: kart1
+    - boneName: RHINO_LDigit13
       humanName: Left Thumb Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -326,7 +326,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_LDigit11
+    - boneName: RHINO_LDigit21
       humanName: Left Index Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -334,7 +334,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_LDigit12
+    - boneName: RHINO_LDigit22
       humanName: Left Index Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -342,7 +342,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_LDigit13
+    - boneName: RHINO_LDigit23
       humanName: Left Index Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -350,7 +350,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_LDigit21
+    - boneName: RHINO_LDigit31
       humanName: Left Middle Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -358,7 +358,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_LDigit22
+    - boneName: RHINO_LDigit32
       humanName: Left Middle Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -366,7 +366,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_LDigit23
+    - boneName: RHINO_LDigit33
       humanName: Left Middle Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -374,7 +374,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_LDigit31
+    - boneName: RHINO_LDigit41
       humanName: Left Ring Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -382,7 +382,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_LDigit32
+    - boneName: RHINO_LDigit42
       humanName: Left Ring Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -390,32 +390,8 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_LDigit33
-      humanName: Left Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: RHINO_LDigit41
-      humanName: Left Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: RHINO_LDigit42
-      humanName: Left Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
     - boneName: RHINO_LDigit43
-      humanName: Left Little Distal
+      humanName: Left Ring Distal
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -446,7 +422,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: cylinderpivot
+    - boneName: RHINO_RDigit21
       humanName: Right Index Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -454,7 +430,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Cylinder (Magazine)
+    - boneName: RHINO_RDigit22
       humanName: Right Index Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -462,7 +438,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bullets.001
+    - boneName: RHINO_RDigit23
       humanName: Right Index Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -470,7 +446,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_RDigit21
+    - boneName: RHINO_RDigit31
       humanName: Right Middle Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -478,7 +454,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_RDigit22
+    - boneName: RHINO_RDigit32
       humanName: Right Middle Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -486,7 +462,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_RDigit23
+    - boneName: RHINO_RDigit33
       humanName: Right Middle Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -494,7 +470,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_RDigit31
+    - boneName: RHINO_RDigit41
       humanName: Right Ring Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -502,7 +478,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_RDigit32
+    - boneName: RHINO_RDigit42
       humanName: Right Ring Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -510,32 +486,8 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: RHINO_RDigit33
-      humanName: Right Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: RHINO_RDigit41
-      humanName: Right Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: RHINO_RDigit42
-      humanName: Right Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
     - boneName: RHINO_RDigit43
-      humanName: Right Little Distal
+      humanName: Right Ring Distal
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -631,33 +583,33 @@ ModelImporter:
       position: {x: 0.00000027894973, y: 0.008550028, z: 0.004390004}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Kartlar(1)
+    - name: Kartlar
       parentName: skunk_rig_v2
       position: {x: -0.0024911761, y: 0.0093294475, z: 0.004968198}
       rotation: {x: 0.16695106, y: 0.43345824, z: 0.8592658, w: 0.21425135}
       scale: {x: 1.5480007, y: 1.5480108, z: 1.5480001}
-    - name: kart1(1)
-      parentName: Kartlar(1)
+    - name: kart1
+      parentName: Kartlar
       position: {x: -0.0011979494, y: 0.000203313, z: 0.00089576165}
       rotation: {x: 0.7849866, y: -0.47349486, z: -0.38967675, w: 0.088037856}
       scale: {x: 100.0006, y: 100.00003, z: 99.99944}
     - name: kart2
-      parentName: Kartlar(1)
+      parentName: Kartlar
       position: {x: -0.0011854831, y: 0.0003761746, z: 0.0009069521}
       rotation: {x: 0.6728267, y: -0.62266004, z: -0.36377242, w: 0.16513135}
       scale: {x: 100.00021, y: 100.00053, z: 99.999245}
     - name: kart3
-      parentName: Kartlar(1)
+      parentName: Kartlar
       position: {x: -0.0010795428, y: 0.00061064144, z: 0.0008617515}
       rotation: {x: -0.5138629, y: 0.7591748, z: 0.3167729, w: -0.2434204}
       scale: {x: 100.00038, y: 100.00037, z: 99.99941}
     - name: kart4
-      parentName: Kartlar(1)
+      parentName: Kartlar
       position: {x: -0.000859741, y: 0.00072221656, z: 0.0006670782}
       rotation: {x: -0.31292692, y: 0.8616718, z: 0.2477438, w: -0.31340322}
       scale: {x: 100.000114, y: 100.000534, z: 99.99932}
     - name: kart5
-      parentName: Kartlar(1)
+      parentName: Kartlar
       position: {x: -0.00067896344, y: 0.00069748954, z: 0.0004564387}
       rotation: {x: -0.10845232, y: 0.9102963, z: 0.16985326, w: -0.36159176}
       scale: {x: 99.99997, y: 100.00064, z: 99.9993}
@@ -676,23 +628,23 @@ ModelImporter:
       position: {x: -0.0018771624, y: 0.00839683, z: 0.003661788}
       rotation: {x: -0.2541702, y: 0.86492234, z: -0.15800838, w: 0.40291464}
       scale: {x: 1, y: 1, z: 1}
-    - name: Kartlar(2)
+    - name: Kartlar
       parentName: MasaKart (2)
       position: {x: -0.007522, y: -0.0064979997, z: -0.0051999995}
       rotation: {x: 0.4641041, y: -0.5042928, z: 0.7203462, w: 0.106759496}
       scale: {x: 1.548001, y: 1.548, z: 1.547999}
-    - name: kart1(2)
-      parentName: Kartlar(2)
+    - name: kart1
+      parentName: Kartlar
       position: {x: -0, y: 0, z: 0.00007}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 100.0006, y: 100, z: 99.99944}
     - name: number
-      parentName: kart1(2)
+      parentName: kart1
       position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart2
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0, y: 0, z: 0.000052}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 100.0002, y: 100.0005, z: 99.99924}
@@ -702,7 +654,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart3
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0, y: 0, z: 0.000020999998}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 100.0004, y: 100.0004, z: 99.99941}
@@ -712,7 +664,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart4
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 100.0001, y: 100.0006, z: 99.99932}
@@ -722,7 +674,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart5
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0, y: 0, z: -0.000027}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 99.99997, y: 100.0006, z: 99.9993}
@@ -732,7 +684,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart6
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0.0011539999, y: 0.000074999996, z: 0.00083599996}
       rotation: {x: 0.8477294, y: -0.3489361, z: -0.39852196, w: 0.027906483}
       scale: {x: 100.0006, y: 100.0006, z: 99.99944}
@@ -742,7 +694,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart7
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0.000602, y: 0.000759, z: 0.00038699998}
       rotation: {x: 0.02451781, y: 0.91570944, z: 0.114855446, w: -0.3842959}
       scale: {x: 99.99997, y: 100.0006, z: 99.9993}
@@ -756,23 +708,23 @@ ModelImporter:
       position: {x: -0.0018771624, y: 0.00839683, z: 0.003661788}
       rotation: {x: -0.2541702, y: 0.86492234, z: -0.15800838, w: 0.40291464}
       scale: {x: 1, y: 1, z: 1}
-    - name: Kartlar(2)
+    - name: Kartlar
       parentName: MasaKart (3)
       position: {x: -0.007522, y: -0.0064979997, z: -0.0051999995}
       rotation: {x: 0.4641041, y: -0.5042928, z: 0.7203462, w: 0.106759496}
       scale: {x: 1.548001, y: 1.548, z: 1.547999}
-    - name: kart1(2)
-      parentName: Kartlar(2)
+    - name: kart1
+      parentName: Kartlar
       position: {x: -0, y: 0, z: 0.00007}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 100.0006, y: 100, z: 99.99944}
     - name: number
-      parentName: kart1(2)
+      parentName: kart1
       position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart2
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0, y: 0, z: 0.000052}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 100.0002, y: 100.0005, z: 99.99924}
@@ -782,7 +734,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart3
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0, y: 0, z: 0.000020999998}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 100.0004, y: 100.0004, z: 99.99941}
@@ -792,7 +744,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart4
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 100.0001, y: 100.0006, z: 99.99932}
@@ -802,7 +754,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart5
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0, y: 0, z: -0.000027}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 99.99997, y: 100.0006, z: 99.9993}
@@ -812,7 +764,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart6
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0.0011539999, y: 0.000074999996, z: 0.00083599996}
       rotation: {x: 0.8477294, y: -0.3489361, z: -0.39852196, w: 0.027906483}
       scale: {x: 100.0006, y: 100.0006, z: 99.99944}
@@ -822,7 +774,7 @@ ModelImporter:
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart7
-      parentName: Kartlar(2)
+      parentName: Kartlar
       position: {x: -0.000602, y: 0.000759, z: 0.00038699998}
       rotation: {x: 0.02451781, y: 0.91570944, z: 0.114855446, w: -0.3842959}
       scale: {x: 99.99997, y: 100.0006, z: 99.9993}
