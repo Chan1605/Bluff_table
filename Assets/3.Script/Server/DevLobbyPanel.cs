@@ -12,6 +12,9 @@ namespace LiarsBar.Server
         private string passwordInput = "";
         private string message = "";
 
+        // 에디터 · Development Build에서만 Host/Server 버튼 표시
+        private static bool CanHost => Debug.isDebugBuild;
+
         private void OnGUI()
         {
             LiarsNetworkManager manager = LiarsNetworkManager.Instance;
@@ -40,7 +43,7 @@ namespace LiarsBar.Server
             // 시작 전
             if (!NetworkServer.active && !NetworkClient.active)
             {
-                if (GUILayout.Button("Host (Server + Client)"))
+                if (CanHost && GUILayout.Button("Host (Server + Client)"))
                     manager.StartHostSafely();
 
                 GUILayout.BeginHorizontal();
@@ -49,7 +52,7 @@ namespace LiarsBar.Server
                 manager.networkAddress = GUILayout.TextField(manager.networkAddress);
                 GUILayout.EndHorizontal();
 
-                if (GUILayout.Button("Server Only"))
+                if (CanHost && GUILayout.Button("Server Only"))
                     manager.StartServerSafely();
                 return;
             }

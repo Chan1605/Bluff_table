@@ -159,4 +159,4 @@ MonoBehaviour:
   ClientTrustedPubKeySignatures:
   - d0c09faff67634fbfbe5faa0a3f8e2b3700e541595e5f2ddae479b2c29f9e031
   ServerLoadKeyPairFromFile: 1
-  ServerKeypairPath: Serverkeys/server-keys.json
+  ServerKeypairPath: ServerKeys/server-keys.json

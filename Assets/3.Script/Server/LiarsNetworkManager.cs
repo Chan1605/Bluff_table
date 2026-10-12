@@ -82,6 +82,9 @@ namespace LiarsBar.Server
         // UI 로딩 표시용
         public bool IsPreparingServer { get; private set; }
 
+        // 전용 서버 빌드(UNITY_SERVER) 또는 그래픽 없이 실행된 빌드
+        public static bool IsDedicatedServer => Utils.IsHeadless() && !Application.isEditor;
+
         public void StartHostSafely() => _ = StartAfterDatabaseAsync(true);
         public void StartServerSafely() => _ = StartAfterDatabaseAsync(false);
 
@@ -89,8 +92,8 @@ namespace LiarsBar.Server
         {
             base.Start();
 
-            // -batchmode 서버 자동 시작 (Headless Start Mode는 Do Nothing)
-            if (Application.isBatchMode && !Application.isEditor)
+            // 전용 서버 자동 시작 (Headless Start Mode는 Do Nothing)
+            if (IsDedicatedServer)
                 StartServerSafely();
         }
 
@@ -110,7 +113,7 @@ namespace LiarsBar.Server
                     if (!ready)
                     {
                         Debug.LogError("[Server] DB에 접속할 수 없어 서버를 열지 않습니다. (DB 없이 테스트하려면 ServerConfig의 Use Database를 끄세요)");
-                        if (Application.isBatchMode && !Application.isEditor)
+                        if (IsDedicatedServer)
                             Application.Quit(1);
                         return;
                     }
@@ -122,7 +125,7 @@ namespace LiarsBar.Server
             catch (Exception e)
             {
                 Debug.LogError($"[Server] 서버 시작 중 오류: {e.Message}");
-                if (Application.isBatchMode && !Application.isEditor)
+                if (IsDedicatedServer)
                     Application.Quit(1);
             }
             finally
