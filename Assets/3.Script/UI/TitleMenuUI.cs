@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class TitleMenuUI : MonoBehaviour
 {
+    [SerializeField] private UIPanelManager panelManager;
     [SerializeField] private Button enterBtn;
     [SerializeField] private Button settingBtn;
     [SerializeField] private Button exitBtn;
@@ -24,8 +25,8 @@ public class TitleMenuUI : MonoBehaviour
         exitBtn.onClick.RemoveListener(OnClickExit);
     }
 
-    private void OnClickEnter() { Debug.Log("로비생성 패널"); }
-    private void OnClickSetting() { Debug.Log("옵션 패널"); }
+    private void OnClickEnter() { panelManager.Open(PanelId.Play); }
+    private void OnClickSetting() { panelManager.Open(PanelId.Settings); }
     private void OnClickStories() { Debug.Log("스토리 패널"); }
     private void OnClickExit() { Debug.Log("종료"); }
 
