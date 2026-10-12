@@ -15,6 +15,18 @@ namespace LiarsBar.Server
         public static LoginOutcome Fail(string message) => new LoginOutcome { Success = false, Message = message, UserId = -1 };
     }
 
+    public readonly struct UserStats
+    {
+        public readonly int GamesPlayed;
+        public readonly int Wins;
+
+        public UserStats(int gamesPlayed, int wins)
+        {
+            GamesPlayed = gamesPlayed;
+            Wins = wins;
+        }
+    }
+
     // users / user_stats SQL (서버 전용)
     public static class UserRepository
     {
@@ -97,6 +109,27 @@ namespace LiarsBar.Server
             {
                 Debug.LogError($"[DB] 로그인 처리 오류: {e.Message}");
                 return LoginOutcome.Fail("서버 오류로 로그인하지 못했습니다.");
+            }
+        }
+
+        // 실패 시 null
+        public static async Task<UserStats?> GetStatsAsync(int userId)
+        {
+            try
+            {
+                using MySqlConnection connection = await Db.OpenAsync();
+                using MySqlCommand command = new MySqlCommand(
+                    "SELECT games_played, wins FROM user_stats WHERE user_id = @id", connection);
+                command.Parameters.AddWithValue("@id", userId);
+
+                using MySqlDataReader reader = await command.ExecuteReaderAsync();
+                if (!await reader.ReadAsync()) return null;
+                return new UserStats(reader.GetInt32(0), reader.GetInt32(1));
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"[DB] 전적 조회 오류: {e.Message}");
+                return null;
             }
         }
     }

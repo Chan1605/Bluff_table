@@ -12,6 +12,9 @@ namespace LiarsBar.Server
         private string passwordInput = "";
         private string message = "";
 
+        // 에디터 · Development Build에서만 Host/Server 버튼 표시
+        private static bool CanHost => Debug.isDebugBuild;
+
         private void OnGUI()
         {
             LiarsNetworkManager manager = LiarsNetworkManager.Instance;
@@ -40,7 +43,7 @@ namespace LiarsBar.Server
             // 시작 전
             if (!NetworkServer.active && !NetworkClient.active)
             {
-                if (GUILayout.Button("Host (Server + Client)"))
+                if (CanHost && GUILayout.Button("Host (Server + Client)"))
                     manager.StartHostSafely();
 
                 GUILayout.BeginHorizontal();
@@ -49,7 +52,7 @@ namespace LiarsBar.Server
                 manager.networkAddress = GUILayout.TextField(manager.networkAddress);
                 GUILayout.EndHorizontal();
 
-                if (GUILayout.Button("Server Only"))
+                if (CanHost && GUILayout.Button("Server Only"))
                     manager.StartServerSafely();
                 return;
             }
@@ -111,9 +114,10 @@ namespace LiarsBar.Server
             foreach (PlayerProfile p in PlayerProfile.All)
             {
                 string name = p.IsLoggedIn ? p.Nickname : "(로그인 전)";
+                string stats = p.HasStats ? $" ({p.GamesPlayed}전 {p.Wins}승)" : "";
                 string ready = p.IsReady ? " [준비]" : "";
                 string mine = p == me ? "  ← 나" : "";
-                GUILayout.Label($"좌석 {p.Seat}: {name}{ready}{mine}");
+                GUILayout.Label($"좌석 {p.Seat}: {name}{stats}{ready}{mine}");
             }
         }
     }

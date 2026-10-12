@@ -56,7 +56,11 @@ namespace LiarsBar.Server
             if (transport is PortTransport portTransport)
                 portTransport.Port = config.Port;
 
-            Debug.Log($"[Config] 주소 {config.NetworkAddress}:{config.Port}, 좌석 {config.MaxSeats}, 시작 인원 {config.MinPlayersToStart}");
+            string security = transport.IsEncrypted ? $"암호화 {transport.EncryptionCipher}" : "암호화 없음";
+            Debug.Log($"[Config] 주소 {config.NetworkAddress}:{config.Port}, 좌석 {config.MaxSeats}, 시작 인원 {config.MinPlayersToStart}, {security}");
+
+            if (config.UseDatabase && !transport.IsEncrypted)
+                Debug.LogWarning("[Config] Use Database가 켜져 있지만 통신이 암호화되지 않아 비밀번호가 평문으로 전송됩니다.");
         }
 
         public override void OnStartServer()
@@ -78,6 +82,9 @@ namespace LiarsBar.Server
         // UI 로딩 표시용
         public bool IsPreparingServer { get; private set; }
 
+        // 전용 서버 빌드(UNITY_SERVER) 또는 그래픽 없이 실행된 빌드
+        public static bool IsDedicatedServer => Utils.IsHeadless() && !Application.isEditor;
+
         public void StartHostSafely() => _ = StartAfterDatabaseAsync(true);
         public void StartServerSafely() => _ = StartAfterDatabaseAsync(false);
 
@@ -85,8 +92,8 @@ namespace LiarsBar.Server
         {
             base.Start();
 
-            // -batchmode 서버 자동 시작 (Headless Start Mode는 Do Nothing)
-            if (Application.isBatchMode && !Application.isEditor)
+            // 전용 서버 자동 시작 (Headless Start Mode는 Do Nothing)
+            if (IsDedicatedServer)
                 StartServerSafely();
         }
 
@@ -106,7 +113,7 @@ namespace LiarsBar.Server
                     if (!ready)
                     {
                         Debug.LogError("[Server] DB에 접속할 수 없어 서버를 열지 않습니다. (DB 없이 테스트하려면 ServerConfig의 Use Database를 끄세요)");
-                        if (Application.isBatchMode && !Application.isEditor)
+                        if (IsDedicatedServer)
                             Application.Quit(1);
                         return;
                     }
@@ -118,6 +125,8 @@ namespace LiarsBar.Server
             catch (Exception e)
             {
                 Debug.LogError($"[Server] 서버 시작 중 오류: {e.Message}");
+                if (IsDedicatedServer)
+                    Application.Quit(1);
             }
             finally
             {
@@ -217,6 +226,9 @@ namespace LiarsBar.Server
             return false;
         }
 
+        // 서버 전용: 좌석 → 플레이어 (GameManager용)
+        public bool TryGetPlayer(int seat, out PlayerProfile profile) => seats.TryGetValue(seat, out profile);
+
         // 서버 전용
         public void TryStartGame()
         {
@@ -276,11 +288,26 @@ namespace LiarsBar.Server
             {
                 int matchId = await MatchRepository.SaveMatchAsync(startedAt, endedAt, registered, winnerUserId);
                 if (matchId > 0)
+                {
                     Debug.Log($"[DB] 전적 저장 완료 - match_id {matchId}, 참가 {registered.Count}명, 승자 user_id {winnerUserId}");
+                    RefreshStats(registered);
+                }
             }
             catch (Exception e)
             {
                 Debug.LogError($"[DB] 전적 저장 중 오류: {e.Message}");
+            }
+        }
+
+        // 저장 후 아직 접속 중인 참가자만 갱신 (좌석이 아니라 user_id로 찾음)
+        private void RefreshStats(List<MatchParticipant> participants)
+        {
+            if (this == null || !NetworkServer.active) return;
+
+            foreach (PlayerProfile p in seats.Values)
+            {
+                if (participants.Any(m => m.UserId == p.UserId))
+                    _ = p.ServerLoadStatsAsync();
             }
         }
     }
