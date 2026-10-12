@@ -7,9 +7,13 @@ using Mirror;
 public class PlayerState : NetworkBehaviour
 {
     public static PlayerState Local { get; private set; }
+    
+    public int SeatNum;
 
     [SyncVar] public bool isDead;
     [SyncVar] public bool isTurn;
+
+    [SerializeField] public DeckGamePlayManager deckManager;
 
     public override void OnStartLocalPlayer()
     {
@@ -41,5 +45,10 @@ public class PlayerState : NetworkBehaviour
         InGameEvent.TriggerOnCardDealt(handCards);
     }
 
+    [Command]
+    public void SubmitCards(int[] indexes)
+    {
+        deckManager.PlayerSubmitCard(SeatNum, indexes);
+    }
 
 }

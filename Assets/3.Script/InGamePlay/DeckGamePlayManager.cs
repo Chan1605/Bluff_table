@@ -14,6 +14,10 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private List<CardType> serverDeck = new List<CardType>();
     private Dictionary<int, List<CardType>> playerHands;
 
+    private List<CardType> previousCards = new List<CardType>();
+    private int lastSubmittedcards;
+    private int lastSubmittedSeat = -1;
+
     private int accumTurnIndex = 0;
     private PlayerState currentTurnPlayer;
 
@@ -35,6 +39,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         {
             int seatNum = pState.GetComponent<PlayerProfile>().Seat;
             Players[seatNum] = pState;
+            pState.SeatNum = seatNum;
+            pState.deckManager = this;
         }
 
         accumTurnIndex = 0;
@@ -44,6 +50,9 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     [Server]
     public void StartRound()
     {
+        previousCards.Clear();
+        lastSubmittedcards = 0;
+        lastSubmittedSeat = -1;
         playerHands = new Dictionary<int, List<CardType>>();
 
         //TODO 1. 테이블 선정
@@ -164,6 +173,63 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private void RpcTurnChanged(int seatIndex)
     {
         InGameEvent.TriggerOnTurnChanged(seatIndex);
+    }
+
+    [Server]
+    public void PlayerSubmitCard(int playerSeat, int[] submitIndex)
+    {
+        if (currentTurnPlayer == null) 
+            return;
+
+        if (playerSeat != currentTurnPlayer.SeatNum)
+        {
+            Debug.Log("[인게임] : 턴이 아닌 플레이어의 제출 감지됨");
+            return;
+        }
+
+        if (submitIndex == null || submitIndex.Length == 0) 
+            return;
+
+        if (!playerHands.TryGetValue(playerSeat, out List<CardType> hands)) 
+            return;
+
+        HashSet<int> usedIndex = new HashSet<int>();
+
+        foreach(int idx in submitIndex)
+        {
+            if (idx < 0 || idx>=hands.Count || !usedIndex.Add(idx))
+            {
+                Debug.Log($"[인게임] : 유효하지 않은 카드 인덱스 {idx}");
+                return;
+            }
+        }
+
+        Array.Sort(submitIndex);
+        Array.Reverse(submitIndex);
+
+
+        foreach (int idx in submitIndex)
+        {
+            CardType curCard;
+
+            curCard = hands[idx];
+
+            previousCards.Add(curCard);
+            hands.RemoveAt(idx);
+        }
+
+        lastSubmittedcards = submitIndex.Length;
+        lastSubmittedSeat = playerSeat;
+
+        RpcSubmitCard(playerSeat, submitIndex.Length);
+        Players[playerSeat].TargetGiveCards(hands, false);
+        NextTurn();
+    }
+
+    [ClientRpc]
+    public void RpcSubmitCard(int seatNum, int cardCount)
+    {
+        Debug.Log($"[인게임] : {seatNum}번 플레이어 카드 {cardCount}장 제출 완료");
     }
 
     public void HandleDisconnect(int seat)
