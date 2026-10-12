@@ -1,0 +1,2 @@
+# DB 비밀번호가 들어 있는 파일은 Git에 올리지 않는다
+db.local.json
