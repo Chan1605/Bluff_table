@@ -111,9 +111,10 @@ namespace LiarsBar.Server
             foreach (PlayerProfile p in PlayerProfile.All)
             {
                 string name = p.IsLoggedIn ? p.Nickname : "(로그인 전)";
+                string stats = p.HasStats ? $" ({p.GamesPlayed}전 {p.Wins}승)" : "";
                 string ready = p.IsReady ? " [준비]" : "";
                 string mine = p == me ? "  ← 나" : "";
-                GUILayout.Label($"좌석 {p.Seat}: {name}{ready}{mine}");
+                GUILayout.Label($"좌석 {p.Seat}: {name}{stats}{ready}{mine}");
             }
         }
     }

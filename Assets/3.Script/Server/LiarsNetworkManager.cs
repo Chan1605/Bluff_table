@@ -56,7 +56,11 @@ namespace LiarsBar.Server
             if (transport is PortTransport portTransport)
                 portTransport.Port = config.Port;
 
-            Debug.Log($"[Config] 주소 {config.NetworkAddress}:{config.Port}, 좌석 {config.MaxSeats}, 시작 인원 {config.MinPlayersToStart}");
+            string security = transport.IsEncrypted ? $"암호화 {transport.EncryptionCipher}" : "암호화 없음";
+            Debug.Log($"[Config] 주소 {config.NetworkAddress}:{config.Port}, 좌석 {config.MaxSeats}, 시작 인원 {config.MinPlayersToStart}, {security}");
+
+            if (config.UseDatabase && !transport.IsEncrypted)
+                Debug.LogWarning("[Config] Use Database가 켜져 있지만 통신이 암호화되지 않아 비밀번호가 평문으로 전송됩니다.");
         }
 
         public override void OnStartServer()
@@ -118,6 +122,8 @@ namespace LiarsBar.Server
             catch (Exception e)
             {
                 Debug.LogError($"[Server] 서버 시작 중 오류: {e.Message}");
+                if (Application.isBatchMode && !Application.isEditor)
+                    Application.Quit(1);
             }
             finally
             {
@@ -276,11 +282,26 @@ namespace LiarsBar.Server
             {
                 int matchId = await MatchRepository.SaveMatchAsync(startedAt, endedAt, registered, winnerUserId);
                 if (matchId > 0)
+                {
                     Debug.Log($"[DB] 전적 저장 완료 - match_id {matchId}, 참가 {registered.Count}명, 승자 user_id {winnerUserId}");
+                    RefreshStats(registered);
+                }
             }
             catch (Exception e)
             {
                 Debug.LogError($"[DB] 전적 저장 중 오류: {e.Message}");
+            }
+        }
+
+        // 저장 후 아직 접속 중인 참가자만 갱신 (좌석이 아니라 user_id로 찾음)
+        private void RefreshStats(List<MatchParticipant> participants)
+        {
+            if (this == null || !NetworkServer.active) return;
+
+            foreach (PlayerProfile p in seats.Values)
+            {
+                if (participants.Any(m => m.UserId == p.UserId))
+                    _ = p.ServerLoadStatsAsync();
             }
         }
     }
