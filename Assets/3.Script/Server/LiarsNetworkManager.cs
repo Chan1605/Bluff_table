@@ -226,6 +226,9 @@ namespace LiarsBar.Server
             return false;
         }
 
+        // 서버 전용: 좌석 → 플레이어 (GameManager용)
+        public bool TryGetPlayer(int seat, out PlayerProfile profile) => seats.TryGetValue(seat, out profile);
+
         // 서버 전용
         public void TryStartGame()
         {
