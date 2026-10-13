@@ -13,6 +13,10 @@ public class PlayerState : NetworkBehaviour
     [SyncVar] public bool isDead;
     [SyncVar] public bool isTurn;
 
+    [SyncVar] public int currentChamber;
+    public int bulletPosition;
+
+
     [SerializeField] public DeckGamePlayManager deckManager;
 
     public override void OnStartLocalPlayer()
@@ -29,6 +33,9 @@ public class PlayerState : NetworkBehaviour
     {
         isDead = false;
         isTurn = false;
+
+        currentChamber = 0;
+        bulletPosition = UnityEngine.Random.Range(0, 6);
     }
 
     [TargetRpc]
@@ -51,14 +58,9 @@ public class PlayerState : NetworkBehaviour
         deckManager.PlayerSubmitCard(SeatNum, indexes);
     }
 
-    [TargetRpc]
-    public void Execute()
+    [Command]
+    public void CallLiar()
     {
-        Debug.Log($" [인게임] : {SeatNum} 번째 유저 처형");
-        isDead = false;
-
-        //사망 상태 변경
+        deckManager.CallLiar(SeatNum);
     }
-
-
 }

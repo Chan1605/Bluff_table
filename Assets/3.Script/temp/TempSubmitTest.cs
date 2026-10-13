@@ -42,4 +42,10 @@ public class TempSubmitTest : MonoBehaviour
         Debug.Log("[임시 UI] : 선택 초기화됨");
     }
 
+    public void Debug_CallLiar()
+    {
+        Debug.Log("[인게임] : 라이어 고발");
+        PlayerState.Local.CallLiar();
+    }
+
 }
