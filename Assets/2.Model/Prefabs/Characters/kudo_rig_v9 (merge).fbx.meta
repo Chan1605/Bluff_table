@@ -112,7 +112,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -172,8 +172,1390 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: kudo_rig_v9
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LThigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RThigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LCalf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RCalf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_Spine_1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_Spine_2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_Neck_
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LCollarbone
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RCollarbone
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LUpperarm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RUpperarm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LForearm1
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RForearm1
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LPalm
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RPalm
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: wiseparmak_1
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: wiseparmak_2
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_GOZ_L
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_GOZ_R
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_AGIZ_
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit11
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit12
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit13
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit21
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit22
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit23
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit31
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit32
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit33
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit41
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit42
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_LDigit43
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit11
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit12
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit13
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit21
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit22
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit23
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit31
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit32
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit33
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit41
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit42
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_RDigit43
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: YAKUZA_Spine_3
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: kudo_rig_v9 (merge)(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kudo_rig_v9
+      parentName: kudo_rig_v9 (merge)(Clone)
+      position: {x: 0.000000282526, y: 0.00000017587095, z: -0.001289997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Hit
+      parentName: kudo_rig_v9
+      position: {x: 0.00037353515, y: 0.013823852, z: 0.002463188}
+      rotation: {x: 0.7564626, y: -0.59358823, z: 0.08898458, w: -0.25980604}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood2
+      parentName: Blood_Hit
+      position: {x: 0.000065, y: -0.000463, z: 0.0010609999}
+      rotation: {x: -0.5565134, y: 0.5817302, z: 0.5200448, w: 0.28537035}
+      scale: {x: 0.50503, y: 0.50503, z: 0.50503}
+    - name: Blood
+      parentName: Blood2
+      position: {x: -0.00131, y: 0, z: 0}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 0.02, y: 0.02, z: 0.02}
+    - name: Decal
+      parentName: Blood2
+      position: {x: 0.0451, y: -0.02, z: -0.0014}
+      rotation: {x: 0.00000019861236, y: -0.7071068, z: 0.7071068, w: 0.00000019861236}
+      scale: {x: 9.716193, y: 1, z: 2.3172183}
+    - name: HitFX
+      parentName: Blood_Hit
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Drops
+      parentName: HitFX
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Mist
+      parentName: HitFX
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Spray
+      parentName: HitFX
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Vertical_Spray
+      parentName: HitFX
+      position: {x: -0, y: -0.00016690373, z: 0}
+      rotation: {x: -0.50000024, y: 0.5000004, z: 0.5000003, w: 0.49999902}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Flesh_Balls
+      parentName: HitFX
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Box006
+      parentName: kudo_rig_v9
+      position: {x: -0.000000012668966, y: 0.012937955, z: 0.0006883887}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FistSfx
+      parentName: kudo_rig_v9
+      position: {x: -0, y: -0.0006298828, z: 0.00024000167}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1, y: 1.1, z: 1.1}
+    - name: headfall
+      parentName: kudo_rig_v9
+      position: {x: -0, y: 0.008679809, z: 0.0048099994}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kartlar
+      parentName: kudo_rig_v9
+      position: {x: -0.002491455, y: 0.009459228, z: 0.005388193}
+      rotation: {x: 0.16695106, y: 0.43345824, z: 0.8592658, w: 0.21425135}
+      scale: {x: 1.5480007, y: 1.5480108, z: 1.548}
+    - name: kart1
+      parentName: Kartlar
+      position: {x: -0.0011979494, y: 0.000203313, z: 0.00089576165}
+      rotation: {x: 0.7849866, y: -0.47349486, z: -0.38967675, w: 0.088037856}
+      scale: {x: 100.0006, y: 100.00003, z: 99.99944}
+    - name: kart2
+      parentName: Kartlar
+      position: {x: -0.0011854831, y: 0.0003761746, z: 0.0009069521}
+      rotation: {x: 0.6728267, y: -0.62266004, z: -0.36377242, w: 0.16513135}
+      scale: {x: 100.00021, y: 100.00053, z: 99.999245}
+    - name: kart3
+      parentName: Kartlar
+      position: {x: -0.0010795428, y: 0.00061064144, z: 0.0008617515}
+      rotation: {x: -0.5138629, y: 0.7591748, z: 0.3167729, w: -0.2434204}
+      scale: {x: 100.00038, y: 100.00037, z: 99.99941}
+    - name: kart4
+      parentName: Kartlar
+      position: {x: -0.000859741, y: 0.00072221656, z: 0.0006670782}
+      rotation: {x: -0.31292692, y: 0.8616718, z: 0.2477438, w: -0.31340322}
+      scale: {x: 100.000114, y: 100.000534, z: 99.99932}
+    - name: kart5
+      parentName: Kartlar
+      position: {x: -0.00067896344, y: 0.00069748954, z: 0.0004564387}
+      rotation: {x: -0.10845232, y: 0.9102963, z: 0.16985326, w: -0.36159176}
+      scale: {x: 99.99997, y: 100.00064, z: 99.9993}
+    - name: kartucan
+      parentName: kudo_rig_v9
+      position: {x: 0.0014611816, y: 0.011738892, z: 0.01020255}
+      rotation: {x: 0.6608002, y: -0.10935419, z: 0.1890349, w: 0.7180882}
+      scale: {x: 154.80528, y: 154.79625, z: 154.80066}
+    - name: Object001
+      parentName: kudo_rig_v9
+      position: {x: 0.00000012893676, y: 0.012576399, z: 0.0005757845}
+      rotation: {x: 0.00000006657903, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object002
+      parentName: kudo_rig_v9
+      position: {x: -0.0008351, y: 0.015962979, z: 0.0013974485}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: reload
+      parentName: kudo_rig_v9
+      position: {x: 0.0012597656, y: 0.008839722, z: 0.008389997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1, y: 1.1, z: 1.1}
+    - name: 'Stylized Revolver '
+      parentName: kudo_rig_v9
+      position: {x: 0.003996582, y: 0.008631592, z: 0.0077619264}
+      rotation: {x: 0.5163582, y: 0.50125027, z: -0.49874663, w: -0.48308834}
+      scale: {x: 181.20078, y: 181.20116, z: 181.20074}
+    - name: Cylinder (Magazine)
+      parentName: 'Stylized Revolver '
+      position: {x: 0.0000000072479245, y: -0.0000011245727, z: 0.0000029418943}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000005, y: 0.9999996, z: 1}
+    - name: Hammer
+      parentName: 'Stylized Revolver '
+      position: {x: 0.000000007244944, y: 0.000002242276, z: -0.00000024871827}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Loading Gate
+      parentName: 'Stylized Revolver '
+      position: {x: 0.0000009317308, y: 0.000000805664, z: 0.00000060043334}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Trigger
+      parentName: 'Stylized Revolver '
+      position: {x: -0.000000002670288, y: 0.00000086898797, z: -0.0000021354674}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0387005, y: 1.0386996, z: 1.0386999}
+    - name: tavsan_yeni_003
+      parentName: kudo_rig_v9
+      position: {x: 0.00083513156, y: 0.015962783, z: 0.0013958375}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_01
+      parentName: kudo_rig_v9
+      position: {x: -0, y: 0.005434618, z: 0.0006456218}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_02
+      parentName: kudo_rig_v9
+      position: {x: -0.0000051733014, y: 0.007570257, z: 0.0006002429}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_03
+      parentName: kudo_rig_v9
+      position: {x: -0.0000051742554, y: 0.007469639, z: 0.00059111626}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_04
+      parentName: kudo_rig_v9
+      position: {x: -0.000118209486, y: 0.006176248, z: 0.003480673}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_11
+      parentName: kudo_rig_v9
+      position: {x: -0.000000021076202, y: 0.015002929, z: 0.00047860964}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_12
+      parentName: kudo_rig_v9
+      position: {x: -0.000000021076202, y: 0.01532547, z: 0.00053318456}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_17
+      parentName: kudo_rig_v9
+      position: {x: -0.000000020980835, y: 0.014998931, z: 0.000800454}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_23
+      parentName: kudo_rig_v9
+      position: {x: -0.000000012016296, y: 0.01754192, z: -0.00035733907}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_24
+      parentName: kudo_rig_v9
+      position: {x: -0.000000011825561, y: 0.016619429, z: 0.0001629031}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_25
+      parentName: kudo_rig_v9
+      position: {x: 0.000000018596648, y: 0.0017913384, z: 0.00023149696}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_027
+      parentName: kudo_rig_v9
+      position: {x: -0, y: 0.009637296, z: -0.0000049671726}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_028
+      parentName: kudo_rig_v9
+      position: {x: -0.0000000032424927, y: 0.016489105, z: 0.0016909101}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_MDL_029
+      parentName: kudo_rig_v9
+      position: {x: 0.00000012893676, y: 0.012576399, z: 0.0005757845}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_Pelvis
+      parentName: kudo_rig_v9
+      position: {x: 0.0000075828348, y: 0.007538452, z: 0.00008918385}
+      rotation: {x: 0.47007728, y: -0.53198713, z: -0.46582597, w: 0.52822644}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_JAKET_1
+      parentName: YAKUZA_Pelvis
+      position: {x: 0.00077481684, y: 0.0018539676, z: 0.0039485293}
+      rotation: {x: -0.02294305, y: 0.8415579, z: 0.5391857, w: 0.023080776}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: YAKUZA_JAKET_2
+      parentName: YAKUZA_Pelvis
+      position: {x: 0.0008571029, y: -0.0015780508, z: 0.0033980631}
+      rotation: {x: -0.0148883145, y: 0.453563, z: 0.8909421, w: 0.016766334}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999976}
+    - name: YAKUZA_JAKET_3
+      parentName: YAKUZA_Pelvis
+      position: {x: 0.0008424568, y: -0.0026016836, z: -7.4505804e-13}
+      rotation: {x: 5.942902e-11, y: -2.178526e-10, z: 0.9972231, w: 0.07447273}
+      scale: {x: 1, y: 0.99999976, z: 0.99999976}
+    - name: YAKUZA_JAKET_4
+      parentName: YAKUZA_Pelvis
+      position: {x: 0.0008571029, y: -0.0015780507, z: -0.0033980624}
+      rotation: {x: 0.01488851, y: -0.453562, z: 0.89094263, w: 0.016766256}
+      scale: {x: 1, y: 0.9999998, z: 0.9999997}
+    - name: YAKUZA_JAKET_5
+      parentName: YAKUZA_Pelvis
+      position: {x: 0.00077481684, y: 0.001853969, z: -0.00394853}
+      rotation: {x: -0.02294305, y: 0.8415579, z: -0.5391857, w: -0.023080776}
+      scale: {x: 0.99999976, y: 0.99999976, z: 0.99999994}
+    - name: YAKUZA_LThigh
+      parentName: YAKUZA_Pelvis
+      position: {x: 0.0008732172, y: 0.00039399348, z: 0.001804841}
+      rotation: {x: -0.5538486, y: 0.83034, z: 0.054584417, w: 0.02842129}
+      scale: {x: 1, y: 1.0000001, z: 0.99999976}
+    - name: YAKUZA_LCalf
+      parentName: YAKUZA_LThigh
+      position: {x: -0.003178936, y: 0.000000010430812, z: 0.00000002232846}
+      rotation: {x: -0.040706042, y: -0.054699127, z: 0.50520515, w: 0.8603016}
+      scale: {x: 1.000001, y: 0.99999875, z: 1.0000001}
+    - name: YAKUZA_LFoot
+      parentName: YAKUZA_LCalf
+      position: {x: -0.0036225133, y: -5.960472e-10, z: 2.2351741e-10}
+      rotation: {x: -0.08935003, y: 0.035324972, z: -0.37448043, w: 0.92224354}
+      scale: {x: 1.0000013, y: 1, z: 0.9999988}
+    - name: wiseparmak_1
+      parentName: YAKUZA_LFoot
+      position: {x: -0.0014919647, y: 0.0000109700995, z: -1.4901179e-10}
+      rotation: {x: 0.035618015, y: 0.010415736, z: -0.14171109, w: 0.9892123}
+      scale: {x: 0.9999999, y: 1.0000006, z: 1.0000002}
+    - name: YAKUZA_PANTPISKUL_1
+      parentName: YAKUZA_Pelvis
+      position: {x: 0.0016668197, y: 0.0035100176, z: -1.1920929e-11}
+      rotation: {x: 2.0372608e-12, y: 1.2015333e-10, z: 0.99570554, w: 0.09257722}
+      scale: {x: 1, y: 0.9999999, z: 0.9999997}
+    - name: YAKUZA_RThigh
+      parentName: YAKUZA_Pelvis
+      position: {x: 0.00087321684, y: 0.00039399407, z: -0.0018048412}
+      rotation: {x: -0.5773136, y: 0.81395626, z: -0.064575024, w: -0.0037746257}
+      scale: {x: 1.0000001, y: 0.9999997, z: 0.99999994}
+    - name: YAKUZA_RCalf
+      parentName: YAKUZA_RThigh
+      position: {x: -0.0031789339, y: 0.000000009536746, z: -0.00000002190471}
+      rotation: {x: 0.0711396, y: 0.06473487, z: 0.54437214, w: 0.8333112}
+      scale: {x: 1.0000052, y: 0.9999936, z: 1.0000012}
+    - name: YAKUZA_RFoot
+      parentName: YAKUZA_RCalf
+      position: {x: -0.0036225133, y: -2.9802516e-10, z: -1.4901146e-10}
+      rotation: {x: 0.095888235, y: 0.007330275, z: -0.35650232, w: 0.92933196}
+      scale: {x: 1.0000029, y: 0.99999464, z: 1.0000026}
+    - name: wiseparmak_2
+      parentName: YAKUZA_RFoot
+      position: {x: -0.0014919646, y: 0.000010972117, z: 2.9802213e-10}
+      rotation: {x: -0.03561522, y: -0.010572547, z: -0.14145996, w: 0.9892466}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1.0000002}
+    - name: YAKUZA_Spine_1
+      parentName: YAKUZA_Pelvis
+      position: {x: -0.00030037615, y: 0.00020267119, z: -1.3038516e-10}
+      rotation: {x: -0.00041067245, y: 0.00008171976, z: -0.11694156, w: 0.99313873}
+      scale: {x: 1.0000006, y: 1.0000001, z: 0.9999999}
+    - name: YAKUZA_Spine_2
+      parentName: YAKUZA_Spine_1
+      position: {x: -0.0019416863, y: -1.4901157e-10, z: -2.7939682e-11}
+      rotation: {x: -0.0018858233, y: -0.00020784912, z: -0.0025349455, w: 0.999995}
+      scale: {x: 1.0000002, y: 0.9999999, z: 0.9999999}
+    - name: YAKUZA_Spine_3
+      parentName: YAKUZA_Spine_2
+      position: {x: -0.0015376303, y: -4.4703474e-10, z: 1.8626453e-11}
+      rotation: {x: -0.0016174716, y: 0.000088086184, z: -0.03327017, w: 0.9994451}
+      scale: {x: 1, y: 1, z: 1.0000005}
+    - name: drone
+      parentName: YAKUZA_Spine_3
+      position: {x: 0.011140174, y: 0.0008636615, z: -0.0023482942}
+      rotation: {x: -0.45384586, y: 0.46581125, z: 0.5440845, w: 0.53010935}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object002
+      parentName: drone
+      position: {x: 0.003831092, y: 0.014894609, z: -0.0011405409}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kanat
+      parentName: YAKUZA_Spine_3
+      position: {x: -0.0015900017, y: -0.0025906977, z: -0.00033426445}
+      rotation: {x: -0.5242462, y: 0.40427193, z: 0.5988904, w: 0.45062223}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kudo_kanat
+      parentName: YAKUZA_Spine_3
+      position: {x: -0.0015900017, y: -0.0025906977, z: -0.00033426445}
+      rotation: {x: -0.5242466, y: 0.40427256, z: 0.59888923, w: 0.4506228}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_Ribcage
+      parentName: YAKUZA_Spine_3
+      position: {x: -0.001652374, y: -2.980232e-10, z: 0}
+      rotation: {x: -0.00028070805, y: 0.0000046193572, z: -0.14033468, w: 0.9901041}
+      scale: {x: 0.99999946, y: 0.9999994, z: 1.0000001}
+    - name: YAKUZA_LCollarbone
+      parentName: YAKUZA_Ribcage
+      position: {x: 0.0008861232, y: -0.00012241384, z: 0.0010031248}
+      rotation: {x: 0.026030958, y: 0.736313, z: 0.045328066, w: 0.6746192}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: YAKUZA_LUpperarm
+      parentName: YAKUZA_LCollarbone
+      position: {x: -0.0025751851, y: -0.000000003986062, z: 0.0000000014901155}
+      rotation: {x: -0.040102098, y: 0.45369655, z: -0.30789837, w: 0.8353142}
+      scale: {x: 0.9999997, y: 1.0000005, z: 0.9999999}
+    - name: YAKUZA_LForearm1
+      parentName: YAKUZA_LUpperarm
+      position: {x: -0.0030183678, y: -0.0000000048987565, z: 0.000000037569542}
+      rotation: {x: 0.21985939, y: -0.15615349, z: -0.546818, w: 0.79263365}
+      scale: {x: 0.9999934, y: 0.99999964, z: 1.0000072}
+    - name: YAKUZA_LForearm2
+      parentName: YAKUZA_LForearm1
+      position: {x: -0.0014485734, y: 0.000000002891758, z: 0.000000021643777}
+      rotation: {x: 0.011984706, y: 0.000008885749, z: -0.00000093178824, w: 0.9999282}
+      scale: {x: 0.99999213, y: 0.9999993, z: 1.0000092}
+    - name: YAKUZA_LPalm
+      parentName: YAKUZA_LForearm2
+      position: {x: -0.0014485735, y: 0.0000000032177236, z: 0.000000026635385}
+      rotation: {x: -0.47035939, y: -0.064548016, z: -0.22750053, w: 0.85019946}
+      scale: {x: 0.9999972, y: 1.0000045, z: 0.99999887}
+    - name: KartsParent
+      parentName: YAKUZA_LPalm
+      position: {x: -0.0003011049, y: -0.0008131263, z: -0.0005770037}
+      rotation: {x: 0.087643996, y: 0.09694312, z: -0.33464375, w: 0.9332385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kartlar
+      parentName: KartsParent
+      position: {x: -0.0017149826, y: -0.0005515492, z: -0.00069952133}
+      rotation: {x: -0.46594462, y: -0.051487092, z: 0.8831158, w: 0.018738318}
+      scale: {x: 1.5480007, y: 1.5479999, z: 1.5479993}
+    - name: kart1
+      parentName: Kartlar
+      position: {x: -0.0011979494, y: 0.000203313, z: 0.00089576165}
+      rotation: {x: 0.7849866, y: -0.47349486, z: -0.38967675, w: 0.088037856}
+      scale: {x: 100.0006, y: 100.00003, z: 99.99944}
+    - name: kart2
+      parentName: Kartlar
+      position: {x: -0.0011854831, y: 0.0003761746, z: 0.0009069521}
+      rotation: {x: 0.6728267, y: -0.62266004, z: -0.36377242, w: 0.16513135}
+      scale: {x: 100.00021, y: 100.00053, z: 99.999245}
+    - name: kart3
+      parentName: Kartlar
+      position: {x: -0.0010795428, y: 0.00061064144, z: 0.0008617515}
+      rotation: {x: -0.5138629, y: 0.7591748, z: 0.3167729, w: -0.2434204}
+      scale: {x: 100.00038, y: 100.00037, z: 99.99941}
+    - name: kart4
+      parentName: Kartlar
+      position: {x: -0.000859741, y: 0.00072221656, z: 0.0006670782}
+      rotation: {x: -0.31292692, y: 0.8616718, z: 0.2477438, w: -0.31340322}
+      scale: {x: 100.000114, y: 100.000534, z: 99.99932}
+    - name: kart5
+      parentName: Kartlar
+      position: {x: -0.00067896344, y: 0.00069748954, z: 0.0004564387}
+      rotation: {x: -0.10845232, y: 0.9102963, z: 0.16985326, w: -0.36159176}
+      scale: {x: 99.99997, y: 100.00064, z: 99.9993}
+    - name: YAKUZA_LDigit11
+      parentName: YAKUZA_LPalm
+      position: {x: -0.00048852054, y: -0.00009265035, z: 0.00043399847}
+      rotation: {x: 0.6619018, y: 0.47501263, z: 0.10629944, w: 0.57004344}
+      scale: {x: 1.0000148, y: 1.0000073, z: 0.9999779}
+    - name: YAKUZA_LDigit12
+      parentName: YAKUZA_LDigit11
+      position: {x: -0.0005104463, y: -0.000000007208362, z: -0.0000000015646324}
+      rotation: {x: -0.0042145927, y: -0.0131024355, z: 0.0779377, w: 0.99686325}
+      scale: {x: 1.0000191, y: 1.000003, z: 0.99997807}
+    - name: YAKUZA_LDigit13
+      parentName: YAKUZA_LDigit12
+      position: {x: -0.00044268157, y: -0.000000004209522, z: 0.0000000012666349}
+      rotation: {x: -0.0047654887, y: -0.0003589726, z: 0.11207647, w: 0.9936881}
+      scale: {x: 1.0000234, y: 0.9999988, z: 0.99997807}
+    - name: YAKUZA_LDigit21
+      parentName: YAKUZA_LPalm
+      position: {x: -0.0013571092, y: 0.0002066819, z: 0.00042017206}
+      rotation: {x: -0.05106354, y: 0.08328982, z: 0.048451446, w: 0.99403614}
+      scale: {x: 0.9999958, y: 1.0000056, z: 0.99999875}
+    - name: YAKUZA_LDigit22
+      parentName: YAKUZA_LDigit21
+      position: {x: -0.00063495873, y: -0.000000011710407, z: 4.5139403e-10}
+      rotation: {x: -0.062238634, y: -0.012782612, z: 0.15938108, w: 0.98517036}
+      scale: {x: 1.0000098, y: 0.9999918, z: 0.9999992}
+    - name: YAKUZA_LDigit23
+      parentName: YAKUZA_LDigit22
+      position: {x: -0.00031214973, y: -0.000000007548948, z: -0.0000000019030741}
+      rotation: {x: -0.06280557, y: -0.010873327, z: 0.14041698, w: 0.98803866}
+      scale: {x: 1.0000188, y: 0.9999821, z: 0.99999857}
+    - name: YAKUZA_LDigit31
+      parentName: YAKUZA_LPalm
+      position: {x: -0.0014046199, y: 0.00021793935, z: -0.00013439577}
+      rotation: {x: -0.09432887, y: -0.05809847, z: 0.09626829, w: 0.9891709}
+      scale: {x: 0.9999993, y: 0.99999934, z: 1.0000018}
+    - name: YAKUZA_LDigit32
+      parentName: YAKUZA_LDigit31
+      position: {x: -0.00070740003, y: -0.000000016607773, z: -0.000000002549452}
+      rotation: {x: -0.0635463, y: -0.030632976, z: 0.14399627, w: 0.9870606}
+      scale: {x: 1.0000124, y: 0.99998593, z: 1.0000017}
+    - name: YAKUZA_LDigit33
+      parentName: YAKUZA_LDigit32
+      position: {x: -0.00041462883, y: -0.000000008011797, z: -0.000000002375992}
+      rotation: {x: -0.064225234, y: -0.014406445, z: 0.08756171, w: 0.99398214}
+      scale: {x: 1.0000187, y: 0.99997985, z: 1.000002}
+    - name: YAKUZA_LDigit41
+      parentName: YAKUZA_LPalm
+      position: {x: -0.001337424, y: 0.00016126079, z: -0.0006372616}
+      rotation: {x: -0.17974386, y: -0.10500669, z: -0.014793692, w: 0.97798103}
+      scale: {x: 1.000004, y: 0.9999944, z: 1.0000014}
+    - name: YAKUZA_LDigit42
+      parentName: YAKUZA_LDigit41
+      position: {x: -0.00056345237, y: -0.000000012656705, z: -0.000000005161769}
+      rotation: {x: -0.06785052, y: -0.07552406, z: 0.2242055, w: 0.96923906}
+      scale: {x: 1.0000215, y: 0.99997705, z: 1.0000015}
+    - name: YAKUZA_LDigit43
+      parentName: YAKUZA_LDigit42
+      position: {x: -0.00041666208, y: -0.0000000061608545, z: -0.000000003450487}
+      rotation: {x: -0.06869713, y: -0.014822196, z: 0.08142714, w: 0.9941985}
+      scale: {x: 1.0000232, y: 0.9999755, z: 1.0000015}
+    - name: YAKUZA_Neck_
+      parentName: YAKUZA_Ribcage
+      position: {x: -0.0000072467124, y: -0.0002221425, z: -3.7252892e-11}
+      rotation: {x: 0.000010991069, y: 0.000011457093, z: 0.113862626, w: 0.9934965}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: P
+      parentName: YAKUZA_Neck_
+      position: {x: -0.0012206731, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HeadPivot
+      parentName: P
+      position: {x: 0.0012206722, y: 0, z: 0}
+      rotation: {x: -0.000000012570124, y: 5.5388216e-10, z: -0.000000015027073, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_Head
+      parentName: HeadPivot
+      position: {x: -0.0012206743, y: 0, z: 0}
+      rotation: {x: -0.00000040424575, y: -0.00000017765792, z: 0.00000022339388, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: YAKUZA_Head
+      position: {x: -0.0012689331, y: 0.0013920933, z: -0.0008321442}
+      rotation: {x: 0.70710707, y: 4.3297786e-17, z: -0.7071065, w: 4.329782e-17}
+      scale: {x: 1, y: 1.0000002, z: 0.99999976}
+    - name: Bone003
+      parentName: YAKUZA_Head
+      position: {x: -0.0012691283, y: 0.0013937036, z: 0.0008380874}
+      rotation: {x: 0.70710707, y: 4.3297786e-17, z: -0.7071065, w: 4.329782e-17}
+      scale: {x: 1, y: 1.0000002, z: 0.99999976}
+    - name: halloweenkudo (1)
+      parentName: YAKUZA_Head
+      position: {x: 0.014609487, y: -0.0016783683, z: -0.00003607026}
+      rotation: {x: -0.47212103, y: 0.52453303, z: 0.47551087, w: 0.52522016}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: halloweenkudo (1)
+      position: {x: 0.000009204849, y: 0.018827464, z: -0.0011340701}
+      rotation: {x: -0.50964236, y: 0.49016783, z: 0.4901676, w: 0.5096429}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone003
+      parentName: halloweenkudo (1)
+      position: {x: -0.000016072177, y: 0.017544363, z: -0.00020113753}
+      rotation: {x: -0.49181417, y: 0.50805396, z: 0.50805396, w: 0.49181417}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: kudo_tac
+      parentName: halloweenkudo (1)
+      position: {x: -0.001261, y: 0.018532999, z: -0.00407}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kudo_christmas_rigged
+      parentName: YAKUZA_Head
+      position: {x: 0.014676266, y: 0.0023583008, z: -0.047185957}
+      rotation: {x: 0.53461725, y: -0.46252477, z: -0.53397757, w: -0.46381378}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone001
+      parentName: Kudo_christmas_rigged
+      position: {x: -0.0475807, y: 0.016897997, z: -0.00017262457}
+      rotation: {x: 0.67102957, y: -0.3141186, z: 0.55156523, w: -0.38317695}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: Bone001
+      position: {x: -0.003406247, y: 7.6293943e-10, z: 0}
+      rotation: {x: 0.15326855, y: 0.07459177, z: 0.8534837, w: -0.4924535}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone003
+      parentName: Bone002
+      position: {x: -0.0020957014, y: 0, z: 0}
+      rotation: {x: -0.08908585, y: -0.17175338, z: 0.015597711, w: 0.98097974}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Christmas_grp
+      parentName: Kudo_christmas_rigged
+      position: {x: 0.018994562, y: 0.01762115, z: 0.00027890987}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kudo_christmas
+      parentName: Christmas_grp
+      position: {x: -0.066259906, y: 0.0005840561, z: -0.0011832047}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kudo_cultural_v2
+      parentName: YAKUZA_Head
+      position: {x: -0.0010959422, y: 0.0001513205, z: 0.0000030382582}
+      rotation: {x: 0.70710695, y: -4.329779e-17, z: -0.7071066, w: -4.3297813e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kudo_Gozluk
+      parentName: YAKUZA_Head
+      position: {x: -0.0013019999, y: 0.00090000004, z: 0.00005}
+      rotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kudoscifi_v2
+      parentName: YAKUZA_Head
+      position: {x: 0.014693967, y: -0.0000035905618, z: 0.0000030042627}
+      rotation: {x: -0.5000001, y: 0.4999999, z: 0.49999976, w: 0.50000024}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone001
+      parentName: kudoscifi_v2
+      position: {x: -0.0040296745, y: 0.01785041, z: 0.0030526875}
+      rotation: {x: -0.526501, y: -0.47201344, z: -0.47201344, w: 0.526501}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: kudoscifi_v2
+      position: {x: 0.00004824753, y: 0.019258166, z: 0.0007938997}
+      rotation: {x: -0.526501, y: -0.47201344, z: -0.47201344, w: 0.526501}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kudo_scifi_accesories
+      parentName: kudoscifi_v2
+      position: {x: -0, y: 0.018687712, z: 0.00041011578}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object001
+      parentName: kudoscifi_v2
+      position: {x: -0, y: 0.01689457, z: 0.0018834517}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object003
+      parentName: kudoscifi_v2
+      position: {x: -0.0040636323, y: 0.01689203, z: 0.0030468313}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mouth
+      parentName: YAKUZA_Head
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_AGIZ_
+      parentName: Mouth
+      position: {x: -0.0003218425, y: 0.0008919005, z: -1.4901157e-10}
+      rotation: {x: -0.0000000062217804, y: 0.000000037705693, z: -0.84740686, w: 0.53094405}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kudo_mesh_04
+      parentName: YAKUZA_AGIZ_
+      position: {x: -0.0057438496, y: 0.013902572, z: 0.0000029855419}
+      rotation: {x: 0.37543434, y: 0.5992069, z: -0.37543404, w: 0.5992074}
+      scale: {x: 1, y: 0.9999999, z: 1.0000001}
+    - name: polySurface1.001
+      parentName: YAKUZA_Head
+      position: {x: -0.0012678, y: 0.0022233485, z: 0.000029393232}
+      rotation: {x: 0.54319674, y: -0.46083772, z: -0.52687466, w: -0.46364745}
+      scale: {x: 99.57469, y: 99.574684, z: 99.57477}
+    - name: polySurface54
+      parentName: YAKUZA_Head
+      position: {x: -0.0028139018, y: -0.00006689538, z: -0.000012965072}
+      rotation: {x: 0.53931373, y: -0.4659951, z: -0.5208561, w: -0.46978527}
+      scale: {x: 99.57469, y: 99.5747, z: 99.57475}
+    - name: Virtual Camera
+      parentName: YAKUZA_Head
+      position: {x: -0.0015730105, y: -0.0018175372, z: 0.00009794696}
+      rotation: {x: -0.49729803, y: 0.48329785, z: 0.5209909, w: 0.497681}
+      scale: {x: 1.0087996, y: 1.0087996, z: 1.0088005}
+    - name: cm
+      parentName: Virtual Camera
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_HeadBone005
+      parentName: YAKUZA_Head
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 5.683952e-14, y: 9.635348e-14, z: -9.947598e-14, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_KULAK_L
+      parentName: YAKUZA_Head
+      position: {x: -0.0020319885, y: -0.0002547944, z: 0.0014134521}
+      rotation: {x: 0.2915691, y: 0.3178337, z: -0.035815954, w: 0.9014912}
+      scale: {x: 1.0000001, y: 1, z: 0.9999999}
+    - name: YAKUZA_KULAK_R
+      parentName: YAKUZA_Head
+      position: {x: -0.0020319885, y: -0.0002547944, z: -0.0014134521}
+      rotation: {x: -0.29156893, y: -0.31783402, z: -0.03581587, w: 0.90149117}
+      scale: {x: 1, y: 0.99999994, z: 0.9999998}
+    - name: Yuz
+      parentName: YAKUZA_Head
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_GOZ_L
+      parentName: Yuz
+      position: {x: -0.0013864326, y: 0.0018030757, z: 0.0009262671}
+      rotation: {x: 0.13532317, y: -0.052051928, z: -0.010184309, w: 0.9893809}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_GOZ_R
+      parentName: Yuz
+      position: {x: -0.0013863759, y: 0.0018030924, z: -0.00092615327}
+      rotation: {x: -0.13532336, y: 0.052051928, z: -0.010184225, w: 0.9893809}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_KAS_L
+      parentName: Yuz
+      position: {x: -0.0018643335, y: 0.0017338732, z: 0.000886863}
+      rotation: {x: 0.004577304, y: 0.99061066, z: 0.13226582, w: 0.03428269}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_KAS_R
+      parentName: Yuz
+      position: {x: -0.0018644301, y: 0.0017338474, z: -0.0008868219}
+      rotation: {x: 0.004577308, y: 0.99061066, z: -0.13226582, w: -0.034282662}
+      scale: {x: 1, y: 1, z: 1}
+    - name: YAKUZA_RCollarbone
+      parentName: YAKUZA_Ribcage
+      position: {x: 0.00088612415, y: -0.00012241384, z: -0.0010031242}
+      rotation: {x: -0.026014179, y: -0.7362967, z: 0.045317527, w: 0.6746382}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: YAKUZA_RUpperarm
+      parentName: YAKUZA_RCollarbone
+      position: {x: -0.002575185, y: 0.0000000040419414, z: -2.6077024e-10}
+      rotation: {x: 0.047781773, y: -0.47179553, z: -0.3097999, w: 0.8241055}
+      scale: {x: 1, y: 0.99999976, z: 1}
+    - name: YAKUZA_RForearm1
+      parentName: YAKUZA_RUpperarm
+      position: {x: -0.0030183701, y: -0.000000004675242, z: -0.000000035427497}
+      rotation: {x: -0.2197698, y: 0.16457744, z: -0.5368271, w: 0.797767}
+      scale: {x: 0.9999935, y: 1, z: 1.0000067}
+    - name: YAKUZA_RForearm2
+      parentName: YAKUZA_RForearm1
+      position: {x: -0.0014485761, y: 0.000000002603048, z: -0.000000027105955}
+      rotation: {x: -0.011984306, y: -0.000009032895, z: -0.0000010281799, w: 0.9999282}
+      scale: {x: 0.99999166, y: 0.9999995, z: 1.0000088}
+    - name: YAKUZA_RPalm
+      parentName: YAKUZA_RForearm2
+      position: {x: -0.0014485772, y: 0.0000000031944398, z: -0.000000025755318}
+      rotation: {x: 0.46086887, y: 0.044063706, z: -0.23326594, w: 0.8551289}
+      scale: {x: 0.999997, y: 1.0000038, z: 0.99999917}
+    - name: ElRevolver
+      parentName: YAKUZA_RPalm
+      position: {x: -0.0033393754, y: 0.0003755267, z: -0.0015978875}
+      rotation: {x: 0.8117949, y: 0.58012694, z: 0.064534135, w: 0.016649723}
+      scale: {x: 181.2002, y: 181.20241, z: 181.20016}
+    - name: cylinderpivot
+      parentName: ElRevolver
+      position: {x: -0.00000108, y: 0, z: 0.00000043}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder (Magazine)
+      parentName: cylinderpivot
+      position: {x: 0.0000010799963, y: -0.0000011245736, z: 0.000002511903}
+      rotation: {x: 0.00000002980232, y: -0.000000141561, z: -0.00000005960463, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bullets.001
+      parentName: Cylinder (Magazine)
+      position: {x: -0.0000051899997, y: -0.00000118, z: -0.00000033999999}
+      rotation: {x: -4.513939e-18, y: 0.74300456, z: -4.513939e-18, w: 0.6692864}
+      scale: {x: 0.6351105, y: 0.6351106, z: 0.6351105}
+    - name: Hammer
+      parentName: ElRevolver
+      position: {x: 0.000000007244944, y: 0.000002242276, z: -0.00000024871827}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Loading Gate
+      parentName: ElRevolver
+      position: {x: 0.0000009317308, y: 0.000000805664, z: 0.00000060043334}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Trigger
+      parentName: ElRevolver
+      position: {x: -0.000000002670288, y: 0.00000086898797, z: -0.0000021354674}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0387005, y: 1.0386996, z: 1.0386999}
+    - name: EmptySfx
+      parentName: YAKUZA_RPalm
+      position: {x: -0.00073015026, y: -0.0002824303, z: -0.00047064308}
+      rotation: {x: 0.0446093, y: 0.06910725, z: -0.21834873, w: 0.9723981}
+      scale: {x: 1.0088029, y: 1.0088004, z: 1.0087994}
+    - name: FirSFX
+      parentName: YAKUZA_RPalm
+      position: {x: -0.00073015026, y: -0.0002824303, z: -0.00047064308}
+      rotation: {x: 0.0446093, y: 0.06910725, z: -0.21834873, w: 0.9723981}
+      scale: {x: 1.0088029, y: 1.0088004, z: 1.0087994}
+    - name: Fx
+      parentName: YAKUZA_RPalm
+      position: {x: -0.0033870884, y: 0.00013771899, z: -0.0010835424}
+      rotation: {x: 0.76834065, y: 0.63785905, z: -0.0012254678, w: -0.052793004}
+      scale: {x: 1.3910904, y: 1.3911134, z: 1.3911169}
+    - name: PS_VFX_Gunshot
+      parentName: Fx
+      position: {x: -0.00059999997, y: -0.001033, z: 0.00104}
+      rotation: {x: 0.011801682, y: -0.17806976, z: -0.72060436, w: 0.669986}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Plane
+      parentName: PS_VFX_Gunshot
+      position: {x: 0.12399999, y: -0.019, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Firing
+      parentName: PS_VFX_Gunshot
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_DistoDonut
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_FirstFlash
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_FirstGlowLarge
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_FirstGlowLight
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Light1
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_LightStrip (1)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_LightStrip (2)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: 0.004, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_LightStrip (3)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: 0.004, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_SecondGlowFlash
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_SecondGlowLarge
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Sparks (1)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_StarMiddle1
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Wind1
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 4.3297806e-17, y: -0.7071068, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Wind1 (1)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 4.3297806e-17, y: -0.7071068, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Wind2
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0.00113, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Sparks
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Spikes
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0.0022, y: -0.0007, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_GunShot_Proj
+      parentName: PS_VFX_Gunshot
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0, y: 0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ___________________________________
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: -0.019499999, z: 0.1022}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_DistoDonut
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_FirstFlash
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_FirstGlowLarge
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_FirstGlowLight
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_Impact
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_Light1
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_LightStrip (2)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_LightStrip (3)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_SecondGlowFlash
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_SecondGlowLarge
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_Sparks
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_StarMiddle1
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Proj (1)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Proj (2)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Proj (3)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Sparks (1)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Spikes (1)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: -0.0007000005, z: -0.0021999981}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GunSfx
+      parentName: YAKUZA_RPalm
+      position: {x: -0.00073015026, y: -0.0002824303, z: -0.00047064308}
+      rotation: {x: 0.0446093, y: 0.06910725, z: -0.21834873, w: 0.9723981}
+      scale: {x: 1.0088029, y: 1.0088004, z: 1.0087994}
+    - name: kart1
+      parentName: YAKUZA_RPalm
+      position: {x: -0.00256661, y: -0.0004880316, z: -0.0013179418}
+      rotation: {x: -0.07945055, y: 0.016011663, z: 0.2523082, w: 0.9642468}
+      scale: {x: 154.80324, y: 154.79865, z: 154.79968}
+    - name: YAKUZA_RDigit11
+      parentName: YAKUZA_RPalm
+      position: {x: -0.00048852, y: -0.00009264421, z: -0.00043400223}
+      rotation: {x: -0.66131026, y: -0.47490412, z: 0.10679693, w: 0.570727}
+      scale: {x: 1.0000114, y: 1.0000026, z: 0.9999864}
+    - name: YAKUZA_RDigit12
+      parentName: YAKUZA_RDigit11
+      position: {x: -0.00051044597, y: -0.000000004284061, z: -4.0978146e-10}
+      rotation: {x: 0.004126689, y: 0.013145824, z: 0.07789905, w: 0.99686605}
+      scale: {x: 1.0000136, y: 1.0000007, z: 0.99998623}
+    - name: YAKUZA_RDigit13
+      parentName: YAKUZA_RDigit12
+      position: {x: -0.0004426803, y: -0.0000000024214244, z: -0.0000000034273102}
+      rotation: {x: 0.0046787257, y: 0.00035384294, z: 0.11208198, w: 0.9936879}
+      scale: {x: 1.0000151, y: 0.99999875, z: 0.99998605}
+    - name: YAKUZA_RDigit21
+      parentName: YAKUZA_RPalm
+      position: {x: -0.0013571148, y: 0.00020669475, z: -0.00042017674}
+      rotation: {x: 0.053457808, y: -0.083172195, z: 0.048653003, w: 0.99391025}
+      scale: {x: 0.9999974, y: 1.0000046, z: 0.9999983}
+    - name: YAKUZA_RDigit22
+      parentName: YAKUZA_RDigit21
+      position: {x: -0.00063496083, y: -0.000000009645302, z: -0.0000000020116302}
+      rotation: {x: 0.064724624, y: 0.0134457825, z: 0.1593812, w: 0.9850013}
+      scale: {x: 1.0000067, y: 0.99999565, z: 0.99999833}
+    - name: YAKUZA_RDigit23
+      parentName: YAKUZA_RDigit22
+      position: {x: -0.0003121491, y: -0.0000000050815143, z: 7.2642337e-10}
+      rotation: {x: 0.06532026, y: 0.011264462, z: 0.14048599, w: 0.9878614}
+      scale: {x: 1.0000129, y: 0.9999893, z: 0.9999981}
+    - name: YAKUZA_RDigit31
+      parentName: YAKUZA_RPalm
+      position: {x: -0.0014046222, y: 0.00021795172, z: 0.00013439234}
+      rotation: {x: 0.12567623, y: -0.049695294, z: 0.092590705, w: 0.9864902}
+      scale: {x: 0.9999986, y: 1.0000007, z: 1.0000012}
+    - name: YAKUZA_RDigit32
+      parentName: YAKUZA_RDigit31
+      position: {x: -0.0007073983, y: -0.000000010312035, z: -5.4015836e-10}
+      rotation: {x: 0.06601338, y: 0.031330884, z: 0.1439787, w: 0.98687935}
+      scale: {x: 1.0000076, y: 0.99999154, z: 1.0000012}
+    - name: YAKUZA_RDigit33
+      parentName: YAKUZA_RDigit32
+      position: {x: -0.00041462635, y: -0.0000000064121886, z: 1.4900904e-10}
+      rotation: {x: 0.066706136, y: 0.01492323, z: 0.08752585, w: 0.9938143}
+      scale: {x: 1.0000119, y: 0.9999873, z: 1.000001}
+    - name: YAKUZA_RDigit41
+      parentName: YAKUZA_RPalm
+      position: {x: -0.0013374231, y: 0.00016127918, z: 0.00063725805}
+      rotation: {x: 0.1821234, y: 0.104969464, z: -0.015048815, w: 0.9775408}
+      scale: {x: 1.0000007, y: 0.9999976, z: 1.0000021}
+    - name: YAKUZA_RDigit42
+      parentName: YAKUZA_RDigit41
+      position: {x: -0.0005634473, y: -0.0000000071921358, z: 5.215317e-10}
+      rotation: {x: 0.0703355, y: 0.07614545, z: 0.22421429, w: 0.96901125}
+      scale: {x: 1.0000135, y: 0.9999844, z: 1.0000021}
+    - name: YAKUZA_RDigit43
+      parentName: YAKUZA_RDigit42
+      position: {x: -0.00041665943, y: -0.0000000014109752, z: 0.0000000021420006}
+      rotation: {x: 0.07115307, y: 0.0153139355, z: 0.08125697, w: 0.9940322}
+      scale: {x: 1.0000155, y: 0.9999827, z: 1.0000023}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -188,9 +1570,9 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

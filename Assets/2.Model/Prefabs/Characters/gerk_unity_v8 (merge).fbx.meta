@@ -97,7 +97,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -157,8 +157,1435 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: gerk_unity_v8
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LThigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RThigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LCalf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RCalf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_Spine_1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_Spine_2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_Neck_
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LCollarbone
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RCollarbone
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LUpperarm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RUpperarm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LForearm1
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RForearm1
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LPalm
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RPalm
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: wise_parmak1
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: wise_parmak2
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_GOZ_L
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_GOZ_R
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_AGIZ_
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit11
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit12
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit13
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit21
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit22
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit23
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit31
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit32
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit33
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit41
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit42
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_LDigit43
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit11
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit12
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit13
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit21
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit22
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit23
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit31
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit32
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit33
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit41
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit42
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_RDigit43
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RHINO_Spine_3
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: gerk_unity_v8 (merge)(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gerk_unity_v8
+      parentName: gerk_unity_v8 (merge)(Clone)
+      position: {x: -0.00013000012, y: 0.00005, z: -0.00139}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Hit
+      parentName: gerk_unity_v8
+      position: {x: 0.00046637893, y: 0.015355998, z: 0.0016858679}
+      rotation: {x: 0.7564626, y: -0.59358823, z: 0.08898458, w: -0.25980604}
+      scale: {x: 0.90000004, y: 0.90000004, z: 0.89999986}
+    - name: Blood2
+      parentName: Blood_Hit
+      position: {x: -0.00112, y: -0.00133, z: -0.00204}
+      rotation: {x: -0.5565134, y: 0.5817302, z: 0.5200448, w: 0.28537035}
+      scale: {x: 0.50503, y: 0.50503, z: 0.50503}
+    - name: Blood
+      parentName: Blood2
+      position: {x: -0.00131, y: 0, z: 0}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 0.02, y: 0.02, z: 0.02}
+    - name: Decal
+      parentName: Blood2
+      position: {x: 0.0451, y: -0.02, z: -0.0014}
+      rotation: {x: 0.00000019861236, y: -0.7071068, z: 0.7071068, w: 0.00000019861236}
+      scale: {x: 9.716193, y: 1, z: 2.3172183}
+    - name: HitFX
+      parentName: Blood_Hit
+      position: {x: 0.00043000001, y: -0.0012999999, z: 0.00068}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Drops
+      parentName: HitFX
+      position: {x: -0.00017999865, y: -0.00051999517, z: -0.00088999205}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Mist
+      parentName: HitFX
+      position: {x: -0.00017999999, y: -0.00052, z: -0.00088999997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Spray
+      parentName: HitFX
+      position: {x: -0.00017999865, y: -0.00051999517, z: -0.00088999205}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Vertical_Spray
+      parentName: HitFX
+      position: {x: -0.00017999865, y: -0.0006868989, z: -0.00088999205}
+      rotation: {x: -0.50000024, y: 0.5000004, z: 0.5000003, w: 0.49999902}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Flesh_Balls
+      parentName: HitFX
+      position: {x: -0.00017999865, y: -0.00051999517, z: -0.00088999205}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: degisenparca
+      parentName: gerk_unity_v8
+      position: {x: 0.00000033974646, y: 0.000647269, z: -0.00005784984}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FistSfx
+      parentName: gerk_unity_v8
+      position: {x: 0.00013000012, y: 0.00014599999, z: -0.00031499803}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99, y: 0.99, z: 0.99}
+    - name: gerg_yeni_01
+      parentName: gerk_unity_v8
+      position: {x: -0.000000094175334, y: 0.010812119, z: -0.000022019385}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: gerg_yeni_02
+      parentName: gerk_unity_v8
+      position: {x: -0.00000009732246, y: 0.009480583, z: 0.0011427224}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gerg_yeni_15
+      parentName: gerk_unity_v8
+      position: {x: -0.00007611107, y: 0.006792114, z: 0.0032277398}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.9365708, y: 0.9365708, z: 0.9365708}
+    - name: gerg_yeni_017
+      parentName: gerk_unity_v8
+      position: {x: -0.00000010819434, y: 0.010734787, z: 0.0017132813}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: headfall
+      parentName: gerk_unity_v8
+      position: {x: 0.00013000012, y: 0.008670001, z: 0.0049100025}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kartucan
+      parentName: gerk_unity_v8
+      position: {x: 0.00068999996, y: 0.01256, z: 0.01395}
+      rotation: {x: 0.09464646, y: 0.7272673, z: -0.6592444, w: 0.16589479}
+      scale: {x: 146.7059, y: 146.7045, z: 172.81297}
+    - name: MasaKart (2)
+      parentName: gerk_unity_v8
+      position: {x: -0.0018771624, y: 0.008396547, z: 0.003661788}
+      rotation: {x: -0.2541702, y: 0.86492234, z: -0.15800838, w: 0.40291464}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kartlar
+      parentName: MasaKart (2)
+      position: {x: -0.007522, y: -0.0064979997, z: -0.0051999995}
+      rotation: {x: 0.4641041, y: -0.5042928, z: 0.7203462, w: 0.106759496}
+      scale: {x: 1.548001, y: 1.548, z: 1.547999}
+    - name: kart1
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0.00007}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0006, y: 100, z: 99.99944}
+    - name: number
+      parentName: kart1
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart2
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0.000052}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0002, y: 100.0005, z: 99.99924}
+    - name: number (1)
+      parentName: kart2
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart3
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0.000020999998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0004, y: 100.0004, z: 99.99941}
+    - name: number (1)
+      parentName: kart3
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart4
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0001, y: 100.0006, z: 99.99932}
+    - name: number (1)
+      parentName: kart4
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000018}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart5
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: -0.000027}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 99.99997, y: 100.0006, z: 99.9993}
+    - name: number (2)
+      parentName: kart5
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart6
+      parentName: Kartlar
+      position: {x: -0.0011539999, y: 0.000074999996, z: 0.00083599996}
+      rotation: {x: 0.8477294, y: -0.3489361, z: -0.39852196, w: 0.027906483}
+      scale: {x: 100.0006, y: 100.0006, z: 99.99944}
+    - name: number (2)
+      parentName: kart6
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart7
+      parentName: Kartlar
+      position: {x: -0.000602, y: 0.000759, z: 0.00038699998}
+      rotation: {x: 0.02451781, y: 0.91570944, z: 0.114855446, w: -0.3842959}
+      scale: {x: 99.99997, y: 100.0006, z: 99.9993}
+    - name: number (3)
+      parentName: kart7
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000036}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: Object001
+      parentName: gerk_unity_v8
+      position: {x: -0.0000000020861626, y: 0.012108652, z: -0.00036136166}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object002
+      parentName: gerk_unity_v8
+      position: {x: 0.0000029502808, y: 0.006366032, z: -0.00017558425}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object003
+      parentName: gerk_unity_v8
+      position: {x: 0.000000718683, y: 0.002580615, z: -0.00017472915}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object004
+      parentName: gerk_unity_v8
+      position: {x: -0.010258922, y: 0.0105161965, z: 0.00013349189}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Object005
+      parentName: gerk_unity_v8
+      position: {x: 0.00000003209114, y: 0.015658574, z: -0.0001256833}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: reload
+      parentName: gerk_unity_v8
+      position: {x: 0.001264, y: 0.008668999, z: 0.007019997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99, y: 0.99, z: 0.99}
+    - name: RHINO_Pelvis
+      parentName: gerk_unity_v8
+      position: {x: -0.00038320303, y: 0.006149787, z: -0.0013083458}
+      rotation: {x: 0.47102207, y: -0.541262, z: -0.45505366, w: 0.52735174}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_LThigh
+      parentName: RHINO_Pelvis
+      position: {x: 0.00010642164, y: 0.0007625809, z: 0.0020711697}
+      rotation: {x: -0.39174375, y: 0.8904239, z: 0.23141827, w: 0.011305233}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_LCalf
+      parentName: RHINO_LThigh
+      position: {x: -0.0036089246, y: 0.000000014007071, z: 0.000000024540336}
+      rotation: {x: 0.023058042, y: -0.09829716, z: 0.41661027, w: 0.9034611}
+      scale: {x: 1.0000002, y: 1.0000005, z: 0.99999964}
+    - name: RHINO_LFoot
+      parentName: RHINO_LCalf
+      position: {x: -0.0028040037, y: 5.960451e-10, z: 0.0000000014156103}
+      rotation: {x: 0.004809026, y: 0.05076152, z: -0.52712613, w: 0.848256}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: wise_parmak1
+      parentName: RHINO_LFoot
+      position: {x: -0.0016307503, y: 0.000010968382, z: -5.2154026e-10}
+      rotation: {x: 0.03615154, y: 0.008614308, z: -0.19600122, w: 0.97989917}
+      scale: {x: 0.9999991, y: 1.0000011, z: 1.0000001}
+    - name: RHINO_RThigh
+      parentName: RHINO_Pelvis
+      position: {x: 0.000106419335, y: 0.00076258084, z: -0.002071171}
+      rotation: {x: -0.5049578, y: 0.82998854, z: -0.23198415, w: 0.048166648}
+      scale: {x: 1, y: 1.0000002, z: 0.99999994}
+    - name: RHINO_RCalf
+      parentName: RHINO_RThigh
+      position: {x: -0.0036089243, y: 0.000000014007064, z: -0.000000024531}
+      rotation: {x: 0.0061759935, y: 0.13698772, z: 0.5683494, w: 0.81128}
+      scale: {x: 1.0000001, y: 1.0000002, z: 0.9999998}
+    - name: RHINO_RFoot
+      parentName: RHINO_RCalf
+      position: {x: -0.0028040016, y: 0, z: 1.4901143e-10}
+      rotation: {x: -0.06399255, y: 0.10810741, z: -0.29476154, w: 0.94727683}
+      scale: {x: 0.99999934, y: 1.0000001, z: 1.0000006}
+    - name: wise_parmak2
+      parentName: RHINO_RFoot
+      position: {x: -0.0016307514, y: 0.000010975982, z: 1.4901128e-10}
+      rotation: {x: 0.0530037, y: -0.034212608, z: -0.42398143, w: 0.903471}
+      scale: {x: 1.0000008, y: 0.9999991, z: 1.0000001}
+    - name: RHINO_Spine_1
+      parentName: RHINO_Pelvis
+      position: {x: -0.00030037298, y: 0.00020267139, z: -1.3038512e-10}
+      rotation: {x: -0.00015654498, y: -0.0019669097, z: -0.14602154, w: 0.98927945}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000001}
+    - name: RHINO_Spine_2
+      parentName: RHINO_Spine_1
+      position: {x: -0.002584739, y: -5.960462e-10, z: 3.7252892e-11}
+      rotation: {x: -0.0015258741, y: -0.0021980768, z: 0.046309233, w: 0.9989236}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: RHINO_Spine_3
+      parentName: RHINO_Spine_2
+      position: {x: -0.0020468684, y: 0, z: -9.31322e-11}
+      rotation: {x: -0.0016565248, y: -0.00025914126, z: 0.047346637, w: 0.9988771}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.99999994}
+    - name: RHINO_Neck_
+      parentName: RHINO_Spine_3
+      position: {x: -0.002255679, y: -0.00021507242, z: 0.00000012420095}
+      rotation: {x: -0.0039812406, y: -0.0044333283, z: -0.467481, w: 0.8839831}
+      scale: {x: 0.99999946, y: 0.9999991, z: 0.9999998}
+    - name: P
+      parentName: RHINO_Neck_
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.00047445513, y: 0.00016622333, z: 0.3119996, w: 0.9500821}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HeadPivot
+      parentName: P
+      position: {x: 0.00009141905, y: -0.00019478459, z: -0.00020029626}
+      rotation: {x: 0.043269552, y: 0.002478719, z: -0.030140098, w: 0.9986056}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_Head
+      parentName: HeadPivot
+      position: {x: -0.00102, y: 0.00071999995, z: -0.000010000001}
+      rotation: {x: -0.008145442, y: -0.00991964, z: 0.11065679, w: 0.9937758}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone003
+      parentName: RHINO_Head
+      position: {x: -0.0024941168, y: -0.00015522775, z: -0.00005157779}
+      rotation: {x: 0.9952728, y: 0.096093826, z: -0.011875937, w: 0.007553534}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone005
+      parentName: RHINO_Head
+      position: {x: -0.0020415718, y: 0.0034991868, z: 0.0001081357}
+      rotation: {x: -0.6990764, y: 0.714718, z: 0.019072527, w: 0.010322979}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gerg
+      parentName: RHINO_Head
+      position: {x: -0.002112517, y: 0.0010519084, z: 0.00035135902}
+      rotation: {x: -0.49497092, y: 0.5058202, z: 0.5065935, w: 0.49245578}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object001
+      parentName: gerg
+      position: {x: 0.00044466244, y: 0.0014298697, z: -0.0012601542}
+      rotation: {x: -0.00000015695824, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface3
+      parentName: gerg
+      position: {x: 0.00044466244, y: 0.0014298697, z: -0.0012601542}
+      rotation: {x: -0.032846436, y: 0.8663185, z: -0.11607506, w: -0.48470604}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gerg_cultural_rotate
+      parentName: RHINO_Head
+      position: {x: 0.0156232305, y: 0.00074989814, z: 0.0000030140698}
+      rotation: {x: -0.5000001, y: 0.4999999, z: 0.4999999, w: 0.5000001}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone001
+      parentName: gerg_cultural_rotate
+      position: {x: -0.001418051, y: 0.018721197, z: -0.0010216852}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: gerg_cultural_rotate
+      position: {x: -0.00025272073, y: 0.018556442, z: -0.00058185746}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone003
+      parentName: gerg_cultural_rotate
+      position: {x: 0.0010835535, y: 0.018652055, z: -0.0010799234}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mayan_accesories
+      parentName: gerg_cultural_rotate
+      position: {x: -0, y: 0.02077708, z: -0.00101141}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object005
+      parentName: gerg_cultural_rotate
+      position: {x: -0, y: 0.021244507, z: -0.0012535836}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gerg_sapka_scifi
+      parentName: RHINO_Head
+      position: {x: 0.015623233, y: 0.00074989937, z: 0.0000030139172}
+      rotation: {x: -0.5, y: 0.5, z: 0.49999994, w: 0.50000006}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object002
+      parentName: gerg_sapka_scifi
+      position: {x: -0.00000010290145, y: 0.017899537, z: 0.0023237322}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Scifipack_gerg_low
+      parentName: gerg_sapka_scifi
+      position: {x: 0.0000915781, y: 0.01878352, z: -0.00082647655}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gerg_yeni_06
+      parentName: RHINO_Head
+      position: {x: -0.0025029373, y: -0.0004894625, z: 0.0000329422}
+      rotation: {x: 0.7071068, y: 4.32978e-17, z: -0.7071067, w: 4.3297806e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gerg_yeni_08
+      parentName: RHINO_Head
+      position: {x: -0.0004261856, y: 0.0022163752, z: 0.0000031890868}
+      rotation: {x: 0.70710635, y: -0.0007846569, z: -0.70710635, w: -0.0008033941}
+      scale: {x: 0.99999994, y: 1.0000005, z: 1.0000004}
+    - name: gerg_yeni_14
+      parentName: RHINO_Head
+      position: {x: -0.0017377516, y: 0.0010623646, z: 0.0000030564927}
+      rotation: {x: 0, y: 0, z: -3.5527137e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Gerk_christmas
+      parentName: RHINO_Head
+      position: {x: -0.00022715345, y: 0.0005864073, z: 0.06740035}
+      rotation: {x: -0.5113871, y: 0.4837986, z: 0.52767795, w: 0.47537163}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Gerk_christmas
+      parentName: Gerk_christmas
+      position: {x: 0.067420445, y: 0.00042937847, z: 0.0020523835}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Gerk_Gozluk
+      parentName: RHINO_Head
+      position: {x: -0.0018709999, y: 0.0013799999, z: 0.00003}
+      rotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GerkGoz
+      parentName: RHINO_Head
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: GerkGoz
+      position: {x: -0.0017377529, y: 0.00096305524, z: -0.0009350588}
+      rotation: {x: 0.70710707, y: -4.3297786e-17, z: -0.7071065, w: -4.329782e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone003
+      parentName: GerkGoz
+      position: {x: -0.0017377549, y: 0.0009630565, z: 0.0009411194}
+      rotation: {x: -0.0000000055880456, y: 0.7071066, z: 0.0000000055880425, w: 0.70710695}
+      scale: {x: -1, y: -1, z: -1}
+    - name: RHINO_GOZ_L
+      parentName: GerkGoz
+      position: {x: -0.001811119, y: 0.0012079094, z: 0.001206569}
+      rotation: {x: 0.4372964, y: -0.000000084183824, z: 0.000000011990692, w: 0.89931744}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_GOZ_R
+      parentName: GerkGoz
+      position: {x: -0.0018111212, y: 0.0012079123, z: -0.0012065715}
+      rotation: {x: -0.43729645, y: 0.000000021055621, z: 0.00000006624046, w: 0.89931744}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_KAS_L
+      parentName: GerkGoz
+      position: {x: -0.0022806674, y: 0.0011302956, z: 0.0010022786}
+      rotation: {x: -0.00000007272606, y: 0.87782574, z: 0.47898012, w: 0.00000013328489}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_KAS_R
+      parentName: GerkGoz
+      position: {x: -0.0022806637, y: 0.0011302908, z: -0.0010022809}
+      rotation: {x: -0.00000008430761, y: 0.8778258, z: -0.47898, w: -0.00000015451042}
+      scale: {x: 1, y: 1, z: 1}
+    - name: halloweengerg 2
+      parentName: RHINO_Head
+      position: {x: -0.0026949998, y: -0.000269, z: 0.000038}
+      rotation: {x: -0.51838565, y: 0.48513347, z: 0.52143, w: 0.47332072}
+      scale: {x: 0.9902132, y: 0.9902132, z: 0.9902132}
+    - name: Head Stick
+      parentName: RHINO_Head
+      position: {x: -0.0033155384, y: -0.00045321262, z: -0.000049697024}
+      rotation: {x: 0.008145466, y: 0.009919648, z: -0.11065672, w: 0.99377584}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: Head Stick
+      position: {x: -0.003513695, y: -0.0012810607, z: -0.000109655215}
+      rotation: {x: 0.9763358, y: 0.20451239, z: -0.019775767, w: -0.06746918}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mouth
+      parentName: RHINO_Head
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_AGIZ_
+      parentName: Mouth
+      position: {x: -0.00038679564, y: 0.0017722336, z: 0}
+      rotation: {x: -6.949894e-10, y: -0.0000000090949035, z: -0.8096476, w: 0.58691627}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_HeadBone005
+      parentName: RHINO_Head
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 2.671669e-15, y: 1.4210855e-14, z: 7.1054274e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_KULAK_L
+      parentName: RHINO_Head
+      position: {x: -0.0020481718, y: -0.00033453092, z: 0.001271565}
+      rotation: {x: 0.32925007, y: 0.4423149, z: 0.16381527, w: 0.8179954}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Bone004
+      parentName: RHINO_KULAK_L
+      position: {x: -0.00066712126, y: 0.00013357696, z: 0.00046179755}
+      rotation: {x: 0.65201247, y: -0.5065263, z: 0.38073027, w: -0.41635963}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_KULAK_R
+      parentName: RHINO_Head
+      position: {x: -0.0020481718, y: -0.00033453092, z: -0.001271565}
+      rotation: {x: -0.32924968, y: -0.4423151, z: 0.16381544, w: 0.8179954}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Virtual Camera
+      parentName: RHINO_Head
+      position: {x: -0.00239733, y: 0.00023431673, z: -0.00031278853}
+      rotation: {x: -0.4490639, y: 0.54670984, z: 0.44920707, w: 0.5455851}
+      scale: {x: 0.9079197, y: 0.90791994, z: 0.9079204}
+    - name: cm
+      parentName: Virtual Camera
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_Ribcage
+      parentName: RHINO_Spine_3
+      position: {x: -0.0021996154, y: 0, z: 7.450567e-11}
+      rotation: {x: -0.00027258697, y: 0.00006523729, z: -0.11096747, w: 0.993824}
+      scale: {x: 0.9999994, y: 0.99999917, z: 0.99999994}
+    - name: RHINO_LCollarbone
+      parentName: RHINO_Ribcage
+      position: {x: 0.00050245516, y: -0.00019896012, z: 0.0017619138}
+      rotation: {x: -0.106472656, y: 0.7534556, z: -0.051619217, w: 0.64676404}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_LUpperarm
+      parentName: RHINO_LCollarbone
+      position: {x: -0.0021713485, y: 0.0000000029057223, z: 0.0000000018626414}
+      rotation: {x: 0.124744445, y: 0.23997639, z: -0.0630761, w: 0.96066207}
+      scale: {x: 1.0000004, y: 0.99999976, z: 0.99999994}
+    - name: RHINO_LForearm1
+      parentName: RHINO_LUpperarm
+      position: {x: -0.0030347654, y: 8.195627e-10, z: -0.0000000012852224}
+      rotation: {x: 0.21666762, y: -0.058724225, z: -0.61578506, w: 0.7552585}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: RHINO_LForearm2
+      parentName: RHINO_LForearm1
+      position: {x: -0.0022788898, y: -2.9802263e-10, z: -0.0000000014807989}
+      rotation: {x: -0.0012207628, y: 0.000000057741996, z: -0.00000006705523, w: 0.9999993}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: culturalskin
+      parentName: RHINO_LForearm2
+      position: {x: -0.0021395718, y: 0.00013917145, z: 0.00026419532}
+      rotation: {x: 0.95904285, y: 0.19666897, z: 0.1966761, w: -0.05363439}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_LPalm
+      parentName: RHINO_LForearm2
+      position: {x: -0.002278889, y: -1.4901122e-10, z: -5.1222554e-10}
+      rotation: {x: -0.5118692, y: -0.20623335, z: -0.44297084, w: 0.7065654}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: Bullets.001 (1)
+      parentName: RHINO_LPalm
+      position: {x: -0.0027700001, y: -0.00061999995, z: 0.00013}
+      rotation: {x: 0.5885998, y: -0.1880166, z: -0.03974288, w: 0.7852519}
+      scale: {x: 133.3733, y: 133.37311, z: 133.37321}
+    - name: KartsParent
+      parentName: RHINO_LPalm
+      position: {x: 0.00091099995, y: -0.000177, z: 0.002287}
+      rotation: {x: -0.09221273, y: 0.024725897, z: -0.07417244, w: 0.99266505}
+      scale: {x: 0.97956115, y: 0.9795596, z: 0.97956014}
+    - name: Kartlar
+      parentName: KartsParent
+      position: {x: -0.0030559998, y: -0.000717, z: -0.002574}
+      rotation: {x: 0.38306287, y: -0.22916918, z: 0.8163, w: 0.36660427}
+      scale: {x: 1.630045, y: 1.630044, z: 1.630043}
+    - name: kart1
+      parentName: Kartlar
+      position: {x: -0.000605, y: 0.00012699999, z: 0.000568}
+      rotation: {x: 0.6154266, y: 0.67944765, z: -0.3268755, w: 0.22968112}
+      scale: {x: 100.0006, y: 100, z: 117.7963}
+    - name: number
+      parentName: kart1
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart2
+      parentName: Kartlar
+      position: {x: -0.000585, y: 0.00018799999, z: 0.000526}
+      rotation: {x: 0.58129066, y: 0.70887244, z: 0.3151926, w: -0.2454682}
+      scale: {x: 100.0002, y: 100.0005, z: 112.6991}
+    - name: number (1)
+      parentName: kart2
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart3
+      parentName: Kartlar
+      position: {x: -0.000541, y: 0.000238, z: 0.00047099998}
+      rotation: {x: 0.5545361, y: 0.7299923, z: 0.3058493, w: -0.257016}
+      scale: {x: 100.0004, y: 100.0004, z: 112.6993}
+    - name: number (2)
+      parentName: kart3
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart4
+      parentName: Kartlar
+      position: {x: -0.00051499996, y: 0.000282, z: 0.000432}
+      rotation: {x: 0.52713007, y: 0.75095654, z: 0.28970966, w: -0.27251902}
+      scale: {x: 100.0001, y: 100.0005, z: 99.99932}
+    - name: number (3)
+      parentName: kart4
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000012}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart5
+      parentName: Kartlar
+      position: {x: -0.00047099998, y: 0.000332, z: 0.00037999998}
+      rotation: {x: 0.5137308, y: 0.7592625, z: 0.29131663, w: -0.27337825}
+      scale: {x: 99.99997, y: 100.0006, z: 99.9993}
+    - name: number (4)
+      parentName: kart5
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart6
+      parentName: Kartlar
+      position: {x: -0.0011539999, y: 0.000074999996, z: 0.00083599996}
+      rotation: {x: 0.8477293, y: -0.3489361, z: -0.39852202, w: 0.027906436}
+      scale: {x: 100.0006, y: 100.00003, z: 99.99944}
+    - name: number (2)
+      parentName: kart6
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart7
+      parentName: Kartlar
+      position: {x: -0.000602, y: 0.000759, z: 0.00038699998}
+      rotation: {x: 0.024517803, y: 0.9157095, z: 0.11485546, w: -0.38429588}
+      scale: {x: 99.99997, y: 100.00064, z: 99.9993}
+    - name: number (3)
+      parentName: kart7
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000036}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: RHINO_LDigit11
+      parentName: RHINO_LPalm
+      position: {x: -0.0006028911, y: -0.00054166606, z: 0.0009655522}
+      rotation: {x: 0.57599723, y: 0.43408167, z: -0.012907705, w: 0.692556}
+      scale: {x: 1.0000004, y: 0.99999976, z: 1}
+    - name: RHINO_LDigit12
+      parentName: RHINO_LDigit11
+      position: {x: -0.00071685313, y: 3.1664882e-10, z: 9.68572e-10}
+      rotation: {x: 0.05629421, y: 0.0018256934, z: 0.036803488, w: 0.997734}
+      scale: {x: 1.0000004, y: 0.99999964, z: 1.0000001}
+    - name: RHINO_LDigit13
+      parentName: RHINO_LDigit12
+      position: {x: -0.0007181293, y: -6.3329775e-10, z: 0.0000000017881323}
+      rotation: {x: -0.011978322, y: -0.009926158, z: 0.08699621, w: 0.9960872}
+      scale: {x: 1.0000004, y: 0.9999997, z: 1}
+    - name: RHINO_LDigit21
+      parentName: RHINO_LPalm
+      position: {x: -0.0021594316, y: 0.00010017122, z: 0.0007487529}
+      rotation: {x: -0.012359204, y: 0.060198773, z: 0.24410981, w: 0.9677984}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.99999994}
+    - name: RHINO_LDigit22
+      parentName: RHINO_LDigit21
+      position: {x: -0.0007168548, y: 0.0000000010326008, z: 0.0000000015244538}
+      rotation: {x: -0.06922838, y: -0.01697908, z: 0.21709085, w: 0.9735455}
+      scale: {x: 1.0000004, y: 1.0000004, z: 0.99999994}
+    - name: RHINO_LDigit23
+      parentName: RHINO_LDigit22
+      position: {x: -0.0007168542, y: 0.0000000017578653, z: 8.440088e-10}
+      rotation: {x: -0.07022627, y: -0.012070418, z: 0.20344117, w: 0.9764908}
+      scale: {x: 1.0000001, y: 1.0000004, z: 0.9999999}
+    - name: RHINO_LDigit31
+      parentName: RHINO_LPalm
+      position: {x: -0.0023378618, y: -0.000013586064, z: 0.00002444513}
+      rotation: {x: -0.17830762, y: 0.002788306, z: 0.18598303, w: 0.96623445}
+      scale: {x: 1, y: 1, z: 1.0000002}
+    - name: RHINO_LDigit32
+      parentName: RHINO_LDigit31
+      position: {x: -0.0007236842, y: 5.261957e-10, z: 3.3876735e-10}
+      rotation: {x: -0.056591153, y: -0.089245394, z: 0.25150567, w: 0.96206945}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1.0000001}
+    - name: RHINO_LDigit33
+      parentName: RHINO_LDigit32
+      position: {x: -0.0007236794, y: 1.8160744e-10, z: 8.533213e-10}
+      rotation: {x: -0.06593374, y: -0.046088368, z: 0.2541587, w: 0.96381116}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1.0000002}
+    - name: RHINO_LDigit41
+      parentName: RHINO_LPalm
+      position: {x: -0.002261452, y: -0.00034741865, z: -0.0007738661}
+      rotation: {x: -0.28761402, y: -0.03264637, z: -0.011511477, w: 0.95712066}
+      scale: {x: 0.9999998, y: 0.9999999, z: 1.0000005}
+    - name: RHINO_LDigit42
+      parentName: RHINO_LDigit41
+      position: {x: -0.00065541023, y: -3.911543e-10, z: -2.6775412e-10}
+      rotation: {x: -0.06674443, y: -0.20488976, z: 0.3507022, w: 0.911358}
+      scale: {x: 0.9999999, y: 0.9999998, z: 1.0000005}
+    - name: RHINO_LDigit43
+      parentName: RHINO_LDigit42
+      position: {x: -0.0006554082, y: 0.0000000015413342, z: 0.0000000014481999}
+      rotation: {x: -0.07644656, y: -0.059530433, z: 0.11776603, w: 0.98830324}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1.0000005}
+    - name: RHINO_RCollarbone
+      parentName: RHINO_Ribcage
+      position: {x: 0.00050245575, y: -0.00019896116, z: -0.0017619131}
+      rotation: {x: -0.008686397, y: -0.7555126, z: 0.03470654, w: 0.6541565}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: RHINO_RUpperarm
+      parentName: RHINO_RCollarbone
+      position: {x: -0.0021713483, y: -0.0000000030919876, z: -5.9604527e-10}
+      rotation: {x: -0.07046633, y: -0.31879976, z: -0.100370936, w: 0.93985474}
+      scale: {x: 0.99999976, y: 1.0000002, z: 1}
+    - name: RHINO_RForearm1
+      parentName: RHINO_RUpperarm
+      position: {x: -0.0030347635, y: -1.8626412e-10, z: 1.1175843e-10}
+      rotation: {x: -0.20209672, y: 0.12912853, z: -0.62959623, w: 0.73897994}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: RHINO_RForearm2
+      parentName: RHINO_RForearm1
+      position: {x: -0.0022788898, y: -7.078037e-10, z: -1.117584e-10}
+      rotation: {x: 0.0012206706, y: -0.00000002421439, z: -0.00000004284084, w: 0.9999993}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1}
+    - name: culturalskin
+      parentName: RHINO_RForearm2
+      position: {x: -0.0021344791, y: 0.00014135722, z: -0.0002665784}
+      rotation: {x: 0.19667731, y: 0.05362974, z: 0.95904315, w: -0.19666767}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RHINO_RPalm
+      parentName: RHINO_RForearm2
+      position: {x: -0.0022788886, y: 8.381884e-10, z: -0.0000000012665948}
+      rotation: {x: 0.5076997, y: 0.038747776, z: -0.34177545, w: 0.7898919}
+      scale: {x: 0.9999999, y: 1.0000002, z: 1.0000001}
+    - name: ElRevolver
+      parentName: RHINO_RPalm
+      position: {x: -0.003399999, y: -0.0013078409, z: -0.00162988}
+      rotation: {x: 0.7523471, y: 0.6435226, z: -0.025557643, w: 0.13856153}
+      scale: {x: 210, y: 210, z: 210}
+    - name: cylinderpivot
+      parentName: ElRevolver
+      position: {x: -0.00000108, y: 0, z: 0.00000043}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder (Magazine)
+      parentName: cylinderpivot
+      position: {x: 0.000001079996, y: -0.0000011245739, z: 0.000002511903}
+      rotation: {x: 0.00000002980232, y: -0.000000141561, z: -0.00000005960463, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bullets.001
+      parentName: Cylinder (Magazine)
+      position: {x: -0.000002686, y: -0.00000080999996, z: -0.00000059599995}
+      rotation: {x: -4.513939e-18, y: 0.74300456, z: -4.513939e-18, w: 0.6692864}
+      scale: {x: 0.6351105, y: 0.6351106, z: 0.6351105}
+    - name: Hammer
+      parentName: ElRevolver
+      position: {x: 0.0000000072449438, y: 0.000002242276, z: -0.0000002487183}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Loading Gate
+      parentName: ElRevolver
+      position: {x: 0.0000009317308, y: 0.000000805664, z: 0.00000060043334}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Trigger
+      parentName: ElRevolver
+      position: {x: -0.000000002670288, y: 0.00000086898797, z: -0.0000021354679}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0387005, y: 1.0386996, z: 1.0386999}
+    - name: EmptySfx
+      parentName: RHINO_RPalm
+      position: {x: 0.0033308058, y: -0.00077392533, z: -0.0018895855}
+      rotation: {x: -0.25418264, y: 0.059152093, z: 0.22926122, w: 0.9377268}
+      scale: {x: 0.9079228, y: 0.9079191, z: 0.9079207}
+    - name: FirSFX
+      parentName: RHINO_RPalm
+      position: {x: 0.0033308058, y: -0.00077392533, z: -0.0018895855}
+      rotation: {x: -0.25418264, y: 0.059152093, z: 0.22926122, w: 0.9377268}
+      scale: {x: 0.9079228, y: 0.9079191, z: 0.9079207}
+    - name: Fx
+      parentName: RHINO_RPalm
+      position: {x: -0.003461106, y: -0.0012154642, z: -0.0012094373}
+      rotation: {x: 0.5909551, y: 0.8052484, z: -0.04178667, w: -0.024516994}
+      scale: {x: 1.6709621, y: 1.6709617, z: 1.6709874}
+    - name: PS_VFX_Gunshot
+      parentName: Fx
+      position: {x: 0.00089699996, y: -0.00089599995, z: 0.001892}
+      rotation: {x: -0.22466402, y: -0.15170558, z: -0.59816617, w: 0.7541278}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Plane
+      parentName: PS_VFX_Gunshot
+      position: {x: 0.12399999, y: -0.019, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Firing
+      parentName: PS_VFX_Gunshot
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_DistoDonut
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_FirstFlash
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_FirstGlowLarge
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_FirstGlowLight
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Light1
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_LightStrip (1)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_LightStrip (2)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: 0.004, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_LightStrip (3)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: 0.004, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_SecondGlowFlash
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_SecondGlowLarge
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Sparks (1)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_StarMiddle1
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Wind1
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 4.3297806e-17, y: -0.7071068, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Wind1 (1)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 4.3297806e-17, y: -0.7071068, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Wind2
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0.00113, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Sparks
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Spikes
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0.0022, y: -0.0007, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_GunShot_Proj
+      parentName: PS_VFX_Gunshot
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0, y: 0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ___________________________________
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: -0.019499999, z: 0.1022}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_DistoDonut
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_FirstFlash
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_FirstGlowLarge
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_FirstGlowLight
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_Impact
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_Light1
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_LightStrip (2)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_LightStrip (3)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_SecondGlowFlash
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_SecondGlowLarge
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_Sparks
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_StarMiddle1
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Proj (1)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Proj (2)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Proj (3)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Sparks (1)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Spikes (1)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: -0.0007000005, z: -0.0021999981}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GunSfx
+      parentName: RHINO_RPalm
+      position: {x: 0.0033308058, y: -0.00077392533, z: -0.0018895855}
+      rotation: {x: -0.25418264, y: 0.059152093, z: 0.22926122, w: 0.9377268}
+      scale: {x: 0.9079228, y: 0.9079191, z: 0.9079207}
+    - name: kart1
+      parentName: RHINO_RPalm
+      position: {x: -0.002428542, y: -0.001142115, z: -0.0022809764}
+      rotation: {x: -0.11742264, y: 0.7463642, z: -0.26122972, w: 0.6007591}
+      scale: {x: 146.7055, y: 146.70442, z: 172.81271}
+    - name: RHINO_RDigit11
+      parentName: RHINO_RPalm
+      position: {x: -0.00060288963, y: -0.00054166524, z: -0.0009655516}
+      rotation: {x: -0.502308, y: -0.38264033, z: -0.1554446, w: 0.75967765}
+      scale: {x: 0.99999964, y: 1.0000001, z: 0.99999994}
+    - name: RHINO_RDigit12
+      parentName: RHINO_RDigit11
+      position: {x: -0.0007168545, y: -1.3038474e-10, z: -1.4901112e-10}
+      rotation: {x: -0.056777272, y: 0.006353176, z: 0.067314364, w: 0.99609476}
+      scale: {x: 0.99999976, y: 1.0000004, z: 1.0000002}
+    - name: RHINO_RDigit13
+      parentName: RHINO_RDigit12
+      position: {x: -0.0007181296, y: -1.4901112e-10, z: 2.235166e-10}
+      rotation: {x: 0.011733806, y: 0.009281448, z: 0.08787342, w: 0.9960193}
+      scale: {x: 0.9999995, y: 1.0000004, z: 1.0000001}
+    - name: RHINO_RDigit21
+      parentName: RHINO_RPalm
+      position: {x: -0.002159432, y: 0.00010016977, z: -0.0007487493}
+      rotation: {x: 0.043191597, y: -0.10417611, z: 0.14250724, w: 0.98334813}
+      scale: {x: 0.9999997, y: 1.0000001, z: 1}
+    - name: RHINO_RDigit22
+      parentName: RHINO_RDigit21
+      position: {x: -0.0007168532, y: -0.000000001125151, z: 7.8230755e-10}
+      rotation: {x: 0.0719201, y: 0.016458701, z: 0.24198656, w: 0.96747047}
+      scale: {x: 0.9999998, y: 1.0000004, z: 1.0000001}
+    - name: RHINO_RDigit23
+      parentName: RHINO_RDigit22
+      position: {x: -0.000716854, y: 0.0000000011263147, z: 8.195598e-10}
+      rotation: {x: 0.0723802, y: 0.013775602, z: 0.17294958, w: 0.982171}
+      scale: {x: 0.99999964, y: 1.0000001, z: 0.9999999}
+    - name: RHINO_RDigit31
+      parentName: RHINO_RPalm
+      position: {x: -0.0023378616, y: -0.000013588109, z: -0.000024442028}
+      rotation: {x: 0.18639153, y: -0.019136751, z: 0.11093576, w: 0.9760047}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: RHINO_RDigit32
+      parentName: RHINO_RDigit31
+      position: {x: -0.0007236845, y: -0.0000000020861561, z: -5.587911e-11}
+      rotation: {x: 0.05831923, y: 0.09878663, z: 0.28002146, w: 0.9531149}
+      scale: {x: 0.99999976, y: 1.0000002, z: 0.9999999}
+    - name: RHINO_RDigit33
+      parentName: RHINO_RDigit32
+      position: {x: -0.0007236835, y: -0.0000000027147964, z: 0.0000000013597247}
+      rotation: {x: 0.06791268, y: 0.046374872, z: 0.254038, w: 0.96369183}
+      scale: {x: 0.99999976, y: 1.0000002, z: 0.9999999}
+    - name: RHINO_RDigit41
+      parentName: RHINO_RPalm
+      position: {x: -0.0022614524, y: -0.00034742162, z: 0.0007738695}
+      rotation: {x: 0.2750664, y: 0.052969925, z: -0.065273285, w: 0.9577432}
+      scale: {x: 0.99999994, y: 1.0000002, z: 0.99999964}
+    - name: RHINO_RDigit42
+      parentName: RHINO_RDigit41
+      position: {x: -0.0006554104, y: 3.5390146e-10, z: -1.1175829e-10}
+      rotation: {x: 0.06444667, y: 0.21238068, z: 0.36455026, w: 0.90434736}
+      scale: {x: 0.9999999, y: 1.0000002, z: 0.99999964}
+    - name: RHINO_RDigit43
+      parentName: RHINO_RDigit42
+      position: {x: -0.00065540976, y: -0.0000000017788202, z: 3.3527456e-10}
+      rotation: {x: 0.072494425, y: 0.03584749, z: 0.07673035, w: 0.99376655}
+      scale: {x: 0.99999994, y: 1.0000002, z: 0.9999995}
+    - name: SM_Rhino_2.003
+      parentName: gerk_unity_v8
+      position: {x: 0.0000020938874, y: 0.012957154, z: 0.001515654}
+      rotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: 'Stylized Revolver '
+      parentName: gerk_unity_v8
+      position: {x: 0.0043699997, y: 0.00868, z: 0.00764}
+      rotation: {x: 0.4987713, y: 0.5187328, z: -0.48229042, w: -0.49953923}
+      scale: {x: 210, y: 210, z: 210}
+    - name: Cylinder (Magazine)
+      parentName: 'Stylized Revolver '
+      position: {x: 0.0000000072479245, y: -0.0000011245727, z: 0.0000029418943}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000005, y: 0.9999996, z: 1}
+    - name: Hammer
+      parentName: 'Stylized Revolver '
+      position: {x: 0.000000007244944, y: 0.000002242276, z: -0.00000024871827}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Loading Gate
+      parentName: 'Stylized Revolver '
+      position: {x: 0.0000009317308, y: 0.000000805664, z: 0.00000060043334}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Trigger
+      parentName: 'Stylized Revolver '
+      position: {x: -0.000000002670288, y: 0.00000086898797, z: -0.0000021354674}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0387005, y: 1.0386996, z: 1.0386999}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -173,9 +1600,9 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
