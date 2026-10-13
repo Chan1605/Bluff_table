@@ -2,7 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public enum PanelId { Title, Play, Settings }
+public enum PanelId { Title, Play, Settings, Story,Exit }
 
 [RequireComponent(typeof(CanvasGroup))]
 public class UIPanel : MonoBehaviour

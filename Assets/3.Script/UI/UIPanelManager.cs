@@ -41,7 +41,6 @@ public class UIPanelManager : MonoBehaviour
         Switch(next);
     }
 
-    // Back 버튼의 OnClick에 Inspector로 직접 연결해도 됨
     public void Back()
     {
         if (isTransitioning || history.Count == 0) return;
