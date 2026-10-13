@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2579985073930551626}
   - component: {fileID: 2269702147578131204}
   - component: {fileID: 2324507997690114150}
-  - component: {fileID: 2599445102700859353}
   - component: {fileID: -6183377151534730211}
+  - component: {fileID: -5289637993710530259}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -128,20 +128,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  gameFlowBehaviour: {fileID: 0}
---- !u!114 &2599445102700859353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3298989736239962170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be461ec848201564ca6b1dfb2d934c97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DummyGameFlow
-  autoFinishSeconds: 15
+  gameFlowPrefab: {fileID: 2588528693608940004, guid: 4a457aaeb3cf22e48a45b6995977f713, type: 3}
 --- !u!114 &-6183377151534730211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,3 +147,16 @@ MonoBehaviour:
   - d0c09faff67634fbfbe5faa0a3f8e2b3700e541595e5f2ddae479b2c29f9e031
   ServerLoadKeyPairFromFile: 1
   ServerKeypairPath: ServerKeys/server-keys.json
+--- !u!114 &-5289637993710530259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3298989736239962170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09f5c8bf2f4747b7a9284ef5d9ce2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Components::Mirror.MatchInterestManagement
+  matchCount: 0

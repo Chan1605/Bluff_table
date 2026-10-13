@@ -18,6 +18,23 @@ namespace LiarsBar.Server
         [SyncVar(hook = nameof(OnReadyChanged))]
         private bool isReady;
 
+        // 0 = 방 밖 (로비)
+        [SyncVar(hook = nameof(OnRoomChanged))]
+        private int roomId;
+
+        [SyncVar(hook = nameof(OnHostChanged))]
+        private bool isHost;
+
+        [SyncVar(hook = nameof(OnPhaseChanged))]
+        private RoomPhase phase;
+
+        // 게임 시작 직전 전적 (결과 화면 변화 표시용, -1 = 없음)
+        [SyncVar]
+        private int prevWins;
+
+        [SyncVar]
+        private int prevGamesPlayed = -1;
+
         [SyncVar]
         private int wins;
 
@@ -29,6 +46,15 @@ namespace LiarsBar.Server
         public string Nickname => nickname;
         public bool IsLoggedIn => !string.IsNullOrEmpty(nickname);
         public bool IsReady => isReady;
+        public int RoomId => roomId;
+        public bool IsInRoom => roomId > 0;
+        public bool IsHost => isHost;
+        public RoomPhase Phase => phase;
+        public int PrevGamesPlayed => prevGamesPlayed;
+        public int PrevWins => prevWins;
+
+        // 내 방 단계가 바뀔 때 (UI 화면 전환용)
+        public static event Action<RoomPhase> LocalPhaseChanged;
         public int GamesPlayed => gamesPlayed;
         public int Wins => wins;
         public bool HasStats => gamesPlayed >= 0;
@@ -38,6 +64,7 @@ namespace LiarsBar.Server
         public static readonly List<PlayerProfile> All = new();
 
         private Action<bool, string> pendingLoginCallback;
+        private Action<bool, string> pendingRoomCallback;
 
         // 서버 전용 (DB 없이 로그인 시 -1)
         private int userId = -1;
@@ -49,6 +76,7 @@ namespace LiarsBar.Server
         public override void OnStartClient()
         {
             All.Add(this);
+            ApplySeatPosition();
             Debug.Log($"[Client] 플레이어 등장 - netId {netId},좌석 {seat}, 닉네임 '{nickname}'");
         }
         public override void OnStartLocalPlayer()
@@ -64,12 +92,76 @@ namespace LiarsBar.Server
         private void OnSeatChanged(int oldSeat,int newSeat)
         {
             Debug.Log($"[Client] 좌석 변경 {oldSeat} -> {newSeat}");
+            ApplySeatPosition();
+        }
+
+        // 좌석 위치로 이동 (NetworkTransform 없이 클라에서 맞춤)
+        private void ApplySeatPosition()
+        {
+            LiarsNetworkManager manager = LiarsNetworkManager.Instance;
+            if (seat < 0 || manager == null) return;
+
+            Transform spawn = manager.GetSeatSpawnPoint(seat);
+            if (spawn != null) transform.SetPositionAndRotation(spawn.position, spawn.rotation);
+        }
+
+        private void OnRoomChanged(int oldRoom, int newRoom)
+        {
+            Debug.Log($"[Client] '{nickname}' 방 {oldRoom} → {newRoom}");
+        }
+
+        private void OnHostChanged(bool oldValue, bool newValue)
+        {
+            if (newValue) Debug.Log($"[Client] 방 {roomId} 방장 = '{nickname}'");
+        }
+
+        private void OnPhaseChanged(RoomPhase oldPhase, RoomPhase newPhase)
+        {
+            if (!isLocalPlayer) return;
+            Debug.Log($"[Client] 방 {roomId} {oldPhase} → {newPhase}");
+            LocalPhaseChanged?.Invoke(newPhase);
         }
 
         [Server]
-        public void ServerSetSeat(int seatIndex)
+        public void ServerSetPhase(RoomPhase newPhase)
         {
+            phase = newPhase;
+        }
+
+        [Server]
+        public void ServerSnapshotStats()
+        {
+            prevWins = wins;
+            prevGamesPlayed = gamesPlayed;
+        }
+
+        [Server]
+        public void ServerEnterRoom(int newRoomId, int seatIndex, bool host)
+        {
+            phase = RoomPhase.Lobby;
+            prevGamesPlayed = -1;
+            isReady = false;
+            isHost = host;
             seat = seatIndex;
+            roomId = newRoomId;
+        }
+
+        [Server]
+        public void ServerLeaveRoom()
+        {
+            phase = RoomPhase.Lobby;
+            prevGamesPlayed = -1;
+            isReady = false;
+            isHost = false;
+            seat = -1;
+            roomId = 0;
+        }
+
+        [Server]
+        public void ServerSetHost(bool host)
+        {
+            isHost = host;
+            if (host) isReady = false;
         }
 
         [Server]
@@ -152,7 +244,10 @@ namespace LiarsBar.Server
             userId = dbUserId;
             nickname = cleanedNick;
             TargetLoginResult(true, message);
-            Debug.Log($"[Server] 좌석 {seat} 로그인 - '{cleanedNick}' (user_id {dbUserId})");
+            Debug.Log($"[Server] 로그인 - '{cleanedNick}' (user_id {dbUserId})");
+
+            // 로비 화면용 방 목록
+            LiarsNetworkManager.Instance.SendRoomList(this);
         }
 
         // 서버 전용 (async라 [Server] 미사용)
@@ -167,7 +262,7 @@ namespace LiarsBar.Server
 
             wins = stats.Value.Wins;
             gamesPlayed = stats.Value.GamesPlayed;
-            Debug.Log($"[Server] 좌석 {seat} 전적 로드 - {gamesPlayed}전 {wins}승 (user_id {userId})");
+            Debug.Log($"[Server] '{nickname}' 전적 로드 - {gamesPlayed}전 {wins}승 (user_id {userId})");
         }
 
         private void OnStatsChanged(int oldValue, int newValue)
@@ -222,13 +317,75 @@ namespace LiarsBar.Server
         [Command]
         private void CmdSetReady(bool ready)
         {
-            LiarsNetworkManager manager = LiarsNetworkManager.Instance;
-
-            if (!IsLoggedIn) return;
-            if (manager.GameInProgress) return;
+            // 대기 중인 방 안의 방장 아닌 사람만
+            if (!IsLoggedIn || !IsInRoom || isHost || phase != RoomPhase.Lobby) return;
 
             isReady = ready;
-            manager.TryStartGame();
+        }
+
+        [Client]
+        public void RequestCreateRoom(string title, Action<bool, string> onResult)
+        {
+            pendingRoomCallback = onResult;
+            CmdCreateRoom(title);
+        }
+
+        [Client]
+        public void RequestJoinRoom(int targetRoomId, Action<bool, string> onResult)
+        {
+            pendingRoomCallback = onResult;
+            CmdJoinRoom(targetRoomId);
+        }
+
+        [Client]
+        public void RequestLeaveRoom()
+        {
+            CmdLeaveRoom();
+        }
+
+        [Client]
+        public void RequestStartGame(Action<bool, string> onResult)
+        {
+            pendingRoomCallback = onResult;
+            CmdStartGame();
+        }
+
+        [Command]
+        private void CmdStartGame()
+        {
+            string error = LiarsNetworkManager.Instance.StartGame(this);
+            if (error != null) Debug.Log($"[Room] '{nickname}' 시작 실패 - {error}");
+            TargetRoomResult(error == null, error ?? "게임을 시작합니다.");
+        }
+
+        [Command]
+        private void CmdCreateRoom(string title)
+        {
+            string error = LiarsNetworkManager.Instance.CreateRoom(this, title);
+            if (error != null) Debug.Log($"[Room] '{nickname}' 방 만들기 실패 - {error}");
+            TargetRoomResult(error == null, error ?? "방을 만들었습니다.");
+        }
+
+        [Command]
+        private void CmdJoinRoom(int targetRoomId)
+        {
+            string error = LiarsNetworkManager.Instance.JoinRoom(this, targetRoomId);
+            if (error != null) Debug.Log($"[Room] '{nickname}' 방 #{targetRoomId} 입장 실패 - {error}");
+            TargetRoomResult(error == null, error ?? "방에 들어왔습니다.");
+        }
+
+        [Command]
+        private void CmdLeaveRoom()
+        {
+            LiarsNetworkManager.Instance.LeaveRoom(this, "나가기");
+        }
+
+        [TargetRpc]
+        private void TargetRoomResult(bool ok, string message)
+        {
+            Action<bool, string> callback = pendingRoomCallback;
+            pendingRoomCallback = null;
+            callback?.Invoke(ok, message);
         }
 
         private void OnReadyChanged(bool oldValue, bool newValue)

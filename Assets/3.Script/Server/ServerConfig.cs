@@ -13,8 +13,11 @@ namespace LiarsBar.Server
         [Tooltip("게임 서버 포트 (KCP, UDP)")]
         [SerializeField] private ushort port = 7777;
 
+        [Tooltip("서버 전체 최대 접속 인원. Mirror의 Max Connections에 이 값이 들어간다")]
+        [SerializeField, Range(1, 64)] private int maxPlayers = 16;
+
         [Header("Room")]
-        [Tooltip("최대 인원 = 좌석 수. Mirror의 Max Connections에도 이 값이 들어간다")]
+        [Tooltip("방 하나의 최대 인원 = 좌석 수")]
         [SerializeField, Range(1, 4)] private int maxSeats = 4;
 
         [Tooltip("게임 시작 최소 인원. 개발 중 2, 실제 4")]
@@ -22,6 +25,12 @@ namespace LiarsBar.Server
 
         [Tooltip("게임 종료 후 결과 연출 시간(초). 이 시간이 지나야 로비로 돌아간다")]
         [SerializeField] private float resultSeconds = 10f;
+
+        [Tooltip("동시에 만들 수 있는 방 개수")]
+        [SerializeField, Range(1, 16)] private int maxRooms = 4;
+
+        [Tooltip("방 제목 최대 글자 수")]
+        [SerializeField] private int roomTitleMaxLength = 18;
 
         [Header("Database")]
         [Tooltip("끄면 DB 없이 실행 (개발용). 접속 정보는 Database/db.local.json 또는 환경변수")]
@@ -37,9 +46,12 @@ namespace LiarsBar.Server
 
         public string NetworkAddress => networkAddress;
         public ushort Port => port;
+        public int MaxPlayers => maxPlayers;
         public int MaxSeats => maxSeats;
         public int MinPlayersToStart => minPlayersToStart;
         public float ResultSeconds => resultSeconds;
+        public int MaxRooms => maxRooms;
+        public int RoomTitleMaxLength => roomTitleMaxLength;
         public int NicknameMinLength => nicknameMinLength;
         public int NicknameMaxLength => nicknameMaxLength;
         public bool UseDatabase => useDatabase;
@@ -50,6 +62,8 @@ namespace LiarsBar.Server
         {
             if (minPlayersToStart > maxSeats) minPlayersToStart = maxSeats;
             if (resultSeconds < 0f) resultSeconds = 0f;
+            if (maxPlayers < maxSeats) maxPlayers = maxSeats;
+            if (roomTitleMaxLength < 1) roomTitleMaxLength = 1;
             if (nicknameMinLength < 1) nicknameMinLength = 1;
             if (nicknameMaxLength < nicknameMinLength) nicknameMaxLength = nicknameMinLength;
             if (passwordMinLength < 1) passwordMinLength = 1;
