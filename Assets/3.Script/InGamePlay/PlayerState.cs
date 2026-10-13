@@ -12,6 +12,11 @@ public class PlayerState : NetworkBehaviour
 
     [SyncVar] public bool isDead;
     [SyncVar] public bool isTurn;
+    [SyncVar] public bool isEscaped;
+
+    [SyncVar] public int currentChamber;
+    public int bulletPosition;
+
 
     [SerializeField] public DeckGamePlayManager deckManager;
 
@@ -29,6 +34,16 @@ public class PlayerState : NetworkBehaviour
     {
         isDead = false;
         isTurn = false;
+        isEscaped = false;
+
+        currentChamber = 0;
+        bulletPosition = UnityEngine.Random.Range(0, 6);
+    }
+
+    [Server]
+    public void RoundReset()
+    {
+        isEscaped = false;
     }
 
     [TargetRpc]
@@ -51,4 +66,9 @@ public class PlayerState : NetworkBehaviour
         deckManager.PlayerSubmitCard(SeatNum, indexes);
     }
 
+    [Command]
+    public void CallLiar()
+    {
+        deckManager.CallLiar(SeatNum);
+    }
 }

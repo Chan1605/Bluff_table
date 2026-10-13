@@ -17,12 +17,14 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private List<CardType> previousCards = new List<CardType>();
     private int lastSubmittedcards;
     private int lastSubmittedSeat = -1;
+    private bool isResolvingLiar = false;
 
     private int accumTurnIndex = 0;
     private PlayerState currentTurnPlayer;
 
     [SyncVar]
     private CardType tableCard;
+
 
     public event Action<int> GameOver;
 
@@ -31,28 +33,70 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         Debug.Log($"[인게임] StartGame 진입 성공. 전달받은 좌석 수 : {seats.Length}");
 
+        NetworkServer.RebuildObservers(this.netIdentity, false);
         PlayerState[] foundPlayers = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
 
         Debug.Log($"[인게임] 씬에서 찾은 PlayerState 개수 : {foundPlayers.Length}");
 
         foreach (PlayerState pState in foundPlayers)
         {
+            NetworkServer.RebuildObservers(pState.netIdentity, false);
+
             int seatNum = pState.GetComponent<PlayerProfile>().Seat;
             Players[seatNum] = pState;
             pState.SeatNum = seatNum;
             pState.deckManager = this;
+            pState.ResetState();
         }
 
         accumTurnIndex = 0;
+        StartCoroutine(StartRound_co());
+    }
+
+    [Server]
+    private IEnumerator StartRound_co()
+    {
+        yield return new WaitForSeconds(GameFlowTiming.GameEntry);
+
         StartRound();
     }
 
     [Server]
     public void StartRound()
     {
+        PlayerState AllivePlayer = null;
+        int Allive=0;
+
+        for(int i = 0; i<Players.Length; i++)
+        {
+            PlayerState curPlayer = Players[i];
+
+            if (curPlayer == null)
+                continue;
+
+            if (!curPlayer.isDead)
+            {
+                Allive++;
+                AllivePlayer = curPlayer;
+                curPlayer.RoundReset();
+            }
+
+        }
+
+        if (Allive == 1 && AllivePlayer!= null)
+        {
+            EndGame(AllivePlayer.SeatNum);
+            return; // 게임 종료 로직
+        }
+        else if (Allive ==0)
+        {
+            Debug.Log("[인게임] 생존자 없음");
+        }
+
         previousCards.Clear();
         lastSubmittedcards = 0;
         lastSubmittedSeat = -1;
+        isResolvingLiar = false;
         playerHands = new Dictionary<int, List<CardType>>();
 
         //TODO 1. 테이블 선정
@@ -72,15 +116,14 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private void SelectTable_normal()
     {
         tableCard = (CardType)UnityEngine.Random.Range(0, 3);
-
         RpcStartRound(tableCard);
     }
 
     [ClientRpc]
     private void RpcStartRound(CardType card)
     {
-        Debug.Log($"[인게임] 이번 테이블 :  {card}");
         InGameEvent.TriggerOnRoundStarted(card);
+        Debug.Log($"이번 테이블 카드는 {card} 입니다.");
     }
 
     [Server]
@@ -154,7 +197,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
 
             accumTurnIndex++;
 
-            if (curPlayer != null && curPlayer.isDead == false)
+            if (curPlayer != null && curPlayer.isDead == false && !curPlayer.isEscaped)
             {
                 curPlayer.isTurn = true;
                 currentTurnPlayer = curPlayer;
@@ -176,22 +219,38 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     }
 
     [Server]
-    public void PlayerSubmitCard(int playerSeat, int[] submitIndex)
+    private bool PlayerTurnVerification(int trierSeat)
     {
-        if (currentTurnPlayer == null) 
-            return;
+        if (isResolvingLiar)
+            return false;
 
-        if (playerSeat != currentTurnPlayer.SeatNum)
+        if (currentTurnPlayer == null)
+            return false;
+
+        if (trierSeat != currentTurnPlayer.SeatNum)
         {
             Debug.Log("[인게임] : 턴이 아닌 플레이어의 제출 감지됨");
-            return;
+            return false;
         }
 
-        if (submitIndex == null || submitIndex.Length == 0) 
+        return true;
+    }
+
+    [Server]
+    public void PlayerSubmitCard(int playerSeat, int[] submitIndex)
+    {
+        if (!PlayerTurnVerification(playerSeat)) 
+            return;
+
+        if (submitIndex == null ||submitIndex.Length < 1 ||submitIndex.Length > 4)
             return;
 
         if (!playerHands.TryGetValue(playerSeat, out List<CardType> hands)) 
             return;
+
+        if (!LastManStandingVerification())
+            return;
+
 
         HashSet<int> usedIndex = new HashSet<int>();
 
@@ -218,12 +277,45 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             hands.RemoveAt(idx);
         }
 
+        if (lastSubmittedSeat != -1)
+        {
+            ConfirmEscape(lastSubmittedSeat);
+        }
+
         lastSubmittedcards = submitIndex.Length;
         lastSubmittedSeat = playerSeat;
 
         RpcSubmitCard(playerSeat, submitIndex.Length);
         Players[playerSeat].TargetGiveCards(hands, false);
         NextTurn();
+    }
+    [Server]
+    private bool LastManStandingVerification()
+    {
+        if(lastSubmittedSeat !=-1)
+        {
+            if (playerHands.TryGetValue(lastSubmittedSeat, out List<CardType> prevHands))
+            {
+                if(prevHands.Count == 0)
+                {
+                    int aliveCount = 0;
+                    foreach (PlayerState p in Players)
+                    {
+                        if(p!=null && !p.isDead && !p.isEscaped)
+                        {
+                            aliveCount++;
+                        }
+                    }
+
+                    if (aliveCount <= 2)
+                        {
+                        Debug.Log("[인게임] : 최후의 2인 상황에서 상대가 0장이 되었습니다.");
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     [ClientRpc]
@@ -232,9 +324,145 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         Debug.Log($"[인게임] : {seatNum}번 플레이어 카드 {cardCount}장 제출 완료");
     }
 
-    public void HandleDisconnect(int seat)
+    [Server]
+    private void ConfirmEscape(int seat)
     {
+        if (seat < 0 || seat >= Players.Length)
+            return;
+
+        PlayerState player = Players[seat];
+
+        if (player == null || player.isDead || player.isEscaped)
+            return;
+
+        if (!playerHands.TryGetValue(seat, out List<CardType> hand))
+            return;
+
+        if (hand.Count != 0)
+            return;
+
+        player.isEscaped = true;
+        Debug.Log($"[인게임] : {lastSubmittedSeat}번 유저 라운드 탈출");
     }
 
+    [Server]
+    public void CallLiar(int callerSeat)
+    {
+        if (!PlayerTurnVerification(callerSeat))
+            return;
+
+        if (lastSubmittedSeat == -1 || lastSubmittedcards <= 0)
+            return;
+
+        if (callerSeat == lastSubmittedSeat)
+            return;
+
+        isResolvingLiar = true;
+        bool liar = false;
+
+        int totalCards = previousCards.Count;
+        int startIndex = totalCards - lastSubmittedcards;
+        int loserSeat;
+
+        for (int i = startIndex; i < totalCards; i++)
+        {
+            if (previousCards[i] != tableCard && previousCards[i] != CardType.Joker)
+            {
+                liar = true;
+            }
+        }
+
+        if (liar)
+        {
+            loserSeat = lastSubmittedSeat;
+        }
+        else
+        {
+            loserSeat = callerSeat;
+        }
+
+        
+        StartCoroutine(ResolveLiarSequence_co(loserSeat));
+    }
+
+    [Server]
+    private IEnumerator ResolveLiarSequence_co(int loserSeat)
+    {
+        bool isBullet;
+        RpcAnnounceLiar(loserSeat);
+        yield return new WaitForSeconds(GameFlowTiming.RouletteAnimation);
+
+        isBullet = ResolveRoulette(loserSeat);
+        yield return new WaitForSeconds(GameFlowTiming.LierReveal);
+
+        if(isBullet)
+        {
+            //처형
+            RpcAnnounceExecute(loserSeat);
+        }
+        else
+        {
+            //생존
+            RpcAnnounceSurvive(loserSeat);
+        }
+        yield return new WaitForSeconds(GameFlowTiming.ResultDisplay);
+
+        StartRound();
+    }
+
+    [ClientRpc]
+    private void RpcAnnounceLiar(int seat)
+    {
+        // 해당 유저 총 드는 이벤트 or 연출
+    }
+
+    [Server]
+    private bool ResolveRoulette(int seat)
+    {
+        PlayerState loserState = Players[seat];
+
+        if(loserState.currentChamber == loserState.bulletPosition)
+        {
+            loserState.isDead = true;
+            return true;
+        }
+        else
+        {
+            loserState.currentChamber++;
+            return false;
+        }
+    }
+
+    [ClientRpc]
+    private void RpcAnnounceExecute(int seat)
+    {
+        // 유저 처형 이벤트 실행
+        Debug.Log($" [인게임] : {seat} 번째 유저 처형");
+    }
+
+    [ClientRpc]
+    private void RpcAnnounceSurvive(int seat)
+    {
+        // 유저 생존
+        Debug.Log($" [인게임] : {seat} 번째 유저 생존");
+    }
+
+    [Server]
+    private void EndGame(int winner)
+    {
+        RpcAnnounceWinner(winner);
+        GameOver?.Invoke(winner);
+    }
+
+    [ClientRpc]
+    private void RpcAnnounceWinner(int winner)
+    {
+        Debug.Log($"{winner} 번 플레이어 승");
+    }
+    public void HandleDisconnect(int seat)
+    {
+        Players[seat] = null;
+        Debug.Log($"[Dummy] HandleDisconnect - 좌석 {seat}");
+    }
 
 }
