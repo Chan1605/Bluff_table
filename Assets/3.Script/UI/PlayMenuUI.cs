@@ -4,15 +4,12 @@ using UnityEngine.UI;
 public class PlayMenuUI : MonoBehaviour
 {
     [SerializeField] private UIPanelManager panelManager;
-    [SerializeField] private Button matchmakingBtn;
     [SerializeField] private Button hostGameBtn;
     [SerializeField] private Button lobbyListBtn;
     [SerializeField] private Button backBtn;
 
     private void OnEnable()
     {
-        if(matchmakingBtn != null)
-        matchmakingBtn.onClick.AddListener(OnClickMatchmaking);
         hostGameBtn.onClick.AddListener(OnClickHostGame);
         lobbyListBtn.onClick.AddListener(OnClickLobbyList);
         backBtn.onClick.AddListener(OnClickBack);
@@ -20,8 +17,6 @@ public class PlayMenuUI : MonoBehaviour
 
     private void OnDisable()
     {
-        if (matchmakingBtn != null)
-            matchmakingBtn.onClick.RemoveListener(OnClickMatchmaking);
         hostGameBtn.onClick.RemoveListener(OnClickHostGame);
         lobbyListBtn.onClick.RemoveListener(OnClickLobbyList);
         backBtn.onClick.RemoveListener(OnClickBack);
