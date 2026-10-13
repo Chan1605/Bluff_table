@@ -28,6 +28,12 @@ public class DebugEventKeys : MonoBehaviour
         fakeSeats = seatSource.Seats;
     }
 
+    int RandomAliveSeat()
+    {
+        var alive = System.Array.FindAll(seatSource.Seats, s => !dead[s]);
+        return alive.Length > 0 ? alive[Random.Range(0, alive.Length)] : -1;
+    }
+
     void Update()
     {
         var kb = Keyboard.current;
@@ -43,7 +49,14 @@ public class DebugEventKeys : MonoBehaviour
             board.SetDead(selected, dead[selected] = !dead[selected]);
 
         if (kb.rKey.wasPressedThisFrame)
-            show_turn.BeginRound(turn = fakeSeats[Random.Range(0, fakeSeats.Length)]);
+        {
+            int start = RandomAliveSeat();
+            if (start >= 0)
+            {
+                show_turn.BeginRound(turn = fakeSeats[Random.Range(0, fakeSeats.Length)]);
+            }
+        }
+        
 
         if (kb.tKey.wasPressedThisFrame) //다음 턴으로 넘기기
             show_turn.SetTurn(turn = NextSeat(turn));
@@ -53,8 +66,15 @@ public class DebugEventKeys : MonoBehaviour
 
         int NextSeat(int seat)
         {
-            int i = System.Array.IndexOf(fakeSeats, seat);
-            return fakeSeats[(i + 1) % fakeSeats.Length];   // 빈 좌석 건너뛰기
+            int[] seats = seatSource.Seats;
+            int i = System.Array.IndexOf(seats, seat);
+
+            for (int step = 1; step <= seats.Length; step++)
+            {
+                int next = seats[(i + step) % seats.Length];
+                if (!dead[next]) return next;
+            }
+            return seat;  // 살아 있는 사람이 없으면 그대로
         }
     }
 }
