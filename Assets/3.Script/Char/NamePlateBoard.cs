@@ -21,4 +21,10 @@ public class NamePlateBoard : MonoBehaviour
     {
         plates[seat].SetDead(isDead);
     }
+
+    public void ShowSeats(int[] seats)
+    {
+        for (int i = 0; i < plates.Length; i++)
+            plates[i].gameObject.SetActive(System.Array.IndexOf(seats, i) >= 0);
+    }
 }

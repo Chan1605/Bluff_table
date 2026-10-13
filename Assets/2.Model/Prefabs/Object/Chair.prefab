@@ -425,7 +425,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2.2}
-  m_LocalScale: {x: 0.9375, y: 0.9375, z: 0.9375}
+  m_LocalScale: {x: 0.9375002, y: 0.9375, z: 0.9375002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5744663019866722105}
@@ -498,7 +498,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 748a66b1e6a9d9a44b94e46b09bf5d0a, type: 3}
+    m_Font: {fileID: 12800000, guid: d35c6b05870125544bea28055157849d, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
