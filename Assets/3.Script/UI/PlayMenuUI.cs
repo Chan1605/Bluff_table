@@ -22,7 +22,6 @@ public class PlayMenuUI : MonoBehaviour
         backBtn.onClick.RemoveListener(OnClickBack);
     }
 
-    private void OnClickMatchmaking() { Debug.Log("매칭 시작"); }
     private void OnClickHostGame() { Debug.Log("호스트 게임"); }
     private void OnClickLobbyList() { Debug.Log("로비 목록"); }
     private void OnClickBack() { panelManager.Back(); }
