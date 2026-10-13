@@ -1770,7 +1770,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4288693313581375992, guid: 74e2655aa5c908449b78eca3389ec7c0, type: 3}
       propertyPath: m_Name
-      value: Chair (3)
+      value: Chair (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8266317464265886617, guid: 74e2655aa5c908449b78eca3389ec7c0, type: 3}
       propertyPath: m_LocalScale.x
@@ -1786,7 +1786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8266317464265886617, guid: 74e2655aa5c908449b78eca3389ec7c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.013750001
+      value: -0.013750002
       objectReference: {fileID: 0}
     - target: {fileID: 8266317464265886617, guid: 74e2655aa5c908449b78eca3389ec7c0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2145,10 +2145,10 @@ MonoBehaviour:
   board: {fileID: 919132148073813709}
   fakeNames:
   - "\uD50C\uB808\uC774\uC5B41"
-  - "\uD50C\uB808\uC774\uC5B42"
+  - Player2
   - "\uD50C\uB808\uC774\uC5B43"
   - "\uB2C9\uB124\uC784\uC774\uC5BC\uB9C8\uB098\uAE38\uC5B4\uC9C8\uC218\uC788\uB294\uC9C0\uD655\uC778\uD558\uB294\uAC83\uC740\uB9E4\uC6B0\uC911\uB300\uD55C\uC0AC\uD56D\uC774\uB2E4\uADF8\uB807\uAE30\uC5D0\uC77C\uBD80\uB7EC\uAE38\uAC8C\uB298\uB9B0\uC774\uAE00\uC758\uAE00\uC790\uC218\uB294\uC624\uC2ED\uD558\uACE0\uB3C4\uC5EC\uC12F\uC774\uB2E4"
-  fakeSeats: 00000000010000000200000003000000
+  fakeSeats: 000000000100000003000000
 --- !u!114 &1588267862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2162,7 +2162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugEventKEys
   board: {fileID: 919132148073813709}
-  turnIndicator: {fileID: 0}
+  turnIndicator: {fileID: 1612888349}
+  show_turn: {fileID: 919132148073813710}
 --- !u!1 &1612888344
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,14 +2191,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612888344}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1960488666}
   m_Father: {fileID: 1478172331}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2280,11 +2281,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurnIndicator
   seats:
   - {fileID: 604179851}
-  - {fileID: 2121355925}
-  - {fileID: 543450653573595158}
   - {fileID: 1291386350}
+  - {fileID: 543450653573595158}
+  - {fileID: 2121355925}
   visual: {fileID: 1960488665}
-  defaultDirection: 2
   angleOffset: 0
   duration: 0.6
   ease:
@@ -2605,7 +2605,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 15, y: 15}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960488667
 MonoBehaviour:
@@ -2627,7 +2627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5dad16e8a7984144b86d8628a0532cfd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0cae7e338f0139c4db9f72bc13b50c77, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3045,7 +3045,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4288693313581375992, guid: 74e2655aa5c908449b78eca3389ec7c0, type: 3}
       propertyPath: m_Name
-      value: Chair (1)
+      value: Chair (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8266317464265886617, guid: 74e2655aa5c908449b78eca3389ec7c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3126,9 +3126,9 @@ Transform:
   - {fileID: 1478172331}
   - {fileID: 7132948093285450633}
   - {fileID: 604179851}
-  - {fileID: 2121355925}
-  - {fileID: 543450653573595158}
   - {fileID: 1291386350}
+  - {fileID: 543450653573595158}
+  - {fileID: 2121355925}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450653573595158 stripped
@@ -3146,6 +3146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652532313206}
   - component: {fileID: 919132148073813709}
+  - component: {fileID: 919132148073813710}
   m_Layer: 0
   m_Name: GameTable
   m_TagString: Untagged
@@ -3167,9 +3168,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NamePlateBoard
   plates:
   - {fileID: 1736550361}
-  - {fileID: 1729209967}
-  - {fileID: 948922739}
   - {fileID: 271028024}
+  - {fileID: 948922739}
+  - {fileID: 1729209967}
+--- !u!114 &919132148073813710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148073813708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9b53d537e8ec94dafc968dff92eaae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TurnPresenter
 --- !u!1 &1195342947119229441
 GameObject:
   m_ObjectHideFlags: 0
