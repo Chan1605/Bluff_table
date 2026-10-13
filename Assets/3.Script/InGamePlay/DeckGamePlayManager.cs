@@ -21,7 +21,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private int accumTurnIndex = 0;
     private PlayerState currentTurnPlayer;
 
-    [SyncVar]
+    [SyncVar(hook = nameof(OnTableCardChanged))]
     private CardType tableCard;
 
     public event Action<int> GameOver;
@@ -53,6 +53,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         previousCards.Clear();
         lastSubmittedcards = 0;
         lastSubmittedSeat = -1;
+
         playerHands = new Dictionary<int, List<CardType>>();
 
         //TODO 1. 테이블 선정
@@ -72,15 +73,12 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private void SelectTable_normal()
     {
         tableCard = (CardType)UnityEngine.Random.Range(0, 3);
-
-        RpcStartRound(tableCard);
     }
 
-    [ClientRpc]
-    private void RpcStartRound(CardType card)
+    private void OnTableCardChanged(CardType oldCard, CardType newCard)
     {
-        Debug.Log($"[인게임] 이번 테이블 :  {card}");
-        InGameEvent.TriggerOnRoundStarted(card);
+        Debug.Log($"[인게임] 테이블 카드 갱신 감지 :  {newCard}");
+        InGameEvent.TriggerOnRoundStarted(newCard);
     }
 
     [Server]
@@ -231,6 +229,39 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         Debug.Log($"[인게임] : {seatNum}번 플레이어 카드 {cardCount}장 제출 완료");
     }
+
+    [Server]
+    public void CallLiar(int callerSeat)
+    {
+        bool liar = false;
+
+        int totalCards = previousCards.Count;
+        int startIndex = totalCards - lastSubmittedcards;
+
+        for (int i = startIndex; i < totalCards; i++)
+        {
+            if (previousCards[i] != tableCard && previousCards[i] != CardType.Joker)
+            {
+                liar = true;
+            }
+        }
+
+        if(liar)
+        {
+            AnnounceLier(lastSubmittedSeat);
+        }
+        else
+        {
+            AnnounceLier(callerSeat);
+        }
+    }
+
+    [ClientRpc]
+    private void AnnounceLier(int seat)
+    {
+        // 유저 처형 이벤트 실행
+    }
+
 
     public void HandleDisconnect(int seat)
     {

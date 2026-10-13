@@ -51,4 +51,14 @@ public class PlayerState : NetworkBehaviour
         deckManager.PlayerSubmitCard(SeatNum, indexes);
     }
 
+    [TargetRpc]
+    public void Execute()
+    {
+        Debug.Log($" [인게임] : {SeatNum} 번째 유저 처형");
+        isDead = false;
+
+        //사망 상태 변경
+    }
+
+
 }
