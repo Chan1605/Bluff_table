@@ -27,7 +27,7 @@ public class TitleMenuUI : MonoBehaviour
 
     private void OnClickEnter() { panelManager.Open(PanelId.Play); }
     private void OnClickSetting() { panelManager.Open(PanelId.Settings); }
-    private void OnClickStories() { Debug.Log("스토리 패널"); }
-    private void OnClickExit() { Debug.Log("종료"); }
+    private void OnClickStories() { panelManager.Open(PanelId.Story); }
+    private void OnClickExit() { panelManager.Open(PanelId.Exit); }
 
 }
