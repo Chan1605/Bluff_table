@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8822432418666501201}
   - component: {fileID: 248477587986734735}
   - component: {fileID: 6772556871878919516}
+  - component: {fileID: -6458542185298173862}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -163,5 +164,23 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  SeatNum: 0
   isDead: 0
   isTurn: 0
+  deckManager: {fileID: 0}
+--- !u!114 &-6458542185298173862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367960496955974029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d17e718851449a6879986e45c458fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkMatch
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  MatchID: 
