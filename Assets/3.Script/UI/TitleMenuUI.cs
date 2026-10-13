@@ -8,6 +8,7 @@ public class TitleMenuUI : MonoBehaviour
     [SerializeField] private Button settingBtn;
     [SerializeField] private Button exitBtn;
     [SerializeField] private Button StoriesBtn;
+    [SerializeField] private Button VelvetBtn;
 
     private void OnEnable()
     {
@@ -15,6 +16,7 @@ public class TitleMenuUI : MonoBehaviour
         settingBtn.onClick.AddListener(OnClickSetting);
         StoriesBtn.onClick.AddListener(OnClickStories);
         exitBtn.onClick.AddListener(OnClickExit);
+        VelvetBtn.onClick.AddListener(OnClickVel);
     }
 
     private void OnDisable()
@@ -23,11 +25,13 @@ public class TitleMenuUI : MonoBehaviour
         settingBtn.onClick.RemoveListener(OnClickSetting);
         StoriesBtn.onClick.RemoveListener(OnClickStories);
         exitBtn.onClick.RemoveListener(OnClickExit);
+        VelvetBtn.onClick.RemoveListener(OnClickVel);
     }
 
     private void OnClickEnter() { panelManager.Open(PanelId.Play); }
     private void OnClickSetting() { panelManager.Open(PanelId.Settings); }
     private void OnClickStories() { panelManager.Open(PanelId.Story); }
     private void OnClickExit() { panelManager.Open(PanelId.Exit); }
+    private void OnClickVel () { panelManager.Open(PanelId.Velvet); }
 
 }
