@@ -53,6 +53,36 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     [Server]
     public void StartRound()
     {
+
+        PlayerState AllivePlayer = null;
+        int Allive=0;
+
+        for(int i = 0; i<Players.Length; i++)
+        {
+            PlayerState curPlayer = Players[i];
+
+            if (curPlayer == null)
+                continue;
+
+            if (!curPlayer.isDead)
+            {
+                Allive++;
+                AllivePlayer = curPlayer;
+                curPlayer.RoundReset();
+            }
+
+        }
+
+        if (Allive == 1 && AllivePlayer!= null)
+        {
+            EndGame(AllivePlayer.SeatNum);
+            return; // 게임 종료 로직
+        }
+        else if (Allive ==0)
+        {
+            Debug.Log("[인게임] 생존자 없음");
+        }
+
         previousCards.Clear();
         lastSubmittedcards = 0;
         lastSubmittedSeat = -1;
@@ -156,7 +186,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
 
             accumTurnIndex++;
 
-            if (curPlayer != null && curPlayer.isDead == false)
+            if (curPlayer != null && curPlayer.isDead == false && !curPlayer.isEscaped)
             {
                 curPlayer.isTurn = true;
                 currentTurnPlayer = curPlayer;
@@ -178,7 +208,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     }
 
     [Server]
-    private bool playerTurnVerification(int trierSeat)
+    private bool PlayerTurnVerification(int trierSeat)
     {
         if (isResolvingLiar)
             return false;
@@ -198,13 +228,16 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     [Server]
     public void PlayerSubmitCard(int playerSeat, int[] submitIndex)
     {
-        if (!playerTurnVerification(playerSeat)) 
+        if (!PlayerTurnVerification(playerSeat)) 
             return;
 
         if (submitIndex == null ||submitIndex.Length < 1 ||submitIndex.Length > 4)
             return;
 
         if (!playerHands.TryGetValue(playerSeat, out List<CardType> hands)) 
+            return;
+
+        if (!LastManStandingVerification())
             return;
 
 
@@ -233,11 +266,9 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             hands.RemoveAt(idx);
         }
 
-        playerHands.TryGetValue(lastSubmittedSeat, out List<CardType> hand);
-
-        if (hand.Count.Equals(0))
+        if (lastSubmittedSeat != -1)
         {
-            Debug.Log($"[인게임] : {lastSubmittedSeat}번 유저 라운드 탈출");
+            ConfirmEscape(lastSubmittedSeat);
         }
 
         lastSubmittedcards = submitIndex.Length;
@@ -247,6 +278,34 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         Players[playerSeat].TargetGiveCards(hands, false);
         NextTurn();
     }
+    [Server]
+    private bool LastManStandingVerification()
+    {
+        if(lastSubmittedSeat !=-1)
+        {
+            if (playerHands.TryGetValue(lastSubmittedSeat, out List<CardType> prevHands))
+            {
+                if(prevHands.Count == 0)
+                {
+                    int aliveCount = 0;
+                    foreach (PlayerState p in Players)
+                    {
+                        if(p!=null && !p.isDead && !p.isEscaped)
+                        {
+                            aliveCount++;
+                        }
+                    }
+
+                    if (aliveCount <= 2)
+                        {
+                        Debug.Log("[인게임] : 최후의 2인 상황에서 상대가 0장이 되었습니다.");
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 
     [ClientRpc]
     public void RpcSubmitCard(int seatNum, int cardCount)
@@ -255,9 +314,30 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     }
 
     [Server]
+    private void ConfirmEscape(int seat)
+    {
+        if (seat < 0 || seat >= Players.Length)
+            return;
+
+        PlayerState player = Players[seat];
+
+        if (player == null || player.isDead || player.isEscaped)
+            return;
+
+        if (!playerHands.TryGetValue(seat, out List<CardType> hand))
+            return;
+
+        if (hand.Count != 0)
+            return;
+
+        player.isEscaped = true;
+        Debug.Log($"[인게임] : {lastSubmittedSeat}번 유저 라운드 탈출");
+    }
+
+    [Server]
     public void CallLiar(int callerSeat)
     {
-        if (!playerTurnVerification(callerSeat))
+        if (!PlayerTurnVerification(callerSeat))
             return;
 
         if (lastSubmittedSeat == -1 || lastSubmittedcards <= 0)
@@ -288,12 +368,6 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         else
         {
             loserSeat = callerSeat;
-            playerHands.TryGetValue(lastSubmittedSeat, out List<CardType> hand);
-
-            if (hand.Count.Equals(0))
-            {
-                Debug.Log($"[인게임] : {lastSubmittedSeat}번 유저 라운드 탈출");
-            }
         }
 
         
@@ -362,10 +436,22 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         Debug.Log($" [인게임] : {seat} 번째 유저 생존");
     }
 
-
-    public void HandleDisconnect(int seat)
+    [Server]
+    private void EndGame(int winner)
     {
+        RpcAnnounceWinner(winner);
+        GameOver?.Invoke(winner);
     }
 
+    [ClientRpc]
+    private void RpcAnnounceWinner(int winner)
+    {
+        Debug.Log($"{winner} 번 플레이어 승");
+    }
+    public void HandleDisconnect(int seat)
+    {
+        Players[seat] = null;
+        Debug.Log($"[Dummy] HandleDisconnect - 좌석 {seat}");
+    }
 
 }

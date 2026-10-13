@@ -8,5 +8,6 @@ public static class GameFlowTiming
     public const float LierReveal = 1f;
     public const float RouletteAnimation = 1f;
     public const float ResultDisplay = 2f;
+    public const float WinnerSeq = 10f;
 
 }
