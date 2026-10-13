@@ -33,12 +33,15 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         Debug.Log($"[인게임] StartGame 진입 성공. 전달받은 좌석 수 : {seats.Length}");
 
+        NetworkServer.RebuildObservers(this.netIdentity, false);
         PlayerState[] foundPlayers = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
 
         Debug.Log($"[인게임] 씬에서 찾은 PlayerState 개수 : {foundPlayers.Length}");
 
         foreach (PlayerState pState in foundPlayers)
         {
+            NetworkServer.RebuildObservers(pState.netIdentity, false);
+
             int seatNum = pState.GetComponent<PlayerProfile>().Seat;
             Players[seatNum] = pState;
             pState.SeatNum = seatNum;
@@ -47,13 +50,20 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         }
 
         accumTurnIndex = 0;
+        StartCoroutine(StartRound_co());
+    }
+
+    [Server]
+    private IEnumerator StartRound_co()
+    {
+        yield return new WaitForSeconds(GameFlowTiming.GameEntry);
+
         StartRound();
     }
 
     [Server]
     public void StartRound()
     {
-
         PlayerState AllivePlayer = null;
         int Allive=0;
 
@@ -113,6 +123,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private void RpcStartRound(CardType card)
     {
         InGameEvent.TriggerOnRoundStarted(card);
+        Debug.Log($"이번 테이블 카드는 {card} 입니다.");
     }
 
     [Server]
