@@ -2162,7 +2162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugEventKEys
   board: {fileID: 919132148073813709}
-  t_indicator: {fileID: 1612888349}
+  turnIndicator: {fileID: 0}
 --- !u!1 &1612888344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,7 +3147,7 @@ GameObject:
   - component: {fileID: 543450652532313206}
   - component: {fileID: 919132148073813709}
   m_Layer: 0
-  m_Name: SM_GameTable
+  m_Name: GameTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3443,7 +3443,7 @@ MonoBehaviour:
   - {fileID: 625874580}
   - {fileID: 2042630078}
   - {fileID: 671073346}
-  gameFlowBehaviour: {fileID: 0}
+  gameFlowPrefab: {fileID: 0}
 --- !u!114 &9009885707213493939
 MonoBehaviour:
   m_ObjectHideFlags: 0

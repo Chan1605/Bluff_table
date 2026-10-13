@@ -21,6 +21,13 @@ public class NamePlateBoard : MonoBehaviour
     {
         plates[seat].SetDead(isDead);
     }
+    public void SetTurn(int seat)
+    {
+        for (int i = 0; i < plates.Length; i++)
+        {
+            plates[i].SetTurn(i == seat);
+        }
+    }
 
     public void ShowSeats(int[] seats)
     {

@@ -8,9 +8,15 @@ public class NamePlate : MonoBehaviour
     [SerializeField] private Text NameText;
     [SerializeField] private Text ShotText;
     [SerializeField] private Image PlateImg;
+    [SerializeField] private GameObject turnImg;
 
     [SerializeField] private Sprite RouletteSprite;
     [SerializeField] private Sprite DeathSprite;
+
+    private void Awake()
+    {
+        turnImg.SetActive(false);
+    }
 
     private void Start()
     {
@@ -33,6 +39,10 @@ public class NamePlate : MonoBehaviour
         PlateImg.sprite = DeathSprite;
     }
 
-    //void LateUpdate() { /* 카메라 쪽으로 빌보드 */ }
+    public void SetTurn(bool isTurn)
+    {
+        turnImg.SetActive(isTurn);
+    }
+
 
 }

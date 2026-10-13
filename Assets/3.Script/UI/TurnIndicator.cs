@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum SpinDirection
-{
-    Clockwise,
-    CounterClockwise,
-    Random
-}
 
 public class TurnIndicator : MonoBehaviour
 {
@@ -17,7 +11,6 @@ public class TurnIndicator : MonoBehaviour
     [SerializeField] GameObject visual;
 
     [Header("회전")]
-    [SerializeField] SpinDirection defaultDirection = SpinDirection.Random;
     [SerializeField] float angleOffset = 0f;
     [SerializeField] float duration = 0.6f;
     [SerializeField] AnimationCurve ease = AnimationCurve.EaseInOut(0, 0, 1, 1);
@@ -45,25 +38,14 @@ public class TurnIndicator : MonoBehaviour
         visual.SetActive(true);
     }
 
-    public void SetTurn(int seat) => SetTurn(seat, defaultDirection);
-
-    public void SetTurn(int seat, SpinDirection dir)
+    public void SetTurn(int seat)
     {
-        if (!IsValidSeat(seat))
-        {
-            return;
-        }
-        if (!visual.activeSelf) 
-        { 
-            BeginRound(seat);
-            return; 
-        }   
-        if (seat == Seat_cur) 
-        { 
-            return;
-        }
+        if (!IsValidSeat(seat)) return;
+        if (!visual.activeSelf) { BeginRound(seat); return; }
+        if (seat == Seat_cur) return;
+
         Seat_cur = seat;
-        float delta = ComputeDelta(currentAngle, AngleToSeat(seat), dir);
+        float delta = Mathf.Repeat(AngleToSeat(seat) - currentAngle, 360f);   // 시계방향 각도
 
         StopSpin();
         spin_co = StartCoroutine(SpinBy_co(delta));
@@ -90,22 +72,6 @@ public class TurnIndicator : MonoBehaviour
     void StopSpin()
     {
         if (spin_co != null) { StopCoroutine(spin_co); spin_co = null; }
-    }
-
-    static float ComputeDelta(float from, float to, SpinDirection dir)
-    {
-        if (dir == SpinDirection.Random)
-            dir = Random.value < 0.5f ? SpinDirection.Clockwise : SpinDirection.CounterClockwise;
-
-        float cw = Mathf.Repeat(to - from, 360f);
-        float delta = dir switch
-        {
-            SpinDirection.Clockwise => cw,
-            SpinDirection.CounterClockwise => cw == 0f ? 0f : cw - 360f,
-            _ => Mathf.DeltaAngle(from, to),
-        };
-
-        return delta;
     }
 
     IEnumerator SpinBy_co(float delta)
