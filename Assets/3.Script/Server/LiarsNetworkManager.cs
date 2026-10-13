@@ -19,13 +19,19 @@ namespace LiarsBar.Server
         [Tooltip("좌석 0~3 위치. 비어 있으면 원점에 스폰")]
         [SerializeField] private Transform[] seatSpawnPoints;
 
-        [Tooltip("IGameFlow 구현 컴포넌트. 비우면 같은 오브젝트에서 자동으로 찾음")]
+        [Tooltip("IGameFlow 구현 컴포넌트 (씬의 DeckGamePlayManager 등). 비우면 같은 오브젝트에서 자동으로 찾음")]
         [SerializeField] private MonoBehaviour gameFlowBehaviour;
 
         private readonly Dictionary<int, PlayerProfile> seats = new();
 
         private IGameFlow gameFlow;
-        public bool GameInProgress { get; private set; }
+
+        private enum MatchPhase { Lobby, Playing, Result }
+        private MatchPhase phase = MatchPhase.Lobby;
+        private Coroutine resultRoutine;
+
+        // 게임 중 또는 결과 연출 중 (입장 · 준비 불가)
+        public bool GameInProgress => phase != MatchPhase.Lobby;
 
         // 게임 시작 시점의 참가자 기록 (중간 이탈자 포함)
         private DateTime matchStartedAt;
@@ -45,6 +51,20 @@ namespace LiarsBar.Server
                 config = ScriptableObject.CreateInstance<ServerConfig>();
             }
             ApplyConfig();
+        }
+
+        public override void OnValidate()
+        {
+            base.OnValidate();
+
+            // 오브젝트를 끌어오면 첫 MonoBehaviour(NetworkIdentity)가 들어가므로 IGameFlow 컴포넌트로 교체
+            if (gameFlowBehaviour != null && !(gameFlowBehaviour is IGameFlow))
+            {
+                MonoBehaviour found = gameFlowBehaviour.GetComponent<IGameFlow>() as MonoBehaviour;
+                if (found == null)
+                    Debug.LogWarning($"[Server] {gameFlowBehaviour.name}에 IGameFlow 구현 컴포넌트가 없습니다.");
+                gameFlowBehaviour = found;
+            }
         }
 
         // 설정 에셋 → Mirror 설정
@@ -67,7 +87,8 @@ namespace LiarsBar.Server
         {
             base.OnStartServer();
             seats.Clear();
-            GameInProgress = false;
+            StopResultRoutine();
+            phase = MatchPhase.Lobby;
 
             gameFlow = gameFlowBehaviour as IGameFlow ?? GetComponent<IGameFlow>();
             if (gameFlow == null)
@@ -76,6 +97,7 @@ namespace LiarsBar.Server
                 return;
             }
             gameFlow.GameOver += OnGameOver;
+            Debug.Log($"[Server] GameFlow = {gameFlow.GetType().Name}");
         }
         // 서버 시작 입구: DB 확인 후 Listen
 
@@ -147,6 +169,7 @@ namespace LiarsBar.Server
         public override void OnStopServer()
         {
             if (gameFlow != null) gameFlow.GameOver -= OnGameOver;
+            StopResultRoutine();
             base.OnStopServer();
         }
         public override void OnServerConnect(NetworkConnectionToClient conn)
@@ -193,16 +216,21 @@ namespace LiarsBar.Server
                 seats.Remove(seat);
                 Debug.Log($"[Server] 좌석 {seat} 비움 ({seats.Count}/{config.MaxSeats})");
 
-                if (GameInProgress)
+                if (phase == MatchPhase.Playing)
                 {
                     // 처리 규칙은 플레이어 담당
                     gameFlow.HandleDisconnect(seat);
+
+                    // 방이 비면 서버가 판을 정리 (GameFlow가 종료를 못 보낸 경우 대비)
+                    if (phase == MatchPhase.Playing && seats.Count == 0)
+                        EndGame(-1, "모두 나감", false);
                 }
-                else
+                else if (phase == MatchPhase.Lobby)
                 {
                     // 남은 인원으로 시작 조건 재확인
                     TryStartGame();
                 }
+                // 결과 연출 중이면 좌석만 비움
             }
             base.OnServerDisconnect(conn);
         }
@@ -245,7 +273,7 @@ namespace LiarsBar.Server
             foreach (int seat in playingSeats)
                 matchParticipants.Add(new MatchParticipant(seat, seats[seat].UserId));
 
-            GameInProgress = true;
+            phase = MatchPhase.Playing;
             Debug.Log($"[Server] 전원 준비 -> StartGame({string.Join(", ", playingSeats)})");
             gameFlow.StartGame(playingSeats);
         }
@@ -253,18 +281,50 @@ namespace LiarsBar.Server
         // winnerSeat -1 = 승자 없음
         private void OnGameOver(int winnerSeat)
         {
-            // 늦게 도착한 종료 신호 무시
-            if (!GameInProgress) return;
+            EndGame(winnerSeat, "GameFlow 종료", true);
+        }
 
-            GameInProgress = false;
+        // normalEnd: 저장 + 결과 연출 대기 / false: 기록 없이 바로 로비
+        private void EndGame(int winnerSeat, string reason, bool normalEnd)
+        {
+            // 늦게 도착한 종료 신호 무시
+            if (phase != MatchPhase.Playing) return;
+
+            phase = MatchPhase.Result;
+            float wait = normalEnd ? config.ResultSeconds : 0f;
+            Debug.Log($"[Server] 게임 종료 - 승자 좌석 {winnerSeat} ({reason}), {wait}초 뒤 로비 복귀");
+
+            // 저장은 기다리지 않음 (결과 연출 중 전적 갱신)
+            if (normalEnd && config.UseDatabase && Db.IsAvailable)
+                _ = SaveMatchAsync(winnerSeat);
+
+            if (wait > 0f) resultRoutine = StartCoroutine(ReturnToLobbyAfter(wait));
+            else ReturnToLobby();
+        }
+
+        private IEnumerator ReturnToLobbyAfter(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            resultRoutine = null;
+            ReturnToLobby();
+        }
+
+        private void ReturnToLobby()
+        {
+            if (phase != MatchPhase.Result) return;
+
+            phase = MatchPhase.Lobby;
             foreach (PlayerProfile p in seats.Values)
                 p.ServerResetReady();
 
-            Debug.Log($"[Server] 게임 종료 - 승자 좌석 {winnerSeat}, 로비 복귀");
+            Debug.Log($"[Server] 로비 복귀 ({seats.Count}명)");
+        }
 
-            // 저장은 기다리지 않음
-            if (config.UseDatabase && Db.IsAvailable)
-                _ = SaveMatchAsync(winnerSeat);
+        private void StopResultRoutine()
+        {
+            if (resultRoutine == null) return;
+            StopCoroutine(resultRoutine);
+            resultRoutine = null;
         }
 
         private async Task SaveMatchAsync(int winnerSeat)
