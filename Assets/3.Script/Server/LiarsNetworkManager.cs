@@ -19,7 +19,7 @@ namespace LiarsBar.Server
         [Tooltip("좌석 0~3 위치. 비어 있으면 원점에 스폰")]
         [SerializeField] private Transform[] seatSpawnPoints;
 
-        [Tooltip("IGameFlow 구현 컴포넌트. 비우면 같은 오브젝트에서 자동으로 찾음")]
+        [Tooltip("IGameFlow 구현 컴포넌트 (씬의 DeckGamePlayManager 등). 비우면 같은 오브젝트에서 자동으로 찾음")]
         [SerializeField] private MonoBehaviour gameFlowBehaviour;
 
         private readonly Dictionary<int, PlayerProfile> seats = new();
@@ -76,6 +76,7 @@ namespace LiarsBar.Server
                 return;
             }
             gameFlow.GameOver += OnGameOver;
+            Debug.Log($"[Server] GameFlow = {gameFlow.GetType().Name}");
         }
         // 서버 시작 입구: DB 확인 후 Listen
 
@@ -197,6 +198,10 @@ namespace LiarsBar.Server
                 {
                     // 처리 규칙은 플레이어 담당
                     gameFlow.HandleDisconnect(seat);
+
+                    // 방이 비면 서버가 판을 정리 (GameFlow가 종료를 못 보낸 경우 대비)
+                    if (GameInProgress && seats.Count == 0)
+                        EndGame(-1, "모두 나감", false);
                 }
                 else
                 {
@@ -253,6 +258,11 @@ namespace LiarsBar.Server
         // winnerSeat -1 = 승자 없음
         private void OnGameOver(int winnerSeat)
         {
+            EndGame(winnerSeat, "GameFlow 종료", true);
+        }
+
+        private void EndGame(int winnerSeat, string reason, bool saveMatch)
+        {
             // 늦게 도착한 종료 신호 무시
             if (!GameInProgress) return;
 
@@ -260,10 +270,10 @@ namespace LiarsBar.Server
             foreach (PlayerProfile p in seats.Values)
                 p.ServerResetReady();
 
-            Debug.Log($"[Server] 게임 종료 - 승자 좌석 {winnerSeat}, 로비 복귀");
+            Debug.Log($"[Server] 게임 종료 - 승자 좌석 {winnerSeat} ({reason}), 로비 복귀");
 
             // 저장은 기다리지 않음
-            if (config.UseDatabase && Db.IsAvailable)
+            if (saveMatch && config.UseDatabase && Db.IsAvailable)
                 _ = SaveMatchAsync(winnerSeat);
         }
 
