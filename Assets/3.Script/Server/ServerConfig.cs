@@ -20,6 +20,9 @@ namespace LiarsBar.Server
         [Tooltip("게임 시작 최소 인원. 개발 중 2, 실제 4")]
         [SerializeField, Range(1, 4)] private int minPlayersToStart = 2;
 
+        [Tooltip("게임 종료 후 결과 연출 시간(초). 이 시간이 지나야 로비로 돌아간다")]
+        [SerializeField] private float resultSeconds = 10f;
+
         [Header("Database")]
         [Tooltip("끄면 DB 없이 실행 (개발용). 접속 정보는 Database/db.local.json 또는 환경변수")]
         [SerializeField] private bool useDatabase = false;
@@ -36,6 +39,7 @@ namespace LiarsBar.Server
         public ushort Port => port;
         public int MaxSeats => maxSeats;
         public int MinPlayersToStart => minPlayersToStart;
+        public float ResultSeconds => resultSeconds;
         public int NicknameMinLength => nicknameMinLength;
         public int NicknameMaxLength => nicknameMaxLength;
         public bool UseDatabase => useDatabase;
@@ -45,6 +49,7 @@ namespace LiarsBar.Server
         private void OnValidate()
         {
             if (minPlayersToStart > maxSeats) minPlayersToStart = maxSeats;
+            if (resultSeconds < 0f) resultSeconds = 0f;
             if (nicknameMinLength < 1) nicknameMinLength = 1;
             if (nicknameMaxLength < nicknameMinLength) nicknameMaxLength = nicknameMinLength;
             if (passwordMinLength < 1) passwordMinLength = 1;
