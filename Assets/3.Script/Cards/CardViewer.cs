@@ -19,8 +19,8 @@ public class CardViewer : MonoBehaviour
 
     private void Awake()
     {
-        faceFilter = GetComponent<MeshFilter>();
-        faceRenderer = GetComponent<MeshRenderer>();
+        faceFilter = GetComponentInChildren<MeshFilter>();
+        faceRenderer = GetComponentInChildren<MeshRenderer>();
     }
     public void SetFace(CardType type)
     {
