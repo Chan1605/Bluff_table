@@ -8,9 +8,14 @@ public class CardPlacer : MonoBehaviour
     const int DeckSize = 20;
     const int PerType = 6;
     const int NonJoker = 18;
+    const int HandSize = 5;
+    const int MaxSeats = 4;
 
     [SerializeField] private Transform tableCenter;
     [SerializeField] private Transform cardPool;
+    [SerializeField] Transform[] seatDealAnchors = new Transform[MaxSeats];
+    [Tooltip("테이블 카드 선언 연출. 비워 두면 선언 없이 바로 배분한다.")]
+    //[SerializeField] TableCardAnnouncer announcer;
 
     [Header("카드 배치 정보")]
     [SerializeField] private float gapX = 0.09f, gapZ = 0.06f, thickness = 0.005f;
