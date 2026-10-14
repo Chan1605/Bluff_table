@@ -124,12 +124,8 @@ MonoBehaviour:
   evaluationInterval: 3
   timeInterpolationGui: 0
   config: {fileID: 11400000, guid: a7fdb5c5e745453498ef07c0ca523080, type: 2}
-  seatSpawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  gameFlowPrefab: {fileID: 2588528693608940004, guid: 4a457aaeb3cf22e48a45b6995977f713, type: 3}
+  seatSpawnPoints: []
+  gameFlowPrefab: {fileID: 4001995943901237328, guid: 98d02d63856537c40b89f13896be3517, type: 3}
 --- !u!114 &-6183377151534730211
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1282,6 +1282,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727457479}
   m_CullTransparentMesh: 1
+--- !u!1001 &1779089837
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3298989736239962170, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_Name
+      value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154139775015844827, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
 --- !u!1 &1803155149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,19 +2661,6 @@ RectTransform:
   m_AnchoredPosition: {x: -620, y: -42}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1031383015090238112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517438788309384119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09f5c8bf2f4747b7a9284ef5d9ce2a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Mirror.Components::Mirror.MatchInterestManagement
-  matchCount: 0
 --- !u!114 &1065323930020819880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3295,24 +3339,6 @@ MonoBehaviour:
   duration: 0.25
   showEase: 6
   hideEase: 5
---- !u!114 &1366666683714574224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517438788309384119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aa135acc32a4383ae9a5817f018cb06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Mirror.Transports::Mirror.Transports.Encryption.EncryptionTransport
-  Inner: {fileID: 2862249999121485961}
-  ClientValidateServerPubKey: 1
-  ClientTrustedPubKeySignatures:
-  - d0c09faff67634fbfbe5faa0a3f8e2b3700e541595e5f2ddae479b2c29f9e031
-  ServerLoadKeyPairFromFile: 1
-  ServerKeypairPath: ServerKeys/server-keys.json
 --- !u!222 &1367264328491407826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3742,28 +3768,6 @@ GameObject:
   - component: {fileID: 8361934146041286817}
   m_Layer: 5
   m_Name: BtnGroup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1517438788309384119
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9169458545969436758}
-  - component: {fileID: 1948556598844236487}
-  - component: {fileID: 2862249999121485961}
-  - component: {fileID: 1766841051419890667}
-  - component: {fileID: 1366666683714574224}
-  - component: {fileID: 1031383015090238112}
-  - component: {fileID: 9169458545969436759}
-  m_Layer: 0
-  m_Name: NetworkManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4209,58 +4213,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
---- !u!114 &1766841051419890667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517438788309384119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4844acfe1f053ee479d15bb99c13f0cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LiarsNetworkManager
-  dontDestroyOnLoad: 1
-  runInBackground: 1
-  headlessStartMode: 0
-  editorAutoStart: 0
-  sendRate: 60
-  offlineScene: 
-  onlineScene: 
-  offlineSceneLoadDelay: 0
-  transport: {fileID: 1366666683714574224}
-  networkAddress: localhost
-  maxConnections: 100
-  disconnectInactiveConnections: 0
-  disconnectInactiveTimeout: 60
-  authenticator: {fileID: 0}
-  playerPrefab: {fileID: 3367960496955974029, guid: 1bf7c78bae304aa4897ef210d67f2d98, type: 3}
-  autoCreatePlayer: 1
-  playerSpawnMethod: 0
-  spawnPrefabs: []
-  exceptionsDisconnect: 1
-  snapshotSettings:
-    bufferTimeMultiplier: 2
-    bufferLimit: 32
-    catchupNegativeThreshold: -1
-    catchupPositiveThreshold: 1
-    catchupSpeed: 0.019999999552965164
-    slowdownSpeed: 0.03999999910593033
-    driftEmaDuration: 1
-    dynamicAdjustment: 1
-    dynamicAdjustmentTolerance: 1
-    deliveryTimeEmaDuration: 2
-  evaluationMethod: 0
-  evaluationInterval: 3
-  timeInterpolationGui: 0
-  config: {fileID: 11400000, guid: a7fdb5c5e745453498ef07c0ca523080, type: 2}
-  seatSpawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  gameFlowPrefab: {fileID: 2588528693608940004, guid: 4a457aaeb3cf22e48a45b6995977f713, type: 3}
 --- !u!224 &1771868902475272985
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4405,18 +4357,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3867040069796059788}
   m_CullTransparentMesh: 1
---- !u!114 &1948556598844236487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517438788309384119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eece5111c5cdc848b65fb18c1db3c2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DevLobbyPanel
 --- !u!1 &1980111914304006714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5910,35 +5850,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2862249999121485961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517438788309384119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Mirror.Transports::kcp2k.KcpTransport
-  port: 7777
-  DualMode: 1
-  NoDelay: 1
-  Interval: 10
-  Timeout: 10000
-  RecvBufferSize: 7361536
-  SendBufferSize: 7361536
-  FastResend: 2
-  ReceiveWindowSize: 4096
-  SendWindowSize: 4096
-  MaxRetransmit: 40
-  MaximizeSocketBuffers: 1
-  ReliableMaxMessageSize: 297433
-  UnreliableMaxMessageSize: 1194
-  debugLog: 0
-  statisticsGUI: 0
-  statisticsLog: 0
 --- !u!1 &2862824844204976784
 GameObject:
   m_ObjectHideFlags: 0
@@ -10427,7 +10338,7 @@ MonoBehaviour:
   nickInput: {fileID: 2829860732976861945}
   passwordInput: {fileID: 1383632661082531519}
   messageText: {fileID: 1803155151}
-  devHostFallback: 1
+  devHostFallback: 0
 --- !u!222 &6326731010528305205
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14078,35 +13989,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &9169458545969436758
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517438788309384119}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 754.4963, y: 361.69708, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9169458545969436759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517438788309384119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b8bba2178b8660478cd6667f80da81f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LiarsBar.Server.RoomScenes
-  waitingRoomScene: Zino_Waiting
-  tableScene: Zino_Table
 --- !u!224 &9181298583459236912
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14171,5 +14053,5 @@ SceneRoots:
   - {fileID: 694394405}
   - {fileID: 1688894728}
   - {fileID: 953349739}
-  - {fileID: 9169458545969436758}
   - {fileID: 231764386}
+  - {fileID: 1779089837}
