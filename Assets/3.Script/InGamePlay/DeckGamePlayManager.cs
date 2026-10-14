@@ -32,21 +32,36 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     public void StartGame(int[] seats)
     {
         Debug.Log($"[인게임] StartGame 진입 성공. 전달받은 좌석 수 : {seats.Length}");
+        Array.Clear(Players, 0, Players.Length);
 
-        NetworkServer.RebuildObservers(this.netIdentity, false);
-        PlayerState[] foundPlayers = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
+        //NetworkServer.RebuildObservers(this.netIdentity, false);
+        //PlayerState[] foundPlayers = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
+        //List<PlayerProfile> foundPlayers = new List<PlayerProfile>();
 
-        Debug.Log($"[인게임] 씬에서 찾은 PlayerState 개수 : {foundPlayers.Length}");
-
-        foreach (PlayerState pState in foundPlayers)
+        foreach (int seat in seats)
         {
-            NetworkServer.RebuildObservers(pState.netIdentity, false);
+            if (seat < 0 || seat >= Players.Length)
+            {
+                Debug.Log($"[인게임] : 좌석 범위 초과 {seat}");
+                return;
+            }
 
-            int seatNum = pState.GetComponent<PlayerProfile>().Seat;
-            Players[seatNum] = pState;
-            pState.SeatNum = seatNum;
-            pState.deckManager = this;
-            pState.ResetState();
+            if (!LiarsNetworkManager.Instance.TryGetPlayer(this, seat, out PlayerProfile pProfile) || pProfile == null)
+            {
+                Debug.Log($"[인게임] {seat} 번 플레이어 조회 실패");
+                return;
+            }
+
+            if(!pProfile.TryGetComponent<PlayerState>(out PlayerState pState))
+            {
+                Debug.Log($"[인게임] {seat} 번 PlayerState 없음");
+                return;
+            }
+
+                Players[seat] = pState;
+                pState.SeatNum = seat;
+                pState.deckManager = this;
+                pState.ResetState();
         }
 
         accumTurnIndex = 0;
@@ -80,7 +95,6 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
                 AllivePlayer = curPlayer;
                 curPlayer.RoundReset();
             }
-
         }
 
         if (Allive == 1 && AllivePlayer!= null)
@@ -91,6 +105,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         else if (Allive ==0)
         {
             Debug.Log("[인게임] 생존자 없음");
+            return;
         }
 
         previousCards.Clear();
