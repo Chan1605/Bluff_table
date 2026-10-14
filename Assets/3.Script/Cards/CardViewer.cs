@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CardViewer : MonoBehaviour
 {
-    [SerializeField] MeshFilter faceFilter;
-    [SerializeField] MeshRenderer faceRenderer;
 
     [SerializeField] private Material ShownMat, hiddenMat;
 
@@ -16,6 +14,14 @@ public class CardViewer : MonoBehaviour
     public int Index { get; set; } = -1;
     public bool IsRevealed { get; private set; }
 
+    private MeshFilter faceFilter;
+    private MeshRenderer faceRenderer;
+
+    private void Awake()
+    {
+        faceFilter = GetComponent<MeshFilter>();
+        faceRenderer = GetComponent<MeshRenderer>();
+    }
     public void SetFace(CardType type)
     {
         IsRevealed = true;

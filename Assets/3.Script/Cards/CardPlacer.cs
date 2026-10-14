@@ -35,9 +35,7 @@ public class CardPlacer : MonoBehaviour
 
     public float RevealTotalDuration =>
           spreadStagger * (DeckSize - 1) + spreadMove
-        + flipDuration
-        + holdDuration
-        + flipDuration
+        + flipDuration + holdDuration + flipDuration
         + gatherStagger * (DeckSize - 1) + gatherMove;
 
     void Awake()

@@ -130,13 +130,14 @@ GameObject:
   - component: {fileID: 32133129}
   - component: {fileID: 32133131}
   - component: {fileID: 32133130}
+  - component: {fileID: 32133132}
   m_Layer: 0
   m_Name: Card_K (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &32133129
 Transform:
   m_ObjectHideFlags: 0
@@ -208,6 +209,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32133128}
   m_Mesh: {fileID: 3919905300747425262, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &32133132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32133128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &125298865
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,13 +291,14 @@ GameObject:
   - component: {fileID: 247916926}
   - component: {fileID: 247916928}
   - component: {fileID: 247916927}
+  - component: {fileID: 247916929}
   m_Layer: 0
   m_Name: Card_K (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &247916926
 Transform:
   m_ObjectHideFlags: 0
@@ -348,6 +370,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247916925}
   m_Mesh: {fileID: 3919905300747425262, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &247916929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247916925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &255620165
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,13 +401,14 @@ GameObject:
   - component: {fileID: 255620166}
   - component: {fileID: 255620168}
   - component: {fileID: 255620167}
+  - component: {fileID: 255620169}
   m_Layer: 0
   m_Name: Card_J
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &255620166
 Transform:
   m_ObjectHideFlags: 0
@@ -437,6 +480,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255620165}
   m_Mesh: {fileID: -826130551984608631, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &255620169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255620165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!114 &271028024 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1323401844657738275, guid: 74e2655aa5c908449b78eca3389ec7c0, type: 3}
@@ -459,13 +522,14 @@ GameObject:
   - component: {fileID: 321175146}
   - component: {fileID: 321175148}
   - component: {fileID: 321175147}
+  - component: {fileID: 321175149}
   m_Layer: 0
   m_Name: Card_K
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &321175146
 Transform:
   m_ObjectHideFlags: 0
@@ -537,6 +601,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321175145}
   m_Mesh: {fileID: 3919905300747425262, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &321175149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321175145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &485639511
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,13 +632,14 @@ GameObject:
   - component: {fileID: 485639512}
   - component: {fileID: 485639514}
   - component: {fileID: 485639513}
+  - component: {fileID: 485639515}
   m_Layer: 0
   m_Name: Card_Q (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &485639512
 Transform:
   m_ObjectHideFlags: 0
@@ -626,6 +711,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485639511}
   m_Mesh: {fileID: 8473271436477100802, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &485639515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485639511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1001 &604179850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1032,13 +1137,14 @@ GameObject:
   - component: {fileID: 881827983}
   - component: {fileID: 881827985}
   - component: {fileID: 881827984}
+  - component: {fileID: 881827986}
   m_Layer: 0
   m_Name: Card_Q (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &881827983
 Transform:
   m_ObjectHideFlags: 0
@@ -1110,6 +1216,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881827982}
   m_Mesh: {fileID: 8473271436477100802, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &881827986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881827982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &916482873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,13 +1385,14 @@ GameObject:
   - component: {fileID: 1055053551}
   - component: {fileID: 1055053553}
   - component: {fileID: 1055053552}
+  - component: {fileID: 1055053554}
   m_Layer: 0
   m_Name: Card_Q (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1055053551
 Transform:
   m_ObjectHideFlags: 0
@@ -1337,6 +1464,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055053550}
   m_Mesh: {fileID: 8473271436477100802, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1055053554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055053550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1182676948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,13 +1495,14 @@ GameObject:
   - component: {fileID: 1182676949}
   - component: {fileID: 1182676951}
   - component: {fileID: 1182676950}
+  - component: {fileID: 1182676952}
   m_Layer: 0
   m_Name: Card_J (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1182676949
 Transform:
   m_ObjectHideFlags: 0
@@ -1426,6 +1574,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182676948}
   m_Mesh: {fileID: -826130551984608631, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1182676952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182676948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1217760517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,13 +1605,14 @@ GameObject:
   - component: {fileID: 1217760518}
   - component: {fileID: 1217760520}
   - component: {fileID: 1217760519}
+  - component: {fileID: 1217760521}
   m_Layer: 0
   m_Name: Card_A (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1217760518
 Transform:
   m_ObjectHideFlags: 0
@@ -1515,6 +1684,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217760517}
   m_Mesh: {fileID: -4075737836786541201, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1217760521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217760517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1001 &1291386349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1600,13 +1789,14 @@ GameObject:
   - component: {fileID: 1349162633}
   - component: {fileID: 1349162635}
   - component: {fileID: 1349162634}
+  - component: {fileID: 1349162636}
   m_Layer: 0
   m_Name: Card_A (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1349162633
 Transform:
   m_ObjectHideFlags: 0
@@ -1678,6 +1868,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349162632}
   m_Mesh: {fileID: -4075737836786541201, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1349162636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349162632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1407676213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,13 +1899,14 @@ GameObject:
   - component: {fileID: 1407676214}
   - component: {fileID: 1407676216}
   - component: {fileID: 1407676215}
+  - component: {fileID: 1407676217}
   m_Layer: 0
   m_Name: Card_Q (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1407676214
 Transform:
   m_ObjectHideFlags: 0
@@ -1767,6 +1978,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407676213}
   m_Mesh: {fileID: 8473271436477100802, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1407676217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407676213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1430485721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,13 +2009,14 @@ GameObject:
   - component: {fileID: 1430485722}
   - component: {fileID: 1430485724}
   - component: {fileID: 1430485723}
+  - component: {fileID: 1430485725}
   m_Layer: 0
   m_Name: Card_K (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1430485722
 Transform:
   m_ObjectHideFlags: 0
@@ -1856,6 +2088,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430485721}
   m_Mesh: {fileID: 3919905300747425262, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1430485725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430485721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1478172330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +2117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1478172331}
+  - component: {fileID: 1478172332}
   m_Layer: 0
   m_Name: TableCenter
   m_TagString: Untagged
@@ -1888,6 +2141,32 @@ Transform:
   - {fileID: 1612888345}
   m_Father: {fileID: 543450652532313206}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -7}
+--- !u!114 &1478172332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478172330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1af7398db36e3b49a8f4ea721735be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardPlacer
+  tableCenter: {fileID: 1478172331}
+  cardPool: {fileID: 1617214171}
+  gapX: 0.09
+  gapZ: 0.06
+  thickness: 0.005
+  spreadMove: 0.3
+  spreadStagger: 0.03
+  flipDuration: 0.25
+  flipRowStagger: 0.06
+  flipJump: 0.03
+  holdDuration: 1.5
+  gatherMove: 0.35
+  gatherStagger: 0.02
+  revealEveryRound: 0
 --- !u!1 &1506134471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,13 +2315,14 @@ GameObject:
   - component: {fileID: 1577026238}
   - component: {fileID: 1577026240}
   - component: {fileID: 1577026239}
+  - component: {fileID: 1577026241}
   m_Layer: 0
   m_Name: Card_K (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1577026238
 Transform:
   m_ObjectHideFlags: 0
@@ -2114,6 +2394,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577026237}
   m_Mesh: {fileID: 3919905300747425262, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1577026241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577026237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1588267859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,13 +2750,14 @@ GameObject:
   - component: {fileID: 1655973683}
   - component: {fileID: 1655973685}
   - component: {fileID: 1655973684}
+  - component: {fileID: 1655973686}
   m_Layer: 0
   m_Name: Card_K (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1655973683
 Transform:
   m_ObjectHideFlags: 0
@@ -2528,6 +2829,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655973682}
   m_Mesh: {fileID: 3919905300747425262, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1655973686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655973682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1676590188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,6 +2860,7 @@ GameObject:
   - component: {fileID: 1676590189}
   - component: {fileID: 1676590191}
   - component: {fileID: 1676590190}
+  - component: {fileID: 1676590192}
   m_Layer: 0
   m_Name: Card_A
   m_TagString: Untagged
@@ -2617,6 +2939,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676590188}
   m_Mesh: {fileID: -4075737836786541201, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1676590192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676590188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
 --- !u!114 &1729209967 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1323401844657738275, guid: 74e2655aa5c908449b78eca3389ec7c0, type: 3}
@@ -2661,13 +3003,14 @@ GameObject:
   - component: {fileID: 1767772410}
   - component: {fileID: 1767772412}
   - component: {fileID: 1767772411}
+  - component: {fileID: 1767772413}
   m_Layer: 0
   m_Name: Card_A (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1767772410
 Transform:
   m_ObjectHideFlags: 0
@@ -2739,6 +3082,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767772409}
   m_Mesh: {fileID: -4075737836786541201, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1767772413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767772409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1901051092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2785,13 +3148,14 @@ GameObject:
   - component: {fileID: 1912108546}
   - component: {fileID: 1912108548}
   - component: {fileID: 1912108547}
+  - component: {fileID: 1912108549}
   m_Layer: 0
   m_Name: Card_Q (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1912108546
 Transform:
   m_ObjectHideFlags: 0
@@ -2863,6 +3227,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912108545}
   m_Mesh: {fileID: 8473271436477100802, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1912108549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912108545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1954811707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,13 +3258,14 @@ GameObject:
   - component: {fileID: 1954811708}
   - component: {fileID: 1954811710}
   - component: {fileID: 1954811709}
+  - component: {fileID: 1954811711}
   m_Layer: 0
   m_Name: Card_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1954811708
 Transform:
   m_ObjectHideFlags: 0
@@ -2952,6 +3337,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954811707}
   m_Mesh: {fileID: 8473271436477100802, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &1954811711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954811707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1 &1960488665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3149,6 +3554,7 @@ GameObject:
   - component: {fileID: 2049880585}
   - component: {fileID: 2049880587}
   - component: {fileID: 2049880586}
+  - component: {fileID: 2049880588}
   m_Layer: 0
   m_Name: Card_A (1)
   m_TagString: Untagged
@@ -3227,6 +3633,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049880584}
   m_Mesh: {fileID: -4075737836786541201, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &2049880588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049880584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1001 &2121355924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3300,13 +3726,14 @@ GameObject:
   - component: {fileID: 2129966473}
   - component: {fileID: 2129966475}
   - component: {fileID: 2129966474}
+  - component: {fileID: 2129966476}
   m_Layer: 0
   m_Name: Card_A (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2129966473
 Transform:
   m_ObjectHideFlags: 0
@@ -3378,6 +3805,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129966472}
   m_Mesh: {fileID: -4075737836786541201, guid: 43b96abd73e3a5446abea9a47d9e7e9f, type: 3}
+--- !u!114 &2129966476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129966472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cff6021adebbb4bab07465197e77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewer
+  ShownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
+  hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  typeMeshes:
+  - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: 7968659010892886557, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  - {fileID: -826130551984608631, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  hiddenMesh: {fileID: 0}
 --- !u!1001 &44127198463926048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3390,6 +3837,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 57c7b186343528e47af8a463dc87d9fa, type: 2}
+    - target: {fileID: 554948422722949033, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 587727935122464979, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402681980042128604, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2197406502193768400, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
       propertyPath: m_Name
       value: Dubai_Rig_final_v02 (merge)
@@ -3434,14 +3893,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2933171057462107130, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3032988511090705230, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 57c7b186343528e47af8a463dc87d9fa, type: 2}
+    - target: {fileID: 4457163291058877438, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7432846682099952277, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 6079288695729689865}
+    - target: {fileID: 7461933754744258444, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510730331564023853, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961152504214396813, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977111003959188484, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9180023703543368558, guid: b80b09dfffeed874188276e6b62b83a9, type: 3}
       propertyPath: body
       value: 
@@ -3637,6 +4120,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 172514845941420816, guid: 85a5e06d2bece8a48b89714deeedd2b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 317689992855539655, guid: 85a5e06d2bece8a48b89714deeedd2b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3692,6 +4179,14 @@ PrefabInstance:
     - target: {fileID: 5958471474659767634, guid: 85a5e06d2bece8a48b89714deeedd2b1, type: 3}
       propertyPath: m_Name
       value: gerk_unity_v8 (merge)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261941361487142064, guid: 85a5e06d2bece8a48b89714deeedd2b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270669317679256108, guid: 85a5e06d2bece8a48b89714deeedd2b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -3924,6 +4419,14 @@ PrefabInstance:
     - target: {fileID: 369237561297988108, guid: 69452601932b5454a8729f18c7377d43, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824646311332551513, guid: 69452601932b5454a8729f18c7377d43, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00437
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824646311332551513, guid: 69452601932b5454a8729f18c7377d43, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00566
       objectReference: {fileID: 0}
     - target: {fileID: 2501414513326638519, guid: 69452601932b5454a8729f18c7377d43, type: 3}
       propertyPath: m_Name
