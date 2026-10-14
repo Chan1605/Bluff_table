@@ -35,11 +35,12 @@ public class CardPlacer : MonoBehaviour
     [SerializeField] private float gatherStagger = 0.02f;
 
     [Header("배분")]
-    [SerializeField] float dealSlotGap = 0.07f;      // 좌석 앞 5장 사이 간격
-    [SerializeField] float dealMove = 0.4f;          // 한 장이 덱 → 좌석까지 걸리는 시간
-    [SerializeField] float dealJump = 0.12f;         // 포물선 높이
-    [SerializeField] float dealCardStagger = 0.04f;  // 같은 좌석 5장 사이 시차
-    [SerializeField] float dealSeatGap = 0.15f;      // 좌석과 좌석 사이 쉬는 시간
+    [SerializeField] float dealMove = 0.35f;         
+    [SerializeField] float dealCardStagger = 0.04f;  
+    [SerializeField] float dealSpreadDelay = 0.1f;   
+    [SerializeField] float dealSpread = 0.25f;       
+    [SerializeField] float dealSlotGap = 0.07f;      
+    [SerializeField] float dealSeatGap = 0.15f;
 
     [SerializeField] bool revealEveryRound = false;
 
@@ -69,7 +70,8 @@ public class CardPlacer : MonoBehaviour
         + flipDuration + holdDuration + flipDuration
         + gatherStagger * (DeckSize - 1) + gatherMove;
 
-    float DealGroupDuration => dealCardStagger * (HandSize - 1) + dealMove;
+    float DealGroupDuration =>
+    dealCardStagger * (HandSize - 1) + dealMove + dealSpreadDelay + dealSpread;
 
     public float DealDuration(int seatCount) => seatCount * (DealGroupDuration + dealSeatGap);
 
@@ -97,6 +99,7 @@ public class CardPlacer : MonoBehaviour
 
     void Start()
     {
+        Debug.Log($"[연출] tableCenter 실제 스케일: {tableCenter.lossyScale}, 앵커0: {seatDealAnchors[0].lossyScale}");
         ResetToDeck();
         Debug.Log($"[연출] 20장 공개 {RevealTotalDuration:0.00}초 / 4인 배분 {DealDuration(MaxSeats):0.00}초");
     }
@@ -239,9 +242,7 @@ public class CardPlacer : MonoBehaviour
         yield return new WaitForSeconds(gatherStagger * (n - 1) + gatherMove);
     }
 
-    // ───────────── 배분 ─────────────
 
-    /// <summary>배분 대상: 접속 중(PlayerProfile 존재)이고 죽지 않은 좌석, 오름차순.</summary>
     List<int> GetDealSeats()
     {
         var seats = new List<int>();
@@ -270,7 +271,8 @@ public class CardPlacer : MonoBehaviour
         return PlayerProfile.Local != null ? PlayerProfile.Local.Seat : -1;
     }
 
-    /// <summary>좌석 앞 5장 가로 배치. 가운데(2번)가 앵커 위치.</summary>
+    Vector3 BundleLocal(int slot) => new Vector3(0f, slot * thickness, 0f);
+
     Vector3 DealSlotLocal(int slot) =>
         new Vector3((slot - (HandSize - 1) * 0.5f) * dealSlotGap, 0f, 0f);
 
@@ -278,7 +280,7 @@ public class CardPlacer : MonoBehaviour
     {
         List<int> seats = GetDealSeats();
         int localSeat = GetLocalSeat();
-        int deckTop = cards.Length - 1;   // 덱 맨 위부터 꺼낸다
+        int deckTop = cards.Length - 1;
 
         foreach (int seat in seats)
         {
@@ -289,7 +291,9 @@ public class CardPlacer : MonoBehaviour
                 continue;
             }
 
-            // 5장을 한 묶음으로, 살짝 시차를 두고 동시에 날린다
+            var group = new List<Transform>(HandSize);
+
+            // 1) 덱에서 좌석 앞으로 직선 이동 → 앵커 중앙에 묶음으로 쌓임
             for (int slot = 0; slot < HandSize && deckTop >= 0; slot++)
             {
                 CardViewer card = cards[deckTop--];
@@ -297,22 +301,29 @@ public class CardPlacer : MonoBehaviour
                 t.SetParent(anchor, true);
 
                 float delay = slot * dealCardStagger;
-                t.DOLocalJump(DealSlotLocal(slot), dealJump, 1, dealMove).SetDelay(delay).SetEase(Ease.OutQuad);
+                t.DOLocalMove(BundleLocal(slot), dealMove).SetDelay(delay).SetEase(Ease.OutCubic);
                 t.DOLocalRotateQuaternion(FaceDown, dealMove).SetDelay(delay);
 
+                group.Add(t);
                 if (seat == localSeat)
                     myFrontCards.Add(card);   // 슬롯 순서 = 손패 인덱스 순서
+            }
+
+            // 2) 다 도착하면 잠깐 멈췄다가 옆으로 펼쳐서 5장임을 보여 준다
+            float spreadStart = dealCardStagger * (HandSize - 1) + dealMove + dealSpreadDelay;
+            for (int slot = 0; slot < group.Count; slot++)
+            {
+                group[slot].DOLocalMove(DealSlotLocal(slot), dealSpread)
+                           .SetDelay(spreadStart).SetEase(Ease.OutBack);
             }
 
             yield return new WaitForSeconds(DealGroupDuration + dealSeatGap);
         }
 
-        // 남은 카드(2~3인일 때)는 일단 덱에 그대로 둔다 → 다음 단계에서 테이블 아래로
-
         TryApplyMyHand();
     }
 
-    /// <summary>내 카드가 내 자리에 놓였고 손패 값도 도착했으면 앞면 정보를 입힌다.</summary>
+
     void TryApplyMyHand()
     {
         if (pendingHand == null || myFrontCards.Count == 0) return;
@@ -320,8 +331,8 @@ public class CardPlacer : MonoBehaviour
         int count = Mathf.Min(pendingHand.Count, myFrontCards.Count);
         for (int i = 0; i < count; i++)
         {
-            myFrontCards[i].Index = i;               // 서버 submitIndex 기준
-            myFrontCards[i].SetFace(pendingHand[i]); // 아직 뒷면이라 화면엔 안 보임
+            myFrontCards[i].Index = i;               
+            myFrontCards[i].SetFace(pendingHand[i]); 
         }
 
         pendingHand = null;
