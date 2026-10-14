@@ -8,6 +8,7 @@ public static class GameFlowTiming
     public const float GameEntry = 1f;
     public const float TableSetting = 1f;
     public const float DividingDeck = 1f;
+    public const float TurnTimer = 10f;
 
 
     public const float LierReveal = 1f;

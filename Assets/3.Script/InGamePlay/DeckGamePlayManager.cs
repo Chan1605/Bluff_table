@@ -20,6 +20,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private bool isResolvingLiar = false;
 
     private int accumTurnIndex = 0;
+    private int nextRoundStartSeat = 0;
+
     private PlayerState currentTurnPlayer;
 
     [SyncVar]
@@ -65,6 +67,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         }
 
         accumTurnIndex = 0;
+        nextRoundStartSeat = UnityEngine.Random.Range(0, Players.Length);
         StartCoroutine(StartRound_co());
     }
 
@@ -124,6 +127,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         devideDeck();
 
         //TODO 3. 턴 선정
+        accumTurnIndex = nextRoundStartSeat;
         NextTurn();
     }
 
@@ -132,13 +136,6 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         tableCard = (CardType)UnityEngine.Random.Range(0, 3);
         RpcStartRound(tableCard);
-    }
-
-    [ClientRpc]
-    private void RpcStartRound(CardType card)
-    {
-        InGameEvent.TriggerOnRoundStarted(card);
-        Debug.Log($"이번 테이블 카드는 {card} 입니다.");
     }
 
     [Server]
@@ -214,6 +211,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
                 Debug.Log($"[인게임] : 다음 턴 {seatIndex}번 좌석");
 
                 RpcTurnChanged(seatIndex);
+                StartCoroutine(TurnTimer_co(accumTurnIndex, seatIndex));
                 return;
             }
         }
@@ -221,44 +219,59 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         Debug.Log("[인게임] : 다음 턴을 받을 플레이어가 없습니다.");
     }
 
-    [ClientRpc]
-    private void RpcTurnChanged(int seatIndex)
-    {
-        InGameEvent.TriggerOnTurnChanged(seatIndex);
-    }
-
     [Server]
-    private bool PlayerTurnVerification(int trierSeat)
+    private IEnumerator TurnTimer_co(int expectedTurnIndex, int seatNum)
     {
-        if (isResolvingLiar)
-            return false;
+        yield return new WaitForSeconds(GameFlowTiming.TurnTimer);
 
-        if (currentTurnPlayer == null)
-            return false;
-
-        if (trierSeat != currentTurnPlayer.SeatNum)
+        if(!isResolvingLiar && accumTurnIndex == expectedTurnIndex)
         {
-            Debug.Log("[인게임] : 턴이 아닌 플레이어의 제출 감지됨");
-            return false;
-        }
+            Debug_RpcLog("[인게임] : 타임아웃");
 
-        return true;
+            if(!LastManStandingVerification())
+            {
+                Debug_RpcLog("[인게임] : 타임아웃, 강제 Liar 호출 (1대 1 )");
+                CallLiar(seatNum);
+            }
+            else
+            {
+                if(playerHands.TryGetValue(seatNum, out List<CardType> hand) && hand.Count>0)
+                {
+                    int randomIdx = UnityEngine.Random.Range(0, hand.Count);
+                    Debug_RpcLog($"[인게임] : 타임아웃, 강제 패 제출 ({randomIdx})");
+
+                    PlayerSubmitCard(seatNum, new int[] { randomIdx });
+                }
+            }
+        }
     }
 
     [Server]
     public void PlayerSubmitCard(int playerSeat, int[] submitIndex)
     {
-        if (!PlayerTurnVerification(playerSeat)) 
+        if (!PlayerTurnVerification(playerSeat))
+        {
+            Debug_RpcLog("[인게임] : 요청 거절 (플레이어 턴이 아닌 제출 감지)");
             return;
+        }
 
         if (submitIndex == null ||submitIndex.Length < 1 ||submitIndex.Length > 4)
+        {
+            Debug_RpcLog("[인게임] : 요청 거절 (제출한 카드가 없거나, 범위 초과. 1장 이상 4장 이하로 제출 요함)");
             return;
+        }
 
-        if (!playerHands.TryGetValue(playerSeat, out List<CardType> hands)) 
+        if (!playerHands.TryGetValue(playerSeat, out List<CardType> hands))
+        {
+            Debug_RpcLog("[인게임] : 요청 거절 (플레이어 손에서 해당 인덱스 카드를 찾을 수 없음)");
             return;
+        }
 
         if (!LastManStandingVerification())
+        {
+            Debug_RpcLog("[인게임] : 요청 거절 (플레이어가 두명 남은 상태에서 앞 사람이 모든 카드를 냄)");
             return;
+        }
 
 
         HashSet<int> usedIndex = new HashSet<int>();
@@ -298,6 +311,25 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         Players[playerSeat].TargetGiveCards(hands, false);
         NextTurn();
     }
+
+    [Server]
+    private bool PlayerTurnVerification(int trierSeat)
+    {
+        if (isResolvingLiar)
+            return false;
+
+        if (currentTurnPlayer == null)
+            return false;
+
+        if (trierSeat != currentTurnPlayer.SeatNum)
+        {
+            Debug.Log("[인게임] : 턴이 아닌 플레이어의 제출 감지됨");
+            return false;
+        }
+
+        return true;
+    }
+
     [Server]
     private bool LastManStandingVerification()
     {
@@ -325,12 +357,6 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             }
         }
         return true;
-    }
-
-    [ClientRpc]
-    public void RpcSubmitCard(int seatNum, int cardCount)
-    {
-        Debug.Log($"[인게임] : {seatNum}번 플레이어 카드 {cardCount}장 제출 완료");
     }
 
     [Server]
@@ -404,7 +430,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         isBullet = ResolveRoulette(loserSeat);
         yield return new WaitForSeconds(GameFlowTiming.LierReveal);
 
-        if(isBullet)
+        if (isBullet)
         {
             //처형
             RpcAnnounceExecute(loserSeat);
@@ -416,13 +442,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         }
         yield return new WaitForSeconds(GameFlowTiming.ResultDisplay);
 
+        nextRoundStartSeat = loserSeat;
         StartRound();
-    }
-
-    [ClientRpc]
-    private void RpcAnnounceLiar(int seat)
-    {
-        // 해당 유저 총 드는 이벤트 or 연출
     }
 
     [Server]
@@ -442,6 +463,33 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         }
     }
 
+    #region Client RPC
+
+    [ClientRpc]
+    private void RpcStartRound(CardType card)
+    {
+        InGameEvent.TriggerOnRoundStarted(card);
+        Debug.Log($"이번 테이블 카드는 {card} 입니다.");
+    }
+
+    [ClientRpc]
+    public void RpcSubmitCard(int seatNum, int cardCount)
+    {
+        Debug.Log($"[인게임] : {seatNum}번 플레이어 카드 {cardCount}장 제출 완료");
+    }
+
+    [ClientRpc]
+    private void RpcTurnChanged(int seatIndex)
+    {
+        InGameEvent.TriggerOnTurnChanged(seatIndex);
+    }
+
+    [ClientRpc]
+    private void RpcAnnounceLiar(int seat)
+    {
+        // 해당 유저 총 드는 이벤트 or 연출
+    }
+
     [ClientRpc]
     private void RpcAnnounceExecute(int seat)
     {
@@ -456,6 +504,20 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         Debug.Log($" [인게임] : {seat} 번째 유저 생존");
     }
 
+    [ClientRpc]
+    private void RpcAnnounceWinner(int winner)
+    {
+        Debug.Log($"{winner} 번 플레이어 승");
+    }
+
+    [ClientRpc]
+    private void Debug_RpcLog(string s)
+    {
+        Debug.Log(s);
+    }
+
+    #endregion
+
     [Server]
     private void EndGame(int winner)
     {
@@ -463,15 +525,11 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         GameOver?.Invoke(winner);
     }
 
-    [ClientRpc]
-    private void RpcAnnounceWinner(int winner)
-    {
-        Debug.Log($"{winner} 번 플레이어 승");
-    }
     public void HandleDisconnect(int seat)
     {
         Players[seat] = null;
         Debug.Log($"[Dummy] HandleDisconnect - 좌석 {seat}");
     }
+
 
 }
