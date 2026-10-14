@@ -169,28 +169,22 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     [Server]
     private void devideDeck()
     {
-        //List<CardType[]> devidedDeck = new List<CardType[]>();
-        Debug.Log($"[인게임] devideDeck 루프 시작");
 
-        for (int i = 0; i<4; i++)
+        for (int i = 0; i<Players.Length; i++)
         {
-            if (Players[i] == null) continue;
-            PlayerProfile profile = Players[i].GetComponent<PlayerProfile>();
-            NetworkConnectionToClient conn = profile.connectionToClient;
+            PlayerState player = Players[i];
 
-            Debug.Log($"[인게임] {i} 번 좌석 발견. 커넥션 상태 : {(conn!=null ? "정상(NotNull" : "Null")}");
-            List<CardType> nowPlayerDeck = new List<CardType>();
+            if (player == null) continue;
+
+            List<CardType> hand = new List<CardType>();
 
             for(int j = 0; j<5; j++)
             {
-                nowPlayerDeck.Add(serverDeck[(i * 5) + j]);
+                hand.Add(serverDeck[(i * 5) + j]);
             }
 
-            //devidedDeck.Add(nowPlayerDeck);
-            Debug.Log($"[인게임] {i} 번 좌석 플레이어에게 TargetGiveCards 호출 시도");
-
-            playerHands.Add(i,new List<CardType>(nowPlayerDeck));
-            Players[i].TargetGiveCards(nowPlayerDeck, Players[i].isDead);
+            playerHands.Add(i,hand);
+            player.TargetGiveCards(hand, player.isDead);
         }
     }
 
