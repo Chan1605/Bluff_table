@@ -34,6 +34,7 @@ public class LobbyListUI : MonoBehaviour
         if (refreshBtn != null) refreshBtn.onClick.AddListener(OnClickRefresh);
         if (quickJoinBtn != null) quickJoinBtn.onClick.AddListener(OnClickQuickJoin);
         if (joinWithIdBtn != null) joinWithIdBtn.onClick.AddListener(OnClickJoinWithId);
+        RoomList.OnChanged += Rebuild;   // 서버가 목록을 보내면 즉시 갱신
 
         isBusy = false;
         SetMessage(string.Empty);
@@ -45,6 +46,7 @@ public class LobbyListUI : MonoBehaviour
 
     private void OnDisable()
     {
+        RoomList.OnChanged -= Rebuild;
         if (backBtns != null)
         {
             foreach (Button b in backBtns)
@@ -184,6 +186,6 @@ public class LobbyListUI : MonoBehaviour
         SetMessage(msg);
         Debug.Log($"[LobbyListUI] Join result: {ok}, {msg}");
 
-        // TODO: ok일 때 방 대기 화면으로 전환
+        // 성공 시 별도 처리 없음: 대기실 전환은 RoomScenes가 담당한다.
     }
 }

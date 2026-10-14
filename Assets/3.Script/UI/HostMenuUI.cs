@@ -63,7 +63,9 @@ public class HostMenuUI : MonoBehaviour
     {
         isBusy = false;
         messageText.text = msg;   // 서버가 준 결과 메시지 그대로 표시
+        Debug.Log($"[HostMenuUI] Create result: {ok}, {msg}");
 
-        // TODO: ok일 때 방 대기 화면으로 전환
+        // 성공 시 별도 처리 없음: PlayerProfile.IsInRoom이 바뀌면
+        // 서버 팀원의 RoomScenes가 대기실 씬을 Additive로 자동 로드한다.
     }
 }
