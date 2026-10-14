@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using DG.Tweening;
 
 /// <summary>
@@ -14,26 +14,23 @@ using DG.Tweening;
 public class TableCardAnnouncer : MonoBehaviour
 {
     [Header("참조")]
-    [Tooltip("회전·이동·크기 조절의 중심. 선언 카드의 부모.")]
-    [SerializeField] Transform pivot;
-    [Tooltip("pivot의 자식. 에디터에서 카드가 똑바로 서서 pivot의 +Z(앞)를 보도록 로컬 회전을 맞춰 둔다.")]
-    [SerializeField] CardViewer card;
-    [Tooltip("World Space Canvas 루트. FaceCamera와 CanvasGroup을 붙인다. pivot의 자식이 아니어야 한다.")]
-    [SerializeField] Transform labelRoot;
-    [SerializeField] CanvasGroup labelGroup;
-    [SerializeField] TMP_Text labelText;
-    [SerializeField] Transform deckRoot;
+    [SerializeField] private Transform pivot;
+    [SerializeField] private CardViewer card;
+    [SerializeField] private Transform labelRoot;
+    [SerializeField] private CanvasGroup labelGroup;
+    [SerializeField] private Text labelText;
+    [SerializeField] private Transform deckRoot;
 
     [Header("위치 · 크기")]
-    [SerializeField] float riseHeight = 0.25f;      // 덱 위로 떠오르는 높이
-    [SerializeField] float shownScale = 2.5f;       // 떠올랐을 때 크기 (배)
-    [SerializeField] float labelAboveCard = 0.15f;  // 카드 위로 글자가 뜨는 높이
+    [SerializeField] private float riseHeight = 0.25f;      // 덱 위로 떠오르는 높이
+    [SerializeField] private float shownScale = 2.5f;       // 떠올랐을 때 크기 (배)
+    [SerializeField] private float labelAboveCard = 0.15f;  // 카드 위로 글자가 뜨는 높이
 
     [Header("시간 (초)")]
-    [SerializeField] float riseDuration = 0.5f;
-    [SerializeField] float spinDuration = 2.0f;
-    [SerializeField] int spinTurns = 2;
-    [SerializeField] float sinkDuration = 0.4f;
+    [SerializeField] private float riseDuration = 0.5f;
+    [SerializeField] private float spinDuration = 2.0f;
+    [SerializeField] private int spinTurns = 2;
+    [SerializeField] private float sinkDuration = 0.4f;
 
     public float Duration => riseDuration + spinDuration + sinkDuration;
 
