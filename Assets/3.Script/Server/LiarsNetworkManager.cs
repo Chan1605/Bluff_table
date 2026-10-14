@@ -16,7 +16,7 @@ namespace LiarsBar.Server
         [Tooltip("서버 설정 에셋 (주소 · 포트 · 인원 · 방 · 닉네임 규칙)")]
         [SerializeField] private ServerConfig config;
 
-        [Tooltip("좌석 0~3 위치 (모든 방이 같은 위치를 씀). 비어 있으면 원점")]
+        [Tooltip("좌석 0~3 기본 위치. 씬에 SeatAnchors가 있으면 그쪽을 먼저 씀")]
         [SerializeField] private Transform[] seatSpawnPoints;
 
         [Tooltip("방마다 하나씩 만들 IGameFlow 프리팹. NetworkIdentity가 있으면 NetworkMatch도 필요 (같은 방에만 보임)")]
@@ -299,7 +299,7 @@ namespace LiarsBar.Server
         private void EnterRoom(Room room, PlayerProfile player)
         {
             int seat = room.Add(player, config.MaxSeats);
-            player.ServerEnterRoom(room.Id, seat, room.Host == player);
+            player.ServerEnterRoom(room.Id, room.Title, seat, room.Host == player);
             SetMatch(player, room.MatchId);
 
             Transform spawn = GetSeatSpawnPoint(seat);

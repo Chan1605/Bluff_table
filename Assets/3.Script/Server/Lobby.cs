@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LiarsBar.Server
@@ -52,6 +53,29 @@ namespace LiarsBar.Server
                 int minPlayers = manager != null ? manager.Config.MinPlayersToStart : 2;
                 return count >= minPlayers;
             }
+        }
+
+        // 내 방 제목 (방 밖이면 "")
+        public static string CurrentRoomTitle
+        {
+            get
+            {
+                PlayerProfile me = PlayerProfile.Local;
+                return me != null ? me.RoomTitle : "";
+            }
+        }
+
+        // 내 방 사람들 (좌석 순). 방 밖이면 빈 목록
+        public static List<PlayerProfile> GetRoomMembers()
+        {
+            List<PlayerProfile> members = new();
+            PlayerProfile me = PlayerProfile.Local;
+            if (me == null || !me.IsInRoom) return members;
+
+            foreach (PlayerProfile p in PlayerProfile.All)
+                if (p.RoomId == me.RoomId && p.Seat >= 0) members.Add(p);
+            members.Sort((a, b) => a.Seat.CompareTo(b.Seat));
+            return members;
         }
 
         // 방장은 준비 없음
