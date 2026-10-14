@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/1.Scene/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/1.Scene/Zino/ZinoScene.unity
-    guid: da820cb9ff04bb943945fabe27228ea6
+    path: Assets/1.Scene/Jc_Title.unity
+    guid: d2171dd1ff38d4f49afaa04ad189a5b7
   - enabled: 1
     path: Assets/1.Scene/Zino/Zino_Waiting.unity
     guid: eb4a96f9c6b267547b60ced35c503beb
