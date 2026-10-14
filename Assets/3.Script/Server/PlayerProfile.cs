@@ -22,6 +22,9 @@ namespace LiarsBar.Server
         [SyncVar(hook = nameof(OnRoomChanged))]
         private int roomId;
 
+        [SyncVar(hook = nameof(OnRoomTitleChanged))]
+        private string roomTitle = "";
+
         [SyncVar(hook = nameof(OnHostChanged))]
         private bool isHost;
 
@@ -32,7 +35,7 @@ namespace LiarsBar.Server
         [SyncVar]
         private int prevWins;
 
-        [SyncVar]
+        [SyncVar(hook = nameof(OnPrevStatsChanged))]
         private int prevGamesPlayed = -1;
 
         [SyncVar]
@@ -48,6 +51,7 @@ namespace LiarsBar.Server
         public bool IsReady => isReady;
         public int RoomId => roomId;
         public bool IsInRoom => roomId > 0;
+        public string RoomTitle => roomTitle;
         public bool IsHost => isHost;
         public RoomPhase Phase => phase;
         public int PrevGamesPlayed => prevGamesPlayed;
@@ -55,6 +59,11 @@ namespace LiarsBar.Server
 
         // 내 방 단계가 바뀔 때 (UI 화면 전환용)
         public static event Action<RoomPhase> LocalPhaseChanged;
+
+        // 클라 전용: 플레이어가 보이게 됨 / 사라짐 / 값이 바뀜 (UI · 연출 갱신용)
+        public static event Action<PlayerProfile> Added;
+        public static event Action<PlayerProfile> Removed;
+        public static event Action<PlayerProfile> Changed;
         public int GamesPlayed => gamesPlayed;
         public int Wins => wins;
         public bool HasStats => gamesPlayed >= 0;
@@ -66,6 +75,10 @@ namespace LiarsBar.Server
         private Action<bool, string> pendingLoginCallback;
         private Action<bool, string> pendingRoomCallback;
 
+        // 클라 전용: 방 밖에서 숨길 모델 · 이름표
+        private Renderer[] renderers;
+        private Canvas[] canvases;
+
         // 서버 전용 (DB 없이 로그인 시 -1)
         private int userId = -1;
         public int UserId => userId;
@@ -76,47 +89,95 @@ namespace LiarsBar.Server
         public override void OnStartClient()
         {
             All.Add(this);
-            ApplySeatPosition();
+            SeatAnchors.Changed += RefreshSeat;
+            RefreshSeat();
+            Added?.Invoke(this);
             Debug.Log($"[Client] 플레이어 등장 - netId {netId},좌석 {seat}, 닉네임 '{nickname}'");
         }
         public override void OnStartLocalPlayer()
         {
             Local = this;
             Debug.Log($"[Client] 내 좌석은 {seat}번");
+            NotifyChanged();
         }
         public override void OnStopClient()
         {
             All.Remove(this);
+            SeatAnchors.Changed -= RefreshSeat;
+            Removed?.Invoke(this);
             if (Local == this) Local = null;
+        }
+
+        private void NotifyChanged()
+        {
+            Changed?.Invoke(this);
         }
         private void OnSeatChanged(int oldSeat,int newSeat)
         {
             Debug.Log($"[Client] 좌석 변경 {oldSeat} -> {newSeat}");
-            ApplySeatPosition();
+            RefreshSeat();
+            NotifyChanged();
         }
 
-        // 좌석 위치로 이동 (NetworkTransform 없이 클라에서 맞춤)
-        private void ApplySeatPosition()
+        // 좌석 위치로 이동 + 보이기 (NetworkTransform 없이 클라에서 맞춤). 방 밖이거나 좌석 위치가 없으면 숨김
+        private void RefreshSeat()
         {
-            LiarsNetworkManager manager = LiarsNetworkManager.Instance;
-            if (seat < 0 || manager == null) return;
-
-            Transform spawn = manager.GetSeatSpawnPoint(seat);
+            Transform spawn = FindSeatPoint();
+            SetVisible(spawn != null);
             if (spawn != null) transform.SetPositionAndRotation(spawn.position, spawn.rotation);
+        }
+
+        // 대기실/테이블 SeatAnchors 우선, 없으면 매니저 기본 위치
+        private Transform FindSeatPoint()
+        {
+            if (!IsInRoom || seat < 0) return null;
+
+            Transform spawn = SeatAnchors.Get(SeatAnchors.AreaFor(phase), seat);
+            if (spawn != null) return spawn;
+
+            LiarsNetworkManager manager = LiarsNetworkManager.Instance;
+            return manager != null ? manager.GetSeatSpawnPoint(seat) : null;
+        }
+
+        private void SetVisible(bool visible)
+        {
+            renderers ??= GetComponentsInChildren<Renderer>(true);
+            canvases ??= GetComponentsInChildren<Canvas>(true);
+
+            foreach (Renderer r in renderers)
+                if (r != null) r.enabled = visible;
+            foreach (Canvas c in canvases)
+                if (c != null) c.enabled = visible;
         }
 
         private void OnRoomChanged(int oldRoom, int newRoom)
         {
             Debug.Log($"[Client] '{nickname}' 방 {oldRoom} → {newRoom}");
+            RefreshSeat();
+            NotifyChanged();
+        }
+
+        private void OnRoomTitleChanged(string oldTitle, string newTitle)
+        {
+            NotifyChanged();
+        }
+
+        private void OnPrevStatsChanged(int oldValue, int newValue)
+        {
+            NotifyChanged();
         }
 
         private void OnHostChanged(bool oldValue, bool newValue)
         {
             if (newValue) Debug.Log($"[Client] 방 {roomId} 방장 = '{nickname}'");
+            NotifyChanged();
         }
 
         private void OnPhaseChanged(RoomPhase oldPhase, RoomPhase newPhase)
         {
+            RefreshSeat();
+            NotifyChanged();
+
             if (!isLocalPlayer) return;
             Debug.Log($"[Client] 방 {roomId} {oldPhase} → {newPhase}");
             LocalPhaseChanged?.Invoke(newPhase);
@@ -136,8 +197,9 @@ namespace LiarsBar.Server
         }
 
         [Server]
-        public void ServerEnterRoom(int newRoomId, int seatIndex, bool host)
+        public void ServerEnterRoom(int newRoomId, string title, int seatIndex, bool host)
         {
+            roomTitle = title;
             phase = RoomPhase.Lobby;
             prevGamesPlayed = -1;
             isReady = false;
@@ -155,6 +217,7 @@ namespace LiarsBar.Server
             isHost = false;
             seat = -1;
             roomId = 0;
+            roomTitle = "";
         }
 
         [Server]
@@ -268,6 +331,7 @@ namespace LiarsBar.Server
         private void OnStatsChanged(int oldValue, int newValue)
         {
             Debug.Log($"[Client] 좌석 {seat} 전적 {newValue}전 {wins}승");
+            NotifyChanged();
         }
 
         [Server]
@@ -306,6 +370,7 @@ namespace LiarsBar.Server
         private void OnNicknameChanged(string oldName, string newName)
         {
             Debug.Log($"[Client] 좌석 {seat} 닉네임 '{oldName}' → '{newName}'");
+            NotifyChanged();
         }
 
         [Client]
@@ -391,6 +456,7 @@ namespace LiarsBar.Server
         private void OnReadyChanged(bool oldValue, bool newValue)
         {
             Debug.Log($"[Client] 좌석 {seat} 준비 {oldValue} → {newValue}");
+            NotifyChanged();
         }
     }
 }
