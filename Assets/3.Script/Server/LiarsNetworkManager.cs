@@ -93,6 +93,8 @@ namespace LiarsBar.Server
                 Debug.LogError("[Server] GameFlow 프리팹이 없어 게임을 시작할 수 없습니다. LiarsNetworkManager의 Game Flow Prefab을 연결하세요.");
             else
                 Debug.Log($"[Server] GameFlow 프리팹 = {gameFlowPrefab.name}");
+
+            RoomChat.RegisterServer();
         }
 
         public override void OnStopServer()
