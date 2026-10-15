@@ -15,7 +15,7 @@ public static class InGameEvent
 
     public static event Action<int> OnTurnChanged; // 턴 변경
 
-    public static event Action<int, bool> OnCardsPlayed; // 플레이어 패 제출
+    public static event Action<int[]> OnCardsPlayed; // 플레이어 패 제출
 
     public static event Action<int> OnPlayerEliminated; // 구현 전
 
@@ -27,10 +27,12 @@ public static class InGameEvent
     {
         OnEntryInGame?.Invoke();
     }
+
     public static void TriggerOnReEntryInLobby()
     {
         OnReEntryInLobby?.Invoke();
     }
+
     public static void TriggerOnRoundStarted(CardType card)
     {
         OnRoundStarted?.Invoke(card);
@@ -46,9 +48,9 @@ public static class InGameEvent
         OnTurnChanged?.Invoke(turn);
     }
 
-    public static void TriggerOnCardsPlayed(int num, bool t)
+    public static void TriggerOnCardsPlayed(int[] SelectIndexes)
     {
-        OnCardsPlayed?.Invoke(num, t);
+        OnCardsPlayed?.Invoke(SelectIndexes);
     }
 
     public static void TriggerOnPlayerEliminated(int seatNum)

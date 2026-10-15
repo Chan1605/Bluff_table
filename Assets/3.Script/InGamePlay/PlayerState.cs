@@ -23,10 +23,14 @@ public class PlayerState : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         Local = this;
+        InGameEvent.OnCardsPlayed += SubmitCards;
+
     }
+
     public override void OnStopClient()
     {
         if (Local == this) Local = null;
+        InGameEvent.OnCardsPlayed -= SubmitCards;
     }
 
     [Server]
@@ -38,6 +42,7 @@ public class PlayerState : NetworkBehaviour
 
         currentChamber = 0;
         bulletPosition = UnityEngine.Random.Range(0, 6);
+
     }
 
     [Server]
