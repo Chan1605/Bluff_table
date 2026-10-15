@@ -23,7 +23,7 @@ public class TempSubmitTest : MonoBehaviour
 
         Debug.Log($"[테스트] 서버로 {selectedIndexes.Count}장 제출 요청.");
 
-        PlayerState.Local.SubmitCards(selectedIndexes.ToArray());
+        InGameEvent.TriggerOnCardsPlayed(selectedIndexes.ToArray());
         selectedIndexes.Clear();
     }
 
