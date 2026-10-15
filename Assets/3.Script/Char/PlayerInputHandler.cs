@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    [SerializeField] PlayerInput p_input;
+    [SerializeField] InputActionReference lookActionRef;
     [SerializeField] PlayerLook look;
 
     InputAction lookAction;
@@ -13,13 +11,25 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Awake()
     {
-        //player input 델리게이트 방식으로 새로 생성함으로 null exeption 뜨는 해당 줄 비활성화 하였습니다. - 지은
-        //lookAction = p_input.actions["Look"];
+        if (lookActionRef != null)
+            lookAction = lookActionRef.action;
+        else
+            Debug.LogError("PlayerInputHandler: Look 액션이 연결되지 않았습니다.", this);
+    }
+
+    private void OnEnable()
+    {
+        lookAction?.Enable();
+    }
+
+    private void OnDisable()
+    {
+        lookAction?.Disable();
     }
 
     private void Update()
     {
-        if (isInputBlocked) return;
+        if (isInputBlocked || lookAction == null) return;
         look.AddLookDelta(lookAction.ReadValue<Vector2>());
     }
 }

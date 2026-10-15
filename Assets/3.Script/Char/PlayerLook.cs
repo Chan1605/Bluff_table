@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerLook : MonoBehaviour
 {
     [SerializeField] Animator animator;
+    [SerializeField] Transform head;
     [SerializeField] float sensitivity = 0.1f;
     [SerializeField] Vector2 yawLimit = new(-70f, 70f);   
     [SerializeField] Vector2 pitchLimit = new(-40f, 40f);
@@ -13,7 +14,6 @@ public class PlayerLook : MonoBehaviour
     public float Yaw { get; private set; }
     public float Pitch { get; private set; }
 
-    private Transform head;
     private bool isApplied;
     private Quaternion lastBaseRotation;
     private Quaternion lastAppliedRotation;
@@ -22,7 +22,11 @@ public class PlayerLook : MonoBehaviour
 
     void Awake()
     {
-        head = animator.GetBoneTransform(HumanBodyBones.Head);
+        if (head == null && animator != null && animator.isHuman)
+            head = animator.GetBoneTransform(HumanBodyBones.Head);
+
+        if (head == null)
+            Debug.LogError($"PlayerLook: Head 본을 찾지 못했습니다 ({name})", this);
     }
 
     public void AddLookDelta(Vector2 delta) 
