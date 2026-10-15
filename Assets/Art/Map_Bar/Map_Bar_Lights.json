@@ -1,0 +1,2206 @@
+{
+ "lights": [
+  {
+   "name": "Spot Light (10) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    7.854999542236328,
+    1.864999771118164,
+    -12.944000244140625
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    0.4701530635356903,
+    0.7201939225196838,
+    0.7811320424079895
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 64.77947998046875,
+   "range": 10.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (17) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    -1.446000099182129,
+    2.0269999504089355,
+    -13.459999084472656
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 10.064559936523438,
+   "range": 19.049999237060547,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Bar Spot Light (2)",
+   "group": "Bar Spot Lights",
+   "type": "Spot",
+   "position": [
+    7.226000070571899,
+    3.1310000121593475,
+    -5.469001054763794
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 2639.0,
+   "rawIntensity": 147.9711456298828,
+   "range": 10.0,
+   "spotAngle": 139.8000030517578,
+   "innerSpotAngle": 6.0,
+   "shadows": true
+  },
+  {
+   "name": "Point Light (1)",
+   "group": "Point Light (1)",
+   "type": "Spot",
+   "position": [
+    3.6419997215270996,
+    3.187000036239624,
+    -14.854000091552734
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999957945,
+    2.90021174832708e-06
+   ],
+   "color": [
+    0.6226415038108826,
+    0.36124956607818604,
+    0.36124956607818604
+   ],
+   "useTemperature": true,
+   "temperature": 3227.0,
+   "rawIntensity": 12.262799263000488,
+   "range": 9.25,
+   "spotAngle": 179.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (11) no shadow (1)",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    2.697999954223633,
+    2.565000057220459,
+    -12.003000259399414
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    0.4701530635356903,
+    0.7201939225196838,
+    0.7811320424079895
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 21.350914001464844,
+   "range": 10.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Point Light (5)",
+   "group": "Volumetric Lights",
+   "type": "Spot",
+   "position": [
+    7.960999965667725,
+    3.038999557495117,
+    -5.531000137329102
+   ],
+   "direction": [
+    0.0,
+    -0.9999996756794869,
+    0.0008053824686847051
+   ],
+   "color": [
+    0.9411764740943909,
+    0.7411764860153198,
+    0.125490203499794
+   ],
+   "useTemperature": true,
+   "temperature": 2500.0,
+   "rawIntensity": 115.91695404052734,
+   "range": 2.0399999618530273,
+   "spotAngle": 161.3000030517578,
+   "innerSpotAngle": 1.0,
+   "shadows": false
+  },
+  {
+   "name": "Bar Spot Light (4) at",
+   "group": "Bar Spot Lights",
+   "type": "Spot",
+   "position": [
+    6.309999942779541,
+    3.0399999618530273,
+    -5.471000671386719
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    0.9529411792755127,
+    0.9023717641830444,
+    0.7633059024810791
+   ],
+   "useTemperature": true,
+   "temperature": 2639.0,
+   "rawIntensity": 161.52894592285156,
+   "range": 10.0,
+   "spotAngle": 133.0,
+   "innerSpotAngle": 6.0,
+   "shadows": true
+  },
+  {
+   "name": "Bar Spot Light (10)",
+   "group": "Bar Spot Lights",
+   "type": "Spot",
+   "position": [
+    6.309999942779541,
+    3.015000019222498,
+    -5.471000671386719
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    0.9529411792755127,
+    0.9023717641830444,
+    0.7633059024810791
+   ],
+   "useTemperature": true,
+   "temperature": 2639.0,
+   "rawIntensity": 161.52894592285156,
+   "range": 10.0,
+   "spotAngle": 133.0,
+   "innerSpotAngle": 6.0,
+   "shadows": true
+  },
+  {
+   "name": "Point Light (3)",
+   "group": "Point Light (3)",
+   "type": "Point",
+   "position": [
+    1.1620001792907715,
+    3.0238046646118164,
+    -18.542436599731445
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    1.0,
+    0.47058823704719543,
+    0.09803921729326248
+   ],
+   "useTemperature": true,
+   "temperature": 3576.5,
+   "rawIntensity": 13.544085502624512,
+   "range": 10.0,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot merdiven 2",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    6.32029914855957,
+    4.170000076293945,
+    -18.06999969482422
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    0.3488353192806244,
+    0.6984508633613586,
+    0.7803921699523926
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 4188.2880859375,
+   "range": 10.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": true
+  },
+  {
+   "name": "main point light no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    0.42999982833862305,
+    2.741999864578247,
+    -8.43959903717041
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 8.354506492614746,
+   "range": 19.049999237060547,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Duvar Işığı (7)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    11.034000396728516,
+    1.7820001244544983,
+    -9.32200002670288
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    1.0,
+    0.47058823704719543,
+    0.09803921729326248
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 10.52255916595459,
+   "range": 3.0199999809265137,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Main Spot Light",
+   "group": "Spot lights",
+   "type": "Spot",
+   "position": [
+    0.5060000419616699,
+    3.0209999084472656,
+    -8.461999893188477
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 222.7001495361328,
+   "range": 10.0,
+   "spotAngle": 131.0,
+   "innerSpotAngle": 15.0,
+   "shadows": true
+  },
+  {
+   "name": "Spot Light (14) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    1.5160000324249268,
+    1.6429996490478516,
+    -5.319999694824219
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    0.9411764740943909,
+    0.7411764860153198,
+    0.125490203499794
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 17.246782302856445,
+   "range": 19.049999237060547,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Volume_Spot Light Koltuk (3)",
+   "group": "Volumetric Lights",
+   "type": "Spot",
+   "position": [
+    -4.5550432205200195,
+    3.0925196409225464,
+    -8.534666061401367
+   ],
+   "direction": [
+    0.0,
+    -0.9999996756794869,
+    0.0008053824686847051
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 177.56100463867188,
+   "range": 2.259999990463257,
+   "spotAngle": 168.10000610351562,
+   "innerSpotAngle": 1.0,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (6) baked",
+   "group": "Spot lights",
+   "type": "Spot",
+   "position": [
+    -2.1700000762939453,
+    6.639999866485596,
+    3.7800004482269287
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 1243.73828125,
+   "range": 10.0,
+   "spotAngle": 79.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (7) baked",
+   "group": "Spot lights",
+   "type": "Spot",
+   "position": [
+    -2.1700000762939453,
+    6.639999866485596,
+    6.190000534057617
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 1393.80126953125,
+   "range": 10.0,
+   "spotAngle": 79.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (27) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    7.842999458312988,
+    2.921999931335449,
+    -6.283999443054199
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 14.17119312286377,
+   "range": 1.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Point Light (6)",
+   "group": "Volumetric Lights",
+   "type": "Spot",
+   "position": [
+    6.286999970674515,
+    3.0388734340667725,
+    -5.52400016784668
+   ],
+   "direction": [
+    0.0,
+    -0.9999996756794869,
+    0.0008053824686847051
+   ],
+   "color": [
+    0.9411764740943909,
+    0.7411764860153198,
+    0.125490203499794
+   ],
+   "useTemperature": true,
+   "temperature": 2500.0,
+   "rawIntensity": 115.91695404052734,
+   "range": 2.0399999618530273,
+   "spotAngle": 161.3000030517578,
+   "innerSpotAngle": 1.0,
+   "shadows": false
+  },
+  {
+   "name": "Duvar Işığı (2)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    0.19300031661987305,
+    2.5280001163482666,
+    -11.238000065088272
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.9490196108818054,
+    0.01664569228887558,
+    0.0
+   ],
+   "useTemperature": true,
+   "temperature": 1900.0,
+   "rawIntensity": 18.95683479309082,
+   "range": 3.059999942779541,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Point Light (3)",
+   "group": "Point Light (3)",
+   "type": "Point",
+   "position": [
+    2.944000005722046,
+    2.0929999351501465,
+    -6.038000106811523
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.9529411792755127,
+    0.9019607901573181,
+    0.7647058963775635
+   ],
+   "useTemperature": true,
+   "temperature": 2639.0,
+   "rawIntensity": 47.746482849121094,
+   "range": 10.0,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (6)",
+   "group": "Spot lights",
+   "type": "Spot",
+   "position": [
+    5.190000057220459,
+    3.0209999084472656,
+    -8.629999160766602
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 407.875732421875,
+   "range": 10.0,
+   "spotAngle": 131.0,
+   "innerSpotAngle": 15.0,
+   "shadows": true
+  },
+  {
+   "name": "Duvar Işığı (4)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    11.034000396728516,
+    2.4280001148581505,
+    -9.32200002670288
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 47.746482849121094,
+   "range": 1.7999999523162842,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (25) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    6.074999809265137,
+    2.921999931335449,
+    -6.283999443054199
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 14.17119312286377,
+   "range": 1.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (13) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    4.330999851226807,
+    2.0989999771118164,
+    -11.791999816894531
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    0.4701530635356903,
+    0.7201939225196838,
+    0.7811320424079895
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 21.350914001464844,
+   "range": 1.940000057220459,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Point Light (4)",
+   "group": "Point Light (4)",
+   "type": "Point",
+   "position": [
+    0.19899988174438477,
+    3.0238046646118164,
+    -18.542436599731445
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    1.0,
+    0.47058823704719543,
+    0.09803921729326248
+   ],
+   "useTemperature": true,
+   "temperature": 3576.5,
+   "rawIntensity": 13.544085502624512,
+   "range": 10.0,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (11) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    4.186999797821045,
+    1.431999683380127,
+    -12.979999542236328
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    0.4701530635356903,
+    0.7201939225196838,
+    0.7811320424079895
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 21.350914001464844,
+   "range": 10.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Duvar Işığı (11)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    9.486000061035156,
+    1.877000093460083,
+    -9.282999992370605
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 48.22653579711914,
+   "range": 4.449999809265137,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Duvar Işığı (9)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    11.034000396728516,
+    2.4280001148581505,
+    -7.807000160217285
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 48.22653579711914,
+   "range": 4.449999809265137,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Duvar Işığı (12)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    9.486000061035156,
+    1.877000093460083,
+    -11.544000059366226
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 48.22653579711914,
+   "range": 4.449999809265137,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (22) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    -2.4480000734329224,
+    1.6370000839233398,
+    -9.699999809265137
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 7.537311553955078,
+   "range": 19.049999237060547,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (1)",
+   "group": "Volumetric Lights",
+   "type": "Spot",
+   "position": [
+    0.4910001754760742,
+    3.133999824523926,
+    -8.467000007629395
+   ],
+   "direction": [
+    0.0,
+    -0.9999996756794869,
+    0.0008053824686847051
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 407.875732421875,
+   "range": 2.259999990463257,
+   "spotAngle": 131.0,
+   "innerSpotAngle": 1.0,
+   "shadows": false
+  },
+  {
+   "name": "Point Light (7)",
+   "group": "Point Light (7)",
+   "type": "Spot",
+   "position": [
+    -7.545000076293945,
+    2.8486227989196777,
+    -6.479000091552734
+   ],
+   "direction": [
+    2.9080554087048603e-06,
+    -0.9999999999955265,
+    7.00124443534537e-07
+   ],
+   "color": [
+    0.6226415038108826,
+    0.36124956607818604,
+    0.36124956607818604
+   ],
+   "useTemperature": true,
+   "temperature": 3227.0,
+   "rawIntensity": 18.098873138427734,
+   "range": 9.84000015258789,
+   "spotAngle": 179.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light",
+   "group": "Spot Light",
+   "type": "Spot",
+   "position": [
+    1.0029997825622559,
+    3.250999927520752,
+    -13.762700080871582
+   ],
+   "direction": [
+    0.0,
+    -0.9996230834503601,
+    0.027453433905328346
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3049.0,
+   "rawIntensity": 96.33362579345703,
+   "range": 10.0,
+   "spotAngle": 179.0,
+   "innerSpotAngle": 1.0,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (12) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    5.918000221252441,
+    1.8550000190734863,
+    -9.11099910736084
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    0.9411764740943909,
+    0.7411764860153198,
+    0.125490203499794
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 11.774614334106445,
+   "range": 10.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Point Light (2)",
+   "group": "Point Light (2)",
+   "type": "Point",
+   "position": [
+    8.538000106811523,
+    2.140000104904175,
+    -4.809000015258789
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 23.45862579345703,
+   "range": 10.0,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Bar Spot Light (7) at",
+   "group": "Bar Spot Lights",
+   "type": "Spot",
+   "position": [
+    4.934000015258789,
+    3.123000144958496,
+    -4.160001754760742
+   ],
+   "direction": [
+    0.0,
+    -0.724566149351068,
+    0.6892052634843743
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 2639.0,
+   "rawIntensity": 20.654170989990234,
+   "range": 10.0,
+   "spotAngle": 153.3000030517578,
+   "innerSpotAngle": 6.0,
+   "shadows": true
+  },
+  {
+   "name": "Spot Light (1)",
+   "group": "Spot Light (1)",
+   "type": "Spot",
+   "position": [
+    0.16900014877319336,
+    3.250999927520752,
+    -13.762700080871582
+   ],
+   "direction": [
+    0.0,
+    -0.9996230834503601,
+    0.027453433905328346
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3049.0,
+   "rawIntensity": 96.33362579345703,
+   "range": 10.0,
+   "spotAngle": 179.0,
+   "innerSpotAngle": 1.0,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (23) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    -4.5329999923706055,
+    2.8869998455047607,
+    -8.378999710083008
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 7.537311553955078,
+   "range": 1.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Bar Spot Light (1)",
+   "group": "Bar Spot Lights",
+   "type": "Spot",
+   "position": [
+    7.997000217437744,
+    3.0399999618530273,
+    -5.469001054763794
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    0.7547169923782349,
+    0.6236604452133179,
+    0.31683874130249023
+   ],
+   "useTemperature": true,
+   "temperature": 2639.0,
+   "rawIntensity": 161.52894592285156,
+   "range": 10.0,
+   "spotAngle": 133.0,
+   "innerSpotAngle": 6.0,
+   "shadows": true
+  },
+  {
+   "name": "Spot Light 3 (1)",
+   "group": "Volumetric Lights",
+   "type": "Spot",
+   "position": [
+    -2.204000473022461,
+    3.9599997997283936,
+    0.39999961853027344
+   ],
+   "direction": [
+    0.0,
+    -0.9999996756794869,
+    0.0008053824686847051
+   ],
+   "color": [
+    0.849056601524353,
+    0.5046279430389404,
+    0.5046279430389404
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 104.85414123535156,
+   "range": 2.259999990463257,
+   "spotAngle": 114.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (15) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    -5.731000185012817,
+    2.0,
+    -10.515998840332031
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 6.651444435119629,
+   "range": 18.799999237060547,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "point light (1)",
+   "group": "point light (1)",
+   "type": "Point",
+   "position": [
+    6.006999969482422,
+    2.9209998846054077,
+    -4.055999755859375
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.8339622616767883,
+    0.6754093170166016,
+    0.5774795413017273
+   ],
+   "useTemperature": true,
+   "temperature": 2030.0,
+   "rawIntensity": 15.540270805358887,
+   "range": 10.0,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": true
+  },
+  {
+   "name": "Spot Light (21) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    6.0,
+    0.999000072479248,
+    -7.0
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    0.9411764740943909,
+    0.7411764860153198,
+    0.125490203499794
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 8.10098648071289,
+   "range": 10.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Duvar Işığı (10)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    8.414999961853027,
+    2.2040001153945923,
+    -6.638999938964844
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 48.22653579711914,
+   "range": 4.449999809265137,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Duvar Işığı (6)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    11.034000396728516,
+    3.1430001258850098,
+    -9.32200002670288
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    1.0,
+    0.47058823704719543,
+    0.09803921729326248
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 10.52255916595459,
+   "range": 3.0199999809265137,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Bar Spot Light (9)",
+   "group": "Bar Spot Lights",
+   "type": "Spot",
+   "position": [
+    4.39000004529953,
+    3.0790000185370445,
+    -5.449000835418701
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    0.9529411792755127,
+    0.9023717641830444,
+    0.7633059024810791
+   ],
+   "useTemperature": true,
+   "temperature": 2639.0,
+   "rawIntensity": 223.13720703125,
+   "range": 10.0,
+   "spotAngle": 133.0,
+   "innerSpotAngle": 6.0,
+   "shadows": true
+  },
+  {
+   "name": "point light",
+   "group": "point light",
+   "type": "Point",
+   "position": [
+    6.400736331939697,
+    3.138000011444092,
+    -3.756999969482422
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.8339622616767883,
+    0.6754093170166016,
+    0.5774795413017273
+   ],
+   "useTemperature": true,
+   "temperature": 2030.0,
+   "rawIntensity": 10.996821403503418,
+   "range": 10.0,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (18) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    -1.421000063419342,
+    2.0460000038146973,
+    -5.319999694824219
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 8.354506492614746,
+   "range": 19.049999237060547,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (26) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    4.416999816894531,
+    2.921999931335449,
+    -6.283999443054199
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 14.17119312286377,
+   "range": 1.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Volume_Spot Light Masalar (1)",
+   "group": "Volumetric Lights",
+   "type": "Spot",
+   "position": [
+    8.930999994277954,
+    2.9975197315216064,
+    -9.070000648498535
+   ],
+   "direction": [
+    0.0,
+    -0.9999996756794869,
+    0.0008053824686847051
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 177.56100463867188,
+   "range": 2.259999990463257,
+   "spotAngle": 168.10000610351562,
+   "innerSpotAngle": 1.0,
+   "shadows": false
+  },
+  {
+   "name": "Bar Spot Light (6)",
+   "group": "Bar Spot Lights",
+   "type": "Spot",
+   "position": [
+    7.705999851226807,
+    2.9559998512268066,
+    -4.3730010986328125
+   ],
+   "direction": [
+    0.0,
+    -0.6274473697686902,
+    0.7786589742437653
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 71.41264343261719,
+   "range": 10.0,
+   "spotAngle": 133.0,
+   "innerSpotAngle": 6.0,
+   "shadows": true
+  },
+  {
+   "name": "Point Light (5)",
+   "group": "Point Light (5)",
+   "type": "Spot",
+   "position": [
+    -2.221999168395996,
+    3.187000036239624,
+    -14.88599967956543
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999957945,
+    2.90021174832708e-06
+   ],
+   "color": [
+    0.6226415038108826,
+    0.36124956607818604,
+    0.36124956607818604
+   ],
+   "useTemperature": true,
+   "temperature": 3227.0,
+   "rawIntensity": 24.421287536621094,
+   "range": 9.25,
+   "spotAngle": 179.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Duvar Işığı (13)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    8.212000846862793,
+    3.2590001225471497,
+    -8.66700005531311
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 48.22653579711914,
+   "range": 4.449999809265137,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light Koltuk",
+   "group": "Spot lights",
+   "type": "Spot",
+   "position": [
+    -4.56000018119812,
+    3.1089999675750732,
+    -8.49799919128418
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 407.875732421875,
+   "range": 6.579999923706055,
+   "spotAngle": 131.0,
+   "innerSpotAngle": 15.0,
+   "shadows": true
+  },
+  {
+   "name": "Spot Light (5) baked",
+   "group": "Spot lights",
+   "type": "Spot",
+   "position": [
+    -2.1700000762939453,
+    5.0,
+    0.8600006103515625
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 1243.73828125,
+   "range": 10.0,
+   "spotAngle": 79.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light Masalar",
+   "group": "Spot lights",
+   "type": "Spot",
+   "position": [
+    8.951000213623047,
+    3.0139999389648438,
+    -9.059999465942383
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 3000.0,
+   "rawIntensity": 407.875732421875,
+   "range": 5.78000020980835,
+   "spotAngle": 131.0,
+   "innerSpotAngle": 15.0,
+   "shadows": true
+  },
+  {
+   "name": "Bar Spot Light (8)",
+   "group": "Bar Spot Lights",
+   "type": "Spot",
+   "position": [
+    4.934000015258789,
+    3.093000017106533,
+    -4.131000995635986
+   ],
+   "direction": [
+    0.0,
+    -0.724566149351068,
+    0.6892052634843743
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 2639.0,
+   "rawIntensity": 20.654170989990234,
+   "range": 10.0,
+   "spotAngle": 153.3000030517578,
+   "innerSpotAngle": 6.0,
+   "shadows": true
+  },
+  {
+   "name": "Duvar Işığı (14)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    5.455000400543213,
+    2.527000116300769,
+    -10.08400011062622
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 35.65705871582031,
+   "range": 4.449999809265137,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Point Light (6)",
+   "group": "Point Light (6)",
+   "type": "Spot",
+   "position": [
+    -7.545000076293945,
+    2.8486227989196777,
+    -10.967999458312988
+   ],
+   "direction": [
+    2.9080554087048603e-06,
+    -0.9999999999955265,
+    7.00124443534537e-07
+   ],
+   "color": [
+    0.6226415038108826,
+    0.36124956607818604,
+    0.36124956607818604
+   ],
+   "useTemperature": true,
+   "temperature": 3227.0,
+   "rawIntensity": 18.098873138427734,
+   "range": 9.84000015258789,
+   "spotAngle": 179.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (24) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    8.375,
+    2.870999813079834,
+    -9.093999862670898
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 2.2302069664001465,
+   "range": 1.0,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Bar Spot Light (5) at",
+   "group": "Bar Spot Lights",
+   "type": "Spot",
+   "position": [
+    4.39000004529953,
+    3.040000017732382,
+    -5.449000835418701
+   ],
+   "direction": [
+    0.0,
+    -0.9999999999999911,
+    -1.3435883843274954e-07
+   ],
+   "color": [
+    0.9529411792755127,
+    0.9023717641830444,
+    0.7633059024810791
+   ],
+   "useTemperature": true,
+   "temperature": 2639.0,
+   "rawIntensity": 223.13720703125,
+   "range": 10.0,
+   "spotAngle": 133.0,
+   "innerSpotAngle": 6.0,
+   "shadows": true
+  },
+  {
+   "name": "Duvar Işığı (8)",
+   "group": "Duvar Işığı",
+   "type": "Point",
+   "position": [
+    11.034000396728516,
+    2.4280001148581505,
+    -10.38100004196167
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "color": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 48.226531982421875,
+   "range": 4.449999809265137,
+   "spotAngle": 30.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  },
+  {
+   "name": "Spot Light (16) no shadow",
+   "group": "Spot lights",
+   "type": "Point",
+   "position": [
+    -4.575000047683716,
+    1.9759998321533203,
+    -6.6909990310668945
+   ],
+   "direction": [
+    0.0,
+    -0.8578307752491003,
+    0.5139322533520613
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "useTemperature": true,
+   "temperature": 4000.0,
+   "rawIntensity": 11.517640113830566,
+   "range": 19.049999237060547,
+   "spotAngle": 78.0,
+   "innerSpotAngle": 21.802080154418945,
+   "shadows": false
+  }
+ ],
+ "anchors": [
+  {
+   "name": "SM_Prop_Powerpole_Single_Line_02 (3)",
+   "center": [
+    0.904670238494873,
+    3.801978588104248,
+    -12.959668159484863
+   ]
+  },
+  {
+   "name": "SM_Prop_Powerpole_Single_Line_02 (2)",
+   "center": [
+    0.906583309173584,
+    3.8071680068969727,
+    -13.480003356933594
+   ]
+  },
+  {
+   "name": "SM_Prop_Powerpole_Single_Line_02 (1)",
+   "center": [
+    0.906583309173584,
+    3.863168716430664,
+    -13.361003875732422
+   ]
+  },
+  {
+   "name": "SM_Prop_Powerpole_Single_Line_02",
+   "center": [
+    0.906583309173584,
+    3.758169174194336,
+    -13.05600357055664
+   ]
+  },
+  {
+   "name": "SM_Havalandirma",
+   "center": [
+    -5.425986289978027,
+    3.561110019683838,
+    -8.950638771057129
+   ]
+  },
+  {
+   "name": "Cube.073",
+   "center": [
+    -5.371131951807449,
+    3.399450974611033,
+    -8.86451780111599
+   ]
+  },
+  {
+   "name": "SM_Boru4",
+   "center": [
+    -5.369599759106207,
+    3.355999640738614,
+    -8.407050703212153
+   ]
+  },
+  {
+   "name": "SM_Boru_Dikdörtgen",
+   "center": [
+    -5.399062744575612,
+    3.5815099959836663,
+    -9.648057698212266
+   ]
+  },
+  {
+   "name": "SM_Boru2",
+   "center": [
+    -5.392380564761475,
+    3.53204163738447,
+    -9.574845918931661
+   ]
+  },
+  {
+   "name": "SM_MüzikDuvarı",
+   "center": [
+    0.6238221079111099,
+    2.04599976539611,
+    -15.067999899387301
+   ]
+  },
+  {
+   "name": "Cube.075",
+   "center": [
+    -5.534165650147603,
+    3.4812297748579986,
+    -8.438545580153747
+   ]
+  },
+  {
+   "name": "SM_Item_Log_01 (3)",
+   "center": [
+    -3.7410430908203125,
+    3.7330000400543213,
+    -1.1356658935546875
+   ]
+  },
+  {
+   "name": "SM_Item_Log_01 (4)",
+   "center": [
+    -1.9320430755615234,
+    3.7330000400543213,
+    -2.7576656341552734
+   ]
+  },
+  {
+   "name": "SM_Item_Log_01",
+   "center": [
+    -7.850000381469727,
+    3.7330000400543213,
+    -8.380409240722656
+   ]
+  },
+  {
+   "name": "SM_MüzikStandı",
+   "center": [
+    0.7203977108001709,
+    0.3872321844100952,
+    -13.095501899719238
+   ]
+  },
+  {
+   "name": "Bar Counter.004",
+   "center": [
+    6.188007354736328,
+    0.9432416558265686,
+    -3.7038378715515137
+   ]
+  },
+  {
+   "name": "SM_Stair",
+   "center": [
+    6.570990085601807,
+    2.30558705329895,
+    -17.503686904907227
+   ]
+  },
+  {
+   "name": "SM_BarCounter",
+   "center": [
+    6.124850749969482,
+    0.9768247604370117,
+    -5.23333215713501
+   ]
+  },
+  {
+   "name": "SM_BarMetalRail",
+   "center": [
+    6.127300262451172,
+    0.4555409848690033,
+    -5.175963401794434
+   ]
+  },
+  {
+   "name": "SM_Wall_2 Corner",
+   "center": [
+    -5.041043758392334,
+    2.102860927581787,
+    -3.895799160003662
+   ]
+  },
+  {
+   "name": "SM_Wall_2 Corner (1)",
+   "center": [
+    -4.75261116027832,
+    2.102860927581787,
+    -13.753209114074707
+   ]
+  },
+  {
+   "name": "SM_Boru",
+   "center": [
+    0.6641031503677368,
+    2.1399731636047363,
+    -14.880963325500488
+   ]
+  },
+  {
+   "name": "SM_HandRail_Left",
+   "center": [
+    5.619775772094727,
+    3.1955621242523193,
+    -17.427989959716797
+   ]
+  },
+  {
+   "name": "SM_HandRail_Right",
+   "center": [
+    7.541214942932129,
+    3.1955602169036865,
+    -17.427982330322266
+   ]
+  },
+  {
+   "name": "SM_PiyanoDuvarı",
+   "center": [
+    0.6466164588928223,
+    2.126504421234131,
+    -14.73857307434082
+   ]
+  },
+  {
+   "name": "SM_Wall_2 (21)",
+   "center": [
+    -1.0788593292236328,
+    2.1028618812561035,
+    5.115269660949707
+   ]
+  },
+  {
+   "name": "SM_Wall_2 (22)",
+   "center": [
+    -1.078840732574463,
+    2.1028618812561035,
+    -1.1797325611114502
+   ]
+  },
+  {
+   "name": "SM_Wall_2 (20)",
+   "center": [
+    -1.078840732574463,
+    2.1028618812561035,
+    1.938765287399292
+   ]
+  },
+  {
+   "name": "SM_Wall_2 (19)",
+   "center": [
+    -1.0788812637329102,
+    2.1028618812561035,
+    8.220267295837402
+   ]
+  },
+  {
+   "name": "SM_Wall_2",
+   "center": [
+    0.46006590127944946,
+    2.1078615188598633,
+    -2.9078023433685303
+   ]
+  },
+  {
+   "name": "SM_Wall_2 (18)",
+   "center": [
+    -3.6002166271209717,
+    2.1028614044189453,
+    8.752967834472656
+   ]
+  },
+  {
+   "name": "SM_Wall_2 (16)",
+   "center": [
+    -3.600205183029175,
+    2.1028614044189453,
+    2.3999717235565186
+   ]
+  },
+  {
+   "name": "SM_Wall_2 (15)",
+   "center": [
+    -3.6001994609832764,
+    2.1028614044189453,
+    -0.7765257358551025
+   ]
+  },
+  {
+   "name": "SM_Wall_2 (17)",
+   "center": [
+    -3.6002109050750732,
+    2.1028614044189453,
+    5.576469898223877
+   ]
+  },
+  {
+   "name": "SM_Bld_Wall_Basement_01 (12)",
+   "center": [
+    -2.2200045585632324,
+    2.3171420097351074,
+    7.219772934913635
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (15)",
+   "center": [
+    -6.293522834777832,
+    3.792987585067749,
+    -3.78932785987854
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (31)",
+   "center": [
+    11.32647705078125,
+    3.792987585067749,
+    -3.78932785987854
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (23)",
+   "center": [
+    4.270476818084717,
+    3.792987585067749,
+    -3.78932785987854
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (19)",
+   "center": [
+    0.7434773445129395,
+    3.792987585067749,
+    -3.78932785987854
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (10)",
+   "center": [
+    -2.785522937774658,
+    3.792987585067749,
+    -3.78932785987854
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (14)",
+   "center": [
+    -6.293522834777832,
+    3.792987585067749,
+    -7.027327537536621
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (30)",
+   "center": [
+    11.32647705078125,
+    3.792987585067749,
+    -7.027327537536621
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (22)",
+   "center": [
+    4.270476818084717,
+    3.792987585067749,
+    -7.027327537536621
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (18)",
+   "center": [
+    0.7434773445129395,
+    3.792987585067749,
+    -7.027327537536621
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (7)",
+   "center": [
+    -2.785522937774658,
+    3.792987585067749,
+    -7.027327537536621
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (13)",
+   "center": [
+    -6.293522834777832,
+    3.792987585067749,
+    -10.257328033447266
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (29)",
+   "center": [
+    11.32647705078125,
+    3.792987585067749,
+    -10.257328033447266
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (21)",
+   "center": [
+    4.270476818084717,
+    3.792987585067749,
+    -10.257328033447266
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (17)",
+   "center": [
+    0.7434773445129395,
+    3.792987585067749,
+    -10.257328033447266
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (6)",
+   "center": [
+    -2.785522937774658,
+    3.792987585067749,
+    -10.257328033447266
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (12)",
+   "center": [
+    -6.293522834777832,
+    3.792987585067749,
+    -13.494327545166016
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (28)",
+   "center": [
+    11.32647705078125,
+    3.792987585067749,
+    -13.494327545166016
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (20)",
+   "center": [
+    4.270476818084717,
+    3.792987585067749,
+    -13.494327545166016
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (16)",
+   "center": [
+    0.7434773445129395,
+    3.792987585067749,
+    -13.494327545166016
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (11)",
+   "center": [
+    -2.785522937774658,
+    3.792987585067749,
+    -13.494327545166016
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (27)",
+   "center": [
+    7.80047607421875,
+    3.792987585067749,
+    -3.78932785987854
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (26)",
+   "center": [
+    7.80047607421875,
+    3.792987585067749,
+    -7.027327537536621
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (25)",
+   "center": [
+    7.80047607421875,
+    3.792987585067749,
+    -10.257328033447266
+   ]
+  },
+  {
+   "name": "SM_Wooden_Roof (24)",
+   "center": [
+    7.80047607421875,
+    3.792987585067749,
+    -13.494327545166016
+   ]
+  }
+ ]
+}
