@@ -1338,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7746381434423044877, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
       propertyPath: waitingRoomScene
-      value: Zino_Waiting_Copy
+      value: LobbyScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10401,7 +10401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7593922541488352536
 RectTransform:
   m_ObjectHideFlags: 0
