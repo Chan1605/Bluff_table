@@ -1,0 +1,4134 @@
+{
+ "materials": [
+  {
+   "name": "PolygonApocalypse_Material_01_A",
+   "baseMap": "PolygonApocalypse_Texture_01_A.png",
+   "normalMap": "PolygonApocalypse_Normal.png",
+   "maskMap": "",
+   "emissionMap": "PolygonApocalypse_Emissive_01.png",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.20000000298023224,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": true,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Brick_Brown_Mat_01",
+   "baseMap": "Brick_Brown_Tex.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.20000000298023224,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Wood_Fancy_01",
+   "baseMap": "Wood_Fancy_01.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.20000000298023224,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Carpet_01",
+   "baseMap": "Carpet_01.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.20000000298023224,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Horror_Wall_03",
+   "baseMap": "WallPaper_Tex_03.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.20000000298023224,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Wood_Fancy_02",
+   "baseMap": "Wood_Fancy_02.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.20000000298023224,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Carpet_04",
+   "baseMap": "Carpet_04.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "PolygonHorrorMansion_Mat_01_A",
+   "baseMap": "PolygonHorror_Texture_01_A.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "Emissive_01.png",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    0.9999998807907104,
+    0.9999998807907104,
+    0.9999998807907104,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.20000000298023224,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Glass",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.6380540132522583,
+    1.0,
+    0.24056598544120789,
+    0.6392157077789307
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": true,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "chicken",
+   "baseMap": "chicken.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.6698113083839417,
+    0.5781861543655396,
+    0.5781861543655396,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "bear_hunt_02",
+   "baseMap": "bear_hunt_02.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.7264150977134705,
+    0.681221604347229,
+    0.5585172772407532,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Mat_Painting_Portrait_11",
+   "baseMap": "Painting_Portrait_11.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.10000000149011612,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Dirty Papers_ud0kfcmh",
+   "baseMap": "Albedo_2K__ud0kfcmh.png",
+   "normalMap": "Normal_2K__ud0kfcmh.png",
+   "maskMap": "Masks_2K__ud0kfcmh.png",
+   "emissionMap": "",
+   "baseColor": [
+    0.30188679695129395,
+    0.2947668135166168,
+    0.2947668135166168,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 1.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": true,
+   "cutoff": 0.33000001311302185,
+   "doubleSided": true,
+   "tiling": [
+    10.0,
+    10.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Wood_02",
+   "baseMap": "Wood_02.png",
+   "normalMap": "NormalMap (7).png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.5230000019073486,
+    0.3735714256763458,
+    0.2294796109199524,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.18700000643730164,
+   "smoothness": 0.3840000033378601,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_BarCounter",
+   "baseMap": "SM_BarCounter_Bar Counter_BaseMap.1001.png",
+   "normalMap": "SM_BarCounter_Bar Counter_Normal.1001.png",
+   "maskMap": "SM_BarCounter_Bar Counter_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0000001192092896,
+   "normalScale": 0.5799999833106995,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_BarCounter_Back",
+   "baseMap": "SM_BarCounter_Bar Counter Back_BaseMap.1001.png",
+   "normalMap": "SM_BarCounter_Bar Counter Back_Normal.1001.png",
+   "maskMap": "SM_BarCounter_Bar Counter Back_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.7784982323646545,
+   "normalScale": 0.7099999785423279,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Tabure",
+   "baseMap": "SM_Tabure_DefaultMaterial_BaseMap.png",
+   "normalMap": "SM_Tabure_DefaultMaterial_Normal.png",
+   "maskMap": "SM_Tabure_DefaultMaterial_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_BarLight",
+   "baseMap": "SM_BarLAmp_Material.009_BaseMap.png",
+   "normalMap": "SM_BarLAmp_Material.009_Normal.png",
+   "maskMap": "SM_BarLAmp_Material.009_MaskMap.png",
+   "emissionMap": "SM_BarLAmp_Material.009_Emissive.png",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    2.0,
+    2.0,
+    2.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5212268829345703,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodFloor",
+   "baseMap": "SM_WoodFloor_TD_Checker_BaseMap.png",
+   "normalMap": "SM_WoodFloor_TD_Checker_Normal.png",
+   "maskMap": "SM_WoodFloor_TD_Checker_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 2.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodFloor_Blood_Bezbol",
+   "baseMap": "SM_WoodFloor_TD_Checker_BaseMap (1).png",
+   "normalMap": "SM_WoodFloor_TD_Checker_Normal (1).png",
+   "maskMap": "SM_WoodFloor_TD_Checker_MaskMap (1).png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 2.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodFloor_Kir",
+   "baseMap": "SM_WoodFloor_TD_Checker_BaseMap (2).png",
+   "normalMap": "SM_WoodFloor_TD_Checker_Normal.png",
+   "maskMap": "SM_WoodFloor_TD_Checker_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 2.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Black",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.07000000029802322,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_BrickWall",
+   "baseMap": "SM_BrickWall_DefaultMaterial_BaseMap.png",
+   "normalMap": "SM_BrickWall_DefaultMaterial_Normal.png",
+   "maskMap": "SM_BrickWall_DefaultMaterial_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Brickwall 2025",
+   "baseMap": "SM_BrickWall_DefaultMaterial_BaseMap (1).png",
+   "normalMap": "SM_BrickWall_DefaultMaterial_Normal (1).png",
+   "maskMap": "SM_BrickWall_DefaultMaterial_MaskMap (1).png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_White",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.5040000081062317,
+    0.5040000081062317,
+    0.5040000081062317,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_Wall2 BrokenV2",
+   "baseMap": "SM_Wall_2_Material.005_BaseMap.png",
+   "normalMap": "SM_Wall_2_Material.005_Normal.png",
+   "maskMap": "SM_Wall_2_Material.005_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Brown",
+   "baseMap": "pexels-fwstudio-33348-172276.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.5960784554481506,
+    0.5078410506248474,
+    0.49414902925491333,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.1340000033378601,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Wall2 Paper Ripped V2",
+   "baseMap": "SM_Wall_2_Material.005_BaseMap (1).png",
+   "normalMap": "SM_Wall_2_Material.005_Normal (1).png",
+   "maskMap": "SM_Wall_2_Material.005_MaskMap (1).png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 0.9700000286102295,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Wall2",
+   "baseMap": "SM_Wall_2_Material.005_BaseMap (2).png",
+   "normalMap": "SM_Wall_2_Material.005_Normal (2).png",
+   "maskMap": "SM_Wall_2_Material.005_MaskMap (2).png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Wall2 Sızıntı",
+   "baseMap": "SM_Wall_2_Material.005_BaseMap (3).png",
+   "normalMap": "SM_Wall_2_Material.005_Normal (3).png",
+   "maskMap": "SM_Wall_2_Material.005_MaskMap (3).png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Wall2 Paper Ripped",
+   "baseMap": "SM_Wall_2_Material.005_BaseMap (4).png",
+   "normalMap": "SM_Wall_2_Material.005_Normal (4).png",
+   "maskMap": "SM_Wall_2_Material.005_MaskMap (4).png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 2.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Wall2_Corner_Ripped",
+   "baseMap": "SM_Wall_2 Corner_Material.013_BaseMap.1001.png",
+   "normalMap": "SM_Wall_2 Corner_Material.013_Normal.1001.png",
+   "maskMap": "SM_Wall_2 Corner_Material.013_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_BrickColumn_Brick_Bloody",
+   "baseMap": "SM_BrickColumn_Brick_BaseMap.png",
+   "normalMap": "SM_BrickColumn_Brick_Normal.png",
+   "maskMap": "SM_BrickColumn_Brick_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.8904538154602051,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_BrickColumn_Stone_Bloddy",
+   "baseMap": "SM_BrickColumn_Stone_BaseMap.png",
+   "normalMap": "SM_BrickColumn_Stone_Normal.png",
+   "maskMap": "SM_BrickColumn_Stone_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.8904538154602051,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_BrickColumn_Brick",
+   "baseMap": "SM_BrickColumn_Brick_BaseMap (1).png",
+   "normalMap": "SM_BrickColumn_Brick_Normal (1).png",
+   "maskMap": "SM_BrickColumn_Brick_MaskMap (1).png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_BrickColumn_Stone",
+   "baseMap": "SM_BrickColumn_Stone_BaseMap (1).png",
+   "normalMap": "SM_BrickColumn_Stone_Normal (1).png",
+   "maskMap": "SM_BrickColumn_Stone_MaskMap (1).png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodenRoof",
+   "baseMap": "SM_Wooden_Roof_WoodenRoof_BaseMap.png",
+   "normalMap": "SM_Wooden_Roof_WoodenRoof_Normal.png",
+   "maskMap": "SM_Wooden_Roof_WoodenRoof_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 2.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodenRoof_Support",
+   "baseMap": "SM_Wooden_Roof_Support_WoodenRoof_BaseMap.png",
+   "normalMap": "SM_Wooden_Roof_Support_WoodenRoof_Normal.png",
+   "maskMap": "SM_Wooden_Roof_Support_WoodenRoof_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodenRoof_Edges(Support_ile_birleştir)",
+   "baseMap": "SM_Wooden_Roof_Edges_WoodenRoof_BaseMap.png",
+   "normalMap": "SM_Wooden_Roof_Edges_WoodenRoof_Normal.png",
+   "maskMap": "SM_Wooden_Roof_Edges_WoodenRoof_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Grey",
+   "baseMap": "T_2K_BigProps_Base.png",
+   "normalMap": "SM_Small_Table_TD_Checker_Normal.1001.png",
+   "maskMap": "SM_Small_Table_TD_Checker_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.3449999988079071,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Alcohol_1024 1",
+   "baseMap": "Alcohol_1024.png",
+   "normalMap": "Alcohol_1024_Normal.png",
+   "maskMap": "Alcohol_1024_Mask.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.8066051602363586,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_SmallProps_2048",
+   "baseMap": "Small Props(2048x2048)_Base.png",
+   "normalMap": "Small Props(2048x2048)_Normal.png",
+   "maskMap": "Small Props(2048x2048)_Mask.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.674583911895752,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodShelf",
+   "baseMap": "SM_WoodShelf_Material_BaseMap.png",
+   "normalMap": "",
+   "maskMap": "SM_WoodShelf_Material_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodShelf2",
+   "baseMap": "SM_WoodShelf2_Material_BaseMap.png",
+   "normalMap": "SM_WoodShelf2_Material_Normal.png",
+   "maskMap": "SM_WoodShelf2_Material_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodShelf3",
+   "baseMap": "SM_WoodShelf3_TD_Checker_BaseMap.png",
+   "normalMap": "SM_WoodShelf3_TD_Checker_Normal.png",
+   "maskMap": "SM_WoodShelf3_TD_Checker_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodShelf4",
+   "baseMap": "SM_WoodShelf4_DefaultMaterial_BaseMap.png",
+   "normalMap": "SM_WoodShelf4_DefaultMaterial_Normal.png",
+   "maskMap": "SM_WoodShelf4_DefaultMaterial_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_BarMetalRail",
+   "baseMap": "SM_BarMetalRail_DefaultMaterial_BaseMap.png",
+   "normalMap": "SM_BarMetalRail_DefaultMaterial_Normal.png",
+   "maskMap": "SM_BarMetalRail_DefaultMaterial_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Alcohol_1024",
+   "baseMap": "Alcohol_1024 (1).png",
+   "normalMap": "Alcohol_1024_Normal (1).png",
+   "maskMap": "Alcohol_1024_Mask (1).png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.8568128943443298,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": true,
+   "cutoff": 0.7429999709129333,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Fayans",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.9063317179679871,
+    0.9063317179679871,
+    0.9063317179679871,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_FayansVeDöşeme",
+   "baseMap": "Fayans_FayansDöşeme_BaseColor.png",
+   "normalMap": "SM_Fayans+Döşeme_Fayans_Normal.1001.png",
+   "maskMap": "SM_Fayans+Döşeme_Fayans_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    0.5790823101997375,
+    0.465999960899353,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 2.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Fayans",
+   "baseMap": "SM_Fayans+Döşeme_Fayans_BaseMap.1001.png",
+   "normalMap": "SM_Fayans+Döşeme_Fayans_Normal.1001.png",
+   "maskMap": "SM_Fayans+Döşeme_Fayans_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    0.5790823101997375,
+    0.465999960899353,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 2.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Fayans_Kenarlık",
+   "baseMap": "SM_Fayans+Döşeme_Fayans Döşeme_BaseMap.1001.png",
+   "normalMap": "SM_Fayans+Döşeme_Fayans Döşeme_Normal.1001.png",
+   "maskMap": "SM_Fayans+Döşeme_Fayans Döşeme_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    0.5740000009536743,
+    0.5740000009536743,
+    0.5740000009536743,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.7626720666885376,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_4K_Kanepe_Masa",
+   "baseMap": "4K_Kanepe_Masa.png",
+   "normalMap": "4K_Kanepe_Masa_Normal.png",
+   "maskMap": "4K_Kanepe_Masa_Mask.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5141022205352783,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Halı",
+   "baseMap": "SM_Halı_DefaultMaterial_BaseMap.1001.png",
+   "normalMap": "SM_Halı_DefaultMaterial_Normal.1001.png",
+   "maskMap": "SM_Halı_DefaultMaterial_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    0.8230000138282776,
+    0.6723616123199463,
+    0.6723616123199463,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5198920965194702,
+   "normalScale": 1.190000057220459,
+   "transparent": false,
+   "alphaClip": true,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Çember",
+   "baseMap": "Bekir_Mask.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "Bekir_Mask.png",
+   "baseColor": [
+    0.4431372880935669,
+    0.729411780834198,
+    0.6941176652908325,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    2.0,
+    0.3775676488876343,
+    0.019442425668239595,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Text",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "Bekir_Mask.png",
+   "baseColor": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    2.0,
+    0.10557298717771421,
+    0.12019377814701226,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_4K_Cekmece_TekliKanepe",
+   "baseMap": "T_4K_Cekmece_TekliKanepe_Base.png",
+   "normalMap": "T_4K_Cekmece_TekliKanepe_Normal.png",
+   "maskMap": "T_4K_Cekmece_TekliKanepe_Mask.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5950851440429688,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_2K_BigProps",
+   "baseMap": "T_2K_BigProps_Base.png",
+   "normalMap": "T_2K_BigProps_Normal.jpg.png",
+   "maskMap": "T_2K_BigProps_Mask.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.7458810806274414,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_CarsonRoundDiningTableVeRaf",
+   "baseMap": "CarsonRoundDiningTableVeRaf.Base.png",
+   "normalMap": "CarsonRoundDiningTableVeRaf.Normal.png",
+   "maskMap": "CarsonRoundDiningTableVeRaf.Mask.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Kitaplar",
+   "baseMap": "rafset2_Kitaplar_BaseColor.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_KitapRafı",
+   "baseMap": "SM_KitapRafı_DefaultMaterial_BaseMap.1001.png",
+   "normalMap": "SM_KitapRafı_DefaultMaterial_Normal.1001.png",
+   "maskMap": "SM_KitapRafı_DefaultMaterial_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Suitcase",
+   "baseMap": "Maleta_albedo.png",
+   "normalMap": "Maleta_normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.13699999451637268,
+   "smoothness": 0.2460000067949295,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_28 Props",
+   "baseMap": "metal-bokser-tex.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.22499999403953552,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Record PlayerAndVaultCase",
+   "baseMap": "RecordPlayer_Ve_VaultCase_Base.png",
+   "normalMap": "RecordPlayer_Ve_VaultCase_Normal.png",
+   "maskMap": "RecordPlayer_Ve_VaultCase_Mask.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.8057990670204163,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Piano",
+   "baseMap": "Piano_Piano_AlbedoTransparency.png",
+   "normalMap": "Piano_Piano_Normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Stulchik piano",
+   "baseMap": "Stulchik piano_Stulchik piano_AlbedoTransparency.png",
+   "normalMap": "Stulchik piano_Stulchik piano_Normal.png",
+   "maskMap": "Stulchik piano_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Door_Blocked",
+   "baseMap": "d_mat_albedo.png",
+   "normalMap": "d_mat_normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.9056603908538818,
+    0.9056603908538818,
+    0.9056603908538818,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.17399999499320984,
+   "smoothness": 0.5609999895095825,
+   "normalScale": 2.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Door_Blocked_Glass",
+   "baseMap": "d_mat_albedo.png",
+   "normalMap": "d_mat_normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.6941972374916077,
+    0.7320221066474915,
+    0.7547169923782349,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.5849999785423279,
+   "smoothness": 0.7459999918937683,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_TV_Old",
+   "baseMap": "Radiola_baseColor.png",
+   "normalMap": "Radiola_normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "material",
+   "baseMap": "",
+   "normalMap": "Material_Normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.9063317179679871,
+    0.9063317179679871,
+    0.9063317179679871,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_Beer_Keg",
+   "baseMap": "M_ButterChurn_baseColor.png",
+   "normalMap": "M_ButterChurn_normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Beertap",
+   "baseMap": "DefaultMaterial_baseColor.png",
+   "normalMap": "DefaultMaterial_normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Portreler 1",
+   "baseMap": "bear.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "05_fox_and_mouse",
+   "baseMap": "05_fox_and_mouse.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "bear_hunt_01",
+   "baseMap": "bear_hunt_01.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Monkey",
+   "baseMap": "Monkey.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "06_donkey_and_pig",
+   "baseMap": "06_donkey_and_pig.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "cat 1",
+   "baseMap": "cat.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.6698113083839417,
+    0.5339533686637878,
+    0.5339533686637878,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "04_horse",
+   "baseMap": "04_horse.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Silah Askısı",
+   "baseMap": "SilahAskılığı_Ve_Coat2_Base.png",
+   "normalMap": "SilahAskılığı_Ve_Coat2_Normal.png",
+   "maskMap": "SilahAskılığı_Ve_Coat2_Mask.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.554667592048645,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Rifle",
+   "baseMap": "SM_Silah Askılıgı_Rifle_BaseMap.1001.png",
+   "normalMap": "SM_Silah Askılıgı_Rifle_Normal.1001.png",
+   "maskMap": "SM_Silah Askılıgı_Rifle_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.6790289878845215,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Bar_ChalckBoard",
+   "baseMap": "SM_Bar_ChalckBoard_Material_BaseMap.1001.png",
+   "normalMap": "SM_Bar_ChalckBoard_Material_Normal.1001.png",
+   "maskMap": "SM_Bar_ChalckBoard_Material_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_SecurityLight",
+   "baseMap": "security_light_diff_2k.png",
+   "normalMap": "security_light_nor_gl_2k.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.4099999964237213,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Text_sonuk",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "Bekir_Mask.png",
+   "baseColor": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    2.0,
+    0.10557297702178749,
+    0.12019377967534216,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_SecurityLight_2",
+   "baseMap": "security_light_diff_2k.png",
+   "normalMap": "security_light_nor_gl_2k.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.9924528002738953,
+    0.9924528002738953,
+    0.9924528002738953,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    2.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.4099999964237213,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Ashtray",
+   "baseMap": "glass_BaseColor.png",
+   "normalMap": "glass_Normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.4829999804496765,
+    0.4829999804496765,
+    0.4829999804496765,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Material1-material",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.9063317179679871,
+    0.9063317179679871,
+    0.9063317179679871,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_Ashtray3_Wood",
+   "baseMap": "Ashtray_SM2_Material_001_BaseColor.png",
+   "normalMap": "Ashtray_SM2_Material_001_Normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Ashtray3_Cigar",
+   "baseMap": "Ashtray_SM2_Material_000_BaseColor.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.8773584961891174,
+    0.8773584961891174,
+    0.8773584961891174,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Clock",
+   "baseMap": "mantel_clock_01_diff_2k.png",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.75,
+    0.75,
+    0.75,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_PoisonCup_Drink",
+   "baseMap": "SM_PoisonCup_Drink_BaseMap.1001.png",
+   "normalMap": "SM_PoisonCup_Drink_Normal.1001.png",
+   "maskMap": "SM_PoisonCup_Drink_MaskMap.1001.png",
+   "emissionMap": "SM_PoisonCup_Drink_Emissive.1001.png",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    0.10005280375480652,
+    0.02182968705892563,
+    0.02182968705892563,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": true,
+   "alphaClip": true,
+   "cutoff": 0.5870000123977661,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Whiskey",
+   "baseMap": "SM_whiskey_glass_Whiskey_BaseMap.1001.png",
+   "normalMap": "SM_whiskey_glass_Whiskey_Normal.1001.png",
+   "maskMap": "SM_whiskey_glass_Whiskey_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    0.856603741645813,
+    0.2857830226421356,
+    0.13414731621742249,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Ice",
+   "baseMap": "SM_whiskey_glass_Buz_BaseMap.1001.png",
+   "normalMap": "SM_whiskey_glass_Buz_Normal.1001.png",
+   "maskMap": "SM_whiskey_glass_Buz_MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    0.352830171585083,
+    0.5568628907203674,
+    1.0,
+    0.3686274588108063
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": true,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Stylized Revolver",
+   "baseMap": "Stylized Revolver _Stylized Revolver _BaseMap.1001.png",
+   "normalMap": "Stylized Revolver _Stylized Revolver _Normal.1001.png",
+   "maskMap": "Stylized Revolver _Stylized Revolver _MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.8129792213439941,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_StylizedRevolver_Mermi_Ve_Cemberi",
+   "baseMap": "Stylized Revolver_Open_Stylized Revolver _BaseMap.1001.png",
+   "normalMap": "Stylized Revolver_Open_Stylized Revolver _Normal.1001.png",
+   "maskMap": "Stylized Revolver_Open_Stylized Revolver _MaskMap.1001.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.7980175614356995,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "DefaultHDMaterial",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.7279411554336548,
+    0.7279411554336548,
+    0.7279411554336548,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.699999988079071,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_Air Duct",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.6132075786590576,
+    0.6132075786590576,
+    0.6132075786590576,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.5350000262260437,
+   "smoothness": 0.40799999237060547,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "lambert1.002",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.7353569269180298,
+    0.7353569269180298,
+    0.7353569269180298,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.4472135901451111,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_WoodBeerKeg",
+   "baseMap": "Varil_Varil_BaseMap.png",
+   "normalMap": "Varil_Varil_Normal.png",
+   "maskMap": "Varil_Varil_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_WoodBeerKeg_Bottle",
+   "baseMap": "Varil_sise_BaseMap.png",
+   "normalMap": "Varil_sise_Normal.png",
+   "maskMap": "Varil_sise_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Stair",
+   "baseMap": "Sahne_Merdiven_Sahne_Merdiven_BaseMap.png",
+   "normalMap": "",
+   "maskMap": "Sahne_Merdiven_Sahne_Merdiven_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_SahneBira",
+   "baseMap": "Sahne_Bira_BaseMap.png",
+   "normalMap": "Sahne_Bira_Normal.png",
+   "maskMap": "Sahne_Bira_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_SahneEkipman",
+   "baseMap": "Sahne_Ekipman_set_Grp_Sahne_Ekipman_BaseMap.png",
+   "normalMap": "Sahne_Ekipman_set_Grp_Sahne_Ekipman_Normal.png",
+   "maskMap": "Sahne_Ekipman_set_Grp_Sahne_Ekipman_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.7622906565666199,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_SahneBoruVeIşığı",
+   "baseMap": "BoruVeSahneIşığı_Base.png",
+   "normalMap": "BoruVeSahneIşığı_Normal.png",
+   "maskMap": "BoruVeSahneIşığı_Mask.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.7920043468475342,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_MüzikStandı",
+   "baseMap": "Sahne_Zemin_Grp_Sahne_Zemin_BaseMap.png",
+   "normalMap": "Sahne_Zemin_Grp_Sahne_Zemin_Normal.png",
+   "maskMap": "Sahne_Zemin_Grp_Sahne_Zemin_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.417397141456604,
+   "normalScale": 0.5799999833106995,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_SahneFıçı",
+   "baseMap": "Fici_Sahne_Fici_BaseMap.png",
+   "normalMap": "Fici_Sahne_Fici_Normal.png",
+   "maskMap": "Fici_Sahne_Fici_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_SahnePoster",
+   "baseMap": "1_Sahne_Poster_BaseMap.png",
+   "normalMap": "1_Sahne_Poster_Normal.png",
+   "maskMap": "1_Sahne_Poster_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Wall Lamp 1",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "Bekir_Mask.png",
+   "baseColor": [
+    0.7358490228652954,
+    0.49274855852127075,
+    0.23949803411960602,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    2.0,
+    0.43768634720568467,
+    0.1168000376748955,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "M_Havalandırma",
+   "baseMap": "Havalandirma_Havalandirma2_BaseMap.png",
+   "normalMap": "",
+   "maskMap": "Havalandirma_Havalandirma2_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.2004321813583374,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Bayrak",
+   "baseMap": "ip_ip_BaseMap.png",
+   "normalMap": "ip_ip_Normal.png",
+   "maskMap": "ip_ip_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "M_Chair",
+   "baseMap": "Chair_Material_BaseMap.png",
+   "normalMap": "Chair_Material_Normal.png",
+   "maskMap": "Chair_Material_MaskMap.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.22809728980064392,
+   "normalScale": 2.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Dirty Cigarette Box Pack_rmDgc",
+   "baseMap": "Albedo_2K__rmDgc.png",
+   "normalMap": "Normal_2K__rmDgc.png",
+   "maskMap": "Masks_2K__rmDgc.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 1.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Dirty Cigarette Box Pack_rmtdZ",
+   "baseMap": "Albedo_2K__rmtdZ.png",
+   "normalMap": "Normal_2K__rmtdZ.png",
+   "maskMap": "Masks_2K__rmtdZ.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 1.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Dirty Burger Box_sbcmr",
+   "baseMap": "Albedo_2K__sbcmr.png",
+   "normalMap": "Normal_2K__sbcmr.png",
+   "maskMap": "Masks_2K__sbcmr.png",
+   "emissionMap": "",
+   "baseColor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 1.0,
+   "smoothness": 1.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "WC_Sign",
+   "baseMap": "SM_WcSign_DefaultMaterial_BaseMap.png",
+   "normalMap": "SM_WcSign_DefaultMaterial_Normal.png",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.6037735939025879,
+    0.5667497515678406,
+    0.5667497515678406,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.0,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "offset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Cables Material.001",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.23949575424194336,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "Text2",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "Bekir_Mask.png",
+   "baseColor": [
+    0.6666666865348816,
+    0.1568627506494522,
+    0.16862745583057404,
+    1.0
+   ],
+   "emission": true,
+   "emissionColor": [
+    2.0,
+    1.8950556106954073,
+    1.8974404797722937,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "Text_Conncetion",
+   "baseMap": "",
+   "normalMap": "",
+   "maskMap": "",
+   "emissionMap": "",
+   "baseColor": [
+    0.20754718780517578,
+    0.15957637131214142,
+    0.15957637131214142,
+    1.0
+   ],
+   "emission": false,
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "normalScale": 1.0,
+   "transparent": false,
+   "alphaClip": false,
+   "cutoff": 0.5,
+   "doubleSided": false,
+   "tiling": [
+    1,
+    1
+   ],
+   "offset": [
+    0,
+    0
+   ]
+  }
+ ]
+}
