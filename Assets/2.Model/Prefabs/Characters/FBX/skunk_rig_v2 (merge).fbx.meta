@@ -118,7 +118,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human:
-    - boneName: skunk_rig_v2
+    - boneName: RHINO_Pelvis
       humanName: Hips
       limit:
         min: {x: 0, y: 0, z: 0}
