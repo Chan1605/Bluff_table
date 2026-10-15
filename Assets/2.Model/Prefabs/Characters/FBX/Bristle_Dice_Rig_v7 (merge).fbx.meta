@@ -1,0 +1,1640 @@
+fileFormatVersion: 2
+guid: 9445d20f5121b2a4997c7af6701957bc
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blood
+    second: {fileID: 2100000, guid: bdc139d755e5db54d98dfadf4079598f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fez_Bristle_BaseColor
+    second: {fileID: 2100000, guid: ad7474dd1d61ad543910c08ff9661a1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassesMat
+    second: {fileID: 2100000, guid: 774f181a268e2164f94685bf2e19b18c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Stylized Revolver
+    second: {fileID: 2100000, guid: bfdb79699d73fc24aa0147350a5e2e48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_StylizedRevolver_Mermi_Ve_Cemberi
+    second: {fileID: 2100000, guid: a6cbcb269daa70e42bb9908ae7b609ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: New Material
+    second: {fileID: 2100000, guid: 19d4d805236d65b41acc00b8e519e037, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: New Material 2
+    second: {fileID: 2100000, guid: add10bb088089f54bb7df86a3b1150ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: New Material 3
+    second: {fileID: 2100000, guid: d93c9c33f1795c2438b5ecf75adf4f57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: New Material 4
+    second: {fileID: 2100000, guid: acdbc4381d01644479f59ca4446e6d6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SM_Domuz_DefaultMaterial_BaseMap_kanli 1
+    second: {fileID: 2100000, guid: 391fb377fec0a3c4e90afa75738ef47e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scifipack_bristle_BaseMap
+    second: {fileID: 2100000, guid: c6856f0e3ee0e3645ae56f4b8c174a25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Scifipack_bristle_BaseMap_g\xF6zl\xFCk"
+    second: {fileID: 2100000, guid: 30ca686381ec1c340a25f04a60897866, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scifipack_bristle_BaseMap_saat
+    second: {fileID: 2100000, guid: 5aa0675fb7d04914abe87a0cce9168fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bristle_goz
+    second: {fileID: 2100000, guid: f48d57cd7d04b8345a76cd575df7359b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong7
+    second: {fileID: 2100000, guid: 2d0eb185e9475bd48ac689aebbcbfc74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: playingCards_Mat
+    second: {fileID: 2100000, guid: 6db3fb9ddb771074cb23ca74625e9d43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: playingCards_Mat normal_blur
+    second: {fileID: 2100000, guid: 0c7d5372d23e8a24692f9fe3353085ba, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Bristle_Dice_Rig_v7
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLThigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRThigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLCalf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRCalf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanSpine1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanSpine2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanHead
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLCollarbone
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRCollarbone
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLUpperarm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRUpperarm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLForearm1
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRForearm1
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLPalm
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRPalm
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanHeadBone004
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GameObject
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bristle_Gozluk (1)
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit11
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit12
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit13
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit21
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit22
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit23
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit31
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit32
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanLDigit33
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit21
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit22
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit23
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanSpine3
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit11
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit12
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit13
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit31
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit32
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Base HumanRDigit33
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Bristle_Dice_Rig_v7 (merge)(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bristle_Dice_Rig_v7
+      parentName: Bristle_Dice_Rig_v7 (merge)(Clone)
+      position: {x: -0, y: 0.00084, z: -0.00075999997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9, y: 0.9, z: 0.9}
+    - name: Base HumanPelvis
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.0000015496147, y: 0.007852294, z: -0.0006496393}
+      rotation: {x: -0.5011166, y: 0.5028545, z: 0.49712914, w: -0.49888086}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanLThigh
+      parentName: Base HumanPelvis
+      position: {x: 0.0003173935, y: 0.0006789241, z: 0.0020532794}
+      rotation: {x: -0.17687538, y: 0.96458596, z: 0.184204, w: 0.06601424}
+      scale: {x: 0.99999994, y: 0.9999998, z: 1.0000002}
+    - name: Base HumanLCalf
+      parentName: Base HumanLThigh
+      position: {x: -0.0037609884, y: 0.00000001335144, z: 0.000000024604796}
+      rotation: {x: 0.0028331426, y: 0.02253436, z: 0.6464428, w: 0.76262444}
+      scale: {x: 1.0000021, y: 0.9999979, z: 1.0000007}
+    - name: Base HumanLFoot
+      parentName: Base HumanLCalf
+      position: {x: -0.0031627782, y: 0, z: -1.9073486e-10}
+      rotation: {x: 0.14628427, y: -0.051051494, z: -0.62821275, w: 0.76245886}
+      scale: {x: 1.000004, y: 0.9999958, z: 1}
+    - name: wiseparmak1
+      parentName: Base HumanLFoot
+      position: {x: -0.0026092, y: 0.000010971975, z: -9.536743e-10}
+      rotation: {x: -0.006042237, y: 0.004202241, z: -0.5749229, w: 0.81817454}
+      scale: {x: 1.000004, y: 0.99999607, z: 1}
+    - name: Base HumanRThigh
+      parentName: Base HumanPelvis
+      position: {x: 0.0003173935, y: 0.0006789239, z: -0.0020532785}
+      rotation: {x: -0.1729145, y: 0.96382606, z: -0.19097283, w: -0.06833272}
+      scale: {x: 1.0000001, y: 0.9999998, z: 1.0000002}
+    - name: Base HumanRCalf
+      parentName: Base HumanRThigh
+      position: {x: -0.003760995, y: 0.000000013732909, z: -0.000000025367735}
+      rotation: {x: -0.002838908, y: -0.022517484, z: 0.6452315, w: 0.76364994}
+      scale: {x: 0.9999988, y: 0.99999917, z: 1.0000021}
+    - name: Base HumanRFoot
+      parentName: Base HumanRCalf
+      position: {x: -0.0031627645, y: 1.9073486e-10, z: -3.8146972e-10}
+      rotation: {x: -0.14617595, y: 0.04930125, z: -0.6298385, w: 0.7612525}
+      scale: {x: 1.0000005, y: 0.9999991, z: 1.0000005}
+    - name: wiseparmak2
+      parentName: Base HumanRFoot
+      position: {x: -0.002609201, y: 0.000010972261, z: 3.8146972e-10}
+      rotation: {x: 0.0059946342, y: -0.0041327025, z: -0.5748001, w: 0.8182615}
+      scale: {x: 1.0000014, y: 0.99999857, z: 1.0000001}
+    - name: Base HumanSpine1
+      parentName: Base HumanPelvis
+      position: {x: -0.00030037612, y: 0.00020267142, z: -1.12131235e-10}
+      rotation: {x: -0.00041110543, y: 0.0003610206, z: -0.04812322, w: 0.9988413}
+      scale: {x: 1.0000002, y: 1.0000005, z: 0.9999999}
+    - name: Base HumanSpine2
+      parentName: Base HumanSpine1
+      position: {x: -0.002471269, y: 9.536743e-11, z: 7.4505804e-13}
+      rotation: {x: -0.0017776092, y: -0.00009118087, z: 0.13308764, w: 0.9911027}
+      scale: {x: 1.0000006, y: 1.0000005, z: 0.9999998}
+    - name: Base HumanSpine3
+      parentName: Base HumanSpine2
+      position: {x: -0.0019570128, y: 3.8146972e-10, z: 7.4505804e-13}
+      rotation: {x: -0.0015386714, y: 0.00009185515, z: 0.045225617, w: 0.99897563}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
+    - name: Base HumanNeck
+      parentName: Base HumanSpine3
+      position: {x: -0.0021681525, y: -0.00021251239, z: 0.00000012392327}
+      rotation: {x: -0.0002780687, y: 0.000022983391, z: -0.2365889, w: 0.97160983}
+      scale: {x: 0.9999991, y: 0.99999905, z: 0.9999997}
+    - name: HeadPivot
+      parentName: Base HumanNeck
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHead
+      parentName: HeadPivot
+      position: {x: -0.0018785441, y: 0, z: 0}
+      rotation: {x: 0.000000036176054, y: -0.000000030391668, z: 0.106323026, w: 0.99433166}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHeadBone004
+      parentName: Base HumanHead
+      position: {x: -0.0024116226, y: 0.0004040056, z: 0.001197323}
+      rotation: {x: 0.13403678, y: 0.73708797, z: -0.22862716, w: 0.6216632}
+      scale: {x: 1.0000011, y: 1, z: 0.99999887}
+    - name: Bone004
+      parentName: Base HumanHeadBone004
+      position: {x: -0.0024708386, y: 0.00041868887, z: 0.00007409313}
+      rotation: {x: -0.4042839, y: 0.8669563, z: -0.29017285, w: -0.02722208}
+      scale: {x: 0.24529944, y: 0.24529944, z: 0.24529965}
+    - name: Object001
+      parentName: Base HumanHeadBone004
+      position: {x: -0.002462719, y: 0.00043764958, z: 0.00004936373}
+      rotation: {x: 0.8724122, y: 0.08634524, z: 0.038333893, w: -0.47955394}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHeadBone005
+      parentName: Base HumanHead
+      position: {x: -0.0024116195, y: 0.00040400564, z: -0.0011973223}
+      rotation: {x: -0.13403672, y: -0.7370879, z: -0.22862695, w: 0.6216633}
+      scale: {x: 1.000001, y: 1, z: 0.9999989}
+    - name: bristle
+      parentName: Base HumanHead
+      position: {x: -0.0031934353, y: 0.0010652671, z: -0.0001528476}
+      rotation: {x: -0.49120158, y: 0.5082583, z: 0.4807556, w: 0.518911}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder_007.001
+      parentName: bristle
+      position: {x: -1.4305114e-10, y: -0.0009829078, z: 1.9073486e-10}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GameObject
+      parentName: bristle
+      position: {x: 0.001096, y: -0.00038699998, z: 0.001283}
+      rotation: {x: -0.12647378, y: 0.30310184, z: -0.023136972, w: 0.94424486}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object005
+      parentName: GameObject
+      position: {x: 0.000052876552, y: -0.00037580356, z: 0.000013539669}
+      rotation: {x: -0.5782515, y: -0.23068567, z: -0.19796506, w: 0.7571124}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GameObject (1)
+      parentName: bristle
+      position: {x: -0.000057, y: 0.000512, z: -0.000054}
+      rotation: {x: -0.13686605, y: 0.041548986, z: -0.029839601, w: 0.98926795}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object002
+      parentName: GameObject (1)
+      position: {x: -0.00019186732, y: 0.0012521595, z: -0.00011098135}
+      rotation: {x: -0.6027392, y: -0.050479364, z: -0.008279781, w: 0.7962969}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object003
+      parentName: GameObject (1)
+      position: {x: -0.000028393859, y: 0.00036734305, z: 0.00004980179}
+      rotation: {x: -0.7080327, y: -0.0488285, z: -0.015247873, w: 0.70432454}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object004
+      parentName: GameObject (1)
+      position: {x: -0.00017576954, y: 0.0012532781, z: -0.0000034862383}
+      rotation: {x: -0.6027392, y: -0.050479364, z: -0.008279781, w: 0.7962969}
+      scale: {x: 1, y: 1, z: 1}
+    - name: w
+      parentName: GameObject (1)
+      position: {x: -0.000283, y: 0.0020939999, z: 0.00023199999}
+      rotation: {x: 0.00043813876, y: 0.0054377937, z: 0.055625662, w: 0.9984368}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bristle_christmas
+      parentName: Base HumanHead
+      position: {x: -0.0012930145, y: 0.0012774563, z: 0.01546441}
+      rotation: {x: -0.49074662, y: 0.50908524, z: 0.49074623, w: 0.50908566}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bristle_christmas
+      parentName: Bristle_christmas
+      position: {x: 0.015462271, y: -0.0001453514, z: 0.0028192445}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bristle_Gozluk (1)
+      parentName: Base HumanHead
+      position: {x: -0.002204, y: 0.002869, z: -0.000015}
+      rotation: {x: 0.526065, y: -0.50439095, z: -0.4980014, w: -0.46993616}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bristle_gozluk 1
+      parentName: Bristle_Gozluk (1)
+      position: {x: 0.012228, y: -0.047772996, z: -0.002023}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: bristle_gozluk 1
+      position: {x: -0.014827493, y: 0.045827527, z: 0.0007867247}
+      rotation: {x: -0.27591377, y: 0.65105426, z: 0.65105426, w: 0.27591377}
+      scale: {x: 0.24529947, y: 0.24529947, z: 0.24529947}
+    - name: Bone003
+      parentName: bristle_gozluk 1
+      position: {x: -0.013652569, y: 0.04779332, z: 0.0016925859}
+      rotation: {x: -0.27591377, y: 0.65105426, z: 0.65105426, w: 0.27591377}
+      scale: {x: 0.24529947, y: 0.24529947, z: 0.24529947}
+    - name: Bone005
+      parentName: bristle_gozluk 1
+      position: {x: -0.013622426, y: 0.047793034, z: 0.0016999628}
+      rotation: {x: -0.27591377, y: 0.65105426, z: 0.65105426, w: 0.27591377}
+      scale: {x: 0.24529947, y: 0.24529947, z: 0.24529947}
+    - name: Gozluk_Final_EXPORT
+      parentName: bristle_gozluk 1
+      position: {x: -0.013619344, y: 0.038681164, z: 0.0003000182}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bristle_Gozluk
+      parentName: Gozluk_Final_EXPORT
+      position: {x: 0.0007569977, y: 0.008853403, z: 0.00084859744}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object002
+      parentName: bristle_gozluk 1
+      position: {x: -0.014649454, y: 0.046798307, z: 0.0007774591}
+      rotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Object003
+      parentName: bristle_gozluk 1
+      position: {x: -0.01362235, y: 0.047250547, z: 0.0016993515}
+      rotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CulturalSkin (1)
+      parentName: Base HumanHead
+      position: {x: 0.015631104, y: 0.0011722961, z: 0.0003972373}
+      rotation: {x: -0.50837886, y: 0.49149197, z: 0.49147853, w: 0.50836545}
+      scale: {x: 0.009591822, y: 0.009591807, z: 0.0095918095}
+    - name: Tassel2
+      parentName: CulturalSkin (1)
+      position: {x: -0, y: 0, z: -0.0186}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: halloweenbristle
+      parentName: Base HumanHead
+      position: {x: -0.004115, y: 0.001305, z: -0.000033}
+      rotation: {x: -0.54547316, y: 0.51671284, z: 0.42634284, w: 0.50368506}
+      scale: {x: 0.96488434, y: 0.96488434, z: 0.96488434}
+    - name: Mouth
+      parentName: Base HumanHead
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHeadBone001
+      parentName: Mouth
+      position: {x: -0.00038680833, y: 0.0017722361, z: 0}
+      rotation: {x: 0.000000037401595, y: 0.0000000028295422, z: -0.80964756, w: 0.5869164}
+      scale: {x: 1, y: 1, z: 1}
+    - name: scifiskin
+      parentName: Base HumanHead
+      position: {x: -0.0019677712, y: 0.0017029657, z: -0.000003139042}
+      rotation: {x: -0.7071066, y: 0.000009648055, z: 0.70710707, w: -0.000009083114}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Virtual Camera
+      parentName: Base HumanHead
+      position: {x: -0.0013700699, y: -0.0018401479, z: 0.00000050285445}
+      rotation: {x: -0.50112015, y: 0.49939844, z: 0.50143236, w: 0.4980416}
+      scale: {x: 1.0088003, y: 1.0087993, z: 1.0088003}
+    - name: cm
+      parentName: Virtual Camera
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Yuz
+      parentName: Base HumanHead
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHeadBone002
+      parentName: Yuz
+      position: {x: -0.0022809708, y: 0.0021697113, z: 0.0009281439}
+      rotation: {x: -0.0000000160444, y: 0.9848077, z: 0.17364831, w: 0.00000009099224}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHeadBone003
+      parentName: Yuz
+      position: {x: -0.0022809738, y: 0.0021697038, z: -0.0009281429}
+      rotation: {x: -0.00000003017955, y: 0.9848077, z: -0.17364831, w: -0.0000001711566}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHeadBone006
+      parentName: Yuz
+      position: {x: -0.0024890478, y: 0.002042177, z: -0.0005459094}
+      rotation: {x: 0.00000002974221, y: -0.00000005963432, z: 0.000000029802319, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHeadBone007
+      parentName: Yuz
+      position: {x: -0.002489039, y: 0.002042184, z: 0.0005459107}
+      rotation: {x: 0.00000002974221, y: -0.00000005963432, z: 0.000000029802319, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHeadBone008
+      parentName: Yuz
+      position: {x: -0.0021303098, y: 0.0017377792, z: -0.0007392919}
+      rotation: {x: 0.7071068, y: 4.3297806e-17, z: -0.7071068, w: 4.3297806e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanHeadBone009
+      parentName: Yuz
+      position: {x: -0.002130313, y: 0.0017377759, z: 0.0007392936}
+      rotation: {x: 0.70710695, y: -0.000000094156945, z: 0.70710665, w: 0.00000009415698}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base HumanRibcage
+      parentName: Base HumanSpine3
+      position: {x: -0.0021030523, y: 7.6293943e-10, z: -7.4505804e-13}
+      rotation: {x: -0.0002739855, y: 0.000052382966, z: -0.1319433, w: 0.99125725}
+      scale: {x: 0.99999934, y: 0.99999934, z: 1}
+    - name: Base HumanLCollarbone
+      parentName: Base HumanRibcage
+      position: {x: -0.000036912534, y: -0.000195547, z: 0.0017856158}
+      rotation: {x: 0.046685457, y: 0.752447, z: 0.049131658, w: 0.6551566}
+      scale: {x: 1.0000007, y: 0.99999905, z: 1.0000004}
+    - name: Base HumanLUpperarm
+      parentName: Base HumanLCollarbone
+      position: {x: -0.0018157506, y: 0, z: -0.0000000015258789}
+      rotation: {x: 0.005332256, y: 0.2168082, z: -0.14407961, w: 0.9655086}
+      scale: {x: 1.0000006, y: 1, z: 0.9999993}
+    - name: Base HumanLForearm1
+      parentName: Base HumanLUpperarm
+      position: {x: -0.0035832466, y: -3.8146972e-10, z: 0}
+      rotation: {x: 0.05681243, y: 0.06261319, z: -0.1107473, w: 0.99024594}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000001}
+    - name: Base HumanLForearm2
+      parentName: Base HumanLForearm1
+      position: {x: -0.0014192119, y: -3.8146972e-10, z: 0.0000000045776365}
+      rotation: {x: 0.07809391, y: 0.0000000029092255, z: 0.000000037139138, w: 0.99694604}
+      scale: {x: 0.9999998, y: 0.99999976, z: 0.9999999}
+    - name: Base HumanLPalm
+      parentName: Base HumanLForearm2
+      position: {x: -0.0014192153, y: 0, z: -0.0000000015258789}
+      rotation: {x: -0.64502716, y: 0.0822969, z: 0.08741221, w: 0.75466967}
+      scale: {x: 0.9999998, y: 1, z: 1.0000005}
+    - name: Base HumanLDigit11
+      parentName: Base HumanLPalm
+      position: {x: -0.0006143276, y: -0.000107325744, z: 0.0006744594}
+      rotation: {x: 0.40646476, y: 0.46122226, z: -0.07320775, w: 0.7853032}
+      scale: {x: 1.0000007, y: 0.9999995, z: 1.0000002}
+    - name: Base HumanLDigit12
+      parentName: Base HumanLDigit11
+      position: {x: -0.0006637413, y: -3.8146972e-10, z: 0}
+      rotation: {x: 0.056203477, y: 0.015871644, z: 0.065908656, w: 0.99611515}
+      scale: {x: 1, y: 0.9999996, z: 1.0000005}
+    - name: Base HumanLDigit13
+      parentName: Base HumanLDigit12
+      position: {x: -0.0005978706, y: -3.8146972e-10, z: -0.0000000022888182}
+      rotation: {x: -0.01053541, y: 0.0028136484, z: 0.09708916, w: 0.99521595}
+      scale: {x: 1, y: 0.99999946, z: 1.0000006}
+    - name: Base HumanLDigit21
+      parentName: Base HumanLPalm
+      position: {x: -0.002090921, y: -0.000035211942, z: 0.0004789886}
+      rotation: {x: 0.0136643965, y: 0.09144158, z: 0.13238984, w: 0.9868762}
+      scale: {x: 0.99999964, y: 1.000001, z: 0.9999998}
+    - name: Base HumanLDigit22
+      parentName: Base HumanLDigit21
+      position: {x: -0.00079576526, y: -7.6293943e-10, z: -3.8146972e-10}
+      rotation: {x: 0.00000088931586, y: -0.0000015072463, z: 0.024170654, w: 0.9997079}
+      scale: {x: 0.9999992, y: 1.0000012, z: 0.9999995}
+    - name: Base HumanLDigit23
+      parentName: Base HumanLDigit22
+      position: {x: -0.00058660924, y: -0.0000000015258789, z: 0.0000000011444091}
+      rotation: {x: 0.000000019352742, y: -0.0000005677847, z: 0.32664278, w: 0.9451479}
+      scale: {x: 0.9999984, y: 1.000005, z: 0.99999654}
+    - name: Base HumanLDigit31
+      parentName: Base HumanLPalm
+      position: {x: -0.0020254245, y: -0.000054711913, z: -0.0005337211}
+      rotation: {x: -0.027815882, y: -0.018954627, z: 0.24426436, w: 0.9691243}
+      scale: {x: 0.99999964, y: 1.0000006, z: 1.0000001}
+    - name: Base HumanLDigit32
+      parentName: Base HumanLDigit31
+      position: {x: -0.00088862836, y: -7.6293943e-10, z: 3.8146972e-10}
+      rotation: {x: -0.000016122263, y: 0.000047356953, z: -0.046961386, w: 0.9988967}
+      scale: {x: 0.99999845, y: 1.0000002, z: 1.0000021}
+    - name: Base HumanLDigit33
+      parentName: Base HumanLDigit32
+      position: {x: -0.00057210575, y: -7.6293943e-10, z: -7.6293943e-10}
+      rotation: {x: 0.0000005539044, y: 0.00000077941235, z: 0.327447, w: 0.9448696}
+      scale: {x: 0.99999934, y: 1.0000027, z: 0.9999982}
+    - name: Bullets.001 (1)
+      parentName: Base HumanLPalm
+      position: {x: -0.0020928099, y: -0.0015870654, z: 0.0013750062}
+      rotation: {x: 0.50033444, y: 0.69490445, z: -0.17231904, w: -0.486908}
+      scale: {x: 134.55888, y: 134.55977, z: 134.55898}
+    - name: KartsParent
+      parentName: Base HumanLPalm
+      position: {x: 0.0010590228, y: -0.0007381016, z: 0.0018438626}
+      rotation: {x: 0.13413031, y: -0.030873284, z: -0.03093304, w: 0.98999953}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Kartlar
+      parentName: KartsParent
+      position: {x: -0.003811, y: -0.00081699993, z: -0.00108}
+      rotation: {x: -0.38669145, y: 0.5068621, z: 0.5288879, w: 0.56021255}
+      scale: {x: 1.6300447, y: 1.6300439, z: 1.6300431}
+    - name: kart1
+      parentName: Kartlar
+      position: {x: 0.000293, y: 0.000726, z: -0.000036999998}
+      rotation: {x: 0, y: -0, z: -0.087155744, w: 0.9961947}
+      scale: {x: 100.0006, y: 100.00003, z: 99.99944}
+    - name: number
+      parentName: kart1
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart2
+      parentName: Kartlar
+      position: {x: 0.00023499998, y: 0.00071500003, z: -0.000017999999}
+      rotation: {x: 0, y: -0, z: -0.043619387, w: 0.99904823}
+      scale: {x: 100.00021, y: 100.00053, z: 99.999245}
+    - name: number (1)
+      parentName: kart2
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart3
+      parentName: Kartlar
+      position: {x: 0.000179, y: 0.0007, z: 0}
+      rotation: {x: 0, y: -0, z: -0.007199421, w: 0.9999741}
+      scale: {x: 100.00038, y: 100.00037, z: 99.99941}
+    - name: number (2)
+      parentName: kart3
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart4
+      parentName: Kartlar
+      position: {x: 0.00012299999, y: 0.000664, z: 0.000013}
+      rotation: {x: 0, y: 0, z: 0.023219518, w: 0.9997304}
+      scale: {x: 100.000114, y: 100.000534, z: 99.99932}
+    - name: number (3)
+      parentName: kart4
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart5
+      parentName: Kartlar
+      position: {x: 0.000065, y: 0.000616, z: 0.000031}
+      rotation: {x: 0, y: 0, z: 0.06448006, w: 0.997919}
+      scale: {x: 99.99997, y: 100.00064, z: 99.9993}
+    - name: number (4)
+      parentName: kart5
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart6
+      parentName: Kartlar
+      position: {x: -0.0011539999, y: 0.000074999996, z: 0.00083599996}
+      rotation: {x: 0.8477293, y: -0.3489361, z: -0.39852202, w: 0.027906436}
+      scale: {x: 100.0006, y: 100.00003, z: 99.99944}
+    - name: number (2)
+      parentName: kart6
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart7
+      parentName: Kartlar
+      position: {x: -0.000602, y: 0.000759, z: 0.00038699998}
+      rotation: {x: 0.024517803, y: 0.9157095, z: 0.11485546, w: -0.38429588}
+      scale: {x: 99.99997, y: 100.00064, z: 99.9993}
+    - name: number (3)
+      parentName: kart7
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000036}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: scifiskin
+      parentName: Base HumanLForearm2
+      position: {x: -0.00018979017, y: -0.000053030813, z: 0.00012891975}
+      rotation: {x: 0.9179488, y: 0.22652438, z: 0.31590384, w: 0.079130225}
+      scale: {x: 1, y: 1, z: 1}
+    - name: WrapMaster_005
+      parentName: Base HumanLForearm2
+      position: {x: -0.0008631738, y: -0.000058468275, z: 0.0001959115}
+      rotation: {x: 0.8858105, y: 0.30062965, z: 0.24605395, w: 0.25380915}
+      scale: {x: 1.0529984, y: 1.0530006, z: 1.0529995}
+    - name: Base HumanRCollarbone
+      parentName: Base HumanRibcage
+      position: {x: -0.00003691711, y: -0.000195547, z: -0.0017856155}
+      rotation: {x: -0.046685312, y: -0.752447, z: 0.049131885, w: 0.65515655}
+      scale: {x: 0.99999934, y: 1.000001, z: 0.9999998}
+    - name: Base HumanRUpperarm
+      parentName: Base HumanRCollarbone
+      position: {x: -0.0018157491, y: -9.536743e-11, z: 0.000000007629394}
+      rotation: {x: -0.0053319354, y: -0.21680817, z: -0.1440791, w: 0.9655087}
+      scale: {x: 0.9999999, y: 1.0000001, z: 0.9999994}
+    - name: Base HumanRForearm1
+      parentName: Base HumanRUpperarm
+      position: {x: -0.0035832461, y: -1.9073486e-10, z: 0.0000000015258789}
+      rotation: {x: -0.0568125, y: -0.062613375, z: -0.11074685, w: 0.990246}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000001}
+    - name: Base HumanRForearm2
+      parentName: Base HumanRForearm1
+      position: {x: -0.0014192138, y: 3.8146972e-10, z: 0}
+      rotation: {x: -0.07809393, y: -0.0000000020364581, z: 0.000000025997394, w: 0.99694604}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Base HumanRPalm
+      parentName: Base HumanRForearm2
+      position: {x: -0.0014192145, y: 0, z: 0}
+      rotation: {x: 0.6450269, y: -0.082297005, z: 0.08741206, w: 0.7546699}
+      scale: {x: 1.0000004, y: 1.0000015, z: 0.9999981}
+    - name: Base HumanRDigit11
+      parentName: Base HumanRPalm
+      position: {x: -0.00061432837, y: -0.000107325744, z: -0.0006744572}
+      rotation: {x: -0.40646505, y: -0.4612222, z: -0.073208466, w: 0.78530306}
+      scale: {x: 1.0000001, y: 1.0000014, z: 0.9999981}
+    - name: Base HumanRDigit12
+      parentName: Base HumanRDigit11
+      position: {x: -0.00066374056, y: 0.0000000011444091, z: -0.0000000015258789}
+      rotation: {x: -0.05620377, y: -0.015871594, z: 0.06590836, w: 0.99611515}
+      scale: {x: 0.99999976, y: 1.0000008, z: 0.99999964}
+    - name: Base HumanRDigit13
+      parentName: Base HumanRDigit12
+      position: {x: -0.0005978729, y: -3.8146972e-10, z: 7.6293943e-10}
+      rotation: {x: 0.010535538, y: -0.0028136398, z: 0.09708878, w: 0.995216}
+      scale: {x: 0.9999997, y: 1.0000008, z: 0.9999999}
+    - name: Base HumanRDigit21
+      parentName: Base HumanRPalm
+      position: {x: -0.0020909233, y: -0.000035214234, z: -0.00047898633}
+      rotation: {x: -0.013664437, y: -0.09144158, z: 0.13238958, w: 0.98687625}
+      scale: {x: 0.9999991, y: 0.9999995, z: 1.0000008}
+    - name: Base HumanRDigit22
+      parentName: Base HumanRDigit21
+      position: {x: -0.00079576566, y: -0.0000000015258789, z: -3.8146972e-10}
+      rotation: {x: -0.0000007319407, y: 0.000001432798, z: 0.024170628, w: 0.9997079}
+      scale: {x: 0.999999, y: 0.9999997, z: 1.0000008}
+    - name: Base HumanRDigit23
+      parentName: Base HumanRDigit22
+      position: {x: -0.00058660965, y: 0.0000000015258789, z: -3.8146972e-10}
+      rotation: {x: 0.000000040152855, y: 0.0000006336769, z: 0.32664296, w: 0.9451478}
+      scale: {x: 0.99999857, y: 1.0000052, z: 0.999997}
+    - name: Base HumanRDigit31
+      parentName: Base HumanRPalm
+      position: {x: -0.0020254268, y: -0.000054713437, z: 0.00053371885}
+      rotation: {x: 0.027816016, y: 0.018954558, z: 0.24426404, w: 0.9691244}
+      scale: {x: 1.0000005, y: 1.0000001, z: 0.9999994}
+    - name: Base HumanRDigit32
+      parentName: Base HumanRDigit31
+      position: {x: -0.00088862836, y: 0, z: 0}
+      rotation: {x: 0.000016180964, y: -0.000047258854, z: -0.04696136, w: 0.9988967}
+      scale: {x: 1.0000018, y: 0.9999998, z: 0.99999887}
+    - name: Base HumanRDigit33
+      parentName: Base HumanRDigit32
+      position: {x: -0.00057210575, y: -0.0000000022888182, z: -3.8146972e-10}
+      rotation: {x: -0.00000054815814, y: -0.0000005684608, z: 0.32744813, w: 0.94486916}
+      scale: {x: 1.0000002, y: 1.0000008, z: 0.9999985}
+    - name: ElRevolver
+      parentName: Base HumanRPalm
+      position: {x: -0.0028119998, y: -0.000834, z: -0.001644}
+      rotation: {x: 0.61798745, y: 0.72007626, z: 0.3104997, w: 0.056317385}
+      scale: {x: 211.86665, y: 211.8678, z: 211.86723}
+    - name: cylinderpivot
+      parentName: ElRevolver
+      position: {x: -0.00000108, y: 0, z: 0.00000043}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder (Magazine)
+      parentName: cylinderpivot
+      position: {x: 0.0000010799963, y: -0.0000011245736, z: 0.000002511903}
+      rotation: {x: 0.00000002980232, y: -0.000000141561, z: -0.00000005960463, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bullets.001
+      parentName: Cylinder (Magazine)
+      position: {x: -0.00000273, y: -0.00000021, z: 0.00000092}
+      rotation: {x: 8.6477875e-17, y: 0.74300456, z: -8.6477875e-17, w: 0.6692864}
+      scale: {x: 0.6351105, y: 0.6351106, z: 0.6351105}
+    - name: Hammer
+      parentName: ElRevolver
+      position: {x: 0.000000007244944, y: 0.000002242276, z: -0.00000024871827}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Loading Gate
+      parentName: ElRevolver
+      position: {x: 0.0000009317308, y: 0.000000805664, z: 0.00000060043334}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Trigger
+      parentName: ElRevolver
+      position: {x: -0.000000002670288, y: 0.00000086898797, z: -0.0000021354674}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0387005, y: 1.0386996, z: 1.0386999}
+    - name: EmptySfx
+      parentName: Base HumanRPalm
+      position: {x: 0.0013828932, y: -0.000038344093, z: -0.0007428043}
+      rotation: {x: -0.034008756, y: 0.111418225, z: -0.015068035, w: 0.9930772}
+      scale: {x: 1.0088024, y: 1.0087972, z: 1.0088015}
+    - name: FirSFX
+      parentName: Base HumanRPalm
+      position: {x: 0.0013828932, y: -0.000038344093, z: -0.0007428043}
+      rotation: {x: -0.034008756, y: 0.111418225, z: -0.015068035, w: 0.9930772}
+      scale: {x: 1.0088024, y: 1.0087972, z: 1.0088015}
+    - name: Fx
+      parentName: Base HumanRPalm
+      position: {x: -0.0012458549, y: -0.0008059912, z: -0.001077139}
+      rotation: {x: 0.61840063, y: 0.7803825, z: -0.08348929, w: -0.040165864}
+      scale: {x: 1.3910967, y: 1.3911005, z: 1.3911207}
+    - name: PS_VFX_Gunshot
+      parentName: Fx
+      position: {x: 0.00090999994, y: -0.0025099998, z: 0.0023299998}
+      rotation: {x: -0.1496626, y: -0.16750883, z: -0.67741245, w: 0.70046717}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Plane
+      parentName: PS_VFX_Gunshot
+      position: {x: 0.12399999, y: -0.019, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Firing
+      parentName: PS_VFX_Gunshot
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_DistoDonut
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_FirstFlash
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_FirstGlowLarge
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_FirstGlowLight
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Light1
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_LightStrip (1)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_LightStrip (2)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: 0.004, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_LightStrip (3)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: 0.004, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_SecondGlowFlash
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_SecondGlowLarge
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Sparks (1)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_StarMiddle1
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Wind1
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 4.3297806e-17, y: -0.7071068, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Wind1 (1)
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 4.3297806e-17, y: -0.7071068, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Add_Wind2
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0.00113, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Sparks
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_Spikes
+      parentName: PS_VFX_GunShot_Firing
+      position: {x: -0.0022, y: -0.0007, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
+    - name: PS_VFX_GunShot_Proj
+      parentName: PS_VFX_Gunshot
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0, y: 0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ___________________________________
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: -0.019499999, z: 0.1022}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_DistoDonut
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_FirstFlash
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_FirstGlowLarge
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_FirstGlowLight
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_Impact
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_Light1
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_LightStrip (2)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_LightStrip (3)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_SecondGlowFlash
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_SecondGlowLarge
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_Sparks
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Add_StarMiddle1
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Proj (1)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Proj (2)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_GunShot_Proj (3)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Sparks (1)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PS_VFX_Spikes (1)
+      parentName: PS_VFX_GunShot_Proj
+      position: {x: -0, y: -0.0007000005, z: -0.0021999981}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GunSfx
+      parentName: Base HumanRPalm
+      position: {x: 0.0013828932, y: -0.000038344093, z: -0.0007428043}
+      rotation: {x: -0.034008756, y: 0.111418225, z: -0.015068035, w: 0.9930772}
+      scale: {x: 1.0088024, y: 1.0087972, z: 1.0088015}
+    - name: kart1
+      parentName: Base HumanRPalm
+      position: {x: -0.00025876728, y: -0.0010718007, z: -0.001350939}
+      rotation: {x: -0.12091687, y: 0.058716614, z: 0.45098346, w: 0.88235223}
+      scale: {x: 154.80043, y: 154.80002, z: 154.80084}
+    - name: brist_scifirigv2
+      parentName: Base HumanSpine3
+      position: {x: 0.012250758, y: -0.002741781, z: -0.0000041032863}
+      rotation: {x: -0.42977315, y: 0.56177115, z: 0.42954028, w: 0.56142974}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone001
+      parentName: brist_scifirigv2
+      position: {x: 0.0031801905, y: 0.017861107, z: -0.0009242903}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: Bone001
+      position: {x: -0.006375665, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone003
+      parentName: Bone001
+      position: {x: 0.0006039032, y: -0.0032635229, z: -0.0024667755}
+      rotation: {x: 0, y: 0, z: 0.9493318, w: 0.31427544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone004
+      parentName: Bone001
+      position: {x: -0.0069642896, y: -0.0032635229, z: -0.0024667755}
+      rotation: {x: -0.31427568, y: 0.94933176, z: 3.2035673e-16, w: 7.728644e-16}
+      scale: {x: -1, y: -1, z: -1}
+    - name: scifiskin
+      parentName: brist_scifirigv2
+      position: {x: -0, y: 0.016693622, z: -0.00023427581}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Hit
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.00037375424, y: 0.016139999, z: 0.0011731866}
+      rotation: {x: 0.7564626, y: -0.59358823, z: 0.08898458, w: -0.25980604}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood2
+      parentName: Blood_Hit
+      position: {x: -0.00112, y: -0.00133, z: -0.00204}
+      rotation: {x: -0.5565134, y: 0.5817302, z: 0.5200448, w: 0.28537035}
+      scale: {x: 0.50503, y: 0.50503, z: 0.50503}
+    - name: Blood
+      parentName: Blood2
+      position: {x: -0.00131, y: 0, z: 0}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 0.02, y: 0.02, z: 0.02}
+    - name: Decal
+      parentName: Blood2
+      position: {x: 0.0451, y: -0.02, z: -0.0014}
+      rotation: {x: 0.00000019861236, y: -0.7071068, z: 0.7071068, w: 0.00000019861236}
+      scale: {x: 9.716193, y: 1, z: 2.3172183}
+    - name: HitFX
+      parentName: Blood_Hit
+      position: {x: 0.00043000001, y: -0.0012999999, z: 0.00068}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Drops
+      parentName: HitFX
+      position: {x: -0.00017999865, y: -0.00051999517, z: -0.00088999205}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Mist
+      parentName: HitFX
+      position: {x: -0.00017999999, y: -0.00052, z: -0.00088999997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Spray
+      parentName: HitFX
+      position: {x: -0.00017999865, y: -0.00051999517, z: -0.00088999205}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Blood_Vertical_Spray
+      parentName: HitFX
+      position: {x: -0.00017999865, y: -0.0006868989, z: -0.00088999205}
+      rotation: {x: -0.50000024, y: 0.5000004, z: 0.5000003, w: 0.49999902}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Flesh_Balls
+      parentName: HitFX
+      position: {x: -0.00017999865, y: -0.00051999517, z: -0.00088999205}
+      rotation: {x: 6.123234e-17, y: 1, z: 6.123234e-17, w: 3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: domuz_mesh_00
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -4.408558e-10, y: 0.0050428025, z: -0.00031559254}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: domuz_mesh_01
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.000000003804307, y: 0.0116529865, z: -0.0005310677}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: domuz_mesh_02
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.000000003812493, y: 0.0077545773, z: -0.000004099488}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: domuz_mesh_03
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.00000001183849, y: 0.0015552221, z: -0.00052475074}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: domuz_mesh_05
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.000000028806246, y: 0.0053148363, z: 0.002950014}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: domuz_mesh_010
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -0.00074828, y: 0.018544836, z: 0.0010020052}
+      rotation: {x: -0.7071068, y: -0.00000006181724, z: -1.3096355e-15, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: domuz_orjinal_beden
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -0.000000011458941, y: 0.013127108, z: -0.0006052118}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: domuz_orjinal_beden001
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -0.000000011458941, y: 0.013127108, z: -0.0006052118}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FistSfx
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -0, y: -0.00076, z: -0.0010499979}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1, y: 1.1, z: 1.1}
+    - name: headfall
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -0, y: 0.008711112, z: 0.0047555584}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1111112, y: 1.1111112, z: 1.1111112}
+    - name: headfall (1)
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -0, y: 0.008711112, z: 0.0047555584}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1111112, y: 1.1111112, z: 1.1111112}
+    - name: kartucan
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.0026352261, y: 0.010843251, z: 0.0061605535}
+      rotation: {x: 0.6075131, y: 0.47481993, z: 0.47691572, w: 0.42193052}
+      scale: {x: 154.80127, y: 154.80017, z: 154.80075}
+    - name: LoseCard
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -0, y: 0.008711112, z: 0.0047555584}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1111112, y: 1.1111112, z: 1.1111112}
+    - name: MasaKart
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -0.002230181, y: 0.008407275, z: 0.0033686538}
+      rotation: {x: -0.25417027, y: 0.8649223, z: -0.15800844, w: 0.4029147}
+      scale: {x: 1.111111, y: 1.1111112, z: 1.1111112}
+    - name: Kartlar
+      parentName: MasaKart
+      position: {x: -0.007522, y: -0.0064979997, z: -0.0051999995}
+      rotation: {x: 0.4641041, y: -0.5042928, z: 0.7203462, w: 0.106759496}
+      scale: {x: 1.548001, y: 1.548, z: 1.547999}
+    - name: kart1
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0.00007}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0006, y: 100, z: 99.99944}
+    - name: number
+      parentName: kart1
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart2
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0.000052}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0002, y: 100.0005, z: 99.99924}
+    - name: number (1)
+      parentName: kart2
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart3
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0.000020999998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0004, y: 100.0004, z: 99.99941}
+    - name: number (1)
+      parentName: kart3
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart4
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0001, y: 100.0006, z: 99.99932}
+    - name: number (1)
+      parentName: kart4
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000018}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart5
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: -0.000027}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 99.99997, y: 100.0006, z: 99.9993}
+    - name: number (2)
+      parentName: kart5
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart6
+      parentName: Kartlar
+      position: {x: -0.0011539999, y: 0.000074999996, z: 0.00083599996}
+      rotation: {x: 0.8477294, y: -0.3489361, z: -0.39852196, w: 0.027906483}
+      scale: {x: 100.0006, y: 100.0006, z: 99.99944}
+    - name: number (2)
+      parentName: kart6
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart7
+      parentName: Kartlar
+      position: {x: -0.000602, y: 0.000759, z: 0.00038699998}
+      rotation: {x: 0.02451781, y: 0.91570944, z: 0.114855446, w: -0.3842959}
+      scale: {x: 99.99997, y: 100.0006, z: 99.9993}
+    - name: number (3)
+      parentName: kart7
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000036}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: MasaKart (1)
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: -0.002230181, y: 0.008407275, z: 0.0033686538}
+      rotation: {x: -0.25417027, y: 0.8649223, z: -0.15800844, w: 0.4029147}
+      scale: {x: 1.111111, y: 1.1111112, z: 1.1111112}
+    - name: Kartlar
+      parentName: MasaKart (1)
+      position: {x: -0.007522, y: -0.0064979997, z: -0.0051999995}
+      rotation: {x: 0.4641041, y: -0.5042928, z: 0.7203462, w: 0.106759496}
+      scale: {x: 1.548001, y: 1.548, z: 1.547999}
+    - name: kart1
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0.00007}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0006, y: 100, z: 99.99944}
+    - name: number
+      parentName: kart1
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart2
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0.000052}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0002, y: 100.0005, z: 99.99924}
+    - name: number (1)
+      parentName: kart2
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart3
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0.000020999998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0004, y: 100.0004, z: 99.99941}
+    - name: number (1)
+      parentName: kart3
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart4
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100.0001, y: 100.0006, z: 99.99932}
+    - name: number (1)
+      parentName: kart4
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000018}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart5
+      parentName: Kartlar
+      position: {x: -0, y: 0, z: -0.000027}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 99.99997, y: 100.0006, z: 99.9993}
+    - name: number (2)
+      parentName: kart5
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart6
+      parentName: Kartlar
+      position: {x: -0.0011539999, y: 0.000074999996, z: 0.00083599996}
+      rotation: {x: 0.8477294, y: -0.3489361, z: -0.39852196, w: 0.027906483}
+      scale: {x: 100.0006, y: 100.0006, z: 99.99944}
+    - name: number (2)
+      parentName: kart6
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: kart7
+      parentName: Kartlar
+      position: {x: -0.000602, y: 0.000759, z: 0.00038699998}
+      rotation: {x: 0.02451781, y: 0.91570944, z: 0.114855446, w: -0.3842959}
+      scale: {x: 99.99997, y: 100.0006, z: 99.9993}
+    - name: number (3)
+      parentName: kart7
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000036}
+      rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
+      scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
+    - name: Object001
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.0007482348, y: 0.018544836, z: 0.0010020547}
+      rotation: {x: -0.7071068, y: -0.00000006181725, z: 5.612193e-15, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: reload
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.0012599998, y: 0.008709999, z: 0.007099997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1, y: 1.1, z: 1.1}
+    - name: reload (1)
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.0012599998, y: 0.008709999, z: 0.007099997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1, y: 1.1, z: 1.1}
+    - name: 'Stylized Revolver '
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.00411, y: 0.00854, z: 0.00769}
+      rotation: {x: 0.5161353, y: 0.5014588, z: -0.49901077, w: -0.48283717}
+      scale: {x: 211.87897, y: 211.87947, z: 211.87894}
+    - name: Cylinder (Magazine)
+      parentName: 'Stylized Revolver '
+      position: {x: 0.0000000072479245, y: -0.0000011245727, z: 0.0000029418943}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000005, y: 0.9999996, z: 1}
+    - name: Hammer
+      parentName: 'Stylized Revolver '
+      position: {x: 0.000000007244944, y: 0.000002242276, z: -0.00000024871827}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Loading Gate
+      parentName: 'Stylized Revolver '
+      position: {x: 0.0000009317308, y: 0.000000805664, z: 0.00000060043334}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1}
+    - name: Trigger
+      parentName: 'Stylized Revolver '
+      position: {x: -0.000000002670288, y: 0.00000086898797, z: -0.0000021354674}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0387005, y: 1.0386996, z: 1.0386999}
+    - name: ThrowCardsSfx (1)
+      parentName: Bristle_Dice_Rig_v7
+      position: {x: 0.00000031524235, y: -0.0009010534, z: -0.0006622246}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.1111112, y: 1.1111112, z: 1.1111112}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
