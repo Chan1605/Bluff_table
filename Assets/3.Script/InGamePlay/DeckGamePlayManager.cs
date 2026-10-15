@@ -54,20 +54,21 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
                 return;
             }
 
-            if(!pProfile.TryGetComponent<PlayerState>(out PlayerState pState))
+            if (!pProfile.TryGetComponent<PlayerState>(out PlayerState pState))
             {
                 Debug.Log($"[인게임] {seat} 번 PlayerState 없음");
                 return;
             }
 
-                Players[seat] = pState;
-                pState.SeatNum = seat;
-                pState.deckManager = this;
-                pState.ResetState();
+            Players[seat] = pState;
+            pState.SeatNum = seat;
+            pState.deckManager = this;
+            pState.ResetState();
         }
 
         accumTurnIndex = 0;
         nextRoundStartSeat = UnityEngine.Random.Range(0, Players.Length);
+        RpcEntryInGame();
         StartCoroutine(StartRound_co());
     }
 
@@ -83,9 +84,9 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     public void StartRound()
     {
         PlayerState AllivePlayer = null;
-        int Allive=0;
+        int Allive = 0;
 
-        for(int i = 0; i<Players.Length; i++)
+        for (int i = 0; i < Players.Length; i++)
         {
             PlayerState curPlayer = Players[i];
 
@@ -100,12 +101,12 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             }
         }
 
-        if (Allive == 1 && AllivePlayer!= null)
+        if (Allive == 1 && AllivePlayer != null)
         {
             EndGame(AllivePlayer.SeatNum);
             return; // 게임 종료 로직
         }
-        else if (Allive ==0)
+        else if (Allive == 0)
         {
             Debug.Log("[인게임] 생존자 없음");
             return;
@@ -167,7 +168,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private void devideDeck()
     {
 
-        for (int i = 0; i<Players.Length; i++)
+        for (int i = 0; i < Players.Length; i++)
         {
             PlayerState player = Players[i];
 
@@ -175,12 +176,12 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
 
             List<CardType> hand = new List<CardType>();
 
-            for(int j = 0; j<5; j++)
+            for (int j = 0; j < 5; j++)
             {
                 hand.Add(serverDeck[(i * 5) + j]);
             }
 
-            playerHands.Add(i,hand);
+            playerHands.Add(i, hand);
             player.TargetGiveCards(hand, player.isDead);
         }
     }
@@ -224,18 +225,18 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         yield return new WaitForSeconds(GameFlowTiming.TurnTimer);
 
-        if(!isResolvingLiar && accumTurnIndex == expectedTurnIndex)
+        if (!isResolvingLiar && accumTurnIndex == expectedTurnIndex)
         {
             Debug_RpcLog("[인게임] : 타임아웃");
 
-            if(!LastManStandingVerification())
+            if (!LastManStandingVerification())
             {
                 Debug_RpcLog("[인게임] : 타임아웃, 강제 Liar 호출 (1대 1 )");
                 CallLiar(seatNum);
             }
             else
             {
-                if(playerHands.TryGetValue(seatNum, out List<CardType> hand) && hand.Count>0)
+                if (playerHands.TryGetValue(seatNum, out List<CardType> hand) && hand.Count > 0)
                 {
                     int randomIdx = UnityEngine.Random.Range(0, hand.Count);
                     Debug_RpcLog($"[인게임] : 타임아웃, 강제 패 제출 ({randomIdx})");
@@ -255,7 +256,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             return;
         }
 
-        if (submitIndex == null ||submitIndex.Length < 1 ||submitIndex.Length > 4)
+        if (submitIndex == null || submitIndex.Length < 1 || submitIndex.Length > 4)
         {
             Debug_RpcLog("[인게임] : 요청 거절 (제출한 카드가 없거나, 범위 초과. 1장 이상 4장 이하로 제출 요함)");
             return;
@@ -276,9 +277,9 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
 
         HashSet<int> usedIndex = new HashSet<int>();
 
-        foreach(int idx in submitIndex)
+        foreach (int idx in submitIndex)
         {
-            if (idx < 0 || idx>=hands.Count || !usedIndex.Add(idx))
+            if (idx < 0 || idx >= hands.Count || !usedIndex.Add(idx))
             {
                 Debug.Log($"[인게임] : 유효하지 않은 카드 인덱스 {idx}");
                 return;
@@ -333,23 +334,23 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     [Server]
     private bool LastManStandingVerification()
     {
-        if(lastSubmittedSeat !=-1)
+        if (lastSubmittedSeat != -1)
         {
             if (playerHands.TryGetValue(lastSubmittedSeat, out List<CardType> prevHands))
             {
-                if(prevHands.Count == 0)
+                if (prevHands.Count == 0)
                 {
                     int aliveCount = 0;
                     foreach (PlayerState p in Players)
                     {
-                        if(p!=null && !p.isDead && !p.isEscaped)
+                        if (p != null && !p.isDead && !p.isEscaped)
                         {
                             aliveCount++;
                         }
                     }
 
                     if (aliveCount <= 2)
-                        {
+                    {
                         Debug.Log("[인게임] : 최후의 2인 상황에서 상대가 0장이 되었습니다.");
                         return false;
                     }
@@ -416,7 +417,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             loserSeat = callerSeat;
         }
 
-        
+
         StartCoroutine(ResolveLiarSequence_co(loserSeat));
     }
 
@@ -451,7 +452,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         PlayerState loserState = Players[seat];
 
-        if(loserState.currentChamber == loserState.bulletPosition)
+        if (loserState.currentChamber == loserState.bulletPosition)
         {
             loserState.isDead = true;
             return true;
@@ -464,6 +465,18 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     }
 
     #region Client RPC
+
+    [ClientRpc]
+    private void RpcEntryInGame()
+    {
+        InGameEvent.TriggerOnEntryInGame();
+    }
+
+    [ClientRpc]
+    private void RpcReEntryInLobby()
+    {
+        InGameEvent.TriggerOnReEntryInLobby();
+    }
 
     [ClientRpc]
     private void RpcStartRound(CardType card)
@@ -522,6 +535,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private void EndGame(int winner)
     {
         RpcAnnounceWinner(winner);
+        RpcReEntryInLobby();
         GameOver?.Invoke(winner);
     }
 
