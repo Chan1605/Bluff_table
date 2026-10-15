@@ -8,7 +8,7 @@ public static class HandPoseClipCreator
     static void Create()
     {
         var clip = new AnimationClip { name = "Hand_Pinch" };
-        string side = "RightHand"; // 카드를 집는 손이 왼손이면 "LeftHand"
+        string side = "LeftHand"; // 카드를 집는 손이 왼손이면 "LeftHand"
 
         // 엄지·검지는 맞닿게, 나머지는 살짝 말아 쥔 시작값 (Animation 창에서 조절)
         Set(clip, side, "Thumb", 0.3f, 0.2f, 0.2f, -0.2f);
