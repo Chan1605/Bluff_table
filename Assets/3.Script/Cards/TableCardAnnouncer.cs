@@ -59,8 +59,8 @@ public class TableCardAnnouncer : MonoBehaviour
         pivot.position = start;
         pivot.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(deckRoot.forward, Vector3.up));
         pivot.localScale = Vector3.one;
-        card.SetFace(tableCard);
         pivot.gameObject.SetActive(true);
+        card.SetFace(tableCard);
 
         labelText.text = TableName(tableCard);
         labelRoot.position = shown + Vector3.up * (labelAboveCard * shownScale);

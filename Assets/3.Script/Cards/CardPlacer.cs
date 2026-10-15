@@ -38,8 +38,9 @@ public class CardPlacer : MonoBehaviour
     [SerializeField] float dealMove = 0.35f;         
     [SerializeField] float dealCardStagger = 0.04f;  
     [SerializeField] float dealSpreadDelay = 0.1f;   
-    [SerializeField] float dealSpread = 0.25f;       
-    [SerializeField] float dealSlotGap = 0.07f;      
+    [SerializeField] float dealSpread = 0.25f;
+    [SerializeField] float fanAngle = 8f;             
+    [SerializeField] float fanPivotDistance = 0.05f;
     [SerializeField] float dealSeatGap = 0.15f;
 
     [SerializeField] bool revealEveryRound = false;
@@ -75,7 +76,6 @@ public class CardPlacer : MonoBehaviour
 
     public float DealDuration(int seatCount) => seatCount * (DealGroupDuration + dealSeatGap);
 
-    // ───────────── 생명주기 ─────────────
 
     void Awake()
     {
@@ -104,7 +104,6 @@ public class CardPlacer : MonoBehaviour
         Debug.Log($"[연출] 20장 공개 {RevealTotalDuration:0.00}초 / 4인 배분 {DealDuration(MaxSeats):0.00}초");
     }
 
-    // ───────────── 이벤트 ─────────────
 
     void HandleRoundStarted(CardType tableCard)
     {
@@ -116,7 +115,6 @@ public class CardPlacer : MonoBehaviour
 
     void HandleCardDealt(List<CardType> hand)
     {
-        // 라운드 중 두 번째 이후 호출은 카드 제출 후 손패 갱신 → 다음 단계에서 처리
         if (handAppliedThisRound) return;
 
         pendingHand = new List<CardType>(hand);
@@ -135,8 +133,8 @@ public class CardPlacer : MonoBehaviour
             ResetToDeck();
         }
 
-        // if (announcer != null)
-        //     yield return announcer.Play(Table_cur);
+        if (announcer != null)
+            yield return announcer.Play(Table_cur);
 
         yield return DealSequence();
         sequence_co = null;
@@ -167,9 +165,7 @@ public class CardPlacer : MonoBehaviour
 
     Vector3 StackLocal(int i) => new Vector3(0, i * thickness, 0);
 
-    // ───────────── 공개 격자 ─────────────
-
-    /// <summary>0~5 King, 6~11 Queen, 12~17 Ace (열 번호 = CardType 값), 18~19 Joker</summary>
+    //0~5 King, 6~11 Queen, 12~17 Ace (열 번호 = CardType 값), 18~19 Joker
     static CardType TypeOf(int i) => i < NonJoker ? (CardType)(i / PerType) : CardType.Joker;
 
     Vector3 SpreadLocal(int i)
@@ -273,8 +269,17 @@ public class CardPlacer : MonoBehaviour
 
     Vector3 BundleLocal(int slot) => new Vector3(0f, slot * thickness, 0f);
 
-    Vector3 DealSlotLocal(int slot) =>
-        new Vector3((slot - (HandSize - 1) * 0.5f) * dealSlotGap, 0f, 0f);
+    private void FanPose(int slot, out Vector3 pos, out Quaternion rot)
+    {
+        float angle = (slot - (HandSize - 1) * 0.5f) * fanAngle;
+        Quaternion yaw = Quaternion.Euler(0f, angle, 0f);
+
+        Vector3 pivot = new Vector3(0f, 0f, -fanPivotDistance);
+        pos = pivot + yaw * new Vector3(0f, 0f, fanPivotDistance);
+        pos.y = slot * thickness;   // 겹치는 카드가 깜빡이지 않게 한 장씩 높이 차이
+
+        rot = yaw * FaceDown;
+    }
 
     IEnumerator DealSequence()
     {
@@ -313,8 +318,9 @@ public class CardPlacer : MonoBehaviour
             float spreadStart = dealCardStagger * (HandSize - 1) + dealMove + dealSpreadDelay;
             for (int slot = 0; slot < group.Count; slot++)
             {
-                group[slot].DOLocalMove(DealSlotLocal(slot), dealSpread)
-                           .SetDelay(spreadStart).SetEase(Ease.OutBack);
+                FanPose(slot, out Vector3 pos, out Quaternion rot);
+                group[slot].DOLocalMove(pos, dealSpread).SetDelay(spreadStart).SetEase(Ease.OutCubic);
+                group[slot].DOLocalRotateQuaternion(rot, dealSpread).SetDelay(spreadStart).SetEase(Ease.OutCubic);
             }
 
             yield return new WaitForSeconds(DealGroupDuration + dealSeatGap);
