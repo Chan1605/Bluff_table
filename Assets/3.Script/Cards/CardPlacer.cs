@@ -99,7 +99,6 @@ public class CardPlacer : MonoBehaviour
 
     void Start()
     {
-        Debug.Log($"[연출] tableCenter 실제 스케일: {tableCenter.lossyScale}, 앵커0: {seatDealAnchors[0].lossyScale}");
         ResetToDeck();
         Debug.Log($"[연출] 20장 공개 {RevealTotalDuration:0.00}초 / 4인 배분 {DealDuration(MaxSeats):0.00}초");
     }
