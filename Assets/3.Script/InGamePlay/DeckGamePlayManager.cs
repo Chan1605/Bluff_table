@@ -508,6 +508,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         // 유저 처형 이벤트 실행
         Debug.Log($" [인게임] : {seat} 번째 유저 처형");
+        InGameEvent.TriggerOnPlayerEliminated(seat);
     }
 
     [ClientRpc]
