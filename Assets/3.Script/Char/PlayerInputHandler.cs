@@ -13,7 +13,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Awake()
     {
-        lookAction = p_input.actions["Look"];
+        //player input 델리게이트 방식으로 새로 생성함으로 null exeption 뜨는 해당 줄 비활성화 하였습니다. - 지은
+        //lookAction = p_input.actions["Look"];
     }
 
     private void Update()

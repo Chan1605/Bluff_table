@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 248477587986734735}
   - component: {fileID: 6772556871878919516}
   - component: {fileID: -6458542185298173862}
+  - component: {fileID: -2741472148813186371}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -167,6 +168,9 @@ MonoBehaviour:
   SeatNum: 0
   isDead: 0
   isTurn: 0
+  isEscaped: 0
+  currentChamber: 0
+  bulletPosition: 0
   deckManager: {fileID: 0}
 --- !u!114 &-6458542185298173862
 MonoBehaviour:
@@ -184,3 +188,18 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   MatchID: 
+--- !u!114 &-2741472148813186371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367960496955974029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96f506ad626c0044a10bb64e5080846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
