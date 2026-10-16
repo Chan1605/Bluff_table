@@ -64,7 +64,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             pState.SeatNum = seat;
             pState.deckManager = this;
             pState.ResetState();
-            visualSetup.RpcSpawnVisual(pProfile);
+            visualSetup.RpcSpawnVisual(pProfile, pProfile.CharacterId);
 
         }
 
@@ -81,6 +81,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
 
         StartRound();
     }
+
+    #region 게임 로직
 
     [Server]
     public void StartRound()
@@ -465,6 +467,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             return false;
         }
     }
+
+    #endregion 
 
     #region Client RPC
 
