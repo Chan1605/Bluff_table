@@ -78,6 +78,23 @@ namespace LiarsBar.Server
             return members;
         }
 
+        // 내 캐릭터 → 다음 번호 (대기실에서만, 번호 계산은 서버)
+        public static void NextCharacter()
+        {
+            PlayerProfile me = GetLocal(null);
+            if (me != null) me.RequestNextCharacter();
+        }
+
+        // 지금 캐릭터를 바꿀 수 있는지 (클릭 반응 · 커서 표시용, 최종 판단은 서버)
+        public static bool CanChangeCharacter
+        {
+            get
+            {
+                PlayerProfile me = PlayerProfile.Local;
+                return me != null && me.IsInRoom && me.Phase == RoomPhase.Lobby;
+            }
+        }
+
         // 방장은 준비 없음
         public static void SetReady(bool ready)
         {
