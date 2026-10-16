@@ -53,8 +53,13 @@ public class PlayerVisualSetup : NetworkBehaviour
         GameObject visualInstance = Instantiate(SittingCharacter_pref[characterID], player.transform);
         visualInstance.transform.localPosition = Vector3.zero;
         visualInstance.transform.localRotation = Quaternion.identity;
-        spawnedVisuals[player] = visualInstance;
 
+        if (player.TryGetComponent<PlayerState>(out PlayerState pState))
+        {
+            pState.AssignHeadController(visualInstance.GetComponent<HeadController>());
+        }
+
+        spawnedVisuals[player] = visualInstance;
         Debug.Log($"[인게임] 캐릭터 프리펩 생성됨. ID : {characterID}");
     }
 

@@ -6,7 +6,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : NetworkBehaviour
 {
+    private float nextSyncTime = 0f;
+    private const float SYNC_INTERVAL = 0.1f;
+    public Vector2 LookInput { get; private set; }
+    public HeadController headController;
     public PlayerInput inputActions { get; private set; }
+    public PlayerState pState;
 
     private void OnEnable()
     {
@@ -23,6 +28,7 @@ public class PlayerController : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         inputActions = new PlayerInput();
+        pState = GetComponent<PlayerState>();
 
         inputActions.Player.Select.performed += OnSelectPerformed;
         inputActions.Player.Emote.performed += OnEmotePerformed;
@@ -52,6 +58,39 @@ public class PlayerController : NetworkBehaviour
 
             inputActions.Disable();
         }
+    }
+
+    private void Update()
+    {
+        if (!isLocalPlayer ||
+            inputActions == null ||
+            !inputActions.Player.enabled ||
+            headController == null)
+            return;
+
+
+        Vector2 delta = inputActions.Player.MouseDelta.ReadValue<Vector2>();
+
+        if (delta.sqrMagnitude > 0.01f)
+        {
+            headController.AddLookInput(delta);
+
+            if (Time.time > nextSyncTime)
+            {
+                Vector2 currentAngles = headController.GetcurrentAngles();
+                CmdSyncHeadRotation(currentAngles.x, currentAngles.y);
+                nextSyncTime = Time.time + SYNC_INTERVAL;
+            }
+        }
+    }
+
+    [Command]
+    private void CmdSyncHeadRotation(float pitch, float yaw)
+    {
+        if (pState == null) return;
+
+        pState.syncHeadPitch = pitch;
+        pState.syncHeadYaw = yaw;
     }
 
     private void TransitionToInGame()

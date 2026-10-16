@@ -15,10 +15,16 @@ public class PlayerState : NetworkBehaviour
     [SyncVar] public bool isEscaped;
 
     [SyncVar] public int currentChamber;
+
+    [SyncVar(hook =nameof(OnPitchChanged))] public float syncHeadPitch;
+    [SyncVar(hook = nameof(OnYawChanged))] public float syncHeadYaw;
+
+
     public int bulletPosition;
 
 
     [SerializeField] public DeckGamePlayManager deckManager;
+    public HeadController headController;
 
     public override void OnStartLocalPlayer()
     {
@@ -76,4 +82,30 @@ public class PlayerState : NetworkBehaviour
     {
         deckManager.CallLiar(SeatNum);
     }
+
+    #region 플레이어 고개 움직임
+    public void AssignHeadController(HeadController _headController)
+    {
+        headController = _headController;
+        GetComponent<PlayerController>().headController = _headController;
+    }
+
+    private void OnPitchChanged(float oldPitch, float newPitch)
+    {
+        UpdateVisualHead();
+    }
+
+    private void OnYawChanged(float oldYaw, float newYaw)
+    {
+        UpdateVisualHead();
+    }
+
+    private void UpdateVisualHead()
+    {
+        if (headController == null) return;
+        if (isLocalPlayer) return;
+
+        headController.SetAbsoluteRotation(syncHeadPitch, syncHeadYaw);
+    }
+    #endregion
 }
