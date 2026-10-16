@@ -88,6 +88,11 @@ public class PlayerState : NetworkBehaviour
     {
         headController = _headController;
         GetComponent<PlayerController>().headController = _headController;
+
+        if(isLocalPlayer && headController.firstPersonCamera != null)
+        {
+            headController.firstPersonCamera.Priority = 20;
+        }
     }
 
     private void OnPitchChanged(float oldPitch, float newPitch)

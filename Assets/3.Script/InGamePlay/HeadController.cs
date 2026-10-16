@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class HeadController : MonoBehaviour
 {
     public Transform headPivot;
-    public Camera firstPersonCamera;
+    public CinemachineCamera firstPersonCamera;
 
     public float lookSensitivity = 0.5f;
     public float minPitch = -45f;
