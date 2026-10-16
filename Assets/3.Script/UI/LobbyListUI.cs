@@ -23,7 +23,7 @@ public class LobbyListUI : MonoBehaviour
     private float timer;
     private bool isBusy;
     private bool warnedMissingList;
-
+    private const float EnterLoadingSeconds = 0.8f;
     private void OnEnable()
     {
         if (backBtns != null)
@@ -42,6 +42,7 @@ public class LobbyListUI : MonoBehaviour
 
         timer = 0f;
         Rebuild();
+        if (NetworkClient.isConnected) LoadingUI.ShowFor("Loading lobbies", EnterLoadingSeconds);
     }
 
     private void OnDisable()
@@ -171,12 +172,15 @@ public class LobbyListUI : MonoBehaviour
         SetMessage("Lobby not found.");
     }
 
+
+
     private void JoinRoom(RoomInfo room)
     {
         if (isBusy) return;
 
         isBusy = true;
         SetMessage("Joining lobby...");
+        LoadingUI.Show("Connecting.Please Wait");
         Lobby.JoinRoom(room.Id, OnJoinResult);
     }
 
@@ -186,6 +190,7 @@ public class LobbyListUI : MonoBehaviour
         SetMessage(msg);
         Debug.Log($"[LobbyListUI] Join result: {ok}, {msg}");
 
-        // 성공 시 별도 처리 없음: 대기실 전환은 RoomScenes가 담당한다.
+        // 실패 시에만 로딩을 끈다. 성공하면 대기실 씬 전환과 함께 정리된다.
+        if (!ok) LoadingUI.Hide();
     }
 }

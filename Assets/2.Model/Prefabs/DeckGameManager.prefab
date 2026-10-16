@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5816616931695494943}
   - component: {fileID: 6460177106157083135}
   - component: {fileID: -5861158085028410770}
+  - component: {fileID: 7656095659767078163}
   m_Layer: 0
   m_Name: DeckGameManager
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  visualSetup: {fileID: 7656095659767078163}
 --- !u!114 &6460177106157083135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,3 +84,23 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   MatchID: 
+--- !u!114 &7656095659767078163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4001995943901237328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d653ad71f2647a48b0f9d49808ac37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisualSetup
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  SittingCharacter_pref:
+  - {fileID: 2833865613738863719, guid: ccd3ee3f78ef4794cb03f71021c37a5f, type: 3}
+  - {fileID: 4121633932070826347, guid: 6a91af515b9bbf74fa05d42b442ebc68, type: 3}
+  - {fileID: 8372967929879954231, guid: 317204b515ded93489292e90bccd6af4, type: 3}
+  - {fileID: 6640702510213232661, guid: 6ccc7585f5c34264fa238d9fefce467b, type: 3}

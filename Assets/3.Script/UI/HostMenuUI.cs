@@ -56,6 +56,7 @@ public class HostMenuUI : MonoBehaviour
 
         isBusy = true;
         messageText.text = "Creating lobby...";
+        LoadingUI.Show("Setting up your table");
         Lobby.CreateRoom(title, OnCreateResult);
     }
 
@@ -65,7 +66,7 @@ public class HostMenuUI : MonoBehaviour
         messageText.text = msg;   // 서버가 준 결과 메시지 그대로 표시
         Debug.Log($"[HostMenuUI] Create result: {ok}, {msg}");
 
-        // 성공 시 별도 처리 없음: PlayerProfile.IsInRoom이 바뀌면
-        // 서버 팀원의 RoomScenes가 대기실 씬을 Additive로 자동 로드한다.
+        // 실패 시에만 로딩을 끈다. 성공하면 대기실 씬이 올라오며 타이틀 Canvas가 꺼질 때 함께 정리된다.
+        if (!ok) LoadingUI.Hide();
     }
 }
