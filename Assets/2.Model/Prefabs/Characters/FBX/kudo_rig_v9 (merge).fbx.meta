@@ -173,7 +173,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human:
-    - boneName: kudo_rig_v9
+    - boneName: YAKUZA_Pelvis
       humanName: Hips
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -351,14 +351,6 @@ ModelImporter:
         modified: 0
     - boneName: YAKUZA_GOZ_R
       humanName: RightEye
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: YAKUZA_AGIZ_
-      humanName: Jaw
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
