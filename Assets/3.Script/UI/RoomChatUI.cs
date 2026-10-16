@@ -48,6 +48,7 @@ public class RoomChatUI : MonoBehaviour
     private void Update()
     {
         if (chatInput == null || chatInput.isFocused) return;
+        if (LoadingUI.IsShowing) return;                  // 로딩 화면 뒤에서 채팅창이 열리지 않게
         if (Time.frameCount == lastSubmitFrame) return;   // 전송한 같은 프레임의 Enter는 무시
         if (!EnterPressed()) return;
 

@@ -9,12 +9,12 @@ using UnityEngine.UI;
 public class RoomLobbyUI : MonoBehaviour
 {
     [SerializeField] private Button leaveBtn;
-    [SerializeField] private Button readyBtn;        // 방장이 아닐 때만 표시
+    [SerializeField] private Button readyBtn;        // 게스트
     [SerializeField] private GameObject readyMark;   // 준비 완료 
-    [SerializeField] private Button startBtn;        // 방장일 때만 표시
-    [SerializeField] private TMP_Text startLabel;    // START / WAITING 라벨 
+    [SerializeField] private Button startBtn;        // 호스트
+    [SerializeField] private TMP_Text startLabel;    // START / WAITING 
     [SerializeField] private TMP_Text titleText;     // 방 제목
-    [SerializeField] private TMP_Text roomIdText;    // LOBBY ID 
+    [SerializeField] private TMP_Text roomIdText;    // 로비 코드
     [SerializeField] private TMP_Text membersText;   // 좌석별 목록 
     [SerializeField] private TMP_Text messageText;   // 결과 메시지 
 
@@ -48,7 +48,7 @@ public class RoomLobbyUI : MonoBehaviour
 
     private void OnProfileEvent(PlayerProfile _) { Refresh(); }
 
-    // 클릭한 버튼이 선택 상태로 남으면 Enter(채팅)가 그 버튼을 다시 누른다
+
     private static void ClearSelection()
     {
         if (EventSystem.current != null) EventSystem.current.SetSelectedGameObject(null);
@@ -57,6 +57,11 @@ public class RoomLobbyUI : MonoBehaviour
     private void OnClickLeave()
     {
         ClearSelection();
+
+        PlayerProfile me = PlayerProfile.Local;
+        if (me == null || !me.IsInRoom) return;   // 방 밖이면 로딩만 돌지 않게
+
+        LoadingUI.Show("Returning to Lobby", false);
         Lobby.LeaveRoom();
     }
 
@@ -86,7 +91,7 @@ public class RoomLobbyUI : MonoBehaviour
         SetMessage(msg);
         Debug.Log($"[RoomLobbyUI] Start result: {ok}, {msg}");
 
-        // 성공 시 별도 처리 없음: phase가 바뀌면 RoomScenes가 테이블 씬으로 전환한다.
+
     }
 
     private void SetMessage(string text)
