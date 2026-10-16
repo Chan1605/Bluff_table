@@ -61,16 +61,28 @@ PrefabInstance:
       value: 0.000000068612295
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.3535647
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.3676008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.055328656
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -99,6 +111,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8208031263967467736, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1347,5 +1363,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6771788437939477280}
   m_SourcePrefab: {fileID: 100100000, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+--- !u!1 &5195253182923310040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
+  m_PrefabInstance: {fileID: 4960810575695298185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6771788437939477280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5195253182923310040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe54d0e24fe849f408dd32ec773f3a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeatedPose
+  seatPoint: {fileID: 0}
+  extraOffset: {x: 0, y: -0.15, z: 0}
+  leftFootTarget: {fileID: 0}
+  rightFootTarget: {fileID: 0}
+  leftKneeHint: {fileID: 0}
+  rightKneeHint: {fileID: 0}
+  footWeight: 1

@@ -24,12 +24,35 @@ public class SeatedPose : MonoBehaviour
         Align();
     }
 
+#if UNITY_EDITOR
+    // 튜닝용: Inspector에서 Extra Offset · Seat Point를 바꾸면 바로 다시 정렬 (에디터 · 플레이 모두)
+    // OnValidate 안에서는 Transform · Animator를 바로 건드리면 안 되므로 한 프레임 미룸
+    void OnValidate()
+    {
+        if (seatPoint == null) return;
+        UnityEditor.EditorApplication.delayCall -= RealignFromInspector;
+        UnityEditor.EditorApplication.delayCall += RealignFromInspector;
+    }
+
+    void RealignFromInspector()
+    {
+        if (this == null || seatPoint == null) return;
+        if (UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this)) return;
+        if (!Application.isPlaying && UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) return;
+
+        if (!Application.isPlaying) UnityEditor.Undo.RecordObject(transform, "Seated Pose Align");
+        aligned = false;
+        Align();
+    }
+#endif
+
     // ---------- 좌석 정렬 ----------
 
     [ContextMenu("Align Now")]
     public void Align()
     {
         if (aligned || seatPoint == null) return;
+        if (animator == null) animator = GetComponent<Animator>();   // 에디터(Align Now)에서는 Awake가 안 돌았음
 
         if (seatPoint.IsChildOf(transform))
         {
