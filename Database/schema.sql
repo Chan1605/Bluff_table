@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS users (
     password_salt  VARBINARY(16)  NOT NULL,            -- 계정마다 다른 랜덤 16바이트
     created_at     DATETIME       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     last_login_at  DATETIME       NULL,
+    character_id   TINYINT UNSIGNED NOT NULL DEFAULT 0, -- 마지막으로 고른 캐릭터 번호
     PRIMARY KEY (user_id),
     UNIQUE KEY uq_users_nickname (nickname)            -- 같은 닉네임 가입 불가
 ) ENGINE=InnoDB;
@@ -63,3 +64,9 @@ CREATE TABLE IF NOT EXISTS match_players (
     CONSTRAINT fk_mp_user FOREIGN KEY (user_id)
         REFERENCES users (user_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+-- ---------------------------------------------------------------------
+-- 변경 이력 : 이미 만들어진 DB에 새 컬럼 추가 (여러 번 실행해도 안전)
+-- ---------------------------------------------------------------------
+-- 2026-10-16 캐릭터 선택 기억
+ALTER TABLE users ADD COLUMN IF NOT EXISTS character_id TINYINT UNSIGNED NOT NULL DEFAULT 0 AFTER last_login_at;

@@ -11,6 +11,7 @@ namespace LiarsBar.Server
         public string Message;
         public int UserId;
         public bool IsNewUser;
+        public int CharacterId;
 
         public static LoginOutcome Fail(string message) => new LoginOutcome { Success = false, Message = message, UserId = -1 };
     }
@@ -42,9 +43,10 @@ namespace LiarsBar.Server
                 int userId = -1;
                 byte[] savedHash = null;
                 byte[] savedSalt = null;
+                int savedCharacter = 0;
 
                 using (MySqlCommand find = new MySqlCommand(
-                    "SELECT user_id, password_hash, password_salt FROM users WHERE nickname = @nick", connection))
+                    "SELECT user_id, password_hash, password_salt, character_id FROM users WHERE nickname = @nick", connection))
                 {
                     find.Parameters.AddWithValue("@nick", nickname);
                     using MySqlDataReader reader = await find.ExecuteReaderAsync();
@@ -53,6 +55,7 @@ namespace LiarsBar.Server
                         userId = reader.GetInt32(0);
                         savedHash = (byte[])reader["password_hash"];
                         savedSalt = (byte[])reader["password_salt"];
+                        savedCharacter = Convert.ToInt32(reader["character_id"]);
                     }
                 }
 
@@ -70,7 +73,7 @@ namespace LiarsBar.Server
                         await touch.ExecuteNonQueryAsync();
                     }
 
-                    return new LoginOutcome { Success = true, Message = "로그인 성공", UserId = userId, IsNewUser = false };
+                    return new LoginOutcome { Success = true, Message = "로그인 성공", UserId = userId, IsNewUser = false, CharacterId = savedCharacter };
                 }
 
                 // 자동 가입
@@ -109,6 +112,26 @@ namespace LiarsBar.Server
             {
                 Debug.LogError($"[DB] 로그인 처리 오류: {e.Message}");
                 return LoginOutcome.Fail("서버 오류로 로그인하지 못했습니다.");
+            }
+        }
+
+        // 마지막으로 고른 캐릭터 저장. 성공 여부 반환
+        public static async Task<bool> SaveCharacterAsync(int userId, int characterId)
+        {
+            try
+            {
+                using MySqlConnection connection = await Db.OpenAsync();
+                using MySqlCommand command = new MySqlCommand(
+                    "UPDATE users SET character_id = @character WHERE user_id = @id", connection);
+                command.Parameters.AddWithValue("@character", characterId);
+                command.Parameters.AddWithValue("@id", userId);
+                await command.ExecuteNonQueryAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"[DB] 캐릭터 저장 오류: {e.Message}");
+                return false;
             }
         }
 
