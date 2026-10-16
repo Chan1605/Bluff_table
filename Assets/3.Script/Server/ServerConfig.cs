@@ -32,6 +32,10 @@ namespace LiarsBar.Server
         [Tooltip("방 제목 최대 글자 수")]
         [SerializeField] private int roomTitleMaxLength = 18;
 
+        [Header("Character")]
+        [Tooltip("고를 수 있는 캐릭터 수. 번호는 0 ~ (수-1), 클릭하면 다음 번호로 순환")]
+        [SerializeField, Range(1, 32)] private int characterCount = 11;
+
         [Header("Database")]
         [Tooltip("끄면 DB 없이 실행 (개발용). 접속 정보는 Database/db.local.json 또는 환경변수")]
         [SerializeField] private bool useDatabase = false;
@@ -57,6 +61,7 @@ namespace LiarsBar.Server
         public bool UseDatabase => useDatabase;
         public int PasswordMinLength => passwordMinLength;
         public int PasswordMaxLength => passwordMaxLength;
+        public int CharacterCount => characterCount;
 
         private void OnValidate()
         {
@@ -68,6 +73,7 @@ namespace LiarsBar.Server
             if (nicknameMaxLength < nicknameMinLength) nicknameMaxLength = nicknameMinLength;
             if (passwordMinLength < 1) passwordMinLength = 1;
             if (passwordMaxLength < passwordMinLength) passwordMaxLength = passwordMinLength;
+            if (characterCount < 1) characterCount = 1;
         }
     }
 }

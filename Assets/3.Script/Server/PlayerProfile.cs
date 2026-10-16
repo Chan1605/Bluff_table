@@ -45,6 +45,10 @@ namespace LiarsBar.Server
         [SyncVar(hook = nameof(OnStatsChanged))]
         private int gamesPlayed = -1;
 
+        // 고른 캐릭터 번호 (0 ~ CharacterCount-1). 로그인 때 DB 값으로 시작
+        [SyncVar(hook = nameof(OnCharacterChanged))]
+        private int characterId;
+
         public int Seat => seat;
         public string Nickname => nickname;
         public bool IsLoggedIn => !string.IsNullOrEmpty(nickname);
@@ -56,6 +60,7 @@ namespace LiarsBar.Server
         public RoomPhase Phase => phase;
         public int PrevGamesPlayed => prevGamesPlayed;
         public int PrevWins => prevWins;
+        public int CharacterId => characterId;
 
         // 내 방 단계가 바뀔 때 (UI 화면 전환용)
         public static event Action<RoomPhase> LocalPhaseChanged;
@@ -85,6 +90,10 @@ namespace LiarsBar.Server
 
         // 서버 전용: 중복 요청 방지
         private bool loginInProgress;
+
+        // 서버 전용: 연속 클릭 시 마지막 값만 DB 저장
+        private const float CharacterSaveDelay = 1f;
+        private Coroutine characterSaveRoutine;
 
         public override void OnStartClient()
         {
@@ -266,7 +275,7 @@ namespace LiarsBar.Server
             // 개발 모드: 닉네임만으로 통과
             if (!LiarsNetworkManager.Instance.Config.UseDatabase)
             {
-                CompleteLogin(cleanedNick, -1, "로그인 성공 (DB 없이)");
+                CompleteLogin(cleanedNick, -1, 0, "로그인 성공 (DB 없이)");
                 return;
             }
 
@@ -297,17 +306,18 @@ namespace LiarsBar.Server
                 return;
             }
 
-            CompleteLogin(cleanedNick, outcome.UserId, outcome.Message);
+            CompleteLogin(cleanedNick, outcome.UserId, outcome.CharacterId, outcome.Message);
             _ = ServerLoadStatsAsync();
         }
 
         [Server]
-        private void CompleteLogin(string cleanedNick, int dbUserId, string message)
+        private void CompleteLogin(string cleanedNick, int dbUserId, int savedCharacter, string message)
         {
             userId = dbUserId;
+            characterId = ClampCharacter(savedCharacter);
             nickname = cleanedNick;
             TargetLoginResult(true, message);
-            Debug.Log($"[Server] 로그인 - '{cleanedNick}' (user_id {dbUserId})");
+            Debug.Log($"[Server] 로그인 - '{cleanedNick}' (user_id {dbUserId}, 캐릭터 {characterId})");
 
             // 로비 화면용 방 목록
             LiarsNetworkManager.Instance.SendRoomList(this);
@@ -326,6 +336,74 @@ namespace LiarsBar.Server
             wins = stats.Value.Wins;
             gamesPlayed = stats.Value.GamesPlayed;
             Debug.Log($"[Server] '{nickname}' 전적 로드 - {gamesPlayed}전 {wins}승 (user_id {userId})");
+        }
+
+        // 캐릭터 수가 줄었을 때 등 범위 밖이면 0번
+        [Server]
+        private int ClampCharacter(int id)
+        {
+            int count = LiarsNetworkManager.Instance.Config.CharacterCount;
+            return id >= 0 && id < count ? id : 0;
+        }
+
+        [Client]
+        public void RequestNextCharacter()
+        {
+            CmdNextCharacter();
+        }
+
+        [Command]
+        private void CmdNextCharacter()
+        {
+            // 대기 중인 방 안에서만
+            if (!IsLoggedIn || !IsInRoom || phase != RoomPhase.Lobby) return;
+
+            int count = LiarsNetworkManager.Instance.Config.CharacterCount;
+            characterId = (ClampCharacter(characterId) + 1) % count;
+            ScheduleCharacterSave();
+        }
+
+        [Server]
+        private void ScheduleCharacterSave()
+        {
+            if (userId <= 0 || !LiarsNetworkManager.Instance.Config.UseDatabase) return;
+
+            if (characterSaveRoutine != null) StopCoroutine(characterSaveRoutine);
+            characterSaveRoutine = StartCoroutine(SaveCharacterLater());
+        }
+
+        private IEnumerator SaveCharacterLater()
+        {
+            yield return new WaitForSeconds(CharacterSaveDelay);
+            characterSaveRoutine = null;
+            _ = SaveCharacterAsync(userId, characterId, nickname);
+        }
+
+        // 서버 전용 (값을 미리 받아 둠: await 중 오브젝트가 사라져도 저장)
+        private static async Task SaveCharacterAsync(int targetUserId, int targetCharacter, string nick)
+        {
+            if (!Db.IsAvailable) return;
+
+            bool ok = await UserRepository.SaveCharacterAsync(targetUserId, targetCharacter);
+            if (ok) Debug.Log($"[DB] '{nick}' 캐릭터 저장 - {targetCharacter} (user_id {targetUserId})");
+        }
+
+        // 저장 대기 중에 나가면 바로 저장
+        public override void OnStopServer()
+        {
+            if (characterSaveRoutine != null)
+            {
+                StopCoroutine(characterSaveRoutine);
+                characterSaveRoutine = null;
+                _ = SaveCharacterAsync(userId, characterId, nickname);
+            }
+            base.OnStopServer();
+        }
+
+        private void OnCharacterChanged(int oldValue, int newValue)
+        {
+            Debug.Log($"[Client] '{nickname}' 캐릭터 {oldValue} → {newValue}");
+            NotifyChanged();
         }
 
         private void OnStatsChanged(int oldValue, int newValue)
