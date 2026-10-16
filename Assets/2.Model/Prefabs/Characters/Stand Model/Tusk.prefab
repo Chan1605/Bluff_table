@@ -3442,7 +3442,7 @@ GameObject:
   - component: {fileID: 2011213194496120213}
   - component: {fileID: 5657725529001896265}
   m_Layer: 0
-  m_Name: tusk_avatar (1) (merge)
+  m_Name: Tusk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

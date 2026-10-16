@@ -9679,7 +9679,7 @@ GameObject:
   - component: {fileID: 975210062940385735}
   - component: {fileID: 7517165579723535297}
   m_Layer: 0
-  m_Name: Bristle_Dice_Rig_v7 (merge)
+  m_Name: Bristle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

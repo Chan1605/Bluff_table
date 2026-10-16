@@ -3681,7 +3681,7 @@ GameObject:
   - component: {fileID: 4151414239753722994}
   - component: {fileID: 7964727023532115876}
   m_Layer: 0
-  m_Name: scubby_unityv5 (merge)
+  m_Name: Scubby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

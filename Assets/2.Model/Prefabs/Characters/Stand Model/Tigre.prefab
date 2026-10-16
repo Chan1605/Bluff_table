@@ -8323,7 +8323,7 @@ GameObject:
   - component: {fileID: 3341423338086693124}
   - component: {fileID: 4233418664794391776}
   m_Layer: 0
-  m_Name: tigre_unity_v02 (merge)
+  m_Name: Tigre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -8092,7 +8092,7 @@ GameObject:
   - component: {fileID: 6332109875295839812}
   - component: {fileID: 8445844049745794833}
   m_Layer: 0
-  m_Name: Toar_Dice_Rig_V8 (merge)
+  m_Name: Toar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
