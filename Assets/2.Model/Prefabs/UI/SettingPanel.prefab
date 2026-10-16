@@ -223,7 +223,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SettingsMenuUI
   panelManager: {fileID: 0}
   headerTabText: {fileID: 0}
-  tabs: []
+  tabs:
+  - title: 
+    button: {fileID: 0}
+    content: {fileID: 0}
   displaySettings: {fileID: 0}
   backBtn: {fileID: 238557549534616150}
   applyBtn: {fileID: 6581107094909276242}

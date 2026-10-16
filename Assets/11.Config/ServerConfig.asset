@@ -21,7 +21,7 @@ MonoBehaviour:
   maxRooms: 4
   roomTitleMaxLength: 18
   characterCount: 11
-  useDatabase: 1
+  useDatabase: 0
   nicknameMinLength: 2
   nicknameMaxLength: 12
   passwordMinLength: 4

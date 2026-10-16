@@ -40,7 +40,7 @@ public class DisplaySettingsUI : MonoBehaviour
     }
 
     // 설정 패널이 열릴 때 호출: 저장된 값(없으면 현재 값)으로 UI를 되돌림.
-    // Apply 하지 않은 변경은 여기서 버려진다.
+    // Apply 하지 않은 변경은 버려진다.
     public void Reload()
     {
         BuildResolutionList();
@@ -84,7 +84,7 @@ public class DisplaySettingsUI : MonoBehaviour
         PlayerPrefs.SetFloat(KeyBrightness, brightness.value);
         PlayerPrefs.Save();
 
-        // TODO: 밝기 실제 적용은 렌더 파이프라인(Volume 등)에 맞춰 연결
+        // TODO 밝기 실제 적용은 렌더 파이프라인(Volume 등)에 맞춰 연결
     }
 
     private void BuildResolutionList()
