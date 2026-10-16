@@ -23,10 +23,10 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private int nextRoundStartSeat = 0;
 
     private PlayerState currentTurnPlayer;
+    [SerializeField] private PlayerVisualSetup visualSetup;
 
     [SyncVar]
     private CardType tableCard;
-
 
     public event Action<int> GameOver;
 
@@ -64,6 +64,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             pState.SeatNum = seat;
             pState.deckManager = this;
             pState.ResetState();
+            visualSetup.RpcSpawnVisual(pProfile);
+
         }
 
         accumTurnIndex = 0;
