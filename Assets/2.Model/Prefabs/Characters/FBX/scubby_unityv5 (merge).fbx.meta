@@ -580,23 +580,23 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Base HumanPelvis
       parentName: scubby_unityv5
-      position: {x: -0.00008396685, y: 0.0061218045, z: -0.0002235794}
+      position: {x: -0.00008396685, y: 0.008783972, z: -0.00022357941}
       rotation: {x: 0.4548182, y: -0.5256754, z: -0.45033768, w: 0.5603586}
       scale: {x: 1, y: 1, z: 1}
     - name: Base HumanLThigh
       parentName: Base HumanPelvis
       position: {x: 0.00023311567, y: 0.0002767199, z: 0.00076029776}
-      rotation: {x: -0.5632662, y: 0.80908257, z: 0.14003526, w: 0.092231825}
+      rotation: {x: -0.017958373, y: 0.9741796, z: 0.21433903, w: 0.068631664}
       scale: {x: 0.99999976, y: 1.0000004, z: 1.0000002}
     - name: Base HumanLCalf
       parentName: Base HumanLThigh
       position: {x: -0.0037503797, y: 0.00000001847742, z: 0.000000024139856}
-      rotation: {x: -0.0017922912, y: -0.09262362, z: 0.46724752, w: 0.8792596}
+      rotation: {x: 0.0023152803, y: -0.07004108, z: 0.3130212, w: 0.94715714}
       scale: {x: 0.9999999, y: 1.0000005, z: 0.99999964}
     - name: Base HumanLFoot
       parentName: Base HumanLCalf
       position: {x: -0.0038646664, y: 0.0000000017881366, z: 3.7252862e-10}
-      rotation: {x: 0.043598752, y: -0.12987609, z: -0.16186093, w: 0.9772576}
+      rotation: {x: 0.19186844, y: -0.033090048, z: -0.5693329, w: 0.79871875}
       scale: {x: 0.9999991, y: 1.0000006, z: 1.0000002}
     - name: wiseparmak1
       parentName: Base HumanLFoot
@@ -606,17 +606,17 @@ ModelImporter:
     - name: Base HumanRThigh
       parentName: Base HumanPelvis
       position: {x: 0.00023311394, y: 0.00027671977, z: -0.00076029776}
-      rotation: {x: -0.58545214, y: 0.7990325, z: -0.1365513, w: -0.012110491}
+      rotation: {x: -0.006890565, y: 0.9825425, z: -0.18450773, w: -0.022797436}
       scale: {x: 1, y: 1.0000005, z: 1.0000001}
     - name: Base HumanRCalf
       parentName: Base HumanRThigh
       position: {x: -0.0037503801, y: 0.000000018775442, z: -0.000000024214371}
-      rotation: {x: 0.008298855, y: 0.114451356, z: 0.5877324, w: 0.80087626}
+      rotation: {x: 0.002870461, y: 0.06912661, z: 0.30622327, w: 0.9494423}
       scale: {x: 0.9999998, y: 1.0000001, z: 1}
     - name: Base HumanRFoot
       parentName: Base HumanRCalf
       position: {x: -0.0038645938, y: 0.0000000017881373, z: 6.7055145e-10}
-      rotation: {x: 0.019761825, y: 0.008506296, z: -0.30045804, w: 0.95355237}
+      rotation: {x: 0.026181078, y: -0.06994271, z: -0.5568997, w: 0.8272154}
       scale: {x: 0.9999991, y: 1.0000008, z: 0.9999998}
     - name: wiseparmak2
       parentName: Base HumanRFoot
@@ -781,7 +781,7 @@ ModelImporter:
     - name: Scubby_christmas_rigged
       parentName: Base HumanHead
       position: {x: 0.015350997, y: 0.004033253, z: -0.008872279}
-      rotation: {x: 0.5590812, y: -0.45485976, z: -0.53730863, w: -0.43798447}
+      rotation: {x: 0.55908114, y: -0.45485976, z: -0.5373086, w: -0.43798447}
       scale: {x: 1, y: 1, z: 1}
     - name: Bone001
       parentName: Scubby_christmas_rigged
@@ -820,19 +820,19 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Bone001
       parentName: scubby_snowhat_v2 (1)
-      position: {x: 0.00112358, y: 0.017567795, z: 7.679126e-10}
-      rotation: {x: 0.00000013315582, y: 0.0000000018322073, z: 0.010262035, w: 0.99994737}
-      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+      position: {x: -0.008671109, y: 0.016445385, z: -0.0007136645}
+      rotation: {x: 0.64405406, y: -0.36099526, z: 0.53520215, w: -0.4104089}
+      scale: {x: 1, y: 1, z: 1}
     - name: Bone003
       parentName: scubby_snowhat_v2 (1)
-      position: {x: -0.0013850869, y: 0.014953721, z: 6.536479e-10}
-      rotation: {x: 0.0000005321987, y: 0.000000542736, z: 0.7001416, w: 0.71400404}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+      position: {x: -0.0015599963, y: -0.0000000015258789, z: -3.8146972e-10}
+      rotation: {x: -0.13465483, y: -0.26061153, z: -0.66175425, w: 0.6899501}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
     - name: Bone004
       parentName: scubby_snowhat_v2 (1)
-      position: {x: 0.0013850998, y: 0.014953721, z: 6.536479e-10}
-      rotation: {x: 0.71400404, y: -0.7001416, z: -0.0000005700165, w: 0.0000005600194}
-      scale: {x: -1.0000001, y: -1.0000001, z: -1.0000001}
+      position: {x: -0.0026647048, y: -7.6293943e-10, z: 0}
+      rotation: {x: -0.22873437, y: -0.14054339, z: 0.020385148, w: 0.96307456}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
     - name: furcap_low_final001
       parentName: scubby_snowhat_v2 (1)
       position: {x: -4.768371e-10, y: 0.01598835, z: -0.0007394061}
@@ -866,12 +866,12 @@ ModelImporter:
     - name: Base HumanLUpperarm
       parentName: Base HumanLCollarbone
       position: {x: -0.0012312845, y: -3.72528e-11, z: -1.4901114e-10}
-      rotation: {x: 0.020126523, y: 0.13655457, z: -0.30559596, w: 0.94210345}
+      rotation: {x: -0.016820695, y: -0.07498779, z: -0.09452289, w: 0.992552}
       scale: {x: 1.0000001, y: 1.0000002, z: 0.99999994}
     - name: Base HumanLForearm1
       parentName: Base HumanLUpperarm
       position: {x: -0.0037043598, y: 3.352751e-10, z: -1.6763749e-10}
-      rotation: {x: 0.08235667, y: -0.10757544, z: -0.6758736, w: 0.72445834}
+      rotation: {x: 0.09413656, y: -0.017858814, z: 0.015795115, w: 0.99527377}
       scale: {x: 0.9999991, y: 1.0000006, z: 1.0000001}
     - name: Base HumanLForearm2
       parentName: Base HumanLForearm1
@@ -881,17 +881,17 @@ ModelImporter:
     - name: Base HumanLPalm
       parentName: Base HumanLForearm2
       position: {x: -0.001648293, y: 4.0978046e-10, z: 0.0000000010430777}
-      rotation: {x: -0.56129724, y: -0.30951968, z: -0.32723254, w: 0.6943068}
+      rotation: {x: -0.6675839, y: -0.035692234, z: -0.30642113, w: 0.67761636}
       scale: {x: 0.9999951, y: 1.0000042, z: 1.0000005}
     - name: Base HumanLDigit11
       parentName: Base HumanLPalm
       position: {x: -0.0006256733, y: -0.00003086752, z: 0.0006081632}
-      rotation: {x: 0.52977496, y: 0.5844139, z: -0.051451854, w: 0.6124962}
+      rotation: {x: 0.43235114, y: 0.21427652, z: -0.30875546, w: 0.81965125}
       scale: {x: 0.99999547, y: 0.99999964, z: 1.0000049}
     - name: Base HumanLDigit12
       parentName: Base HumanLDigit11
       position: {x: -0.0005094656, y: 4.6566045e-10, z: 0.0000000015087457}
-      rotation: {x: 0.036917176, y: -0.050194174, z: 0.15714587, w: 0.98560786}
+      rotation: {x: 0.03740672, y: -0.010728159, z: 0.0335959, w: 0.9986776}
       scale: {x: 0.999995, y: 1.0000007, z: 1.0000039}
     - name: Base HumanLDigit13
       parentName: Base HumanLDigit12
@@ -901,27 +901,27 @@ ModelImporter:
     - name: Base HumanLDigit21
       parentName: Base HumanLPalm
       position: {x: -0.001689249, y: -0.000065830674, z: 0.00060834724}
-      rotation: {x: -0.010349653, y: 0.13754988, z: 0.39435408, w: 0.90854704}
+      rotation: {x: -0.009207692, y: 0.022536177, z: 0.07877369, w: 0.9965953}
       scale: {x: 0.9999913, y: 1.0000074, z: 1.0000013}
     - name: Base HumanLDigit22
       parentName: Base HumanLDigit21
       position: {x: -0.00055307697, y: 4.0560108e-10, z: 1.0477365e-11}
-      rotation: {x: -0.05027479, y: -0.008544663, z: 0.20449309, w: 0.97753876}
+      rotation: {x: -0.05133401, y: -0.0013879642, z: 0.033151936, w: 0.99813014}
       scale: {x: 0.99999154, y: 1.0000073, z: 1.000001}
     - name: Base HumanLDigit23
       parentName: Base HumanLDigit22
       position: {x: -0.000432341, y: 0.0000000018111553, z: -1.00117074e-10}
-      rotation: {x: -0.046557125, y: -0.021530962, z: -0.10940041, w: 0.99267334}
+      rotation: {x: -0.04655713, y: -0.021530962, z: -0.109400414, w: 0.99267334}
       scale: {x: 0.9999929, y: 1.000006, z: 1.0000006}
     - name: Base HumanLDigit31
       parentName: Base HumanLPalm
       position: {x: -0.0018862205, y: -0.000061748906, z: 0.00000007326611}
-      rotation: {x: -0.030839873, y: 0.025820335, z: 0.3349042, w: 0.9413934}
+      rotation: {x: -0.032123256, y: 0.0053108316, z: 0.08695723, w: 0.9956799}
       scale: {x: 0.9999943, y: 1.0000048, z: 1.0000007}
     - name: Base HumanLDigit32
       parentName: Base HumanLDigit31
       position: {x: -0.0005319432, y: 0.0000000027370812, z: -1.5948867e-10}
-      rotation: {x: -0.050706126, y: -0.0076303757, z: 0.29615715, w: 0.9537619}
+      rotation: {x: -0.05306848, y: -0.0007294838, z: 0.028263085, w: 0.99819064}
       scale: {x: 0.99999297, y: 1.0000056, z: 1.0000006}
     - name: Base HumanLDigit33
       parentName: Base HumanLDigit32
@@ -931,12 +931,12 @@ ModelImporter:
     - name: Base HumanLDigit41
       parentName: Base HumanLPalm
       position: {x: -0.0018571693, y: -0.00024479115, z: -0.00044131745}
-      rotation: {x: -0.023993414, y: -0.0650871, z: 0.28404978, w: 0.9562969}
+      rotation: {x: -0.025720404, y: -0.017486278, z: 0.087149955, w: 0.99570966}
       scale: {x: 0.99999475, y: 1.0000042, z: 1.0000007}
     - name: Base HumanLDigit42
       parentName: Base HumanLDigit41
       position: {x: -0.00048549133, y: -0.0000000012540892, z: 2.0081606e-10}
-      rotation: {x: -0.05109179, y: -0.01087139, z: 0.27322313, w: 0.9605314}
+      rotation: {x: -0.053092975, y: -0.0011719571, z: 0.029486641, w: 0.9981535}
       scale: {x: 0.9999939, y: 1.0000052, z: 1.0000008}
     - name: Base HumanLDigit43
       parentName: Base HumanLDigit42
@@ -990,7 +990,7 @@ ModelImporter:
       scale: {x: 100.000114, y: 100.000534, z: 99.99932}
     - name: number (1)
       parentName: kart4
-      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0.00000018}
+      position: {x: 0.0000030899998, y: 0.0000071499994, z: 0}
       rotation: {x: 1, y: -0, z: 0, w: -6.123234e-17}
       scale: {x: -0.0002722626, y: -0.00027226258, z: -0.0002722626}
     - name: kart5
@@ -1046,12 +1046,12 @@ ModelImporter:
     - name: Base HumanRUpperarm
       parentName: Base HumanRCollarbone
       position: {x: -0.0012312869, y: 6.332974e-10, z: -6.332967e-10}
-      rotation: {x: 0.008299245, y: -0.25044623, z: -0.38640094, w: 0.8876385}
+      rotation: {x: 0.06627514, y: 0.045845166, z: -0.13142124, w: 0.9880457}
       scale: {x: 1.0000001, y: 0.9999998, z: 0.99999976}
     - name: Base HumanRForearm1
       parentName: Base HumanRUpperarm
       position: {x: -0.0037043684, y: 1.11758394e-10, z: -0.0000000033154954}
-      rotation: {x: -0.08110487, y: 0.15750632, z: -0.63880956, w: 0.7486896}
+      rotation: {x: -0.09121703, y: 0.017480314, z: 0.0082007935, w: 0.9956439}
       scale: {x: 1.0000011, y: 0.9999992, z: 1.0000001}
     - name: Base HumanRForearm2
       parentName: Base HumanRForearm1
@@ -1061,17 +1061,17 @@ ModelImporter:
     - name: Base HumanRPalm
       parentName: Base HumanRForearm2
       position: {x: -0.0016483006, y: -2.1420328e-10, z: -5.401647e-10}
-      rotation: {x: 0.5533353, y: 0.21473534, z: -0.28004742, w: 0.754508}
+      rotation: {x: 0.6059944, y: 0.049264174, z: -0.26483494, w: 0.7484693}
       scale: {x: 1.0000029, y: 0.99999845, z: 0.9999992}
     - name: Base HumanRDigit11
       parentName: Base HumanRPalm
       position: {x: -0.00062567217, y: -0.00003086885, z: -0.0006081697}
-      rotation: {x: -0.44599253, y: -0.44237208, z: -0.21213087, w: 0.74859744}
+      rotation: {x: -0.3765959, y: -0.21436726, z: -0.31631586, w: 0.84389955}
       scale: {x: 1.0000025, y: 0.9999982, z: 1}
     - name: Base HumanRDigit12
       parentName: Base HumanRDigit11
       position: {x: -0.00050946797, y: -1.11757714e-10, z: -0.0000000013783514}
-      rotation: {x: -0.029019143, y: 0.098432794, z: 0.27962014, w: 0.95461065}
+      rotation: {x: -0.030372314, y: 0.009382008, z: 0.026662001, w: 0.999139}
       scale: {x: 0.99999845, y: 0.99999905, z: 1.0000027}
     - name: Base HumanRDigit13
       parentName: Base HumanRDigit12
@@ -1081,12 +1081,12 @@ ModelImporter:
     - name: Base HumanRDigit21
       parentName: Base HumanRPalm
       position: {x: -0.0016892445, y: -0.00006583554, z: -0.0006083537}
-      rotation: {x: 0.06047266, y: -0.10658004, z: 0.07780168, w: 0.98940927}
+      rotation: {x: 0.06012506, y: -0.06932027, z: 0.05653262, w: 0.99417496}
       scale: {x: 0.9999993, y: 1.0000019, z: 0.9999998}
     - name: Base HumanRDigit22
       parentName: Base HumanRDigit21
       position: {x: -0.00055307936, y: 0.0000000014912729, z: -9.313165e-11}
-      rotation: {x: 0.08302974, y: -0.058106504, z: 0.6346189, w: 0.7661518}
+      rotation: {x: 0.107736334, y: -0.000828817, z: 0.009047051, w: 0.994138}
       scale: {x: 0.9999977, y: 1.0000023, z: 1}
     - name: Base HumanRDigit23
       parentName: Base HumanRDigit22
@@ -1096,12 +1096,12 @@ ModelImporter:
     - name: Base HumanRDigit31
       parentName: Base HumanRPalm
       position: {x: -0.0018862179, y: -0.0000617527, z: -0.00000007321086}
-      rotation: {x: 0.014978496, y: 0.020654313, z: 0.30478972, w: 0.9520779}
+      rotation: {x: 0.015879361, y: 0.005321018, z: 0.08822404, w: 0.99595994}
       scale: {x: 0.99999875, y: 0.99999917, z: 1.000003}
     - name: Base HumanRDigit32
       parentName: Base HumanRDigit31
       position: {x: -0.000531947, y: -0.0000000016303906, z: 1.1175789e-10}
-      rotation: {x: 0.066319324, y: 0.0038728684, z: 0.26832086, w: 0.96103626}
+      rotation: {x: 0.068813436, y: 0.00043003986, z: 0.029784951, w: 0.99718475}
       scale: {x: 1, y: 1.0000025, z: 0.99999833}
     - name: Base HumanRDigit33
       parentName: Base HumanRDigit32
@@ -1111,12 +1111,12 @@ ModelImporter:
     - name: Base HumanRDigit41
       parentName: Base HumanRPalm
       position: {x: -0.0018571628, y: -0.00024479188, z: 0.00044132146}
-      rotation: {x: 0.024366094, y: 0.06280289, z: 0.23394729, w: 0.96991277}
+      rotation: {x: 0.02565452, y: 0.021209383, z: 0.08898788, w: 0.99547637}
       scale: {x: 1.0000031, y: 0.9999995, z: 0.99999815}
     - name: Base HumanRDigit42
       parentName: Base HumanRDigit41
       position: {x: -0.0004854939, y: 5.4845983e-10, z: -3.5390002e-10}
-      rotation: {x: 0.05623205, y: 0.004716326, z: 0.33827797, w: 0.93935287}
+      rotation: {x: 0.05973497, y: 0.00036874035, z: 0.02637641, w: 0.99786574}
       scale: {x: 1.0000002, y: 1.0000024, z: 0.99999833}
     - name: Base HumanRDigit43
       parentName: Base HumanRDigit42
@@ -1287,22 +1287,22 @@ ModelImporter:
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_Add_FirstFlash
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_Add_FirstGlowLarge
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_Add_FirstGlowLight
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_Add_Impact
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
@@ -1312,27 +1312,27 @@ ModelImporter:
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_Add_LightStrip (2)
       parentName: PS_VFX_GunShot_Proj
-      position: {x: -0, y: 0, z: 0}
+      position: {x: 0.004, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_Add_LightStrip (3)
       parentName: PS_VFX_GunShot_Proj
-      position: {x: -0, y: 0, z: 0}
+      position: {x: 0.004, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_Add_SecondGlowFlash
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_Add_SecondGlowLarge
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_Add_Sparks
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
@@ -1342,7 +1342,7 @@ ModelImporter:
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.32825, y: 0.32825, z: 0.32825}
     - name: PS_VFX_GunShot_Proj (1)
       parentName: PS_VFX_GunShot_Proj
       position: {x: -0, y: 0, z: 0.03}
@@ -1375,9 +1375,9 @@ ModelImporter:
       scale: {x: 1.0087979, y: 1.0088012, z: 1.0088027}
     - name: kart1
       parentName: Base HumanRPalm
-      position: {x: -0.0014579876, y: -0.00090700155, z: -0.0010150038}
-      rotation: {x: -0.14120437, y: -0.057159428, z: 0.44968095, w: 0.88010293}
-      scale: {x: 154.80057, y: 154.80002, z: 154.80083}
+      position: {x: -0.0011979494, y: 0.000203313, z: 0.00089576165}
+      rotation: {x: 0.7849866, y: -0.47349486, z: -0.38967675, w: 0.088037856}
+      scale: {x: 100.0006, y: 100.00003, z: 99.99944}
     - name: scubby_gomlek
       parentName: Base HumanRForearm2
       position: {x: -0.0011668717, y: -0.0004062528, z: -0.0001995807}
@@ -1455,9 +1455,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Kartlar
       parentName: scubby_unityv5
-      position: {x: -0.002491374, y: 0.00932918, z: 0.0049681957}
-      rotation: {x: 0.16695106, y: 0.43345824, z: 0.8592658, w: 0.21425135}
-      scale: {x: 1.5480007, y: 1.5480107, z: 1.5480002}
+      position: {x: -0.0017149826, y: -0.0005515492, z: -0.00069952133}
+      rotation: {x: -0.46594462, y: -0.051487092, z: 0.8831158, w: 0.018738318}
+      scale: {x: 1.5480007, y: 1.5479999, z: 1.5479993}
     - name: kart1
       parentName: Kartlar
       position: {x: -0.0011979494, y: 0.000203313, z: 0.00089576165}
@@ -1475,13 +1475,13 @@ ModelImporter:
       scale: {x: 100.00038, y: 100.00037, z: 99.99941}
     - name: kart4
       parentName: Kartlar
-      position: {x: -0.000859741, y: 0.00072221656, z: 0.0006670782}
+      position: {x: -0.00088699994, y: 0.000771, z: 0.00071199995}
       rotation: {x: -0.31292692, y: 0.8616718, z: 0.2477438, w: -0.31340322}
       scale: {x: 100.000114, y: 100.000534, z: 99.99932}
     - name: kart5
       parentName: Kartlar
-      position: {x: -0.00067896344, y: 0.00069748954, z: 0.0004564387}
-      rotation: {x: -0.10845232, y: 0.9102963, z: 0.16985326, w: -0.36159176}
+      position: {x: -0.000736, y: 0.00076499995, z: 0.00053599995}
+      rotation: {x: -0.16374092, y: 0.90199244, z: 0.19157945, w: -0.35056522}
       scale: {x: 99.99997, y: 100.00064, z: 99.9993}
     - name: kartucan
       parentName: scubby_unityv5
@@ -1530,7 +1530,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Object001
       parentName: scubby_unityv5
-      position: {x: 0.0005019102, y: 0.016537495, z: 0.00026293425}
+      position: {x: 0.00026008906, y: 0, z: -0.000049465856}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: reload
@@ -1545,9 +1545,9 @@ ModelImporter:
       scale: {x: 181.20074, y: 181.20119, z: 181.20074}
     - name: Cylinder (Magazine)
       parentName: 'Stylized Revolver '
-      position: {x: 0.0000000072479245, y: -0.0000011245727, z: 0.0000029418943}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1.0000005, y: 0.9999996, z: 1}
+      position: {x: 0.0000010799963, y: -0.0000011245736, z: 0.000002511903}
+      rotation: {x: 0.00000002980232, y: -0.000000141561, z: -0.00000005960463, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: Hammer
       parentName: 'Stylized Revolver '
       position: {x: 0.000000007244944, y: 0.000002242276, z: -0.00000024871827}
