@@ -23,10 +23,10 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private int nextRoundStartSeat = 0;
 
     private PlayerState currentTurnPlayer;
+    [SerializeField] private PlayerVisualSetup visualSetup;
 
     [SyncVar]
     private CardType tableCard;
-
 
     public event Action<int> GameOver;
 
@@ -64,6 +64,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             pState.SeatNum = seat;
             pState.deckManager = this;
             pState.ResetState();
+            visualSetup.RpcSpawnVisual(pProfile, pProfile.CharacterId);
+
         }
 
         accumTurnIndex = 0;
@@ -79,6 +81,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
 
         StartRound();
     }
+
+    #region 게임 로직
 
     [Server]
     public void StartRound()
@@ -464,6 +468,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         }
     }
 
+    #endregion 
+
     #region Client RPC
 
     [ClientRpc]
@@ -508,6 +514,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         // 유저 처형 이벤트 실행
         Debug.Log($" [인게임] : {seat} 번째 유저 처형");
+        InGameEvent.TriggerOnPlayerEliminated(seat);
     }
 
     [ClientRpc]

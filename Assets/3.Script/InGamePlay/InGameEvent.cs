@@ -17,7 +17,9 @@ public static class InGameEvent
 
     public static event Action<int[]> OnCardsPlayed; // 플레이어 패 제출
 
-    public static event Action<int> OnPlayerEliminated; // 구현 전
+    public static event Action<int> OnPlayerEliminated; // 플레이어 사망 연출. 매개변수는 player seat입니다.
+
+    public static event Action<int> OnPlayerSurvived; // 플레이어 생존 연출. 매개변수는 player seat 입니다.
 
     public static event Action OnMenuOpened; // 인게임 상에서 esc 누를 경우 실행됨
 
@@ -56,6 +58,11 @@ public static class InGameEvent
     public static void TriggerOnPlayerEliminated(int seatNum)
     {
         OnPlayerEliminated?.Invoke(seatNum);
+    }
+
+    public static void TriggerOnPlayerSurvived(int seatNum)
+    {
+        OnPlayerSurvived?.Invoke(seatNum);
     }
 
     public static void TriggerOnMenuOpened()
