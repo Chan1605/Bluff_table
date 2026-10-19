@@ -19,6 +19,8 @@ public class LobbyCharacterLabelUI : MonoBehaviour
     [SerializeField] private TMP_Text nicknameText;
     [SerializeField] private GameObject readyMark;         // 체크 아이콘
     [SerializeField] private Vector3 nameplateAnchor = new Vector3(0f, -1f, 0f);
+    [Tooltip("이름표가 내려갈 수 있는 최저 높이 (1080 기준 픽셀). 하단 채팅/로비 정보 바와 겹치지 않게")]
+    [SerializeField] private float nameplateMinY = 110f;
 
     private PlayerProfile profile;
     private LobbyCharacterView view;
@@ -50,7 +52,7 @@ public class LobbyCharacterLabelUI : MonoBehaviour
             }
         }
 
-        public void Follow(Camera cam, Vector3 worldPoint)
+        public void Follow(Camera cam, Vector3 worldPoint, float minY = float.NegativeInfinity)
         {
             Vector3 screen = cam.WorldToScreenPoint(worldPoint);
             bool inFront = screen.z > 0f;
@@ -59,6 +61,12 @@ public class LobbyCharacterLabelUI : MonoBehaviour
 
             float scale = canvas.scaleFactor > 0f ? canvas.scaleFactor : 1f;
             Vector2 origin = new Vector2(screen.x, screen.y) / scale;
+
+            // 가장 아래 자식이 minY 밑으로 내려가면 전체를 올린다 (화면 아래 UI와 겹치지 않게)
+            float lowest = float.PositiveInfinity;
+            for (int i = 0; i < basePositions.Length; i++) lowest = Mathf.Min(lowest, basePositions[i].y);
+            if (basePositions.Length > 0 && origin.y + lowest < minY) origin.y = minY - lowest;
+
             for (int i = 0; i < children.Length; i++)
                 children[i].anchoredPosition = origin + basePositions[i];
         }
@@ -149,7 +157,7 @@ public class LobbyCharacterLabelUI : MonoBehaviour
         }
 
         if (nameplateFollower != null && nameplate.gameObject.activeSelf)
-            nameplateFollower.Follow(cam, transform.TransformPoint(nameplateAnchor));
+            nameplateFollower.Follow(cam, transform.TransformPoint(nameplateAnchor), nameplateMinY);
     }
 
     private static void DisableRaycast(Canvas root)

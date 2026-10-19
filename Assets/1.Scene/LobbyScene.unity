@@ -1245,9 +1245,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LiarsBar.Server.SeatAnchors
   area: 0
   seats:
-  - {fileID: 2065832878}
   - {fileID: 2072917112}
   - {fileID: 1098347717}
+  - {fileID: 2065832878}
   - {fileID: 2052772472}
 --- !u!4 &1770857529
 Transform:
