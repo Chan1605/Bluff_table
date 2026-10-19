@@ -8,8 +8,9 @@ public class IntroSequence : MonoBehaviour
     public class IntroSlide
     {
         public CanvasGroup canvasGroup;
-        public float holdDuration = 2f; 
+        public float holdDuration = 2f;
         public bool playVideo;
+        public bool showLoadingNearEnd;
     }
 
     [SerializeField] private IntroSlide[] slides;
@@ -17,6 +18,11 @@ public class IntroSequence : MonoBehaviour
     [SerializeField] private float skipFadeDuration = 0.25f;
     [SerializeField] private string titleSceneName;
     [SerializeField] private VideoPlayer video;
+
+    [Header("Loading Icon")]
+    [SerializeField] private GameObject loadingIcon;
+    [SerializeField] private float loadingLeadSeconds = 3f;
+
     private bool skipRequested;
 
     private void Start()
@@ -26,6 +32,8 @@ public class IntroSequence : MonoBehaviour
             slide.canvasGroup.alpha = 0f;
             slide.canvasGroup.gameObject.SetActive(false);
         }
+
+        if (loadingIcon != null) loadingIcon.SetActive(false);
 
         if (video != null)
         {
@@ -60,25 +68,30 @@ public class IntroSequence : MonoBehaviour
 
             slide.canvasGroup.gameObject.SetActive(true);
 
-        
+
             if (slide.playVideo) yield return StartVideo();
 
             // 페이드 인
             yield return StartCoroutine(FadeSkippable(slide.canvasGroup, 0f, 1f, fadeDuration));
 
-            // 대기 구간 스킵 요청이 없을 때만 실행
-            if (!skipRequested)
+            bool isVideo = slide.playVideo && video != null;
+
+            // 로딩 슬라이드의 영상은 건너뛰어도 경고 구간까지는 재생
+            if (isVideo && (!skipRequested || slide.showLoadingNearEnd))
             {
-                if (slide.playVideo && video != null)
-                {
-                    // [변경] 영상 슬라이드라면 영상이 끝날 때까지 대기
-                    yield return StartCoroutine(WaitVideoSkippable());
-                }
-                else
-                {
-                    // 일반 이미지 슬라이드라면 지정된 holdDuration만큼 대기
-                    yield return WaitSkippable(slide.holdDuration);
-                }
+                yield return StartCoroutine(WaitVideoSkippable(slide));
+            }
+            else if (!skipRequested)
+            {
+             
+                yield return WaitSkippable(slide.holdDuration);
+            }
+
+            // 로딩 슬라이드: 경고 화면(영상 마지막 프레임)과 로딩 아이콘을 그대로 둔 채 타이틀로 전환
+            if (slide.showLoadingNearEnd)
+            {
+                ShowLoading();
+                break;
             }
 
             // 페이드 아웃
@@ -87,7 +100,7 @@ public class IntroSequence : MonoBehaviour
             yield return StartCoroutine(FadeSkippable(slide.canvasGroup, slide.canvasGroup.alpha, 0f, outDuration));
 
             slide.canvasGroup.gameObject.SetActive(false);
-            if (slide.playVideo && video != null) video.Stop();
+            if (isVideo) video.Stop();
         }
 
         SceneTransitionMgr.Instance.LoadScene(titleSceneName);
@@ -110,7 +123,7 @@ public class IntroSequence : MonoBehaviour
             float timeout = 5f;
             while (!video.isPrepared && timeout > 0f)
             {
-                timeout -= Time.unscaledDeltaTime; 
+                timeout -= Time.unscaledDeltaTime;
                 yield return null;
             }
         }
@@ -120,19 +133,53 @@ public class IntroSequence : MonoBehaviour
     }
 
 
-    private IEnumerator WaitVideoSkippable()
+    private IEnumerator WaitVideoSkippable(IntroSlide slide)
     {
         if (video == null) yield break;
 
         // 영상이 실제로 재생을 시작할 때까지 아주 잠시 대기
         yield return new WaitForEndOfFrame();
 
-        // 영상이 끝났거나 사용자가 클릭할 때까지 대기
+        // 영상이 끝나거나, (일반 영상 슬라이드에서) 사용자가 클릭할 때까지 대기
         while (video.isPlaying)
         {
-            if (skipRequested) yield break;
+            if (skipRequested)
+            {
+                if (!slide.showLoadingNearEnd) yield break;
+
+                // 로딩 슬라이드: 끝내지 않고 경고 구간으로 점프해서 끝까지 재생
+                skipRequested = false;
+                JumpToWarning();
+            }
+
+            // 끝나기 loadingLeadSeconds초 전부터 로딩 아이콘 (경고 문구 구간)
+            if (slide.showLoadingNearEnd && video.length > 0 &&
+                video.length - video.time <= loadingLeadSeconds)
+            {
+                ShowLoading();
+            }
+
             yield return null;
         }
+    }
+
+    private void JumpToWarning()
+    {
+        double warningStart = video.length - loadingLeadSeconds;
+        if (warningStart > 0 && video.time < warningStart) video.time = warningStart;
+
+        ShowLoading();
+    }
+
+    private void ShowLoading()
+    {
+        if (loadingIcon == null || loadingIcon.activeSelf) return;
+
+        loadingIcon.SetActive(true);   // 아이콘 애니메이션은 켜질 때 Animator가 자동 재생
+
+        // 아이콘이 켜지는 순간부터 실제로 타이틀을 읽기 시작
+        if (SceneTransitionMgr.Instance != null)
+            SceneTransitionMgr.Instance.Preload(titleSceneName);
     }
 
     private IEnumerator FadeSkippable(CanvasGroup cg, float from, float to, float duration)

@@ -7,18 +7,16 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 #endif
 
-// Player 프리팹 루트에 붙인다. 대기실(Lobby 단계)에서만 PlayerProfile.CharacterId에 맞는 StandModel을 보여주고,
-// 내 캐릭터는 호버 시 아웃라인, 클릭 시 다음 캐릭터로 순환한다. (서버 로직은 PlayerProfile/Lobby가 담당)
 [RequireComponent(typeof(PlayerProfile))]
 public class LobbyCharacterView : MonoBehaviour, IPointerClickHandler
 {
     [System.Serializable]
     private class Entry
     {
-        public string displayName;      // 예: 불량강아지
-        public GameObject standModel;   // StandModel 프리팹
-        [Tooltip("이 캐릭터만 발 높이 미세 조정 (미터, +면 위로)")]
+        public string displayName;      
+        public GameObject standModel;   
         public float yOffset;
+        public float labelOffsetY;
     }
 
     private class ModelInstance
@@ -28,22 +26,20 @@ public class LobbyCharacterView : MonoBehaviour, IPointerClickHandler
         public int[] originalLayers;
     }
 
-    [Tooltip("배열 순서 = 캐릭터 번호. 0번부터 순서대로 (서버 CharacterCount와 같은 개수)")]
+
     [SerializeField] private Entry[] characters;
-    [SerializeField] private Transform modelRoot;       // 모델이 붙을 빈 오브젝트. 이 오브젝트의 높이가 '바닥'
-    [Tooltip("자식 ClickArea의 콜라이더. 내 캐릭터일 때만 켜진다")]
+    [SerializeField] private Transform modelRoot;      
+
     [SerializeField] private Collider clickArea;
     [SerializeField] private string outlineLayerName = "Outline";
 
     [Header("Ground")]
-    [Tooltip("켜면 가장 낮은 본을 modelRoot 높이에 맞춘다. 끄면 프리팹 위치 그대로(+ Y Offset)")]
     [SerializeField] private bool autoGround = true;
-    [Tooltip("모든 캐릭터 공통 발 높이 보정(미터). 본이 발목에 있어 발이 파묻히면 +로")]
     [SerializeField] private float groundOffset;
 
-    [SerializeField] private bool debugLog;             // 호버/보정 로그 (문제 확인용, 해결 후 끄기)
+    [SerializeField] private bool debugLog;        
 
-    private const float MaxAutoLift = 3f;   // 자동 보정이 이 값(미터)을 넘으면 비정상으로 보고 건너뜀
+    private const float MaxAutoLift = 3f;   // 자동 보정이 이 값을 넘으면 비정상으로 보고 건너뜀
 
     private PlayerProfile profile;
     private ModelInstance[] instances;
@@ -51,7 +47,7 @@ public class LobbyCharacterView : MonoBehaviour, IPointerClickHandler
     private int outlineLayer = -1;
     private bool hovered;
     private bool warnedCount;
-    private bool interactive;                 // 내 캐릭터 + 대기실일 때만 호버/클릭
+    private bool interactive;       
 
     private Camera eventCamera;
     private float nextCameraSearch;
@@ -61,11 +57,22 @@ public class LobbyCharacterView : MonoBehaviour, IPointerClickHandler
     private readonly RaycastHit[] hitBuffer = new RaycastHit[16];
     private string lastWhy;
 
+    public event System.Action<bool> HighlightChanged;
+    public bool IsHighlighted { get; private set; }
     public string GetDisplayName(int index)
     {
         bool valid = characters != null && index >= 0 && index < characters.Length;
         return valid ? characters[index].displayName : string.Empty;
     }
+
+    public float GetLabelOffset(int index)
+    {
+        bool valid = characters != null && index >= 0 && index < characters.Length;
+        return valid ? characters[index].labelOffsetY : 0f;
+    }
+
+    // 대기실 카메라 (호버 판정과 같은 카메라, 라벨이 카메라를 바라보게 할 때 사용)
+    public Camera LobbyCamera => FindEventCamera();
 
     private void Awake()
     {
@@ -211,8 +218,7 @@ public class LobbyCharacterView : MonoBehaviour, IPointerClickHandler
         return new ModelInstance { go = go, parts = parts, originalLayers = layers };
     }
 
-    // 스키닝 모델은 메쉬/렌더러 Bounds가 에셋마다 제각각이라, 실제로 움직이는 본의 월드 위치를 쓴다.
-    // 본이 없는 정적 모델만 MeshRenderer.bounds를 쓴다.
+
     private static bool TryGetLowestPoint(GameObject go, out float lowestY, out string lowestName)
     {
         lowestY = float.MaxValue;
@@ -242,15 +248,22 @@ public class LobbyCharacterView : MonoBehaviour, IPointerClickHandler
 
     private void ApplyHighlight()
     {
-        if (current < 0 || instances[current] == null) return;
-
-        bool on = hovered && profile.isLocalPlayer && Lobby.CanChangeCharacter;
+        bool hasModel = current >= 0 && instances[current] != null;
+        bool on = hasModel && hovered && profile.isLocalPlayer && Lobby.CanChangeCharacter;
         if (debugLog)
             Debug.Log($"[LobbyCharacterView] 아웃라인 {on} (hovered {hovered}, local {profile.isLocalPlayer}, canChange {Lobby.CanChangeCharacter}, layer {outlineLayer})", this);
 
-        SetLayers(instances[current], on);
+        if (hasModel) SetLayers(instances[current], on);
+        SetHighlighted(on);
     }
 
+    private void SetHighlighted(bool on)
+    {
+        if (IsHighlighted == on) return;
+
+        IsHighlighted = on;
+        HighlightChanged?.Invoke(on);
+    }
     private void SetLayers(ModelInstance model, bool outlined)
     {
         if (outlined && outlineLayer < 0) return;
