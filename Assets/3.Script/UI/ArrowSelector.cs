@@ -14,6 +14,9 @@ public class ArrowSelector : MonoBehaviour
 
     public int Index { get; private set; }
 
+    // 화살표로 값이 바뀌었을 때만 (SetOptions로 바꿀 때는 보내지 않음)
+    public event Action<int> Changed;
+
     private void OnEnable()
     {
         leftBtn.onClick.AddListener(OnClickLeft);
@@ -49,6 +52,7 @@ public class ArrowSelector : MonoBehaviour
 
         Index = next;
         Refresh();
+        Changed?.Invoke(Index);
     }
 
     private void Refresh()
