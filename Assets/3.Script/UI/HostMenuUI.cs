@@ -7,6 +7,7 @@ public class HostMenuUI : MonoBehaviour
 {
     [SerializeField] private UIPanelManager panelManager;
     [SerializeField] private TMP_InputField lobbyNameInput;
+    [SerializeField] private TMP_Dropdown lobbyTypeDropdown;   // 0 = Public, 1 = Private
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private Button createBtn;       // 오른쪽 화살표 버튼
     [SerializeField] private Button[] backBtns;      // 상단 원형 Back + 하단 Back
@@ -14,6 +15,9 @@ public class HostMenuUI : MonoBehaviour
     private const int TitleMaxLength = 30;   // DevLobbyPanel과 동일
 
     private bool isBusy;
+
+    // 서버에 공개/비공개 기능이 생기면 CreateRoom에 같이 넘길 값
+    public bool IsPrivateLobby => lobbyTypeDropdown != null && lobbyTypeDropdown.value == 1;
 
     private void Awake()
     {
@@ -28,6 +32,7 @@ public class HostMenuUI : MonoBehaviour
 
         isBusy = false;
         messageText.text = string.Empty;
+        if (lobbyTypeDropdown != null) lobbyTypeDropdown.SetValueWithoutNotify(0);
 
         PlayerProfile me = PlayerProfile.Local;
         lobbyNameInput.text = (me != null && me.IsLoggedIn) ? $"{me.Nickname}'s Lobby" : string.Empty;
@@ -56,6 +61,7 @@ public class HostMenuUI : MonoBehaviour
 
         isBusy = true;
         messageText.text = "Creating lobby...";
+        Debug.Log($"[HostMenuUI] Lobby type: {(IsPrivateLobby ? "Private" : "Public")} (서버 미지원 - 표시만)");
         LoadingUI.Show("Setting up your table");
         Lobby.CreateRoom(title, OnCreateResult);
     }

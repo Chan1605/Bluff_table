@@ -10,6 +10,7 @@ public class HoverUnderline : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField] private Ease hideEase = Ease.InQuad;
 
     private Tween tween;
+    private bool selected;   // 선택된 탭은 마우스가 나가도 밑줄 유지
 
     private void Awake()
     {
@@ -28,7 +29,16 @@ public class HoverUnderline : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
 
     public void OnPointerEnter(PointerEventData eventData) => Play(1f, showEase);
-    public void OnPointerExit(PointerEventData eventData) => Play(0f, hideEase);
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!selected) Play(0f, hideEase);
+    }
+
+    public void SetSelected(bool value)
+    {
+        selected = value;
+        Play(value ? 1f : 0f, value ? showEase : hideEase);
+    }
 
     private void Play(float targetX, Ease ease)
     {
