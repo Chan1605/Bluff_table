@@ -44,6 +44,8 @@ public class CardPlacer : MonoBehaviour
     [SerializeField] float dealSeatGap = 0.15f;
 
     [SerializeField] bool revealEveryRound = false;
+    [Tooltip("끄면 공개 · 선언까지만 하고 테이블 앞 배분은 생략한다 (손패는 HandCardsSetup이 캐릭터 손으로 나눈다)")]
+    [SerializeField] bool dealToTable = true;
 
     [Header("로컬 테스트 (네트워크 없이)")]
     [Tooltip("켜면 PlayerProfile 대신 아래 값으로 배분 대상을 정한다.")]
@@ -58,6 +60,18 @@ public class CardPlacer : MonoBehaviour
     private Coroutine sequence_co;
     private bool hasRevealed;
     private CardType Table_cur;
+    private int deckRemaining;
+
+    /// <summary>공개 · 선언 연출 중이면 true. HandCardsSetup이 끝날 때까지 기다렸다가 손패를 나눈다.</summary>
+    public bool IsIntroPlaying { get; private set; }
+    public Transform DeckPoint => tableCenter;
+
+    /// <summary>덱 맨 위 카드를 한 장 숨긴다 (손패 배분 때 덱에서 한 장씩 빠지는 것처럼)</summary>
+    public void PopDeckCard()
+    {
+        if (cards == null || deckRemaining <= 0) return;
+        cards[--deckRemaining].gameObject.SetActive(false);
+    }
 
     // 배분 · 내 손패
     private readonly List<CardViewer> myFrontCards = new List<CardViewer>(); // 내 자리 앞 카드 (슬롯 순서)
@@ -95,6 +109,7 @@ public class CardPlacer : MonoBehaviour
         InGameEvent.OnRoundStarted -= HandleRoundStarted;
         InGameEvent.OnCardDealt -= HandleCardDealt;
         if (sequence_co != null) { StopCoroutine(sequence_co); sequence_co = null; }
+        IsIntroPlaying = false;
     }
 
     void Start()
@@ -109,6 +124,7 @@ public class CardPlacer : MonoBehaviour
         if (sequence_co != null) StopCoroutine(sequence_co);
         Table_cur = tableCard;
         pendingHand = null;
+        IsIntroPlaying = true;
         sequence_co = StartCoroutine(RoundSequence());
     }
 
@@ -135,7 +151,8 @@ public class CardPlacer : MonoBehaviour
         if (announcer != null)
             yield return announcer.Play(Table_cur);
 
-        yield return DealSequence();
+        IsIntroPlaying = false;
+        if (dealToTable) yield return DealSequence();
         sequence_co = null;
     }
 
@@ -160,6 +177,7 @@ public class CardPlacer : MonoBehaviour
 
         myFrontCards.Clear();
         handAppliedThisRound = false;
+        deckRemaining = cards.Length;
     }
 
     Vector3 StackLocal(int i) => new Vector3(0, i * thickness, 0);

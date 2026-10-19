@@ -63,10 +63,23 @@ public class PlayerVisualSetup : NetworkBehaviour
         {
             // 프리팹마다 HeadController가 루트 또는 머리 카메라 오브젝트에 붙어 있어서 자식까지 찾는다
             pState.AssignHeadController(visualInstance.GetComponentInChildren<HeadController>(true));
+
+            // 내 캐릭터는 1인칭 화면에서 머리(코 · 부리)가 카메라에 걸리지 않게 숨긴다
+            if (player.isLocalPlayer && pState.headController != null)
+            {
+                Transform cam = pState.headController.firstPersonCamera != null
+                    ? pState.headController.firstPersonCamera.transform
+                    : pState.headController.transform;
+                visualInstance.AddComponent<FirstPersonHeadHider>().Init(cam);
+            }
         }
 
         spawnedVisuals[player] = visualInstance;
         SetPlaceholderHidden(player, true);
+
+        // 손패: 왼손 kart1~5에 카드 연결 (같은 오브젝트에 HandCardsSetup이 있을 때만)
+        if (TryGetComponent(out HandCardsSetup handCards))
+            handCards.Attach(player, visualInstance);
 
         if (visualInstance.TryGetComponent(out SeatedPose seated))
             StartCoroutine(AlignToChair(player, seated));

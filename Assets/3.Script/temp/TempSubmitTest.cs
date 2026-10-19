@@ -25,6 +25,7 @@ public class TempSubmitTest : MonoBehaviour
 
         InGameEvent.TriggerOnCardsPlayed(selectedIndexes.ToArray());
         selectedIndexes.Clear();
+        InGameEvent.TriggerOnHandSelectionChanged(selectedIndexes);
     }
 
     public void Debug_OnClickAddCard(int index)
@@ -33,12 +34,14 @@ public class TempSubmitTest : MonoBehaviour
         {
             selectedIndexes.Add(index);
             Debug.Log($"[임시 UI] : {index}번 인덱스 담김. 현재 {selectedIndexes.Count} 장 선택 중");
+            InGameEvent.TriggerOnHandSelectionChanged(selectedIndexes);
         }
     }
 
     public void Debug_ClearSelection()
     {
         selectedIndexes.Clear();
+        InGameEvent.TriggerOnHandSelectionChanged(selectedIndexes);
         Debug.Log("[임시 UI] : 선택 초기화됨");
     }
 
