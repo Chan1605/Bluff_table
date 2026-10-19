@@ -1,29 +1,23 @@
-using LiarsBar.Server;
+﻿using LiarsBar.Server;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Player 프리팹 루트에 붙인다. 대기실에서만
-// - 캐릭터 라벨(CHANGE CHARACTER + 이름 + 지시선): 내 캐릭터에 마우스를 올렸을 때만 (아웃라인과 같은 판정)
-// - 발밑 이름표(준비 체크 + 닉네임): 전원, 항상
-// 두 Canvas는 Screen Space - Overlay로 두고, 캐릭터의 기준점을 화면 좌표로 옮겨 따라다니게 한다.
-// (월드 크기가 아니라 화면 픽셀 크기로 그려서 카메라 거리와 관계없이 원작처럼 선명하고 일정한 크기)
+
 [RequireComponent(typeof(PlayerProfile), typeof(LobbyCharacterView))]
 public class LobbyCharacterLabelUI : MonoBehaviour
 {
-    [Header("Change Character (내 캐릭터, 호버 시)")]
-    [SerializeField] private Canvas changeLabel;           // ChangeLabelCanvas (Screen Space - Overlay)
+
+    [SerializeField] private Canvas changeLabel;           // ChangeLabelCanvas 
     [SerializeField] private TMP_Text characterNameText;   // 캐릭터 이름
     [SerializeField] private Animator lineAnimator;        // 지시선 프레임 애니메이션 (선택)
     [SerializeField] private string lineState = "SelAnimation";
-    [Tooltip("지시선 시작점 (Player 기준 로컬 좌표, 미터). 머리 오른쪽 옆. 캐릭터별 높이는 Label Offset Y로 보정")]
     [SerializeField] private Vector3 labelAnchor = new Vector3(0.3f, 0.68f, 0f);
 
-    [Header("Nameplate (전원)")]
-    [SerializeField] private Canvas nameplate;             // NameplateCanvas (Screen Space - Overlay)
+
+    [SerializeField] private Canvas nameplate;             // NameplateCanvas 
     [SerializeField] private TMP_Text nicknameText;
     [SerializeField] private GameObject readyMark;         // 체크 아이콘
-    [Tooltip("이름표 기준점 (Player 기준 로컬 좌표, 미터). 발 위치")]
     [SerializeField] private Vector3 nameplateAnchor = new Vector3(0f, -1f, 0f);
 
     private PlayerProfile profile;
