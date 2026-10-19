@@ -9,7 +9,9 @@ using LiarsBar.Presentation;
 public class SeatHandCards : MonoBehaviour
 {
     // 캐릭터 Animator 파라미터 (없으면 호출 생략)
-    static readonly int ReceiveCardsId = Animator.StringToHash("ReceiveCards");
+    static readonly int ReceiveCardsId = Animator.StringToHash("ReceiveCards");   // 배분 끝 → 테이블에서 패 줍기 (PickUp)
+    static readonly int OpenCardsId = Animator.StringToHash("OpenCards");         // 스페이스 → 패 펼치기 (Open)
+    static readonly int CloseCardsId = Animator.StringToHash("CloseCards");       // 스페이스 → 다시 덮기 (Closed)
     static readonly int HasCardsId = Animator.StringToHash("HasCards");
     static readonly int PlayCardsId = AnimIds.Character.PlayCardsId;
 
@@ -46,6 +48,8 @@ public class SeatHandCards : MonoBehaviour
     public bool IsDead => state != null && state.isDead;
 
     HandCardsSetup setup;
+    Transform kartRootT;              // 손 카드 묶음 (KartsParent/Kartlar)
+    Quaternion kartRootBaseRotation;  // 배치 복사 후 기본 회전 (보정 회전은 여기에 더한다)
     PlayerState state;
     Animator character;
     GameObject cardsRoot;
@@ -77,6 +81,8 @@ public class SeatHandCards : MonoBehaviour
         for (Transform p = kartRoot; p != null && p != transform; p = p.parent)
             if (!p.gameObject.activeSelf) p.gameObject.SetActive(true);
         CopyHandLayout(kartRoot);
+        kartRootT = kartRoot;
+        kartRootBaseRotation = kartRoot.localRotation;
         Transform searchRoot = kartRoot;
         for (int n = 1; n <= KartCount; n++)
         {
@@ -135,6 +141,7 @@ public class SeatHandCards : MonoBehaviour
         DontDestroyOnLoad(cardsRoot); // 테이블 씬이 바뀌어도 캐릭터(플레이어 자식)와 수명을 같이한다
 
         ApplySlotOffsets();
+        ApplyKartlarFix();
         return true;
     }
 
@@ -177,6 +184,7 @@ public class SeatHandCards : MonoBehaviour
         if (setup == null || Hand == null) return;
         // 플레이 중 Inspector에서 오프셋을 바꿔도 바로 보이게 매 프레임 적용 (Animator보다 먼저 돈다)
         ApplySlotOffsets();
+        ApplyKartlarFix();
     }
 
     // Animator가 kart를 움직인 뒤에 표시 · 들어 올림을 정한다
@@ -260,8 +268,9 @@ public class SeatHandCards : MonoBehaviour
     bool dealFinished;
     bool opened;
 
-    /// <summary>패를 다 받았고 아직 펼치지 않았으면 true (스페이스로 펼칠 수 있음)</summary>
-    public bool CanOpen => dealFinished && !opened && InHandCount > 0;
+    /// <summary>패를 다 받았고 손에 남아 있으면 true (스페이스로 펼치기 ↔ 덮기)</summary>
+    public bool CanToggle => dealFinished && InHandCount > 0;
+    public bool IsOpen => opened;
 
     public void ResetRound()
     {
@@ -269,18 +278,24 @@ public class SeatHandCards : MonoBehaviour
         opened = false;
     }
 
-    // 배분이 끝나면 덮은 패를 쥔 자세(NoCards = kart_kapali_idle)로 기다린다. 펼치기는 스페이스
+    // 배분이 끝나면 패를 줍고(PickUp) 덮은 채 쥐고 기다린다(Closed). 펼치기는 스페이스
     public void OnDealFinished()
     {
         dealFinished = true;
         SetHasCards(InHandCount > 0);
+        TriggerCharacter(ReceiveCardsId);
     }
 
-    public void OpenCards()
+    // 원작 클립(kart_atma)에 들어 있는 애니메이션 이벤트. 받는 함수가 없으면 'has no receiver' 오류가 난다.
+    // 카드가 손을 떠나는 순간이라, 나중에 제출 카드 날리는 타이밍을 여기에 맞출 수 있다
+    public void ThrowAnim() { }
+    public void OnThrowTableCardsEvent() { }
+
+    public void SetCardsOpen(bool open)
     {
-        if (opened) return;
-        opened = true;
-        TriggerCharacter(ReceiveCardsId);   // PickUp (kart_acma) → HoldCards
+        if (opened == open) return;
+        opened = open;
+        TriggerCharacter(open ? OpenCardsId : CloseCardsId);   // Open(kart_acma) → HoldCards / Closed(kart_el_masa)
     }
 
     public void PlayCards(int count, int[] listIndices, HandCardsSetup table)
@@ -419,6 +434,15 @@ public class SeatHandCards : MonoBehaviour
         to.localPosition = from.localPosition;
         to.localRotation = from.localRotation;
         to.localScale = from.localScale;
+    }
+
+    // 컨트롤러별 손 카드 묶음 회전 보정 (플레이 중 Inspector에서 바꿔도 반영)
+    void ApplyKartlarFix()
+    {
+        if (kartRootT == null) return;
+        var animator = GetComponent<Animator>();
+        Vector3 euler = setup.GetKartlarEuler(animator != null ? animator.runtimeAnimatorController : null);
+        kartRootT.localRotation = kartRootBaseRotation * Quaternion.Euler(euler);
     }
 
     void ApplySlotOffsets()

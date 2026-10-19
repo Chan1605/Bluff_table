@@ -55,13 +55,32 @@ public class HandCardsSetup : MonoBehaviour
     public float CardScale => cardScale;
     public Vector3 LiftAxis => liftAxis;
     public float LiftDistance => liftDistance;
-    /// <summary>같은 Animator Controller를 쓰는 기준 캐릭터 (없으면 null)</summary>
+    /// <summary>같은 Animator Controller를 쓰는 기준 캐릭터 (없으면 null = 모델 원래 배치)</summary>
     public GameObject GetHandLayoutReference(RuntimeAnimatorController controller)
     {
         if (handLayoutReferences == null || controller == null) return null;
         foreach (var r in handLayoutReferences)
             if (r != null && r.TryGetComponent(out Animator a) && a.runtimeAnimatorController == controller) return r;
         return null;
+    }
+
+    [System.Serializable]
+    public struct HandRotationFix
+    {
+        [Tooltip("이 컨트롤러를 쓰는 캐릭터에 적용")]
+        public RuntimeAnimatorController controller;
+        [Tooltip("손 카드 묶음(Kartlar)에 더할 로컬 회전. 패가 상대 쪽을 보면 한 축에 180을 넣어 본다 (플레이 중 바로 반영)")]
+        public Vector3 kartlarEuler;
+    }
+
+    [Tooltip("컨트롤러별 손 카드 묶음 회전 보정 (예: Sit_Table_Big → 패 뒤집기)")]
+    [SerializeField] HandRotationFix[] handRotationFixes;
+
+    public Vector3 GetKartlarEuler(RuntimeAnimatorController controller)
+    {
+        if (handRotationFixes == null || controller == null) return Vector3.zero;
+        foreach (var f in handRotationFixes) if (f.controller == controller) return f.kartlarEuler;
+        return Vector3.zero;
     }
 
     readonly Dictionary<int, SeatHandCards> seats = new();
@@ -247,17 +266,17 @@ public class HandCardsSetup : MonoBehaviour
         if (me != null) me.SetLifted(me.ListToSlots(listIndices));
     }
 
-    // 스페이스: 패를 다 받았고 아직 안 펼쳤으면 서버에 알린다 → 모든 클라이언트에서 펼치기 애니메이션
+    // 스페이스: 패를 다 받았으면 펼치기 ↔ 덮기 토글을 서버에 알린다 → 모든 클라이언트에서 애니메이션
     void HandleLookRequested()
     {
         SeatHandCards me = LocalSeat();
-        if (me == null || !me.CanOpen || PlayerState.Local == null) return;
-        PlayerState.Local.CmdOpenCards();
+        if (me == null || !me.CanToggle || PlayerState.Local == null) return;
+        PlayerState.Local.CmdSetCardsOpen(!me.IsOpen);
     }
 
-    void HandleCardsOpened(int seat)
+    void HandleCardsOpened(int seat, bool open)
     {
-        if (seats.TryGetValue(seat, out var s) && s != null) s.OpenCards();
+        if (seats.TryGetValue(seat, out var s) && s != null) s.SetCardsOpen(open);
     }
 
     void HandlePlayerEliminated(int seat)
