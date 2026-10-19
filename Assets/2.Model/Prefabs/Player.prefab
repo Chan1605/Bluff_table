@@ -380,8 +380,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db21705d242e49dfb519b66e685493e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LobbyCameraFraming
-  cameraOffset: {x: 0.4, y: 0.35, z: -3.9}
-  lookOffset: {x: 0.4, y: 0.05, z: 0}
+  lookOffset: {x: 0.3, y: 0.15, z: 0}
+  cameraHeight: 0.55
+  sideMargin: 1.2
   fieldOfView: 40
   priority: 50
 --- !u!4 &2203205262974604104
