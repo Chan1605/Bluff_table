@@ -25,6 +25,8 @@ namespace LiarsBar.Server
         public static event Action Changed;
 
         public SeatArea Area => area;
+        public int SeatCount => seats != null ? seats.Length : 0;
+        public Transform GetSeat(int index) => seats != null && index >= 0 && index < seats.Length ? seats[index] : null;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetStatics()

@@ -61,11 +61,15 @@ public class PlayerVisualSetup : NetworkBehaviour
 
         if (player.TryGetComponent<PlayerState>(out PlayerState pState))
         {
-            pState.AssignHeadController(visualInstance.GetComponent<HeadController>());
+            // 프리팹마다 HeadController가 루트 또는 머리 카메라 오브젝트에 붙어 있어서 자식까지 찾는다
+            pState.AssignHeadController(visualInstance.GetComponentInChildren<HeadController>(true));
         }
 
         spawnedVisuals[player] = visualInstance;
         SetPlaceholderHidden(player, true);
+
+        if (visualInstance.TryGetComponent(out SeatedPose seated))
+            StartCoroutine(AlignToChair(player, seated));
         Debug.Log($"[인게임] 캐릭터 프리펩 생성됨. ID : {characterID}");
     }
 
@@ -81,6 +85,37 @@ public class PlayerVisualSetup : NetworkBehaviour
             SetPlaceholderHidden(pair.Key, false);
         }
             spawnedVisuals.Clear();
+    }
+
+    // 테이블 씬이 로드되고 플레이어가 좌석으로 옮겨진 뒤, 내 의자의 SitPoint에 엉덩이를 맞춘다
+    // (캐릭터 생성 RPC가 테이블 씬 로드보다 먼저 올 수 있어서 의자가 생길 때까지 기다림)
+    private const float ChairWaitSeconds = 5f;
+    private const string SitPointName = "SitPoint";
+
+    private IEnumerator AlignToChair(PlayerProfile player, SeatedPose seated)
+    {
+        float giveUpTime = Time.time + ChairWaitSeconds;
+        Transform chair = null;
+
+        while (seated != null && player != null && Time.time < giveUpTime)
+        {
+            chair = SeatAnchors.Get(SeatArea.Table, player.Seat);
+            if (chair != null) break;
+            yield return null;
+        }
+
+        if (seated == null || player == null) yield break;
+        if (chair == null)
+        {
+            Debug.LogWarning($"[인게임] 좌석 {player.Seat} 의자를 못 찾아 정렬 생략", seated);
+            yield break;
+        }
+
+        yield return null;   // 의자 등록 직후 PlayerProfile이 좌석으로 옮긴 다음 프레임에 정렬
+        if (seated == null) yield break;
+
+        Transform sitPoint = chair.Find(SitPointName);
+        seated.SetSeat(sitPoint != null ? sitPoint : chair);
     }
 
     // Player 프리팹 자체의 캡슐(자리 표시용)은 캐릭터가 붙어 있는 동안 숨긴다.

@@ -48,6 +48,14 @@ public class SeatedPose : MonoBehaviour
 
     // ---------- 좌석 정렬 ----------
 
+    // 실행 중 좌석 지정 (PlayerVisualSetup이 내 좌석 의자의 SitPoint를 넘김)
+    public void SetSeat(Transform seat)
+    {
+        seatPoint = seat;
+        aligned = false;
+        Align();
+    }
+
     [ContextMenu("Align Now")]
     public void Align()
     {
@@ -62,7 +70,8 @@ public class SeatedPose : MonoBehaviour
 
         animator.Update(0f);
         Transform hips = animator.GetBoneTransform(HumanBodyBones.Hips);
-        transform.position += (seatPoint.position + extraOffset) - hips.position;
+        // Extra Offset은 의자 기준(앞 = 의자 앞). 의자 회전이 0이던 테스트 씬에서 맞춘 값이 그대로 맞는다
+        transform.position += (seatPoint.position + seatPoint.rotation * extraOffset) - hips.position;
         aligned = true;
     }
 

@@ -87,6 +87,8 @@ public class PlayerController : NetworkBehaviour
     [Command]
     private void CmdSyncHeadRotation(float pitch, float yaw)
     {
+        // pState는 OnStartLocalPlayer에서만 채워져서 서버에 있는 남의 플레이어 쪽은 비어 있다 → 여기서 찾는다
+        if (pState == null) pState = GetComponent<PlayerState>();
         if (pState == null) return;
 
         pState.syncHeadPitch = pitch;
