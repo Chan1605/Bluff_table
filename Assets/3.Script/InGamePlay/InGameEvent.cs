@@ -74,4 +74,16 @@ public static class InGameEvent
     {
         OnMenuClosed?.Invoke();
     }
+    public static event Action<int, int, int[]> OnCardsSubmitted; // 서버 확정 제출 (좌석, 장수, 제출 전 손패 기준 인덱스)
+    public static event Action<IReadOnlyList<int>> OnHandSelectionChanged; // 내 손패 선택 변경 (손패 인덱스)
+
+    public static void TriggerOnCardsSubmitted(int seat, int count, int[] indices)
+    {
+        OnCardsSubmitted?.Invoke(seat, count, indices);
+    }
+
+    public static void TriggerOnHandSelectionChanged(IReadOnlyList<int> indices)
+    {
+        OnHandSelectionChanged?.Invoke(indices);
+    }
 }
