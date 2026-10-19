@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplaySettingsUI : MonoBehaviour
+public class DisplaySettingsUI : MonoBehaviour, ISettingsSection
 {
     [SerializeField] private ArrowSelector resolution;
     [SerializeField] private ArrowSelector vSync;
@@ -13,13 +13,6 @@ public class DisplaySettingsUI : MonoBehaviour
     [SerializeField] private TMP_Text windowModeText;
     [SerializeField] private Slider brightness;
     [SerializeField] private TMP_Text brightnessText;
-
-    private const string KeyResW = "Display.ResW";
-    private const string KeyResH = "Display.ResH";
-    private const string KeyVSync = "Display.VSync";
-    private const string KeyMaxFps = "Display.MaxFps";
-    private const string KeyWindowed = "Display.Windowed";
-    private const string KeyBrightness = "Display.Brightness";
 
     private static readonly string[] VSyncLabels = { "Off", "On" };
     private static readonly int[] FpsValues = { 30, 60, 120, 144, 240, -1 };
@@ -45,46 +38,43 @@ public class DisplaySettingsUI : MonoBehaviour
     {
         BuildResolutionList();
 
-        int w = PlayerPrefs.GetInt(KeyResW, Screen.width);
-        int h = PlayerPrefs.GetInt(KeyResH, Screen.height);
+        int w = PlayerPrefs.GetInt(GameSettings.KeyResW, Screen.width);
+        int h = PlayerPrefs.GetInt(GameSettings.KeyResH, Screen.height);
         int resIndex = resolutions.IndexOf(new Vector2Int(w, h));
         if (resIndex < 0) resIndex = resolutions.Count - 1;
         resolution.SetOptions(resolutions.ConvertAll(r => $"{r.x}x{r.y}").ToArray(), resIndex);
 
-        vSync.SetOptions(VSyncLabels, PlayerPrefs.GetInt(KeyVSync, 0));
+        vSync.SetOptions(VSyncLabels, PlayerPrefs.GetInt(GameSettings.KeyVSync, 0));
 
-        int fpsIndex = Array.IndexOf(FpsValues, PlayerPrefs.GetInt(KeyMaxFps, 60));
+        int fpsIndex = Array.IndexOf(FpsValues, PlayerPrefs.GetInt(GameSettings.KeyMaxFps, 60));
         if (fpsIndex < 0) fpsIndex = 1;
         maxFps.SetOptions(FpsLabels, fpsIndex);
 
-        bool windowed = PlayerPrefs.GetInt(KeyWindowed, 1) == 1;
+        bool windowed = PlayerPrefs.GetInt(GameSettings.KeyWindowed, 1) == 1;
         windowMode.SetIsOnWithoutNotify(windowed);
         UpdateWindowModeText(windowed);
 
-        float value = PlayerPrefs.GetFloat(KeyBrightness, 1f);
+        float value = GameSettings.Brightness;
         brightness.SetValueWithoutNotify(value);
         UpdateBrightnessText(value);
     }
 
+    // 값만 기록한다. 실제 적용(해상도 · 밝기 등)은 SettingsMenuUI가 GameSettings로 한 번에 한다.
     public void Apply()
     {
         Vector2Int res = resolutions[resolution.Index];
-        bool windowed = windowMode.isOn;
 
-        Screen.SetResolution(res.x, res.y,
-            windowed ? FullScreenMode.Windowed : FullScreenMode.FullScreenWindow);
-        QualitySettings.vSyncCount = vSync.Index;                // 0: Off, 1: On
-        Application.targetFrameRate = FpsValues[maxFps.Index];   // -1: 제한 없음
+        PlayerPrefs.SetInt(GameSettings.KeyResW, res.x);
+        PlayerPrefs.SetInt(GameSettings.KeyResH, res.y);
+        PlayerPrefs.SetInt(GameSettings.KeyVSync, vSync.Index);
+        PlayerPrefs.SetInt(GameSettings.KeyMaxFps, FpsValues[maxFps.Index]);
+        PlayerPrefs.SetInt(GameSettings.KeyWindowed, windowMode.isOn ? 1 : 0);
+        PlayerPrefs.SetFloat(GameSettings.KeyBrightness, brightness.value);
+    }
 
-        PlayerPrefs.SetInt(KeyResW, res.x);
-        PlayerPrefs.SetInt(KeyResH, res.y);
-        PlayerPrefs.SetInt(KeyVSync, vSync.Index);
-        PlayerPrefs.SetInt(KeyMaxFps, FpsValues[maxFps.Index]);
-        PlayerPrefs.SetInt(KeyWindowed, windowed ? 1 : 0);
-        PlayerPrefs.SetFloat(KeyBrightness, brightness.value);
-        PlayerPrefs.Save();
-
-        // TODO 밝기 실제 적용은 렌더 파이프라인(Volume 등)에 맞춰 연결
+    public void ResetDefaults()
+    {
+        GameSettings.DeleteKeys(GameSettings.DisplayKeys);
     }
 
     private void BuildResolutionList()
