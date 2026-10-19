@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: -2741472148813186371}
   - component: {fileID: 8620169792901391499}
   - component: {fileID: 8685590514031708486}
+  - component: {fileID: 803525390181823009}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -367,6 +368,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &803525390181823009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367960496955974029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db21705d242e49dfb519b66e685493e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyCameraFraming
+  cameraOffset: {x: 0.4, y: 0.35, z: -3.9}
+  lookOffset: {x: 0.4, y: 0.05, z: 0}
+  fieldOfView: 40
+  priority: 50
 --- !u!4 &2203205262974604104
 Transform:
   m_ObjectHideFlags: 0
@@ -557,6 +574,7 @@ MonoBehaviour:
   lineState: SelAnimation
   nameplate: {fileID: 2921341237669029963}
   nicknameText: {fileID: 8464469511911837257}
+  labelAnchor: {x: 0.24, y: 0.35, z: 0}
   readyMark: {fileID: 126902794455025753}
   faceCamera: 1
 --- !u!1 &3605630605561239610
@@ -1048,7 +1066,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 80, y: 80, z: 80}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2203205262974604104}
