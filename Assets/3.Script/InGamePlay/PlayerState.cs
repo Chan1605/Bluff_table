@@ -89,9 +89,18 @@ public class PlayerState : NetworkBehaviour
         headController = _headController;
         GetComponent<PlayerController>().headController = _headController;
 
-        if(isLocalPlayer && headController.firstPersonCamera != null)
+        // 캐릭터 프리팹에 HeadController가 없으면 null로 온다. 여기서 예외가 나면 Mirror가 접속을 끊는다
+        if (headController == null)
         {
-            headController.firstPersonCamera.Priority = 20;
+            Debug.LogWarning($"[PlayerState] HeadController 없음 - 고개 · 1인칭 카메라 생략 (좌석 {SeatNum})", this);
+            return;
+        }
+
+        // 남의 캐릭터 카메라는 꺼 둔다. 켜져 있으면 내 캐릭터에 카메라가 없을 때 남의 시점으로 화면이 넘어간다
+        if (headController.firstPersonCamera != null)
+        {
+            headController.firstPersonCamera.enabled = isLocalPlayer;
+            if (isLocalPlayer) headController.firstPersonCamera.Priority = 20;
         }
     }
 
