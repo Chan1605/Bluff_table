@@ -257,10 +257,30 @@ public class SeatHandCards : MonoBehaviour
         return result;
     }
 
+    bool dealFinished;
+    bool opened;
+
+    /// <summary>패를 다 받았고 아직 펼치지 않았으면 true (스페이스로 펼칠 수 있음)</summary>
+    public bool CanOpen => dealFinished && !opened && InHandCount > 0;
+
+    public void ResetRound()
+    {
+        dealFinished = false;
+        opened = false;
+    }
+
+    // 배분이 끝나면 덮은 패를 쥔 자세(NoCards = kart_kapali_idle)로 기다린다. 펼치기는 스페이스
     public void OnDealFinished()
     {
-        TriggerCharacter(ReceiveCardsId);
+        dealFinished = true;
         SetHasCards(InHandCount > 0);
+    }
+
+    public void OpenCards()
+    {
+        if (opened) return;
+        opened = true;
+        TriggerCharacter(ReceiveCardsId);   // PickUp (kart_acma) → HoldCards
     }
 
     public void PlayCards(int count, int[] listIndices, HandCardsSetup table)

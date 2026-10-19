@@ -82,6 +82,8 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnCardsSubmitted += HandleCardsSubmitted;
         InGameEvent.OnHandSelectionChanged += HandleSelectionChanged;
         InGameEvent.OnPlayerEliminated += HandlePlayerEliminated;
+        InGameEvent.OnLookRequested += HandleLookRequested;
+        InGameEvent.OnCardsOpened += HandleCardsOpened;
     }
 
     void OnDisable()
@@ -93,6 +95,8 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnCardsSubmitted -= HandleCardsSubmitted;
         InGameEvent.OnHandSelectionChanged -= HandleSelectionChanged;
         InGameEvent.OnPlayerEliminated -= HandlePlayerEliminated;
+        InGameEvent.OnLookRequested -= HandleLookRequested;
+        InGameEvent.OnCardsOpened -= HandleCardsOpened;
     }
 
     void OnDestroy()
@@ -177,6 +181,7 @@ public class HandCardsSetup : MonoBehaviour
             s.Hand.HideAll();
             s.RefreshFaces();
             s.SetHasCards(false);
+            s.ResetRound();
         }
         pileCount = 0;
         yield return new WaitForSeconds(dealStartDelay);
@@ -240,6 +245,19 @@ public class HandCardsSetup : MonoBehaviour
     {
         SeatHandCards me = LocalSeat();
         if (me != null) me.SetLifted(me.ListToSlots(listIndices));
+    }
+
+    // 스페이스: 패를 다 받았고 아직 안 펼쳤으면 서버에 알린다 → 모든 클라이언트에서 펼치기 애니메이션
+    void HandleLookRequested()
+    {
+        SeatHandCards me = LocalSeat();
+        if (me == null || !me.CanOpen || PlayerState.Local == null) return;
+        PlayerState.Local.CmdOpenCards();
+    }
+
+    void HandleCardsOpened(int seat)
+    {
+        if (seats.TryGetValue(seat, out var s) && s != null) s.OpenCards();
     }
 
     void HandlePlayerEliminated(int seat)

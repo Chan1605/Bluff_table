@@ -76,6 +76,18 @@ public static class InGameEvent
     }
     public static event Action<int, int, int[]> OnCardsSubmitted; // 서버 확정 제출 (좌석, 장수, 제출 전 손패 기준 인덱스)
     public static event Action<IReadOnlyList<int>> OnHandSelectionChanged; // 내 손패 선택 변경 (손패 인덱스)
+    public static event Action OnLookRequested; // 로컬: 스페이스(Look) 입력 → 패 펼치기 요청
+    public static event Action<int> OnCardsOpened; // seat번 플레이어가 패를 펼침 (모든 클라이언트)
+
+    public static void TriggerOnLookRequested()
+    {
+        OnLookRequested?.Invoke();
+    }
+
+    public static void TriggerOnCardsOpened(int seat)
+    {
+        OnCardsOpened?.Invoke(seat);
+    }
 
     public static void TriggerOnCardsSubmitted(int seat, int count, int[] indices)
     {
