@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,8 +27,13 @@ namespace LiarsBar.Presentation
         void Awake()
         {
             for (int i = 0; i < cards.Length; i++) cards[i].Index = i;
+        }        /// <summary>런타임에 만든 캐릭터 손 슬롯 · 카드를 연결한다 (HandCardsSetup). 오브젝트가 꺼진 상태에서 Awake 전에 호출.</summary>
+        public void Bind(Transform[] handSlots, CardView[] handCards)
+        {
+            slots = handSlots;
+            cards = handCards;
+            for (int i = 0; i < cards.Length; i++) cards[i].Index = i;
         }
-
         public void Setup(bool local, Material[] faces)
         {
             isLocal = local;

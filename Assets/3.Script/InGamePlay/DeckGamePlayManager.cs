@@ -312,7 +312,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         lastSubmittedcards = submitIndex.Length;
         lastSubmittedSeat = playerSeat;
 
-        RpcSubmitCard(playerSeat, submitIndex.Length);
+        RpcSubmitCard(playerSeat, submitIndex.Length, submitIndex);
         Players[playerSeat].TargetGiveCards(hands, false);
         NextTurn();
     }
@@ -492,9 +492,10 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     }
 
     [ClientRpc]
-    public void RpcSubmitCard(int seatNum, int cardCount)
+    public void RpcSubmitCard(int seatNum, int cardCount, int[] listIndices)
     {
         Debug.Log($"[인게임] : {seatNum}번 플레이어 카드 {cardCount}장 제출 완료");
+        InGameEvent.TriggerOnCardsSubmitted(seatNum, cardCount, listIndices);
     }
 
     [ClientRpc]
