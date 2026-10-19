@@ -42,7 +42,7 @@ public class LobbyListUI : MonoBehaviour
 
         timer = 0f;
         Rebuild();
-        if (NetworkClient.isConnected) LoadingUI.ShowFor("Loading lobbies", EnterLoadingSeconds);
+        if (NetworkClient.isConnected) LoadingUI.ShowFor("Loading Lobbies", EnterLoadingSeconds);
     }
 
     private void OnDisable()
