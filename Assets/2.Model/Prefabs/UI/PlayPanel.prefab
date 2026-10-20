@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2145495825295945963}
   - component: {fileID: 5628189512837831797}
   - component: {fileID: 5658372389363559654}
+  - component: {fileID: 4333100336740377743}
   m_Layer: 5
   m_Name: 'EnterText '
   m_TagString: Untagged
@@ -136,6 +137,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4333100336740377743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452514823302262402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a346d1a8ff45d94c802e1a005c930b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: 
 --- !u!1 &2653396553233990309
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +364,7 @@ GameObject:
   - component: {fileID: 7463251462668582391}
   - component: {fileID: 1946214008054855064}
   - component: {fileID: 6864044854881950647}
+  - component: {fileID: 7788588041284187103}
   m_Layer: 5
   m_Name: 'EnterText '
   m_TagString: Untagged
@@ -475,6 +490,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7788588041284187103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251442502711906581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a346d1a8ff45d94c802e1a005c930b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: 
 --- !u!1 &3422026988776392891
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +905,7 @@ GameObject:
   - component: {fileID: 6443235916915837284}
   - component: {fileID: 8893193341647995322}
   - component: {fileID: 5868022355911070174}
+  - component: {fileID: 579864377738498740}
   m_Layer: 5
   m_Name: PlayText
   m_TagString: Untagged
@@ -1002,6 +1031,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &579864377738498740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211111316737258698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a346d1a8ff45d94c802e1a005c930b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: 
 --- !u!1 &6722832356068761384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1326,7 @@ GameObject:
   - component: {fileID: 6476436097523920271}
   - component: {fileID: 1583427740330618942}
   - component: {fileID: 3151121948258556442}
+  - component: {fileID: 275052582224042017}
   m_Layer: 5
   m_Name: 'EnterText '
   m_TagString: Untagged
@@ -1409,3 +1452,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &275052582224042017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8996026257651053529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a346d1a8ff45d94c802e1a005c930b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: 

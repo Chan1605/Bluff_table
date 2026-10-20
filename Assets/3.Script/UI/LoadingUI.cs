@@ -70,7 +70,7 @@ public class LoadingUI : MonoBehaviour
     {
         if (instance == null || !instance.isShowing) return;
 
-        instance.message = message ?? string.Empty;
+        instance.message = Localization.Get(message ?? string.Empty);
         instance.SetDots(instance.currentDots);
     }
 
@@ -134,7 +134,7 @@ public class LoadingUI : MonoBehaviour
 
     private void Begin(string text, float autoHideSeconds, bool warnOnTimeout, bool useBackground)
     {
-        message = text ?? string.Empty;
+        message = Localization.Get(text ?? string.Empty);
         shownAt = Time.unscaledTime;
         SetCover(useBackground);
 

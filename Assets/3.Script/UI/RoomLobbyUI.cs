@@ -81,7 +81,7 @@ public class RoomLobbyUI : MonoBehaviour
         if (isBusy || !Lobby.CanStartGame) return;
 
         isBusy = true;
-        SetMessage("Starting...");
+        SetMessage(Localization.Get("Starting..."));
         Lobby.StartGame(OnStartResult);
     }
 
@@ -113,7 +113,7 @@ public class RoomLobbyUI : MonoBehaviour
             bool canStart = Lobby.CanStartGame;
             startBtn.gameObject.SetActive(host);
             startBtn.interactable = canStart;
-            if (startLabel != null) startLabel.text = canStart ? "START" : "WAITING";
+            if (startLabel != null) startLabel.text = Localization.Get(canStart ? "START" : "WAITING");
         }
 
         if (titleText != null) titleText.text = Lobby.CurrentRoomTitle;

@@ -233,8 +233,8 @@ public static class SettingsPanelBuilder
         RectTransform content = Content(contents, "Graphics");
         GraphicsSettingsUI ui = content.gameObject.AddComponent<GraphicsSettingsUI>();
 
-        // 원작: 프리셋 줄은 위쪽(탭보다 196 위), 세부 항목은 탭보다 76 위부터 시작
-        float presetY = y0 + 196f;
+        // 원작: 프리셋 줄은 위쪽(탭보다 146 위, 헤더와 겹치지 않게 원작보다 50 내림), 세부 항목은 탭보다 76 위부터 시작
+        float presetY = y0 + 146f;
         float detailY = y0 + 76f;
 
         TMP_Text hint = Text(content, "Hint", string.Empty, 28f, ValueColor, TextAlignmentOptions.TopLeft,
