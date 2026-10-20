@@ -22,7 +22,8 @@ public class SettingsRowHint : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (label != null) label.color = hover ? hoverColor : normalColor;
         if (hintText == null) return;
 
-        if (hover) hintText.text = description;
-        else if (hintText.text == description) hintText.text = string.Empty;
+        string localized = Localization.Get(description);
+        if (hover) hintText.text = localized;
+        else if (hintText.text == localized) hintText.text = string.Empty;
     }
 }

@@ -21,12 +21,15 @@ public class ArrowSelector : MonoBehaviour
     {
         leftBtn.onClick.AddListener(OnClickLeft);
         rightBtn.onClick.AddListener(OnClickRight);
+        Localization.LanguageChanged += Refresh;
+        Refresh();
     }
 
     private void OnDisable()
     {
         leftBtn.onClick.RemoveListener(OnClickLeft);
         rightBtn.onClick.RemoveListener(OnClickRight);
+        Localization.LanguageChanged -= Refresh;
     }
 
     public void SetOptions(string[] newOptions, int index)
@@ -57,6 +60,6 @@ public class ArrowSelector : MonoBehaviour
 
     private void Refresh()
     {
-        valueText.text = options.Length > 0 ? options[Index] : string.Empty;
+        valueText.text = options.Length > 0 ? Localization.Get(options[Index]) : string.Empty;
     }
 }

@@ -32,7 +32,12 @@ public class HostMenuUI : MonoBehaviour
 
         isBusy = false;
         messageText.text = string.Empty;
-        if (lobbyTypeDropdown != null) lobbyTypeDropdown.SetValueWithoutNotify(0);
+        if (lobbyTypeDropdown != null)
+        {
+            lobbyTypeDropdown.SetValueWithoutNotify(0);
+            LocalizeLobbyTypes();
+        }
+        Localization.LanguageChanged += LocalizeLobbyTypes;
 
         PlayerProfile me = PlayerProfile.Local;
         lobbyNameInput.text = (me != null && me.IsLoggedIn) ? $"{me.Nickname}'s Lobby" : string.Empty;
@@ -43,6 +48,17 @@ public class HostMenuUI : MonoBehaviour
         createBtn.onClick.RemoveListener(OnClickCreate);
         lobbyNameInput.onSubmit.RemoveListener(OnSubmit);
         foreach (Button b in backBtns) b.onClick.RemoveListener(OnClickBack);
+        Localization.LanguageChanged -= LocalizeLobbyTypes;
+    }
+
+    // 드롭다운 항목 글자만 번역 (값 0 = Public, 1 = Private는 그대로)
+    private void LocalizeLobbyTypes()
+    {
+        if (lobbyTypeDropdown == null || lobbyTypeDropdown.options.Count < 2) return;
+
+        lobbyTypeDropdown.options[0].text = Localization.Get("Public");
+        lobbyTypeDropdown.options[1].text = Localization.Get("Private");
+        lobbyTypeDropdown.RefreshShownValue();
     }
 
     private void OnSubmit(string _) { OnClickCreate(); }
@@ -55,12 +71,12 @@ public class HostMenuUI : MonoBehaviour
         string title = lobbyNameInput.text.Trim();
         if (title.Length == 0)
         {
-            messageText.text = "Please enter a lobby name.";
+            messageText.text = Localization.Get("Please enter a lobby name.");
             return;
         }
 
         isBusy = true;
-        messageText.text = "Creating lobby...";
+        messageText.text = Localization.Get("Creating lobby...");
         Debug.Log($"[HostMenuUI] Lobby type: {(IsPrivateLobby ? "Private" : "Public")} (서버 미지원 - 표시만)");
         LoadingUI.Show("Setting up your table");
         Lobby.CreateRoom(title, OnCreateResult);
