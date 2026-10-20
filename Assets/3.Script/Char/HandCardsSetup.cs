@@ -28,6 +28,11 @@ public class HandCardsSetup : MonoBehaviour
     [Tooltip("선택한 카드를 들어 올리는 방향 (kart 로컬 축)과 거리 (m)")]
     [SerializeField] Vector3 liftAxis = Vector3.up;
     [SerializeField] float liftDistance = 0.02f;
+    [Tooltip("지금 가리키는 카드 테두리 (로비 캐릭터 아웃라인과 같은 색). 비워 두면 Resources/CardOutline 셰이더로 만든다")]
+    [SerializeField] Material cardOutlineMaterial;
+    [SerializeField] Color cardOutlineColor = new Color(1f, 0.85f, 0.3f, 1f);
+    [Tooltip("테두리 두께 (m)")]
+    [SerializeField] float cardOutlineWidth = 0.008f;
     [Tooltip("손 카드 배치(KartsParent/Kartlar · kart1~7) 기준 캐릭터들. 캐릭터와 같은 Animator Controller를 쓰는 기준의 배치를 복사한다 " +
              "(예: Sit_Table → Cupcake, 뚱뚱이용 컨트롤러 → Bristle). 맞는 기준이 없으면 모델 원래 배치")]
     [SerializeField] GameObject[] handLayoutReferences;
@@ -55,6 +60,25 @@ public class HandCardsSetup : MonoBehaviour
     public float CardScale => cardScale;
     public Vector3 LiftAxis => liftAxis;
     public float LiftDistance => liftDistance;
+
+    /// <summary>카드 테두리 재질 (없으면 셰이더에서 한 번 만든다). 플레이 중 Inspector에서 색 · 두께를 바꾸면 바로 반영</summary>
+    public Material CardOutlineMaterial
+    {
+        get
+        {
+            if (cardOutlineMaterial == null)
+            {
+                Shader shader = Shader.Find("LiarsBar/CardOutline");
+                if (shader == null) return null;
+                cardOutlineMaterial = new Material(shader) { name = "CardOutline (runtime)" };
+            }
+            cardOutlineMaterial.SetColor(OutlineColorId, cardOutlineColor);
+            cardOutlineMaterial.SetFloat(OutlineWidthId, cardOutlineWidth);
+            return cardOutlineMaterial;
+        }
+    }
+    static readonly int OutlineColorId = Shader.PropertyToID("_OutlineColor");
+    static readonly int OutlineWidthId = Shader.PropertyToID("_OutlineWidth");
     /// <summary>같은 Animator Controller를 쓰는 기준 캐릭터 (없으면 null = 모델 원래 배치)</summary>
     public GameObject GetHandLayoutReference(RuntimeAnimatorController controller)
     {
@@ -100,6 +124,8 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnCardDealt += HandleCardDealt;
         InGameEvent.OnCardsSubmitted += HandleCardsSubmitted;
         InGameEvent.OnHandSelectionChanged += HandleSelectionChanged;
+        InGameEvent.OnHandCursorChanged += HandleCursorChanged;
+        InGameEvent.OnTurnChanged += HandleTurnChanged;
         InGameEvent.OnPlayerEliminated += HandlePlayerEliminated;
         InGameEvent.OnLookRequested += HandleLookRequested;
         InGameEvent.OnCardsOpened += HandleCardsOpened;
@@ -113,6 +139,8 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnCardDealt -= HandleCardDealt;
         InGameEvent.OnCardsSubmitted -= HandleCardsSubmitted;
         InGameEvent.OnHandSelectionChanged -= HandleSelectionChanged;
+        InGameEvent.OnHandCursorChanged -= HandleCursorChanged;
+        InGameEvent.OnTurnChanged -= HandleTurnChanged;
         InGameEvent.OnPlayerEliminated -= HandlePlayerEliminated;
         InGameEvent.OnLookRequested -= HandleLookRequested;
         InGameEvent.OnCardsOpened -= HandleCardsOpened;
@@ -162,7 +190,7 @@ public class HandCardsSetup : MonoBehaviour
 
     // ───── 이벤트 ─────
 
-    void HandleEntryInGame() => ResetAll();
+    void HandleEntryInGame() { autoOpened = false; ResetAll(); }
     void HandleReEntryInLobby() => ResetAll();
 
     void ResetAll()
@@ -264,6 +292,59 @@ public class HandCardsSetup : MonoBehaviour
     {
         SeatHandCards me = LocalSeat();
         if (me != null) me.SetLifted(me.ListToSlots(listIndices));
+    }
+
+    void HandleCursorChanged(int listIndex)
+    {
+        SeatHandCards me = LocalSeat();
+        if (me == null) return;
+        List<int> slots = listIndex >= 0 ? me.ListToSlots(new[] { listIndex }) : null;
+        me.SetCursor(slots != null && slots.Count > 0 ? slots[0] : -1);
+    }
+
+    // 내 차례가 되면 패를 펼치고(스페이스는 내 차례 동안 카드 고르기), 차례가 끝나면 자동으로 펼친 패는 다시 덮는다.
+    // 패가 펼쳐져 있는 동안은 1인칭 카메라가 손패를 당겨 본다 (HeadController.SetFocusTarget)
+    bool openOnTurn;
+    bool autoOpened;
+
+    void HandleTurnChanged(int seat)
+    {
+        bool mine = PlayerProfile.Local != null && seat == PlayerProfile.Local.Seat;
+        openOnTurn = mine;
+        if (mine || !autoOpened) return;
+
+        autoOpened = false;
+        SeatHandCards me = LocalSeat();
+        if (me != null && me.IsOpen && PlayerState.Local != null) PlayerState.Local.CmdSetCardsOpen(false);
+    }
+
+    void Update()
+    {
+        UpdateOpenOnTurn();
+        UpdateCameraFocus();
+    }
+
+    void UpdateOpenOnTurn()
+    {
+        if (!openOnTurn) return;
+        SeatHandCards me = LocalSeat();
+        if (me == null || PlayerState.Local == null) { openOnTurn = false; return; }
+        if (!me.CanToggle) return;   // 배분이 끝날 때까지 기다림
+
+        openOnTurn = false;
+        if (me.IsOpen) return;
+        PlayerState.Local.CmdSetCardsOpen(true);
+        autoOpened = true;
+    }
+
+    void UpdateCameraFocus()
+    {
+        PlayerState local = PlayerState.Local;
+        if (local == null || local.headController == null) return;
+
+        SeatHandCards me = LocalSeat();
+        bool focus = me != null && me.IsOpen && me.InHandCount > 0;
+        local.headController.SetFocusTarget(focus ? me.HandCenter : null);
     }
 
     // 스페이스: 패를 다 받았으면 펼치기 ↔ 덮기 토글을 서버에 알린다 → 모든 클라이언트에서 애니메이션

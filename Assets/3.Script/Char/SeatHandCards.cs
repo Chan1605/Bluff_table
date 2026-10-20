@@ -40,12 +40,20 @@ public class SeatHandCards : MonoBehaviour
         public Vector3 lastWritten;
         public bool hasBase;
         public bool usingDefaultMaterials = true;
+        public bool outlined;             // 테두리 재질을 덧붙인 상태
     }
+
+    static readonly int CardCenterId = Shader.PropertyToID("_CardCenter");
+    MaterialPropertyBlock outlineBlock;
+    int cursorSlot = -1;
 
     public int Seat { get; private set; }
     public bool IsLocal { get; private set; }
     public HandView Hand { get; private set; }
     public bool IsDead => state != null && state.isDead;
+    /// <summary>손에 보이는 카드들의 한가운데 (1인칭 카메라가 패를 볼 때 겨누는 곳). 매 프레임 LateUpdate에서 갱신</summary>
+    public Transform HandCenter => focusPoint != null ? focusPoint : kartRootT;
+    Transform focusPoint;
 
     HandCardsSetup setup;
     Transform kartRootT;              // 손 카드 묶음 (KartsParent/Kartlar)
@@ -206,7 +214,33 @@ public class SeatHandCards : MonoBehaviour
 
             if (settled) ApplyKartFace(kart, card.Rank);
             ApplyLift(kart, settled && lifted[i]);
+            ApplyOutline(kart, settled && IsLocal && i == cursorSlot);
         }
+
+        if (IsLocal) UpdateFocusPoint();
+    }
+
+    // Kartlar 피벗은 손바닥이라 그쪽을 겨누면 카드가 화면 밖으로 나간다 → 실제로 보이는 카드 메쉬의 중심을 겨눈다
+    void UpdateFocusPoint()
+    {
+        if (cardsRoot == null) return;
+        if (focusPoint == null)
+        {
+            focusPoint = new GameObject("HandFocus").transform;
+            focusPoint.SetParent(cardsRoot.transform, false);
+        }
+
+        Vector3 sum = Vector3.zero;
+        int count = 0;
+        foreach (Kart kart in karts)
+        {
+            if (kart == null || kart.renderer == null || !kart.renderer.enabled) continue;
+            sum += kart.renderer.bounds.center;
+            count++;
+        }
+
+        if (count > 0) focusPoint.position = sum / count;
+        else if (kartRootT != null) focusPoint.position = kartRootT.position;
     }
 
     void OnDestroy()
@@ -264,6 +298,9 @@ public class SeatHandCards : MonoBehaviour
             if (li >= 0 && li < inHand.Count) result.Add(inHand[li]);
         return result;
     }
+
+    /// <summary>지금 가리키는 카드 (슬롯 0~4, -1 = 없음) → 테두리</summary>
+    public void SetCursor(int slot) => cursorSlot = slot;
 
     bool dealFinished;
     bool opened;
@@ -381,9 +418,46 @@ public class SeatHandCards : MonoBehaviour
         if (kart.usingDefaultMaterials != useDefault)
         {
             kart.usingDefaultMaterials = useDefault;
+            kart.outlined = false;   // 재질을 통째로 바꾸므로 테두리는 ApplyOutline이 다시 붙인다
             if (useDefault) kart.renderer.sharedMaterials = kart.defaultMaterials;
             else kart.renderer.sharedMaterial = setup.HiddenMat;
         }
+    }
+
+    // 가리키는 카드 테두리: 카드 재질 뒤에 테두리 재질을 하나 더 붙인다 (마지막 서브메쉬를 한 번 더 그림).
+    // 로비 캐릭터 아웃라인(레이어 + Render Objects)은 두께가 2cm로 고정이고 납작한 카드에서는 안 보여서 카드 전용 셰이더를 쓴다
+    void ApplyOutline(Kart kart, bool on)
+    {
+        Material outline = on ? setup.CardOutlineMaterial : null;
+        if (outline == null) on = false;
+
+        if (kart.outlined != on)
+        {
+            kart.outlined = on;
+            Material[] baseMats = kart.usingDefaultMaterials ? kart.defaultMaterials : new[] { setup.HiddenMat };
+            if (on)
+            {
+                var mats = new Material[baseMats.Length + 1];
+                baseMats.CopyTo(mats, 0);
+                mats[mats.Length - 1] = outline;
+                kart.renderer.sharedMaterials = mats;
+            }
+            else
+            {
+                kart.renderer.sharedMaterials = baseMats;
+                kart.renderer.SetPropertyBlock(null);
+            }
+        }
+
+        if (!on) return;
+
+        // 테두리는 메쉬 중심에서 바깥으로 넓힌다. 종류별 메쉬로 바뀔 수 있어 매번 중심을 넘긴다
+        Mesh mesh = kart.filter != null ? kart.filter.sharedMesh : (kart.renderer as SkinnedMeshRenderer)?.sharedMesh;
+        if (mesh == null) return;
+        outlineBlock ??= new MaterialPropertyBlock();
+        kart.renderer.GetPropertyBlock(outlineBlock);
+        outlineBlock.SetVector(CardCenterId, mesh.bounds.center);
+        kart.renderer.SetPropertyBlock(outlineBlock);
     }
 
     // 선택한 카드 들어 올리기. Animator가 kart를 움직이든 안 움직이든 원래 위치에 더하는 방식

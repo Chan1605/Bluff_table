@@ -422,15 +422,23 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         }
 
 
-        StartCoroutine(ResolveLiarSequence_co(loserSeat));
+        StartCoroutine(ResolveLiarSequence_co(callerSeat, loserSeat));
     }
 
     [Server]
-    private IEnumerator ResolveLiarSequence_co(int loserSeat)
+    private IEnumerator ResolveLiarSequence_co(int callerSeat, int loserSeat)
     {
         bool isBullet;
-        RpcAnnounceLiar(loserSeat);
+        RpcAnnounceLiar(callerSeat, loserSeat);
         yield return new WaitForSeconds(GameFlowTiming.RouletteAnimation);
+
+        // 룰렛을 돌릴 사람이 연출 중에 나갔으면 룰렛 없이 다음 라운드 (남은 인원은 StartRound가 다시 셈)
+        if (Players[loserSeat] == null)
+        {
+            nextRoundStartSeat = callerSeat;
+            StartRound();
+            yield break;
+        }
 
         isBullet = ResolveRoulette(loserSeat);
         yield return new WaitForSeconds(GameFlowTiming.LierReveal);
@@ -505,9 +513,10 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     }
 
     [ClientRpc]
-    private void RpcAnnounceLiar(int seat)
+    private void RpcAnnounceLiar(int callerSeat, int seat)
     {
         // 해당 유저 총 드는 이벤트 or 연출
+        InGameEvent.TriggerOnLiarCalled(callerSeat, seat);
     }
 
     [ClientRpc]
@@ -523,12 +532,14 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         // 유저 생존
         Debug.Log($" [인게임] : {seat} 번째 유저 생존");
+        InGameEvent.TriggerOnPlayerSurvived(seat);
     }
 
     [ClientRpc]
     private void RpcAnnounceWinner(int winner)
     {
         Debug.Log($"{winner} 번 플레이어 승");
+        InGameEvent.TriggerOnWinnerAnnounced(winner);
     }
 
     [ClientRpc]
@@ -547,10 +558,43 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         GameOver?.Invoke(winner);
     }
 
+    // 게임 중 나간 사람 처리 (LiarsNetworkManager.LeaveRoom → 여기). 남은 사람끼리 계속 진행
+    [Server]
     public void HandleDisconnect(int seat)
     {
+        if (seat < 0 || seat >= Players.Length || Players[seat] == null) return;
+
+        bool wasTurn = currentTurnPlayer == Players[seat];
         Players[seat] = null;
-        Debug.Log($"[Dummy] HandleDisconnect - 좌석 {seat}");
+        if (wasTurn) currentTurnPlayer = null;
+        Debug.Log($"[인게임] : {seat}번 좌석 나감 - 남은 인원으로 진행");
+
+        // 나간 사람이 마지막으로 낸 카드에는 LIAR를 걸 수 없으므로 다음 사람은 새로 내야 함
+        if (lastSubmittedSeat == seat)
+        {
+            lastSubmittedSeat = -1;
+            lastSubmittedcards = 0;
+        }
+
+        // LIAR 연출 중이면 연출이 끝난 뒤 StartRound에서 인원을 다시 셈
+        if (isResolvingLiar) return;
+
+        int alive = 0;
+        PlayerState survivor = null;
+        foreach (PlayerState p in Players)
+        {
+            if (p == null || p.isDead) continue;
+            alive++;
+            survivor = p;
+        }
+
+        if (alive <= 1)
+        {
+            EndGame(survivor != null ? survivor.SeatNum : -1);   // 혼자 남으면 그 사람이 승리
+            return;
+        }
+
+        if (wasTurn) NextTurn();   // 나간 사람 차례였으면 바로 다음 사람에게 (타이머를 기다리지 않음)
     }
 
 

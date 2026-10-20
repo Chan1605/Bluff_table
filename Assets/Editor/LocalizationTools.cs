@@ -5,9 +5,6 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-// 번역 표(Strings.csv)에 있는 고정 문구 TMP 텍스트에 LocalizedText를 자동으로 붙인다.
-// - 대상: UI 프리팹 폴더 + Player 프리팹 + 열린 씬(프리팹 인스턴스가 아닌 오브젝트)
-// - 제외: 입력창/드롭다운 안의 글자, 우리 스크립트가 직접 글자를 바꾸는 텍스트(Inspector에 연결된 TMP)
 public static class LocalizationTools
 {
     private const string TablePath = "Assets/Resources/Localization/Strings.csv";
