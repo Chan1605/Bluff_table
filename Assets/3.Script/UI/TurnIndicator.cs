@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using LiarsBar.Server;
 
 
 public class TurnIndicator : MonoBehaviour
@@ -58,11 +59,19 @@ public class TurnIndicator : MonoBehaviour
         visual.SetActive(false);
     }
 
-    private bool IsValidSeat(int seat) => seat >= 0 && seat < seats.Length && seats[seat] != null;
+    private bool IsValidSeat(int seat) => SeatTransform(seat) != null;
+
+    // Inspector의 seats가 비어 있으면 테이블 의자(SeatAnchors)를 쓴다 (프리팹에서는 씬의 의자를 연결할 수 없어서)
+    private Transform SeatTransform(int seat)
+    {
+        if (seat < 0) return null;
+        if (seats != null && seat < seats.Length && seats[seat] != null) return seats[seat];
+        return SeatAnchors.Get(SeatArea.Table, seat);
+    }
 
     private float AngleToSeat(int seat)
     {
-        Vector3 d = seats[seat].position - transform.position;
+        Vector3 d = SeatTransform(seat).position - transform.position;
         return Mathf.Atan2(d.x, d.z) * Mathf.Rad2Deg + angleOffset;
     }
 
