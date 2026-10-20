@@ -1585,14 +1585,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1561150886324102014, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 1969656934741921222, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 3307961567179185727, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1673,53 +1665,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3659018701199141609, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 4347399212288353313, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4285780461
-      objectReference: {fileID: 0}
-    - target: {fileID: 4347399212288353313, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 4677532312759118569, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874821159938476498, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 5695086158722658034, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 6265105047323606074, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 6812379149909418140, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
     - target: {fileID: 7135066401190549966, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
       propertyPath: m_Name
       value: InGameUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7374462328736580301, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658570997387585306, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4285780461
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658570997387585306, guid: 63fd47368bd7d004e8386f1cf6826bee, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

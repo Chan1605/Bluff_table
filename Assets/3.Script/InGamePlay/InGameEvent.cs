@@ -91,6 +91,7 @@ public static class InGameEvent
     public static event Action<int, int, int[]> OnCardsSubmitted; // 서버 확정 제출 (좌석, 장수, 제출 전 손패 기준 인덱스)
     public static event Action<IReadOnlyList<int>> OnHandSelectionChanged; // 내 손패 선택 변경 (손패 인덱스)
     public static event Action OnLookRequested; // 로컬: 스페이스(Look) 입력 → 패 펼치기 / 덮기 요청
+    public static event Action<int> OnHandCursorChanged; // 내 손패에서 지금 가리키는 카드 (손패 인덱스, -1 = 없음) - 아웃라인용
     public static event Action<int, bool> OnCardsOpened; // seat번 플레이어가 패를 펼침(true) / 덮음(false) (모든 클라이언트)
 
     public static void TriggerOnLookRequested()
@@ -111,5 +112,10 @@ public static class InGameEvent
     public static void TriggerOnHandSelectionChanged(IReadOnlyList<int> indices)
     {
         OnHandSelectionChanged?.Invoke(indices);
+    }
+
+    public static void TriggerOnHandCursorChanged(int index)
+    {
+        OnHandCursorChanged?.Invoke(index);
     }
 }
