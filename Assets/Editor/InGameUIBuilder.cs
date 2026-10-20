@@ -118,7 +118,7 @@ public static class InGameUIBuilder
         Localized(Text(idle, "Look", "Look", 32f, Color.white, TextAlignmentOptions.MidlineRight, new Vector2(-124f, 40f), new Vector2(200f, 44f), new Vector2(1f, 0f)));
         Key(idle, "SPACE", new Vector2(-40f, 84f), 74f);
         Localized(Text(idle, "Emote", "Emote", 26f, Color.white, TextAlignmentOptions.MidlineRight, new Vector2(-124f, 92f), new Vector2(200f, 40f), new Vector2(1f, 0f)));
-        Key(idle, "1 - 5", new Vector2(-40f, 130f), 74f);
+        Key(idle, "1 - 4", new Vector2(-40f, 130f), 74f);
 
         // ---------------- 결과
         RectTransform result = Stretch(rt, "Result");
