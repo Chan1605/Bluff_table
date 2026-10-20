@@ -62,14 +62,27 @@ namespace LiarsBar.Server
 
         // ---- 클라 ----
 
+        // 채팅창이 여러 개(로비 · 인게임)일 수 있어서, 마지막 채팅창이 꺼질 때만 해제한다
+        // (테이블 씬이 먼저 켜지고 로비 씬이 나중에 꺼져도 인게임 채팅이 끊기지 않게)
+        private static int clientUsers;
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics()
+        {
+            clientUsers = 0;
+            Received = null;
+        }
+
         public static void RegisterClient()
         {
+            clientUsers++;
             NetworkClient.ReplaceHandler<ChatMessage>(OnChatMessage);
         }
 
         public static void UnregisterClient()
         {
-            NetworkClient.UnregisterHandler<ChatMessage>();
+            clientUsers = Mathf.Max(0, clientUsers - 1);
+            if (clientUsers == 0) NetworkClient.UnregisterHandler<ChatMessage>();
         }
 
         public static void Send(string text)

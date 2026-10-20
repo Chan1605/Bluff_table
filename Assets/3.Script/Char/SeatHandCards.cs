@@ -40,7 +40,7 @@ public class SeatHandCards : MonoBehaviour
         public Vector3 lastWritten;
         public bool hasBase;
         public bool usingDefaultMaterials = true;
-        public bool outlined;             // 테두리 재질을 덧붙인 상태
+        public int highlight;             // 덧붙인 재질 상태 (1 = 테두리, 2 = 선택 칠). -1 = 다시 붙여야 함
     }
 
     static readonly int CardCenterId = Shader.PropertyToID("_CardCenter");
@@ -51,9 +51,6 @@ public class SeatHandCards : MonoBehaviour
     public bool IsLocal { get; private set; }
     public HandView Hand { get; private set; }
     public bool IsDead => state != null && state.isDead;
-    /// <summary>손에 보이는 카드들의 한가운데 (1인칭 카메라가 패를 볼 때 겨누는 곳). 매 프레임 LateUpdate에서 갱신</summary>
-    public Transform HandCenter => focusPoint != null ? focusPoint : kartRootT;
-    Transform focusPoint;
 
     HandCardsSetup setup;
     Transform kartRootT;              // 손 카드 묶음 (KartsParent/Kartlar)
@@ -214,33 +211,8 @@ public class SeatHandCards : MonoBehaviour
 
             if (settled) ApplyKartFace(kart, card.Rank);
             ApplyLift(kart, settled && lifted[i]);
-            ApplyOutline(kart, settled && IsLocal && i == cursorSlot);
+            ApplyHighlight(kart, settled && IsLocal && i == cursorSlot, settled && IsLocal && lifted[i]);
         }
-
-        if (IsLocal) UpdateFocusPoint();
-    }
-
-    // Kartlar 피벗은 손바닥이라 그쪽을 겨누면 카드가 화면 밖으로 나간다 → 실제로 보이는 카드 메쉬의 중심을 겨눈다
-    void UpdateFocusPoint()
-    {
-        if (cardsRoot == null) return;
-        if (focusPoint == null)
-        {
-            focusPoint = new GameObject("HandFocus").transform;
-            focusPoint.SetParent(cardsRoot.transform, false);
-        }
-
-        Vector3 sum = Vector3.zero;
-        int count = 0;
-        foreach (Kart kart in karts)
-        {
-            if (kart == null || kart.renderer == null || !kart.renderer.enabled) continue;
-            sum += kart.renderer.bounds.center;
-            count++;
-        }
-
-        if (count > 0) focusPoint.position = sum / count;
-        else if (kartRootT != null) focusPoint.position = kartRootT.position;
     }
 
     void OnDestroy()
@@ -418,38 +390,33 @@ public class SeatHandCards : MonoBehaviour
         if (kart.usingDefaultMaterials != useDefault)
         {
             kart.usingDefaultMaterials = useDefault;
-            kart.outlined = false;   // 재질을 통째로 바꾸므로 테두리는 ApplyOutline이 다시 붙인다
+            kart.highlight = -1;   // 재질을 통째로 바꾸므로 테두리 · 선택 칠은 ApplyHighlight가 다시 붙인다
             if (useDefault) kart.renderer.sharedMaterials = kart.defaultMaterials;
             else kart.renderer.sharedMaterial = setup.HiddenMat;
         }
     }
 
-    // 가리키는 카드 테두리: 카드 재질 뒤에 테두리 재질을 하나 더 붙인다 (마지막 서브메쉬를 한 번 더 그림).
-    // 로비 캐릭터 아웃라인(레이어 + Render Objects)은 두께가 2cm로 고정이고 납작한 카드에서는 안 보여서 카드 전용 셰이더를 쓴다
-    void ApplyOutline(Kart kart, bool on)
+    // 카드 재질 뒤에 재질을 덧붙여 마지막 서브메쉬를 한 번 더 그린다.
+    // - 고른 카드: 금색 반투명 칠 (원작처럼 고른 게 한눈에 보이게)
+    // - 가리키는 카드: 테두리 (로비 아웃라인은 두께 고정 · 납작한 카드에서 안 보여서 카드 전용 셰이더)
+    void ApplyHighlight(Kart kart, bool cursor, bool selected)
     {
-        Material outline = on ? setup.CardOutlineMaterial : null;
-        if (outline == null) on = false;
+        Material outline = cursor ? setup.CardOutlineMaterial : null;
+        Material tint = selected ? setup.CardSelectedMaterial : null;
+        int state = (outline != null ? 1 : 0) | (tint != null ? 2 : 0);
 
-        if (kart.outlined != on)
+        if (kart.highlight != state)
         {
-            kart.outlined = on;
+            kart.highlight = state;
             Material[] baseMats = kart.usingDefaultMaterials ? kart.defaultMaterials : new[] { setup.HiddenMat };
-            if (on)
-            {
-                var mats = new Material[baseMats.Length + 1];
-                baseMats.CopyTo(mats, 0);
-                mats[mats.Length - 1] = outline;
-                kart.renderer.sharedMaterials = mats;
-            }
-            else
-            {
-                kart.renderer.sharedMaterials = baseMats;
-                kart.renderer.SetPropertyBlock(null);
-            }
+            var mats = new List<Material>(baseMats);
+            if (tint != null) mats.Add(tint);
+            if (outline != null) mats.Add(outline);
+            kart.renderer.sharedMaterials = mats.ToArray();
+            if (outline == null) kart.renderer.SetPropertyBlock(null);
         }
 
-        if (!on) return;
+        if (outline == null) return;
 
         // 테두리는 메쉬 중심에서 바깥으로 넓힌다. 종류별 메쉬로 바뀔 수 있어 매번 중심을 넘긴다
         Mesh mesh = kart.filter != null ? kart.filter.sharedMesh : (kart.renderer as SkinnedMeshRenderer)?.sharedMesh;
