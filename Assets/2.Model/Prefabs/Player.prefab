@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 8620169792901391499}
   - component: {fileID: 8685590514031708486}
   - component: {fileID: 803525390181823009}
+  - component: {fileID: -1815598197772484142}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -579,6 +580,18 @@ MonoBehaviour:
   sideMargin: 1.2
   fieldOfView: 40
   priority: 50
+--- !u!114 &-1815598197772484142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367960496955974029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca355a03fe3a884cb8aaf166c5ff40a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpectator
 --- !u!1 &3605630605561239610
 GameObject:
   m_ObjectHideFlags: 0
