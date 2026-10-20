@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using UnityEngine.InputSystem;
+using LiarsBar.Server;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -13,16 +14,36 @@ public class PlayerController : NetworkBehaviour
     public PlayerInput inputActions { get; private set; }
     public PlayerState pState;
 
+    // 손패 고르기 (로컬 플레이어만). 인덱스는 서버 손패 기준(남은 카드 0 ~ n-1)
+    private const int MaxSelect = 4;                 // 서버(PlayerSubmitCard)가 받는 최대 장수
+    private readonly List<int> selected = new List<int>();
+    private int handCount;
+    private int cursor = -1;
+    private bool myTurn;
+    private Vector2 lastSelectInput;
+
     private void OnEnable()
     {
         InGameEvent.OnEntryInGame += TransitionToInGame;
         InGameEvent.OnReEntryInLobby += TransitionToLobby;
+
+        InGameEvent.OnRoundStarted += HandleRoundStarted;
+        InGameEvent.OnCardDealt += HandleCardDealt;
+        InGameEvent.OnTurnChanged += HandleTurnChanged;
+        InGameEvent.OnCardsSubmitted += HandleCardsSubmitted;
+        InGameEvent.OnLiarCalled += HandleLiarCalled;
     }
 
     private void OnDisable()
     {
         InGameEvent.OnEntryInGame -= TransitionToInGame;
         InGameEvent.OnReEntryInLobby -= TransitionToLobby;
+
+        InGameEvent.OnRoundStarted -= HandleRoundStarted;
+        InGameEvent.OnCardDealt -= HandleCardDealt;
+        InGameEvent.OnTurnChanged -= HandleTurnChanged;
+        InGameEvent.OnCardsSubmitted -= HandleCardsSubmitted;
+        InGameEvent.OnLiarCalled -= HandleLiarCalled;
     }
 
     public override void OnStartLocalPlayer()
@@ -31,6 +52,7 @@ public class PlayerController : NetworkBehaviour
         pState = GetComponent<PlayerState>();
 
         inputActions.Player.Select.performed += OnSelectPerformed;
+        inputActions.Player.Select.canceled += OnSelectCanceled;
         inputActions.Player.Emote.performed += OnEmotePerformed;
         inputActions.Player.Confirm.performed += OnConfirmPerformed;
         inputActions.Player.Liar.performed += OnLiarPerformed;
@@ -49,6 +71,7 @@ public class PlayerController : NetworkBehaviour
         if (inputActions != null)
         {
             inputActions.Player.Select.performed -= OnSelectPerformed;
+            inputActions.Player.Select.canceled -= OnSelectCanceled;
             inputActions.Player.Emote.performed -= OnEmotePerformed;
             inputActions.Player.Confirm.performed -= OnConfirmPerformed;
             inputActions.Player.Liar.performed -= OnLiarPerformed;
@@ -112,33 +135,29 @@ public class PlayerController : NetworkBehaviour
 
         inputActions.Player.Disable();
         inputActions.UI.Enable();
+        ClearHand();
     }
 
+    // A / D: 가리키는 카드 이동, W: 고르기 ↔ 해제, S: 해제 (스페이스도 내 차례엔 고르기)
+    // 2D 벡터라 키를 겹쳐 누르면 값이 바뀔 때마다 들어온다 → 새로 눌린 방향만 처리
     private void OnSelectPerformed(InputAction.CallbackContext context)
     {
         if (PlayerState.Local == null) return;
 
         Vector2 direction = context.ReadValue<Vector2>();
+        Vector2 last = lastSelectInput;
+        lastSelectInput = direction;
 
-        // TODO 인게임 UI와 연동
+        if (direction.x < 0 && last.x >= 0) MoveCursor(-1);       // 좌
+        else if (direction.x > 0 && last.x <= 0) MoveCursor(1);   // 우
 
-        if (direction.x < 0) // 좌
-        {
+        if (direction.y > 0 && last.y <= 0) ToggleSelected();     // 상
+        else if (direction.y < 0 && last.y >= 0) Deselect();      // 하
+    }
 
-        }
-        else if (direction.x > 0) // 우
-        {
-
-        }
-
-        if (direction.y > 0) // 상
-        {
-
-        }
-        else if (direction.y < 0) // 하
-        {
-
-        }
+    private void OnSelectCanceled(InputAction.CallbackContext context)
+    {
+        lastSelectInput = Vector2.zero;
     }
 
     private void OnEmotePerformed(InputAction.CallbackContext context)
@@ -153,19 +172,36 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
+    // E: 고른 카드 내기. 선택은 서버가 확정(OnCardsSubmitted)하면 비운다 (거절되면 그대로 남음)
     private void OnConfirmPerformed(InputAction.CallbackContext context)
     {
-        if (PlayerState.Local == null) return;
+        if (PlayerState.Local == null || !myTurn) return;
+        if (selected.Count == 0)
+        {
+            Debug.Log("[PlayerInput] : 고른 카드가 없습니다.");
+            return;
+        }
+
+        InGameEvent.TriggerOnCardsPlayed(selected.ToArray());   // PlayerState.SubmitCards → 서버
     }
 
+    // X: LIAR (앞사람이 낸 게 없거나 내 차례가 아니면 서버가 거절)
     private void OnLiarPerformed(InputAction.CallbackContext context)
     {
-        if (PlayerState.Local == null) return;
+        if (PlayerState.Local == null || !myTurn) return;
+        PlayerState.Local.CallLiar();
     }
 
+    // 스페이스: 내 차례면 가리키는 카드 고르기, 아니면 패 펼치기 / 덮기
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
         if (PlayerState.Local == null) return;
+
+        if (myTurn && cursor >= 0)
+        {
+            ToggleSelected();
+            return;
+        }
         InGameEvent.TriggerOnLookRequested();   // 패 펼치기 (HandCardsSetup이 가능 여부 판단)
     }
 
