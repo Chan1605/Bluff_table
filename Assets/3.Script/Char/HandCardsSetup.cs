@@ -119,6 +119,36 @@ public class HandCardsSetup : MonoBehaviour
     [Tooltip("컨트롤러별 손 카드 묶음 회전 보정 (예: Sit_Table_Big → 패 뒤집기)")]
     [SerializeField] HandRotationFix[] handRotationFixes;
 
+    [System.Serializable]
+    public struct HandCardMeshSet
+    {
+        [Tooltip("이 컨트롤러를 쓰는 캐릭터에 적용")]
+        public RuntimeAnimatorController controller;
+        [Tooltip("손에 든 카드 앞면 메쉬. 순서: King, Queen, Ace, Joker")]
+        public Mesh[] typeMeshes;
+    }
+
+    [Tooltip("컨트롤러별 손 카드 앞면 메쉬 (원작 모델은 원작 카드 메쉬 clubs13 · clubs12 · clubs01 · clubs11). 없으면 Type Meshes 사용")]
+    [SerializeField] HandCardMeshSet[] handCardMeshSets;
+
+    public Mesh GetHandTypeMesh(RuntimeAnimatorController controller, int type)
+    {
+        if (handCardMeshSets != null && controller != null)
+            foreach (var set in handCardMeshSets)
+                if (UsesController(controller, set.controller) && set.typeMeshes != null &&
+                    type >= 0 && type < set.typeMeshes.Length && set.typeMeshes[type] != null)
+                    return set.typeMeshes[type];
+        return GetTypeMesh(type);
+    }
+
+    // Override 컨트롤러면 원본(Base)까지 따라 올라가며 비교한다 → 원본 하나만 등록하면 그 Override를 쓰는 캐릭터 전부에 적용
+    static bool UsesController(RuntimeAnimatorController controller, RuntimeAnimatorController target)
+    {
+        for (var c = controller; c != null; c = (c as AnimatorOverrideController)?.runtimeAnimatorController)
+            if (c == target) return true;
+        return false;
+    }
+
     public Vector3 GetKartlarEuler(RuntimeAnimatorController controller)
     {
         if (handRotationFixes == null || controller == null) return Vector3.zero;
@@ -148,6 +178,7 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnPlayerEliminated += HandlePlayerEliminated;
         InGameEvent.OnLookRequested += HandleLookRequested;
         InGameEvent.OnCardsOpened += HandleCardsOpened;
+        InGameEvent.OnEmotePlayed += HandleEmotePlayed;
     }
 
     void OnDisable()
@@ -163,6 +194,7 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnPlayerEliminated -= HandlePlayerEliminated;
         InGameEvent.OnLookRequested -= HandleLookRequested;
         InGameEvent.OnCardsOpened -= HandleCardsOpened;
+        InGameEvent.OnEmotePlayed -= HandleEmotePlayed;
     }
 
     void OnDestroy()
@@ -209,7 +241,7 @@ public class HandCardsSetup : MonoBehaviour
 
     // ───── 이벤트 ─────
 
-    void HandleEntryInGame() { autoOpened = false; ResetAll(); }
+    void HandleEntryInGame() { myTurn = false; openOnTurn = false; ResetAll(); }
     void HandleReEntryInLobby() => ResetAll();
 
     void ResetAll()
@@ -324,17 +356,19 @@ public class HandCardsSetup : MonoBehaviour
         me.SetCursor(slots != null && slots.Count > 0 ? slots[0] : -1);
     }
 
-    // 내 차례가 되면 패를 펼치고(스페이스는 내 차례 동안 카드 고르기), 차례가 끝나면 자동으로 펼친 패는 다시 덮는다.
+    // 원작처럼: 내 차례가 되면 패를 자동으로 펼치고(배분이 끝난 뒤), 차례가 끝나면(내고 나면) 다시 덮는다.
+    // 내 차례 동안은 스페이스로 덮을 수 없다 → 덮은 채로 내는 경우가 없다
     bool openOnTurn;
-    bool autoOpened;
+    bool myTurn;
 
     void HandleTurnChanged(int seat)
     {
         bool mine = PlayerProfile.Local != null && seat == PlayerProfile.Local.Seat;
+        bool wasMine = myTurn;
+        myTurn = mine;
         openOnTurn = mine;
-        if (mine || !autoOpened) return;
+        if (mine || !wasMine) return;
 
-        autoOpened = false;
         SeatHandCards me = LocalSeat();
         if (me != null && me.IsOpen && PlayerState.Local != null) PlayerState.Local.CmdSetCardsOpen(false);
     }
@@ -354,13 +388,13 @@ public class HandCardsSetup : MonoBehaviour
         openOnTurn = false;
         if (me.IsOpen) return;
         PlayerState.Local.CmdSetCardsOpen(true);
-        autoOpened = true;
     }
 
 
     // 스페이스: 패를 다 받았으면 펼치기 ↔ 덮기 토글을 서버에 알린다 → 모든 클라이언트에서 애니메이션
     void HandleLookRequested()
     {
+        if (myTurn) return;   // 내 차례에는 펼친 상태 고정
         SeatHandCards me = LocalSeat();
         if (me == null || !me.CanToggle || PlayerState.Local == null) return;
         PlayerState.Local.CmdSetCardsOpen(!me.IsOpen);
@@ -369,6 +403,11 @@ public class HandCardsSetup : MonoBehaviour
     void HandleCardsOpened(int seat, bool open)
     {
         if (seats.TryGetValue(seat, out var s) && s != null) s.SetCardsOpen(open);
+    }
+
+    void HandleEmotePlayed(int seat, int emote)
+    {
+        if (seats.TryGetValue(seat, out var s) && s != null) s.PlayEmote(emote);
     }
 
     void HandlePlayerEliminated(int seat)

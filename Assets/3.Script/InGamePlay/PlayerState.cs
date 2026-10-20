@@ -107,6 +107,25 @@ public class PlayerState : NetworkBehaviour
         InGameEvent.TriggerOnCardsOpened(seat, open);
     }
 
+    // 1~5 감정표현을 모든 클라이언트에 알린다 (연출 전용). 연타 방지는 서버에서
+    public const int EmoteCount = 5;
+    private const float EmoteCooldown = 1.5f;
+    private float nextEmoteTime;
+
+    [Command]
+    public void CmdPlayEmote(int emote)
+    {
+        if (emote < 1 || emote > EmoteCount || isDead || Time.time < nextEmoteTime) return;
+        nextEmoteTime = Time.time + EmoteCooldown;
+        RpcPlayEmote(SeatNum, emote);
+    }
+
+    [ClientRpc]
+    private void RpcPlayEmote(int seat, int emote)
+    {
+        InGameEvent.TriggerOnEmotePlayed(seat, emote);
+    }
+
     #region 플레이어 고개 움직임
     public void AssignHeadController(HeadController _headController)
     {
