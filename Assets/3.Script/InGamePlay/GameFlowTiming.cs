@@ -16,4 +16,6 @@ public static class GameFlowTiming
     public const float ResultDisplay = 2f;
     public const float WinnerSeq = 10f;
 
+    public const float TransitionSpectator = 2.5f;
+
 }
