@@ -83,6 +83,13 @@ public class PlayerState : NetworkBehaviour
         deckManager.CallLiar(SeatNum);
     }
 
+    // 손패 배분 연출이 끝남 → 서버는 모두 끝나면 첫 턴을 시작한다 (연출 중에 턴 타이머가 흐르지 않게)
+    [Command]
+    public void CmdDealFinished()
+    {
+        if (deckManager != null) deckManager.ReportDealFinished(SeatNum);
+    }
+
     // 스페이스(Look) → 패 펼치기 / 덮기를 모든 클라이언트에 알린다 (연출 전용, 게임 로직 영향 없음)
     [Command]
     public void CmdSetCardsOpen(bool open)

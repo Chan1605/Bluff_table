@@ -33,6 +33,9 @@ public class HandCardsSetup : MonoBehaviour
     [SerializeField] Color cardOutlineColor = new Color(1f, 0.85f, 0.3f, 1f);
     [Tooltip("테두리 두께 (m)")]
     [SerializeField] float cardOutlineWidth = 0.008f;
+    [Tooltip("고른 카드에 덮는 금색 (알파 = 진하기). 비워 두면 Resources/CardSelected 셰이더로 만든다")]
+    [SerializeField] Material cardSelectedMaterial;
+    [SerializeField] Color cardSelectedColor = new Color(1f, 0.82f, 0.3f, 0.6f);
     [Tooltip("손 카드 배치(KartsParent/Kartlar · kart1~7) 기준 캐릭터들. 캐릭터와 같은 Animator Controller를 쓰는 기준의 배치를 복사한다 " +
              "(예: Sit_Table → Cupcake, 뚱뚱이용 컨트롤러 → Bristle). 맞는 기준이 없으면 모델 원래 배치")]
     [SerializeField] GameObject[] handLayoutReferences;
@@ -77,6 +80,22 @@ public class HandCardsSetup : MonoBehaviour
             return cardOutlineMaterial;
         }
     }
+    /// <summary>고른 카드 금색 칠 재질 (플레이 중 Inspector에서 색을 바꾸면 바로 반영)</summary>
+    public Material CardSelectedMaterial
+    {
+        get
+        {
+            if (cardSelectedMaterial == null)
+            {
+                Shader shader = Shader.Find("LiarsBar/CardSelected");
+                if (shader == null) return null;
+                cardSelectedMaterial = new Material(shader) { name = "CardSelected (runtime)" };
+            }
+            cardSelectedMaterial.SetColor(SelectedColorId, cardSelectedColor);
+            return cardSelectedMaterial;
+        }
+    }
+    static readonly int SelectedColorId = Shader.PropertyToID("_Color");
     static readonly int OutlineColorId = Shader.PropertyToID("_OutlineColor");
     static readonly int OutlineWidthId = Shader.PropertyToID("_OutlineWidth");
     /// <summary>같은 Animator Controller를 쓰는 기준 캐릭터 (없으면 null = 모델 원래 배치)</summary>
@@ -262,6 +281,9 @@ public class HandCardsSetup : MonoBehaviour
         yield return new WaitForSeconds(PresentationTimings.CardDealFlight);
         foreach (var s in alive) if (s != null) s.OnDealFinished();
         roundRoutine = null;
+
+        // 서버에 배분 연출이 끝났다고 알림 → 모두 끝나면 첫 턴 · 타이머 시작
+        if (PlayerState.Local != null) PlayerState.Local.CmdDealFinished();
     }
 
     void HandleCardDealt(List<CardType> hand)

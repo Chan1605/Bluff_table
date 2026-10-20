@@ -40,6 +40,13 @@ public class InGameHUD : MonoBehaviour
     [SerializeField] private TMP_Text chamberText;       // (n/6)
     [SerializeField] private GameObject idleHints;       // Look 안내
 
+    [Header("Cylinder (남은 탄창)")]
+    [Tooltip("탄창 그림. 비워 두면 My Turn Group 밑의 Cylinder 또는 Gun 이미지를 찾는다")]
+    [SerializeField] private RectTransform cylinder;
+    [Tooltip("탄실 6칸이 그림 중심에서 떨어진 거리 / 칸 크기 (그림 크기 대비 비율)")]
+    [SerializeField] private float chamberRadius = 0.26f;
+    [SerializeField] private float chamberMarkSize = 0.2f;
+
     [Header("Result")]
     [SerializeField] private TMP_Text resultTimerText;
     [SerializeField] private TMP_Text winnerText;
@@ -70,6 +77,8 @@ public class InGameHUD : MonoBehaviour
     private float popupHideTime;
     private float resultEndTime;
     private RoomPhase shownPhase = (RoomPhase)255;
+    private TMP_Text[] chamberMarks;
+    private int shownFired = -1;
     private Canvas debugCanvas;
     private bool debugVisible;
     private float nextDebugSearch;
@@ -116,12 +125,69 @@ public class InGameHUD : MonoBehaviour
             PlayerState me = PlayerState.Local;
             chamberText.text = me != null ? $"({me.currentChamber}/{Chambers})" : string.Empty;
         }
+        UpdateCylinder();
 
         if (popup != null && popup.alpha > 0f && Time.time > popupHideTime)
             popup.alpha = Mathf.MoveTowards(popup.alpha, 0f, Time.deltaTime / 0.3f);
 
         if (resultGroup != null && resultGroup.activeSelf && resultTimerText != null)
             resultTimerText.text = Mathf.CeilToInt(Mathf.Max(0f, resultEndTime - Time.time)).ToString();
+    }
+
+    // 탄창 그림의 ?: 남은 칸만 표시 (1/6이면 6칸 중 1칸이 빈칸). 위에서부터 시계 방향으로 비운다
+    private void UpdateCylinder()
+    {
+        PlayerState me = PlayerState.Local;
+        int fired = me != null ? Mathf.Clamp(me.currentChamber, 0, Chambers) : 0;
+        if (!EnsureChamberMarks() || fired == shownFired) return;
+
+        shownFired = fired;
+        for (int i = 0; i < chamberMarks.Length; i++)
+            if (chamberMarks[i] != null) chamberMarks[i].gameObject.SetActive(i >= fired);
+    }
+
+    // 탄창 그림(빈 탄실) 위에 ? 6개를 코드로 올린다
+    private bool EnsureChamberMarks()
+    {
+        if (chamberMarks != null) return true;
+
+        if (cylinder == null && myTurnGroup != null)
+        {
+            Transform t = myTurnGroup.transform.Find("Cylinder");
+            if (t == null) t = myTurnGroup.transform.Find("Gun");
+            cylinder = t as RectTransform;
+        }
+        if (cylinder == null) return false;
+
+        float size = Mathf.Min(cylinder.rect.width, cylinder.rect.height);
+        if (size <= 0f) return false;
+
+        chamberMarks = new TMP_Text[Chambers];
+        for (int i = 0; i < Chambers; i++)
+        {
+            var go = new GameObject($"Mark_{i}", typeof(RectTransform));
+            go.layer = cylinder.gameObject.layer;
+            var rt = (RectTransform)go.transform;
+            rt.SetParent(cylinder, false);
+
+            float angle = (90f - i * 60f) * Mathf.Deg2Rad;   // 맨 위부터 시계 방향
+            rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchoredPosition = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * size * chamberRadius;
+            rt.sizeDelta = Vector2.one * size * chamberMarkSize;
+
+            var mark = go.AddComponent<TextMeshProUGUI>();
+            if (chamberText != null) mark.font = chamberText.font;
+            mark.text = "?";
+            mark.fontSize = size * chamberMarkSize * 1.1f;
+            mark.fontStyle = FontStyles.Bold;
+            mark.color = accentColor;
+            mark.alignment = TextAlignmentOptions.Center;
+            mark.textWrappingMode = TextWrappingModes.NoWrap;
+            mark.raycastTarget = false;
+            chamberMarks[i] = mark;
+        }
+        shownFired = -1;
+        return true;
     }
 
     // 테스트 버튼은 지울 수 없어서(아직 키보드로 카드를 내는 기능이 없음) 숨겨 두고 F1로 토글.

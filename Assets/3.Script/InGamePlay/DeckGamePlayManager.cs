@@ -131,10 +131,68 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         //TODO 3. 카드 분배
         devideDeck();
 
-        //TODO 3. 턴 선정
+        //TODO 3. 턴 선정 - 모든 클라이언트의 배분 연출이 끝난 뒤에 첫 턴 (연출 중에 타이머가 흐르지 않게)
+        currentTurnPlayer = null;
+        dealReadySeats.Clear();
+        waitingDeal = true;
+        if (dealWait_co != null) StopCoroutine(dealWait_co);
+        dealWait_co = StartCoroutine(DealWaitTimeout_co());
+    }
+
+    #region 배분 연출 대기
+
+    private readonly HashSet<int> dealReadySeats = new HashSet<int>();
+    private bool waitingDeal;
+    private Coroutine dealWait_co;
+
+    // PlayerState.CmdDealFinished → 클라이언트에서 손패 배분 연출이 끝남
+    [Server]
+    public void ReportDealFinished(int seat)
+    {
+        if (!waitingDeal) return;
+        dealReadySeats.Add(seat);
+        if (AllAliveDealt()) BeginFirstTurn();
+    }
+
+    // 신호가 안 오는 클라이언트(연출 오류 · 끊김 직전 등)가 있어도 게임이 멈추지 않게
+    [Server]
+    private IEnumerator DealWaitTimeout_co()
+    {
+        yield return new WaitForSeconds(GameFlowTiming.DealWaitTimeout);
+        dealWait_co = null;
+        if (!waitingDeal) yield break;
+
+        Debug.Log("[인게임] : 배분 연출 대기 시간 초과 - 첫 턴 시작");
+        BeginFirstTurn();
+    }
+
+    [Server]
+    private bool AllAliveDealt()
+    {
+        foreach (PlayerState p in Players)
+            if (p != null && !p.isDead && !dealReadySeats.Contains(p.SeatNum)) return false;
+        return true;
+    }
+
+    [Server]
+    private void BeginFirstTurn()
+    {
+        if (!waitingDeal) return;
+        waitingDeal = false;
+        if (dealWait_co != null) { StopCoroutine(dealWait_co); dealWait_co = null; }
+
         accumTurnIndex = nextRoundStartSeat;
         NextTurn();
     }
+
+    [Server]
+    private void CancelDealWait()
+    {
+        waitingDeal = false;
+        if (dealWait_co != null) { StopCoroutine(dealWait_co); dealWait_co = null; }
+    }
+
+    #endregion
 
     [Server]
     private void SelectTable_normal()
@@ -260,9 +318,9 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             return;
         }
 
-        if (submitIndex == null || submitIndex.Length < 1 || submitIndex.Length > 4)
+        if (submitIndex == null || submitIndex.Length < 1 || submitIndex.Length > 3)
         {
-            Debug_RpcLog("[인게임] : 요청 거절 (제출한 카드가 없거나, 범위 초과. 1장 이상 4장 이하로 제출 요함)");
+            Debug_RpcLog("[인게임] : 요청 거절 (제출한 카드가 없거나, 범위 초과. 1장 이상 3장 이하로 제출 요함)");
             return;
         }
 
@@ -553,6 +611,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     [Server]
     private void EndGame(int winner)
     {
+        CancelDealWait();
         RpcAnnounceWinner(winner);
         RpcReEntryInLobby();
         GameOver?.Invoke(winner);
@@ -591,6 +650,30 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         if (alive <= 1)
         {
             EndGame(survivor != null ? survivor.SeatNum : -1);   // 혼자 남으면 그 사람이 승리
+            return;
+        }
+
+        // 배분 연출을 기다리는 중이면 나간 사람은 빼고 다시 확인
+        if (waitingDeal)
+        {
+            if (AllAliveDealt()) BeginFirstTurn();
+            return;
+        }
+
+        // 이번 라운드에서 카드를 낼 수 있는 사람이 1명 이하(나머지는 카드를 다 털어 탈출)면 라운드를 새로 시작
+        int active = 0;
+        PlayerState activePlayer = null;
+        foreach (PlayerState p in Players)
+        {
+            if (p == null || p.isDead || p.isEscaped) continue;
+            active++;
+            activePlayer = p;
+        }
+
+        if (active <= 1)
+        {
+            nextRoundStartSeat = activePlayer != null ? activePlayer.SeatNum : survivor.SeatNum;
+            StartRound();
             return;
         }
 
