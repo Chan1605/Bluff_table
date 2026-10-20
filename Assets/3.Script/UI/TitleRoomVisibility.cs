@@ -1,9 +1,7 @@
 ﻿using LiarsBar.Server;
 using UnityEngine;
 
-// 방에 들어가 있는 동안 타이틀 UI를 숨기고, 방을 나오면 다시 보여준 뒤 지정한 패널을 연다.
-// 입장: 로딩이 끝난 뒤(최소 표시 시간 포함)에 숨긴다. 퇴장: 타이틀 UI가 복구되면 나가기 로딩을 끈다.
-// 항상 활성 상태인 오브젝트(PanelManager)에 붙일 것. 숨길 대상에 붙이면 안 된다.
+
 public class TitleRoomVisibility : MonoBehaviour
 {
     [SerializeField] private GameObject[] hideWhileInRoom;   // Canvas, VP 등 (LoadingPrefab은 넣지 말 것)

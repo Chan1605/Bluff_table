@@ -114,3 +114,34 @@ Atmospheric fog in the scene.,장면의 안개 효과입니다.
 Adds a subtle film grain over the image.,화면에 은은한 필름 질감을 더합니다.
 Reduces stretching at the edges of the screen.,화면 가장자리가 늘어나 보이는 현상을 줄입니다.
 Darkens the corners of the screen.,화면 모서리를 어둡게 합니다.
+# In-game
+KING'S TABLE,킹의 테이블
+QUEEN'S TABLE,퀸의 테이블
+ACE'S TABLE,에이스의 테이블
+JOKER'S TABLE,조커의 테이블
+King,킹
+Kings,킹
+Queen,퀸
+Queens,퀸
+Ace,에이스
+Aces,에이스
+Joker,조커
+Jokers,조커
+Waiting For,첫 선언을
+First Claim,기다리는 중
+CLAIMS,선언
+CALLED,외침
+LIAR!,거짓말!
+Your Bid,내 차례
+Switch,카드 이동
+Select,카드 선택
+Throw,내기
+Call LIAR!,거짓말 지목
+Look,패 보기
+Emote,감정 표현
+RETURNING TO LOBBY,로비로 돌아가는 중
+WINNER,승자
+CONTINUE,계속하기
+Eliminated,탈락
+Survived,생존
+Player,플레이어
