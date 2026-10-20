@@ -88,8 +88,9 @@ public class PlayerController : NetworkBehaviour
         if (!isLocalPlayer ||
             inputActions == null ||
             !inputActions.Player.enabled ||
-            headController == null
-            )
+            headController == null ||
+            (pState != null && pState.isDead))
+            
             return;
 
 
@@ -135,6 +136,11 @@ public class PlayerController : NetworkBehaviour
     {
         if (!isLocalPlayer || inputActions == null) return;
 
+        if(TryGetComponent(out PlayerSpectator spectator))
+        {
+            spectator.StopSpectating();
+        }
+
         inputActions.Player.Disable();
         inputActions.UI.Enable();
         ClearHand();
@@ -149,6 +155,23 @@ public class PlayerController : NetworkBehaviour
         Vector2 direction = context.ReadValue<Vector2>();
         Vector2 last = lastSelectInput;
         lastSelectInput = direction;
+
+        if (pState != null && pState.isDead)
+        {
+            if (TryGetComponent(out PlayerSpectator spectator) &&
+                spectator.IsSpectating)
+            {
+                if (direction.x < -0.5f && last.x >= -0.5f)
+                {
+                    spectator.OnSpectateInput(-1);
+                }
+                else if (direction.x >0.5f && last.x <= 0.5f)
+                {
+                    spectator.OnSpectateInput(1);
+                }
+            }
+            return;
+        }
 
         if (direction.x < 0 && last.x >= 0) MoveCursor(-1);       // 좌
         else if (direction.x > 0 && last.x <= 0) MoveCursor(1);   // 우

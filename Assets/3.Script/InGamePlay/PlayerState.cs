@@ -31,7 +31,7 @@ public class PlayerState : NetworkBehaviour
     {
         Local = this;
         InGameEvent.OnCardsPlayed += SubmitCards;
-       // InGameEvent.OnPlayerEliminated += HandlePlayerEliminated;
+       InGameEvent.OnPlayerEliminated += HandlePlayerEliminated;
 
 
     }
@@ -40,7 +40,7 @@ public class PlayerState : NetworkBehaviour
     {
         if (Local == this) Local = null;
         InGameEvent.OnCardsPlayed -= SubmitCards;
-        //InGameEvent.OnPlayerEliminated -= HandlePlayerEliminated;
+        InGameEvent.OnPlayerEliminated -= HandlePlayerEliminated;
     }
 
     [Server]

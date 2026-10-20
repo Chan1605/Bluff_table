@@ -426,8 +426,10 @@ public class HandCardsSetup : MonoBehaviour
 
     List<SeatHandCards> AliveSeatsInOrder()
     {
-        var keys = new List<int>(seats.Keys);
-        keys.Sort();
+        // 테이블 시계 방향 순서로 (턴 순서와 같게)
+        var keys = new List<int>();
+        foreach (int seat in SeatOrder.Clockwise(4)) if (seats.ContainsKey(seat)) keys.Add(seat);
+        foreach (int seat in seats.Keys) if (!keys.Contains(seat)) keys.Add(seat);
         var list = new List<SeatHandCards>();
         foreach (int k in keys)
         {
