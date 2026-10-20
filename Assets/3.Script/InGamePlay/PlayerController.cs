@@ -88,7 +88,8 @@ public class PlayerController : NetworkBehaviour
         if (!isLocalPlayer ||
             inputActions == null ||
             !inputActions.Player.enabled ||
-            headController == null)
+            headController == null||
+            (pState != null && pState.isDead))
             return;
 
 
@@ -107,6 +108,7 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
+    // TODO 최적화 체크
     [Command]
     private void CmdSyncHeadRotation(float pitch, float yaw)
     {

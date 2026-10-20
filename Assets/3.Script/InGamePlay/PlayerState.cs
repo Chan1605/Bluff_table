@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using LiarsBar.Server;
 
 public class PlayerState : NetworkBehaviour
 {
@@ -30,6 +31,8 @@ public class PlayerState : NetworkBehaviour
     {
         Local = this;
         InGameEvent.OnCardsPlayed += SubmitCards;
+        InGameEvent.OnPlayerEliminated += HandlePlayerEliminated;
+
 
     }
 
@@ -37,6 +40,7 @@ public class PlayerState : NetworkBehaviour
     {
         if (Local == this) Local = null;
         InGameEvent.OnCardsPlayed -= SubmitCards;
+        InGameEvent.OnPlayerEliminated -= HandlePlayerEliminated;
     }
 
     [Server]
@@ -142,4 +146,36 @@ public class PlayerState : NetworkBehaviour
         headController.SetAbsoluteRotation(syncHeadPitch, syncHeadYaw);
     }
     #endregion
+
+    private void HandlePlayerEliminated(int eliminatedSeat)
+    {
+
+        if (!isLocalPlayer) return;
+
+        if (!TryGetComponent<PlayerProfile>(out PlayerProfile pProfile)) return;
+
+        if (eliminatedSeat != pProfile.Seat) return;
+
+        StartCoroutine(TransitionToSpectator_co());
+
+    }
+
+    private IEnumerator TransitionToSpectator_co()
+    {
+        yield return new WaitForSeconds(GameFlowTiming.TransitionSpectator); // 처형 애니메이션 재생 시간
+
+        if (!TryGetComponent<PlayerProfile>(out PlayerProfile pProfile) ||
+            pProfile.Phase != RoomPhase.Playing)
+            yield break;
+
+        if (headController != null && headController.firstPersonCamera != null)
+        {
+            headController.firstPersonCamera.Priority = 0;
+        }
+
+        if (TryGetComponent(out PlayerSpectator spectator))
+        {
+            spectator.StartSpectating();
+        }
+    }
 }
