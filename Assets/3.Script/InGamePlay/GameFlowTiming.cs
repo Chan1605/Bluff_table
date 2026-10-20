@@ -9,6 +9,7 @@ public static class GameFlowTiming
     public const float TableSetting = 1f;
     public const float DividingDeck = 1f;
     public const float TurnTimer = 10f;
+    public const float SceneLoadTimeout = 40f;  // 모든 플레이어가 테이블 씬을 불러올 때까지 기다리는 최대 시간
     public const float DealWaitTimeout = 25f;   // 손패 배분 연출이 끝났다는 신호를 기다리는 최대 시간 (못 받으면 그냥 첫 턴 시작)
 
 

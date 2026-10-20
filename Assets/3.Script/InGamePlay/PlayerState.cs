@@ -27,9 +27,13 @@ public class PlayerState : NetworkBehaviour
     [SerializeField] public DeckGamePlayManager deckManager;
     public HeadController headController;
 
+    // 서버: 이 플레이어가 테이블 씬을 다 불러왔는지 (모두 true가 되면 게임 진입)
+    public bool SceneReady { get; private set; }
+
     public override void OnStartLocalPlayer()
     {
         Local = this;
+        RoomScenes.SceneChanged += HandleSceneChanged;
         InGameEvent.OnCardsPlayed += SubmitCards;
        InGameEvent.OnPlayerEliminated += HandlePlayerEliminated;
 
@@ -39,6 +43,7 @@ public class PlayerState : NetworkBehaviour
     public override void OnStopClient()
     {
         if (Local == this) Local = null;
+        RoomScenes.SceneChanged -= HandleSceneChanged;
         InGameEvent.OnCardsPlayed -= SubmitCards;
         InGameEvent.OnPlayerEliminated -= HandlePlayerEliminated;
     }
@@ -46,6 +51,7 @@ public class PlayerState : NetworkBehaviour
     [Server]
     public void ResetState()
     {
+        SceneReady = false;
         isDead = false;
         isTurn = false;
         isEscaped = false;
@@ -85,6 +91,24 @@ public class PlayerState : NetworkBehaviour
     public void CallLiar()
     {
         deckManager.CallLiar(SeatNum);
+    }
+
+    // 테이블 씬 로딩이 끝나면(로딩 화면 최소 시간까지 채운 뒤) 서버에 알림
+    private void HandleSceneChanged(string scene)
+    {
+        if (string.IsNullOrEmpty(scene) || !isLocalPlayer) return;
+        if (!TryGetComponent(out PlayerProfile profile) || profile.Phase != RoomPhase.Playing) return;
+
+        LoadingUI.AfterMinimum(() =>
+        {
+            if (this != null && isLocalPlayer && NetworkClient.isConnected) CmdSceneReady();
+        });
+    }
+
+    [Command]
+    private void CmdSceneReady()
+    {
+        SceneReady = true;
     }
 
     // 손패 배분 연출이 끝남 → 서버는 모두 끝나면 첫 턴을 시작한다 (연출 중에 턴 타이머가 흐르지 않게)
