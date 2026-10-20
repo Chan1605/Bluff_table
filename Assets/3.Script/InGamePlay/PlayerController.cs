@@ -168,10 +168,8 @@ public class PlayerController : NetworkBehaviour
 
         string keyName = context.control.name;
 
-        if(int.TryParse(keyName, out int emoteIndex))
-        {
-            // TODO 이모트 인덱스와 이모트 재생 연결
-        }
+        if (int.TryParse(keyName, out int emoteIndex) && emoteIndex >= 1 && emoteIndex <= PlayerState.EmoteCount)
+            PlayerState.Local.CmdPlayEmote(emoteIndex);   // 1 · 2 · 3 = 뻐큐 좌 · 정면 · 우, 4 = 목 긋기, 5 = 브이
     }
 
     // E: 고른 카드 내기. 선택은 서버가 확정(OnCardsSubmitted)하면 비운다 (거절되면 그대로 남음)

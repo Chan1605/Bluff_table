@@ -13,6 +13,12 @@ public class SeatHandCards : MonoBehaviour
     static readonly int OpenCardsId = Animator.StringToHash("OpenCards");         // 스페이스 → 패 펼치기 (Open)
     static readonly int CloseCardsId = Animator.StringToHash("CloseCards");       // 스페이스 → 다시 덮기 (Closed)
     static readonly int HasCardsId = Animator.StringToHash("HasCards");
+    static readonly int[] EmoteIds =   // Emote1~5 트리거 (원작과 같은 이름)
+    {
+        Animator.StringToHash("Emote1"), Animator.StringToHash("Emote2"), Animator.StringToHash("Emote3"),
+        Animator.StringToHash("Emote4"), Animator.StringToHash("Emote5")
+    };
+    static readonly int LookId = Animator.StringToHash("Look");                   // 원작 방식: true = 꺼내 보기, false = 덮기 (있으면 OpenCards · CloseCards 대신 사용)
     static readonly int PlayCardsId = AnimIds.Character.PlayCardsId;
 
     const string KartsParentName = "KartsParent";
@@ -285,6 +291,7 @@ public class SeatHandCards : MonoBehaviour
     {
         dealFinished = false;
         opened = false;
+        if (character != null && characterParams.Contains(LookId)) character.SetBool(LookId, false);
     }
 
     // 배분이 끝나면 패를 줍고(PickUp) 덮은 채 쥐고 기다린다(Closed). 펼치기는 스페이스
@@ -300,11 +307,18 @@ public class SeatHandCards : MonoBehaviour
     public void ThrowAnim() { }
     public void OnThrowTableCardsEvent() { }
 
+    /// <summary>감정표현 (1~5). 캐릭터 Animator에 EmoteN 트리거가 없으면 무시</summary>
+    public void PlayEmote(int emote)
+    {
+        if (emote >= 1 && emote <= EmoteIds.Length) TriggerCharacter(EmoteIds[emote - 1]);
+    }
+
     public void SetCardsOpen(bool open)
     {
         if (opened == open) return;
         opened = open;
-        TriggerCharacter(open ? OpenCardsId : CloseCardsId);   // Open(kart_acma) → HoldCards / Closed(kart_el_masa)
+        if (character != null && characterParams.Contains(LookId)) character.SetBool(LookId, open);   // 원작 컨트롤러: 꺼내기 → 보기 / 덮기
+        else TriggerCharacter(open ? OpenCardsId : CloseCardsId);                                       // 옛 컨트롤러
     }
 
     public void PlayCards(int count, int[] listIndices, HandCardsSetup table)
@@ -379,7 +393,8 @@ public class SeatHandCards : MonoBehaviour
         bool showFace = IsLocal && rank.HasValue;
         if (showFace)
         {
-            Mesh typeMesh = setup.GetTypeMesh((int)rank.Value);
+            var animator = GetComponent<Animator>();
+            Mesh typeMesh = setup.GetHandTypeMesh(animator != null ? animator.runtimeAnimatorController : null, (int)rank.Value);
             if (typeMesh != null) mesh = typeMesh;
         }
 

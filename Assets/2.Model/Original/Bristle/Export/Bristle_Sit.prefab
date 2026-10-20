@@ -53744,9 +53744,6 @@ MonoBehaviour:
   maxPitch: 45
   minYaw: -60
   maxYaw: 60
-  focusFov: 65
-  focusAngleOffset: {x: 0, y: 0}
-  focusSpeed: 5
 --- !u!1 &4070658160133528059
 GameObject:
   m_ObjectHideFlags: 0
@@ -86102,8 +86099,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.084, z: -0.076}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2797947667448725389}
   - {fileID: 1010789249664482738}
@@ -86131,7 +86128,7 @@ Animator:
   m_GameObject: {fileID: 7700013718474396135}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6c81d8880e57b0247b674c681e25d52d, type: 2}
-  m_Controller: {fileID: 22100000, guid: a27eb6ffcaec91843816d93ed2922a71, type: 2}
+  m_Controller: {fileID: 9100000, guid: d429bd70a1d5b4648ac7c31675eb6cb9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -86156,7 +86153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeatedPose
   seatPoint: {fileID: 0}
-  extraOffset: {x: 0, y: -0.15, z: 0}
+  extraOffset: {x: 0, y: 0.8, z: 0}
   leftFootTarget: {fileID: 0}
   rightFootTarget: {fileID: 0}
   leftKneeHint: {fileID: 0}

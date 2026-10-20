@@ -70,7 +70,7 @@ public class PlayerVisualSetup : NetworkBehaviour
                 Transform cam = pState.headController.firstPersonCamera != null
                     ? pState.headController.firstPersonCamera.transform
                     : pState.headController.transform;
-                visualInstance.AddComponent<FirstPersonHeadHider>().Init(cam);
+                visualInstance.AddComponent<FirstPersonHeadHider>().Init(cam, pState.headController.headPivot);
             }
         }
 

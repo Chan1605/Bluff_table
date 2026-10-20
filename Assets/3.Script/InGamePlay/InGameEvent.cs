@@ -93,6 +93,12 @@ public static class InGameEvent
     public static event Action OnLookRequested; // 로컬: 스페이스(Look) 입력 → 패 펼치기 / 덮기 요청
     public static event Action<int> OnHandCursorChanged; // 내 손패에서 지금 가리키는 카드 (손패 인덱스, -1 = 없음) - 아웃라인용
     public static event Action<int, bool> OnCardsOpened; // seat번 플레이어가 패를 펼침(true) / 덮음(false) (모든 클라이언트)
+    public static event Action<int, int> OnEmotePlayed; // seat번 플레이어 감정표현 (번호 1~5) (모든 클라이언트)
+
+    public static void TriggerOnEmotePlayed(int seat, int emote)
+    {
+        OnEmotePlayed?.Invoke(seat, emote);
+    }
 
     public static void TriggerOnLookRequested()
     {

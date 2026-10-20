@@ -141,6 +141,8 @@ MonoBehaviour:
   cardOutlineMaterial: {fileID: 0}
   cardOutlineColor: {r: 1, g: 0.85, b: 0.3, a: 1}
   cardOutlineWidth: 0.008
+  cardSelectedMaterial: {fileID: 0}
+  cardSelectedColor: {r: 1, g: 0.82, b: 0.3, a: 0.6}
   handLayoutReferences:
   - {fileID: 8286967540154381777, guid: 014f585d1bd33224087712caaf66bc78, type: 3}
   - {fileID: 5195253182923310040, guid: b4448381f87e7394db1201c94376c090, type: 3}
@@ -154,3 +156,10 @@ MonoBehaviour:
   handRotationFixes:
   - controller: {fileID: 22100000, guid: df9a2fa5327f9fc4a9d88ac215aa8974, type: 2}
     kartlarEuler: {x: -5.62, y: 300, z: 0}
+  handCardMeshSets:
+  - controller: {fileID: 9100000, guid: d429bd70a1d5b4648ac7c31675eb6cb9, type: 2}
+    typeMeshes:
+    - {fileID: 4300000, guid: 78c3758ecc7837f468a33946bb46fd56, type: 2}
+    - {fileID: 4300000, guid: 919eb0926eadab04ca503da24d5bbef0, type: 2}
+    - {fileID: 4300000, guid: 473422d789114f340ab82279e3d55226, type: 2}
+    - {fileID: 4300000, guid: 2061b0df21fc9824495ef05c56c03392, type: 2}
