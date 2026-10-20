@@ -325,7 +325,6 @@ public class HandCardsSetup : MonoBehaviour
     }
 
     // 내 차례가 되면 패를 펼치고(스페이스는 내 차례 동안 카드 고르기), 차례가 끝나면 자동으로 펼친 패는 다시 덮는다.
-    // 패가 펼쳐져 있는 동안은 1인칭 카메라가 손패를 당겨 본다 (HeadController.SetFocusTarget)
     bool openOnTurn;
     bool autoOpened;
 
@@ -343,7 +342,6 @@ public class HandCardsSetup : MonoBehaviour
     void Update()
     {
         UpdateOpenOnTurn();
-        UpdateCameraFocus();
     }
 
     void UpdateOpenOnTurn()
@@ -359,15 +357,6 @@ public class HandCardsSetup : MonoBehaviour
         autoOpened = true;
     }
 
-    void UpdateCameraFocus()
-    {
-        PlayerState local = PlayerState.Local;
-        if (local == null || local.headController == null) return;
-
-        SeatHandCards me = LocalSeat();
-        bool focus = me != null && me.IsOpen && me.InHandCount > 0;
-        local.headController.SetFocusTarget(focus ? me.HandCenter : null);
-    }
 
     // 스페이스: 패를 다 받았으면 펼치기 ↔ 덮기 토글을 서버에 알린다 → 모든 클라이언트에서 애니메이션
     void HandleLookRequested()

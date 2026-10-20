@@ -51,9 +51,6 @@ public class SeatHandCards : MonoBehaviour
     public bool IsLocal { get; private set; }
     public HandView Hand { get; private set; }
     public bool IsDead => state != null && state.isDead;
-    /// <summary>손에 보이는 카드들의 한가운데 (1인칭 카메라가 패를 볼 때 겨누는 곳). 매 프레임 LateUpdate에서 갱신</summary>
-    public Transform HandCenter => focusPoint != null ? focusPoint : kartRootT;
-    Transform focusPoint;
 
     HandCardsSetup setup;
     Transform kartRootT;              // 손 카드 묶음 (KartsParent/Kartlar)
@@ -216,31 +213,6 @@ public class SeatHandCards : MonoBehaviour
             ApplyLift(kart, settled && lifted[i]);
             ApplyHighlight(kart, settled && IsLocal && i == cursorSlot, settled && IsLocal && lifted[i]);
         }
-
-        if (IsLocal) UpdateFocusPoint();
-    }
-
-    // Kartlar 피벗은 손바닥이라 그쪽을 겨누면 카드가 화면 밖으로 나간다 → 실제로 보이는 카드 메쉬의 중심을 겨눈다
-    void UpdateFocusPoint()
-    {
-        if (cardsRoot == null) return;
-        if (focusPoint == null)
-        {
-            focusPoint = new GameObject("HandFocus").transform;
-            focusPoint.SetParent(cardsRoot.transform, false);
-        }
-
-        Vector3 sum = Vector3.zero;
-        int count = 0;
-        foreach (Kart kart in karts)
-        {
-            if (kart == null || kart.renderer == null || !kart.renderer.enabled) continue;
-            sum += kart.renderer.bounds.center;
-            count++;
-        }
-
-        if (count > 0) focusPoint.position = sum / count;
-        else if (kartRootT != null) focusPoint.position = kartRootT.position;
     }
 
     void OnDestroy()
