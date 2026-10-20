@@ -15,7 +15,7 @@ public class PlayerController : NetworkBehaviour
     public PlayerState pState;
 
     // 손패 고르기 (로컬 플레이어만). 인덱스는 서버 손패 기준(남은 카드 0 ~ n-1)
-    private const int MaxSelect = 4;                 // 서버(PlayerSubmitCard)가 받는 최대 장수
+    private const int MaxSelect = 3;                 // 한 번에 낼 수 있는 최대 장수 (서버 PlayerSubmitCard와 같게)
     private readonly List<int> selected = new List<int>();
     private int handCount;
     private int cursor = -1;
