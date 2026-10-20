@@ -5,10 +5,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-// 메뉴 한 번으로 세팅 패널 내용(원작 레이아웃)과 호스트 패널의 로비 타입 드롭다운을 만든다.
-// 만든 오브젝트는 이름이 "[Gen] "으로 시작하고, 다시 실행하면 지우고 새로 만든다. (기존 틀은 그대로 둠)
-// - 세팅 패널: SettingPanel 프리팹을 수정 (열린 씬의 인스턴스가 덮어쓴 tabs 값은 되돌림)
-// - 로비 타입: TitleScene 안의 HostPanel(프리팹 연결이 풀린 씬 오브젝트)을 수정 → TitleScene을 열고 실행 후 저장
+
 public static class SettingsPanelBuilder
 {
     private const string SettingPanelPath = "Assets/2.Model/Prefabs/UI/SettingPanel.prefab";

@@ -8,14 +8,19 @@ public class UIInputController : MonoBehaviour
     private PlayerController localPlayerController;
     private bool isInGameMenuOpen = false;
 
+    public static UIInputController Instance { get; private set; }   // ESC 패널의 CONTINUE 버튼이 닫기를 요청할 때 사용
+    public bool IsInGameMenuOpen => isInGameMenuOpen;
+
     private void OnEnable()
     {
+        Instance = this;
         InGameEvent.OnMenuOpened += OpenInGameMenu;
         InGameEvent.OnReEntryInLobby += ReturnToLobby;
     }
 
     private void OnDisable()
     {
+        if (Instance == this) Instance = null;
         InGameEvent.OnMenuOpened -= OpenInGameMenu;
         InGameEvent.OnReEntryInLobby -= ReturnToLobby;
 
@@ -94,13 +99,24 @@ public class UIInputController : MonoBehaviour
         }
         else
         {
-            isInGameMenuOpen = false;
+            CloseInGameMenu();
+        }
+    }
 
+    // ESC를 다시 누르거나 CONTINUE 버튼을 누르면: 게임 입력으로 되돌리고 메뉴 닫힘 알림
+    public void CloseInGameMenu()
+    {
+        if (!isInGameMenuOpen) return;
+
+        isInGameMenuOpen = false;
+
+        if (localPlayerController != null && localPlayerController.inputActions != null)
+        {
             localPlayerController.inputActions.UI.Disable();
             localPlayerController.inputActions.Player.Enable();
-
-            InGameEvent.TriggerOnMenuClosed();
         }
+
+        InGameEvent.TriggerOnMenuClosed();
     }
 
 }

@@ -25,6 +25,10 @@ public static class InGameEvent
 
     public static event Action OnMenuClosed;
 
+    public static event Action<int, int> OnLiarCalled; // LIAR 호출 (호출한 좌석, 룰렛을 돌릴 좌석) - UI 공지용
+
+    public static event Action<int> OnWinnerAnnounced; // 게임 종료, 승자 좌석 (-1 = 없음) - 결과 화면용
+
     public static void TriggerOnEntryInGame()
     {
         OnEntryInGame?.Invoke();
@@ -73,6 +77,16 @@ public static class InGameEvent
     public static void TriggerOnMenuClosed()
     {
         OnMenuClosed?.Invoke();
+    }
+
+    public static void TriggerOnLiarCalled(int callerSeat, int loserSeat)
+    {
+        OnLiarCalled?.Invoke(callerSeat, loserSeat);
+    }
+
+    public static void TriggerOnWinnerAnnounced(int winnerSeat)
+    {
+        OnWinnerAnnounced?.Invoke(winnerSeat);
     }
     public static event Action<int, int, int[]> OnCardsSubmitted; // 서버 확정 제출 (좌석, 장수, 제출 전 손패 기준 인덱스)
     public static event Action<IReadOnlyList<int>> OnHandSelectionChanged; // 내 손패 선택 변경 (손패 인덱스)

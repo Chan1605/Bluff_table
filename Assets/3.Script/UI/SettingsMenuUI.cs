@@ -13,7 +13,6 @@ public interface ISettingsSection
 }
 
 // 타이틀 세팅 패널 / 인게임 ESC 세팅에서 같이 쓴다.
-// 처음 열면 탭 목록만 보이고(오른쪽 아래 Restore Defaults), 탭을 고르면 내용 + Apply가 보인다.
 public class SettingsMenuUI : MonoBehaviour
 {
     [Serializable]
@@ -25,7 +24,6 @@ public class SettingsMenuUI : MonoBehaviour
         public GameObject content;
     }
 
-    [Tooltip("비우면 Back 시 BackRequested 이벤트로 알림 (인게임 ESC 패널용)")]
     [SerializeField] private UIPanelManager panelManager;
     [SerializeField] private TMP_Text settingsTitle;      // SETTINGS (탭 이름을 이 글자 뒤에 붙임)
     [SerializeField] private float headerTabGap = 50f;
