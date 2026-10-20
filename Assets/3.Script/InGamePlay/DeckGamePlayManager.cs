@@ -132,6 +132,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         devideDeck();
 
         //TODO 3. 턴 선정 - 모든 클라이언트의 배분 연출이 끝난 뒤에 첫 턴 (연출 중에 타이머가 흐르지 않게)
+        StopTurnTimer();
         currentTurnPlayer = null;
         dealReadySeats.Clear();
         waitingDeal = true;
@@ -151,6 +152,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         if (!waitingDeal) return;
         dealReadySeats.Add(seat);
+        Debug.Log($"[인게임] : {seat}번 좌석 배분 연출 완료 ({dealReadySeats.Count}명)");
         if (AllAliveDealt()) BeginFirstTurn();
     }
 
@@ -180,9 +182,27 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         if (!waitingDeal) return;
         waitingDeal = false;
         if (dealWait_co != null) { StopCoroutine(dealWait_co); dealWait_co = null; }
+        Debug.Log("[인게임] : 배분 연출이 모두 끝나 첫 턴 시작");
 
-        accumTurnIndex = nextRoundStartSeat;
+        accumTurnIndex = TurnPosition(nextRoundStartSeat);
         NextTurn();
+    }
+
+    // 턴 순서 = 테이블 시계 방향 (SeatOrder). accumTurnIndex는 이 순서 안의 위치
+    private int[] turnOrder;
+    private int[] TurnOrder
+    {
+        get
+        {
+            if (turnOrder == null || turnOrder.Length != Players.Length) turnOrder = SeatOrder.Clockwise(Players.Length);
+            return turnOrder;
+        }
+    }
+
+    private int TurnPosition(int seat)
+    {
+        int index = System.Array.IndexOf(TurnOrder, seat);
+        return index >= 0 ? index : 0;
     }
 
     [Server]
@@ -261,7 +281,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
 
         for (int i = 0; i < maxPlayerCount; i++)
         {
-            int seatIndex = accumTurnIndex % maxPlayerCount;
+            int seatIndex = TurnOrder[accumTurnIndex % maxPlayerCount];   // 좌석 번호가 아니라 테이블 시계 방향 순서
             PlayerState curPlayer = Players[seatIndex];
 
             accumTurnIndex++;
@@ -274,7 +294,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
                 Debug.Log($"[인게임] : 다음 턴 {seatIndex}번 좌석");
 
                 RpcTurnChanged(seatIndex);
-                StartCoroutine(TurnTimer_co(accumTurnIndex, seatIndex));
+                StopTurnTimer();
+                turnTimer_co = StartCoroutine(TurnTimer_co(turnSerial, seatIndex));
                 return;
             }
         }
@@ -282,12 +303,30 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         Debug.Log("[인게임] : 다음 턴을 받을 플레이어가 없습니다.");
     }
 
+    // 턴 타이머는 한 번에 하나만. 턴이 바뀌거나 LIAR · 새 라운드 · 게임 종료 때 멈춘다.
+    // (예전에는 턴 번호만 비교해서, 이전 라운드 타이머가 새 라운드 첫 턴에 터져 강제 제출되는 일이 있었음)
+    private int turnSerial;
+    private Coroutine turnTimer_co;
+
     [Server]
-    private IEnumerator TurnTimer_co(int expectedTurnIndex, int seatNum)
+    private void StopTurnTimer()
+    {
+        turnSerial++;
+        if (turnTimer_co != null)
+        {
+            StopCoroutine(turnTimer_co);
+            turnTimer_co = null;
+        }
+    }
+
+    [Server]
+    private IEnumerator TurnTimer_co(int serial, int seatNum)
     {
         yield return new WaitForSeconds(GameFlowTiming.TurnTimer);
+        if (serial != turnSerial) yield break;
+        turnTimer_co = null;
 
-        if (!isResolvingLiar && accumTurnIndex == expectedTurnIndex)
+        if (!isResolvingLiar && !waitingDeal && currentTurnPlayer != null && currentTurnPlayer == Players[seatNum])
         {
             Debug_RpcLog("[인게임] : 타임아웃");
 
@@ -480,6 +519,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         }
 
 
+        StopTurnTimer();   // LIAR 연출 중에는 턴 타이머 정지
         StartCoroutine(ResolveLiarSequence_co(callerSeat, loserSeat));
     }
 
@@ -612,6 +652,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private void EndGame(int winner)
     {
         CancelDealWait();
+        StopTurnTimer();
         RpcAnnounceWinner(winner);
         RpcReEntryInLobby();
         GameOver?.Invoke(winner);

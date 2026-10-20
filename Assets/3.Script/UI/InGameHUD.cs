@@ -1,4 +1,5 @@
 ﻿using LiarsBar.Server;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +32,10 @@ public class InGameHUD : MonoBehaviour
     [SerializeField] private CanvasGroup popup;
     [SerializeField] private TMP_Text popupName;
     [SerializeField] private TMP_Text popupValue;
-    [SerializeField] private float popupSeconds = 2.5f;
+    [Tooltip("가운데에서 머무는 시간")]
+    [SerializeField] private float popupHoldSeconds = 1.2f;
+    [Tooltip("선언이 왼쪽 위 테이블 글자로 날아가며 사라지는 시간")]
+    [SerializeField] private float popupFlySeconds = 0.5f;
 
     [Header("Turn")]
     [SerializeField] private GameObject myTurnGroup;     // Your Bid + 조작 안내
@@ -74,7 +78,9 @@ public class InGameHUD : MonoBehaviour
     private int winnerSeat = -1;
 
     private float turnEndTime;
-    private float popupHideTime;
+    private Sequence popupSeq;
+    private Vector2 popupHome;
+    private bool popupHomeSet;
     private float resultEndTime;
     private RoomPhase shownPhase = (RoomPhase)255;
     private TMP_Text[] chamberMarks;
@@ -110,6 +116,8 @@ public class InGameHUD : MonoBehaviour
         InGameEvent.OnPlayerSurvived -= HandleSurvived;
         InGameEvent.OnWinnerAnnounced -= HandleWinner;
         Localization.LanguageChanged -= RedrawTexts;
+        popupSeq?.Kill(true);
+        popupSeq = null;
     }
 
     private void Update()
@@ -126,9 +134,6 @@ public class InGameHUD : MonoBehaviour
             chamberText.text = me != null ? $"({me.currentChamber}/{Chambers})" : string.Empty;
         }
         UpdateCylinder();
-
-        if (popup != null && popup.alpha > 0f && Time.time > popupHideTime)
-            popup.alpha = Mathf.MoveTowards(popup.alpha, 0f, Time.deltaTime / 0.3f);
 
         if (resultGroup != null && resultGroup.activeSelf && resultTimerText != null)
             resultTimerText.text = Mathf.CeilToInt(Mathf.Max(0f, resultEndTime - Time.time)).ToString();
@@ -277,7 +282,7 @@ public class InGameHUD : MonoBehaviour
         claimCount = count;
         RedrawTexts();
 
-        if (seat != MySeat) ShowPopup(NameOf(seat), ClaimText(count));
+        ShowPopup(NameOf(seat), ClaimText(count), true);   // 내가 낸 것도 표시 (원작처럼 가운데 → 테이블 글자 쪽으로)
     }
 
     private void HandleLiarCalled(int callerSeat, int loserSeat)
@@ -288,8 +293,8 @@ public class InGameHUD : MonoBehaviour
         RedrawTexts();
     }
 
-    private void HandleEliminated(int seat) { ShowPopup(NameOf(seat), Localization.Get("Eliminated")); }
-    private void HandleSurvived(int seat) { ShowPopup(NameOf(seat), Localization.Get("Survived")); }
+    private void HandleEliminated(int seat) { ShowPopup(NameOf(seat), Localization.Get("Eliminated"), false); }
+    private void HandleSurvived(int seat) { ShowPopup(NameOf(seat), Localization.Get("Survived"), false); }
 
     private void HandleWinner(int seat)
     {
@@ -306,14 +311,62 @@ public class InGameHUD : MonoBehaviour
         if (idleHints != null) idleHints.SetActive(!mine);
     }
 
-    private void ShowPopup(string name, string value)
+    // 가운데에서 커지며 나타났다가, 선언이면 왼쪽 위 테이블 글자 쪽으로 작아지며 날아가 사라진다 (DOTween)
+    private void ShowPopup(string name, string value, bool flyToTable)
     {
         if (popup == null) return;
 
+        RectTransform rt = (RectTransform)popup.transform;
+        popupSeq?.Kill(true);   // 이전 연출은 끝 상태로 정리 (원위치 · 크기 복구)
+        if (!popupHomeSet)
+        {
+            popupHome = rt.anchoredPosition;
+            popupHomeSet = true;
+        }
+
         if (popupName != null) popupName.text = name;
         if (popupValue != null) popupValue.text = value;
-        popup.alpha = 1f;
-        popupHideTime = Time.time + popupSeconds;
+
+        rt.anchoredPosition = popupHome;
+        rt.localScale = Vector3.one * 0.7f;
+        popup.alpha = 0f;
+
+        popupSeq = DOTween.Sequence()
+            .Append(popup.DOFade(1f, 0.2f))
+            .Join(rt.DOScale(1f, 0.3f).SetEase(Ease.OutBack))
+            .AppendInterval(popupHoldSeconds);
+
+        if (flyToTable && TryGetTableTarget(rt, out Vector2 target))
+        {
+            popupSeq.Append(rt.DOAnchorPos(target, popupFlySeconds).SetEase(Ease.InQuad))
+                    .Join(rt.DOScale(0.3f, popupFlySeconds).SetEase(Ease.InQuad))
+                    .Join(popup.DOFade(0f, popupFlySeconds).SetEase(Ease.InQuad));
+        }
+        else
+        {
+            popupSeq.Append(popup.DOFade(0f, 0.3f));
+        }
+
+        popupSeq.OnComplete(() =>
+        {
+            popup.alpha = 0f;
+            rt.anchoredPosition = popupHome;
+            rt.localScale = Vector3.one;
+        });
+    }
+
+    // 왼쪽 위 선언 글자(없으면 테이블 제목)의 위치를 팝업 기준 좌표로
+    private bool TryGetTableTarget(RectTransform rt, out Vector2 target)
+    {
+        target = default;
+        Graphic goal = claimValue != null ? claimValue : tableTitle;
+        if (goal == null || !(rt.parent is RectTransform parent)) return false;
+
+        Vector2 local = parent.InverseTransformPoint(goal.rectTransform.position);
+        Rect r = parent.rect;
+        Vector2 anchorPoint = r.min + Vector2.Scale(r.size, rt.anchorMin);
+        target = local - anchorPoint;
+        return true;
     }
 
     // 언어가 바뀌어도 다시 그릴 수 있게 상태에서 글자를 만든다
