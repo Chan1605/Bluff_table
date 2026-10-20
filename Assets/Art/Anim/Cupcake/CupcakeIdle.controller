@@ -10,8 +10,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 391213977463667628}
-    m_Position: {x: 428.34985, y: 123.28784, z: 0}
+    m_State: {fileID: 4466141367117944276}
+    m_Position: {x: 479.03223, y: 135.5397, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -21,7 +21,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 391213977463667628}
+  m_DefaultState: {fileID: 4466141367117944276}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -44,14 +44,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &391213977463667628
+--- !u!1102 &4466141367117944276
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cupcake_store_idle_gecis
+  m_Name: lobby
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9824a4bc02bb61e47bd1edfec24ba3a9, type: 2}
+  m_Motion: {fileID: 7400000, guid: c1e35606982de764d950a2ab4f2c03c5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
