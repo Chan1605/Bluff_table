@@ -47,9 +47,13 @@ public class InGameHUD : MonoBehaviour
     [Header("Cylinder (남은 탄창)")]
     [Tooltip("탄창 그림. 비워 두면 My Turn Group 밑의 Cylinder 또는 Gun 이미지를 찾는다")]
     [SerializeField] private RectTransform cylinder;
-    [Tooltip("탄실 6칸이 그림 중심에서 떨어진 거리 / 칸 크기 (그림 크기 대비 비율)")]
-    [SerializeField] private float chamberRadius = 0.26f;
-    [SerializeField] private float chamberMarkSize = 0.2f;
+    [Tooltip("탄창 안쪽 바탕 (roulette_fill). 탄창 테두리(roulette_line) 뒤에 깔린다")]
+    [SerializeField] private Sprite cylinderFillSprite;
+    [Tooltip("탄실에 올릴 ? 그림 (questionMark_closed). 비워 두면 글자 ?")]
+    [SerializeField] private Sprite chamberMarkSprite;
+    [Tooltip("탄실 6칸이 그림 중심에서 떨어진 거리 / ? 크기 (그려진 탄창 높이 대비). roulette_line 기준 0.28 / 0.36")]
+    [SerializeField] private float chamberRadiusRatio = 0.28f;
+    [SerializeField] private float chamberMarkRatio = 0.36f;
 
     [Header("Result")]
     [SerializeField] private TMP_Text resultTimerText;
@@ -83,7 +87,7 @@ public class InGameHUD : MonoBehaviour
     private bool popupHomeSet;
     private float resultEndTime;
     private RoomPhase shownPhase = (RoomPhase)255;
-    private TMP_Text[] chamberMarks;
+    private GameObject[] chamberMarks;
     private int shownFired = -1;
     private Canvas debugCanvas;
     private bool debugVisible;
@@ -148,10 +152,10 @@ public class InGameHUD : MonoBehaviour
 
         shownFired = fired;
         for (int i = 0; i < chamberMarks.Length; i++)
-            if (chamberMarks[i] != null) chamberMarks[i].gameObject.SetActive(i >= fired);
+            if (chamberMarks[i] != null) chamberMarks[i].SetActive(i >= fired);
     }
 
-    // 탄창 그림(빈 탄실) 위에 ? 6개를 코드로 올린다
+    // 탄창 그림(roulette_line: 빈 탄실 테두리) 위에 ? 6개를 코드로 올린다
     private bool EnsureChamberMarks()
     {
         if (chamberMarks != null) return true;
@@ -164,10 +168,12 @@ public class InGameHUD : MonoBehaviour
         }
         if (cylinder == null) return false;
 
-        float size = Mathf.Min(cylinder.rect.width, cylinder.rect.height);
-        if (size <= 0f) return false;
+        float height = DrawnHeight(cylinder);
+        if (height <= 0f) return false;
 
-        chamberMarks = new TMP_Text[Chambers];
+        CreateCylinderFill();
+
+        chamberMarks = new GameObject[Chambers];
         for (int i = 0; i < Chambers; i++)
         {
             var go = new GameObject($"Mark_{i}", typeof(RectTransform));
@@ -177,22 +183,68 @@ public class InGameHUD : MonoBehaviour
 
             float angle = (90f - i * 60f) * Mathf.Deg2Rad;   // 맨 위부터 시계 방향
             rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
-            rt.anchoredPosition = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * size * chamberRadius;
-            rt.sizeDelta = Vector2.one * size * chamberMarkSize;
+            rt.anchoredPosition = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * height * chamberRadiusRatio;
+            rt.sizeDelta = Vector2.one * height * chamberMarkRatio;
 
-            var mark = go.AddComponent<TextMeshProUGUI>();
-            if (chamberText != null) mark.font = chamberText.font;
-            mark.text = "?";
-            mark.fontSize = size * chamberMarkSize * 1.1f;
-            mark.fontStyle = FontStyles.Bold;
-            mark.color = accentColor;
-            mark.alignment = TextAlignmentOptions.Center;
-            mark.textWrappingMode = TextWrappingModes.NoWrap;
-            mark.raycastTarget = false;
-            chamberMarks[i] = mark;
+            if (chamberMarkSprite != null)
+            {
+                var image = go.AddComponent<Image>();
+                image.sprite = chamberMarkSprite;
+                image.preserveAspect = true;
+                image.raycastTarget = false;
+            }
+            else
+            {
+                var mark = go.AddComponent<TextMeshProUGUI>();
+                if (chamberText != null) mark.font = chamberText.font;
+                mark.text = "?";
+                mark.fontSize = height * chamberMarkRatio * 0.6f;
+                mark.fontStyle = FontStyles.Bold;
+                mark.color = accentColor;
+                mark.alignment = TextAlignmentOptions.Center;
+                mark.textWrappingMode = TextWrappingModes.NoWrap;
+                mark.raycastTarget = false;
+            }
+            chamberMarks[i] = go;
         }
         shownFired = -1;
         return true;
+    }
+
+    // 테두리 그림 바로 뒤(앞 형제)에 같은 크기의 바탕을 깐다 → 남색 바탕 + 노란 테두리
+    private void CreateCylinderFill()
+    {
+        if (cylinderFillSprite == null || cylinder.parent == null) return;
+
+        var go = new GameObject("CylinderFill", typeof(RectTransform));
+        go.layer = cylinder.gameObject.layer;
+        var rt = (RectTransform)go.transform;
+        rt.SetParent(cylinder.parent, false);
+        rt.SetSiblingIndex(cylinder.GetSiblingIndex());   // 탄창보다 먼저 그려지게
+        rt.anchorMin = cylinder.anchorMin;
+        rt.anchorMax = cylinder.anchorMax;
+        rt.pivot = cylinder.pivot;
+        rt.anchoredPosition = cylinder.anchoredPosition;
+        rt.sizeDelta = cylinder.sizeDelta;
+        rt.localScale = cylinder.localScale;
+        rt.localRotation = cylinder.localRotation;
+
+        var image = go.AddComponent<Image>();
+        image.sprite = cylinderFillSprite;
+        image.preserveAspect = !cylinder.TryGetComponent(out Image line) || line.preserveAspect;
+        image.raycastTarget = false;
+    }
+
+    // 탄창 이미지가 비율 유지(Preserve Aspect)로 실제 그려지는 높이
+    private static float DrawnHeight(RectTransform rt)
+    {
+        Rect r = rt.rect;
+        if (rt.TryGetComponent(out Image image) && image.sprite != null && image.preserveAspect)
+        {
+            Vector2 s = image.sprite.rect.size;
+            if (s.x > 0f && s.y > 0f) return Mathf.Min(r.height, r.width * s.y / s.x);
+        }
+        return Mathf.Min(r.width, r.height);
     }
 
     // 테스트 버튼은 지울 수 없어서(아직 키보드로 카드를 내는 기능이 없음) 숨겨 두고 F1로 토글.

@@ -145,3 +145,10 @@ CONTINUE,계속하기
 Eliminated,탈락
 Survived,생존
 Player,플레이어
+# Loading (로비 → 인게임)
+Loading,로딩 중
+Jokers count as any card. Save them for when it matters.,조커는 어떤 카드로도 통합니다. 결정적인 순간을 위해 아껴 두세요.
+Call LIAR! only when you are sure... or when you feel lucky.,확신이 있을 때만 LIAR!를 외치세요... 아니면 운이 좋다고 느낄 때.
+Every pull of the trigger brings the bullet one chamber closer.,방아쇠를 당길 때마다 총알은 한 칸씩 가까워집니다.
+Empty your hand and you are safe until the next round.,패를 모두 털면 다음 라운드까지는 안전합니다.
+A calm face is the best bluff at the table.,침착한 표정이 테이블에서 가장 좋은 블러핑입니다.

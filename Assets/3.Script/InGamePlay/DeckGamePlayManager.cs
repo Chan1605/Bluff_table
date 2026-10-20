@@ -70,16 +70,36 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
 
         accumTurnIndex = 0;
         nextRoundStartSeat = UnityEngine.Random.Range(0, Players.Length);
-        RpcEntryInGame();
         StartCoroutine(StartRound_co());
     }
+
+    // 모든 플레이어가 테이블 씬을 다 불러오고 로딩 화면 최소 시간이 지나면(PlayerState.CmdSceneReady)
+    // 동시에 게임에 들어가고(RpcEntryInGame → 로딩 화면 닫힘), 잠깐 뒤 카드 연출 시작
+    private bool waitingLoad;
 
     [Server]
     private IEnumerator StartRound_co()
     {
+        waitingLoad = true;
+        float giveUp = Time.time + GameFlowTiming.SceneLoadTimeout;
+        while (!AllPlayersLoaded() && Time.time < giveUp) yield return null;
+        waitingLoad = false;
+
+        if (!AllPlayersLoaded()) Debug.Log("[인게임] : 씬 로딩 대기 시간 초과 - 그대로 시작");
+        else Debug.Log("[인게임] : 모든 플레이어 로딩 완료");
+
+        RpcEntryInGame();
         yield return new WaitForSeconds(GameFlowTiming.GameEntry);
 
         StartRound();
+    }
+
+    [Server]
+    private bool AllPlayersLoaded()
+    {
+        foreach (PlayerState p in Players)
+            if (p != null && !p.SceneReady) return false;
+        return true;
     }
 
     #region 게임 로직
@@ -676,8 +696,8 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             lastSubmittedcards = 0;
         }
 
-        // LIAR 연출 중이면 연출이 끝난 뒤 StartRound에서 인원을 다시 셈
-        if (isResolvingLiar) return;
+        // 로딩 대기 중이거나 LIAR 연출 중이면, 끝난 뒤 StartRound에서 인원을 다시 셈
+        if (waitingLoad || isResolvingLiar) return;
 
         int alive = 0;
         PlayerState survivor = null;
