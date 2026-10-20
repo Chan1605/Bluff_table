@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using LiarsBar.Server;
 
 public class PlayerState : NetworkBehaviour
 {
@@ -31,6 +32,7 @@ public class PlayerState : NetworkBehaviour
         Local = this;
         InGameEvent.OnCardsPlayed += SubmitCards;
         InGameEvent.OnPlayerEliminated += HandlePlayerEliminated;
+
 
     }
 
@@ -140,10 +142,15 @@ public class PlayerState : NetworkBehaviour
 
     private void HandlePlayerEliminated(int eliminatedSeat)
     {
-        if (eliminatedSeat == SeatNum)
-        {
-            StartCoroutine(TransitionToSpectator_co());
-        }
+
+        if (!isLocalPlayer) return;
+
+        if (!TryGetComponent<PlayerProfile>(out PlayerProfile pProfile)) return;
+
+        if (eliminatedSeat != pProfile.Seat) return;
+
+        StartCoroutine(TransitionToSpectator_co());
+
     }
 
     private IEnumerator TransitionToSpectator_co()

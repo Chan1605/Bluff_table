@@ -3,17 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Cinemachine;
 
+
 public class PlayerSpectator : MonoBehaviour
 {
     private SpectatorGroup specGroup;
-
+    public bool IsSpectating { get; private set; }
     public void StartSpectating()
     {
         specGroup = FindAnyObjectByType<SpectatorGroup>();
 
+        if (specGroup == null) return;
+
+        specGroup.ActivateSpectatorMode();
+        IsSpectating = true;
+    }
+
+    public void StopSpectating()
+    {
+        IsSpectating = false;
         if(specGroup != null)
         {
-            specGroup.ActivateSpectatorMode();
+            specGroup.DeActiveSpectatorMode();
+            specGroup = null;
         }
     }
 

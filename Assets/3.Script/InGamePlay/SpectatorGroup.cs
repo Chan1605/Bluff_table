@@ -9,12 +9,28 @@ public class SpectatorGroup : MonoBehaviour
 
     private int currentIndex = 0;
 
+    private void Awake()
+    {
+        DeActiveSpectatorMode();
+    }
+
     public void ActivateSpectatorMode()
     {
         if (virtualCameras.Length == 0) return;
         currentIndex = 0;
         UpdatePriorities();
 
+    }
+
+    public void DeActiveSpectatorMode()
+    {
+        foreach (CinemachineCamera cam in virtualCameras)
+        {
+            if (cam != null)
+            {
+                cam.Priority = 0;
+            }
+        }
     }
 
     public void ChangeCamera(int direction)
