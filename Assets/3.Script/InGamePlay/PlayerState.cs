@@ -83,6 +83,19 @@ public class PlayerState : NetworkBehaviour
         deckManager.CallLiar(SeatNum);
     }
 
+    // 스페이스(Look) → 패 펼치기 / 덮기를 모든 클라이언트에 알린다 (연출 전용, 게임 로직 영향 없음)
+    [Command]
+    public void CmdSetCardsOpen(bool open)
+    {
+        RpcCardsOpened(SeatNum, open);
+    }
+
+    [ClientRpc]
+    private void RpcCardsOpened(int seat, bool open)
+    {
+        InGameEvent.TriggerOnCardsOpened(seat, open);
+    }
+
     #region 플레이어 고개 움직임
     public void AssignHeadController(HeadController _headController)
     {

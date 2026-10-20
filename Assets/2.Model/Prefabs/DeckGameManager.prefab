@@ -138,7 +138,9 @@ MonoBehaviour:
   cardScale: 1
   liftAxis: {x: 0, y: 1, z: 0}
   liftDistance: 0.02
-  handLayoutReference: {fileID: 8286967540154381777, guid: 014f585d1bd33224087712caaf66bc78, type: 3}
+  handLayoutReferences:
+  - {fileID: 8286967540154381777, guid: 014f585d1bd33224087712caaf66bc78, type: 3}
+  - {fileID: 5195253182923310040, guid: b4448381f87e7394db1201c94376c090, type: 3}
   deckPointName: DeckPoint
   fallbackDeckHeight: 0.8
   pileCapacity: 24
@@ -146,3 +148,6 @@ MonoBehaviour:
   pileStackHeight: 0.002
   dealStartDelay: 0.2
   introTimeout: 15
+  handRotationFixes:
+  - controller: {fileID: 22100000, guid: df9a2fa5327f9fc4a9d88ac215aa8974, type: 2}
+    kartlarEuler: {x: -5.62, y: 300, z: 0}

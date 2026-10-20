@@ -166,6 +166,7 @@ public class PlayerController : NetworkBehaviour
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
         if (PlayerState.Local == null) return;
+        InGameEvent.TriggerOnLookRequested();   // 패 펼치기 (HandCardsSetup이 가능 여부 판단)
     }
 
     private void OnVoicePerformed(InputAction.CallbackContext context)
