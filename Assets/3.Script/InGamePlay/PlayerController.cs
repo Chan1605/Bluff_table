@@ -219,4 +219,97 @@ public class PlayerController : NetworkBehaviour
 
         InGameEvent.TriggerOnMenuOpened();
     }
+
+    #region 손패 고르기
+
+    private static int MySeat => PlayerProfile.Local != null ? PlayerProfile.Local.Seat : -1;
+
+    private void HandleRoundStarted(CardType card)
+    {
+        if (!isLocalPlayer) return;
+        handCount = 0;
+        myTurn = false;
+        ClearHand();
+    }
+
+    // 라운드 시작 손패 / 제출 후 남은 손패
+    private void HandleCardDealt(List<CardType> hand)
+    {
+        if (!isLocalPlayer) return;
+
+        handCount = hand != null ? hand.Count : 0;
+        selected.Clear();
+        PublishSelection();
+
+        cursor = myTurn && handCount > 0 ? Mathf.Clamp(cursor, 0, handCount - 1) : -1;
+        PublishCursor();
+    }
+
+    private void HandleTurnChanged(int seat)
+    {
+        if (!isLocalPlayer) return;
+
+        myTurn = seat == MySeat;
+        if (!myTurn)
+        {
+            ClearHand();
+            return;
+        }
+
+        cursor = handCount > 0 ? 0 : -1;
+        PublishCursor();
+    }
+
+    private void HandleCardsSubmitted(int seat, int count, int[] indices)
+    {
+        if (!isLocalPlayer || seat != MySeat) return;
+        selected.Clear();
+        PublishSelection();
+    }
+
+    private void HandleLiarCalled(int callerSeat, int loserSeat)
+    {
+        if (!isLocalPlayer) return;
+        myTurn = false;
+        ClearHand();
+    }
+
+    private void MoveCursor(int step)
+    {
+        if (!myTurn || handCount <= 0) return;
+
+        cursor = cursor < 0 ? 0 : (cursor + step + handCount) % handCount;
+        PublishCursor();
+    }
+
+    private void ToggleSelected()
+    {
+        if (!myTurn || cursor < 0 || cursor >= handCount) return;
+
+        if (selected.Contains(cursor)) selected.Remove(cursor);
+        else if (selected.Count < MaxSelect) selected.Add(cursor);
+        else return;
+
+        PublishSelection();
+    }
+
+    private void Deselect()
+    {
+        if (!myTurn || !selected.Remove(cursor)) return;
+        PublishSelection();
+    }
+
+    private void ClearHand()
+    {
+        selected.Clear();
+        cursor = -1;
+        lastSelectInput = Vector2.zero;
+        PublishSelection();
+        PublishCursor();
+    }
+
+    private void PublishSelection() => InGameEvent.TriggerOnHandSelectionChanged(selected);
+    private void PublishCursor() => InGameEvent.TriggerOnHandCursorChanged(cursor);
+
+    #endregion
 }
