@@ -187,6 +187,15 @@ public class PlayerState : NetworkBehaviour
             pProfile.Phase != RoomPhase.Playing)
             yield break;
 
+        if (headController != null)
+        {
+            FirstPersonHeadHider headHider = headController.transform.root.GetComponentInChildren<FirstPersonHeadHider>();
+            if (headHider != null)
+            {
+                headHider.enabled = false;
+            }
+        }
+
         if (headController != null && headController.firstPersonCamera != null)
         {
             headController.firstPersonCamera.Priority = 0;
