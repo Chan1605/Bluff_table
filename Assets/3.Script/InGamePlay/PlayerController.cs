@@ -120,6 +120,20 @@ public class PlayerController : NetworkBehaviour
 
         Vector2 direction = context.ReadValue<Vector2>();
 
+        // TODO 사망 상태 분기
+        if (pState.isDead)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                if(TryGetComponent(out PlayerSpectator spectator))
+                {
+                    if (direction.x < -0.5f) spectator.OnSpectateInput(-1);
+                    else if (direction.x > 0.5f) spectator.OnSpectateInput(1);
+                }
+            }
+            return;
+        }
+
         // TODO 인게임 UI와 연동
 
         if (direction.x < 0) // 좌
