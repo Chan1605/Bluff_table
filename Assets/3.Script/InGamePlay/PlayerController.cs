@@ -88,8 +88,8 @@ public class PlayerController : NetworkBehaviour
         if (!isLocalPlayer ||
             inputActions == null ||
             !inputActions.Player.enabled ||
-            headController == null||
-            (pState != null && pState.isDead))
+            headController == null
+            )
             return;
 
 
