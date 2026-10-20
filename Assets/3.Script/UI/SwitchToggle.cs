@@ -26,6 +26,17 @@ public class SwitchToggle : MonoBehaviour
 
     private void OnEnable()
     {
+        Localization.LanguageChanged += Redraw;
+        Redraw();
+    }
+
+    private void OnDisable()
+    {
+        Localization.LanguageChanged -= Redraw;
+    }
+
+    private void Redraw()
+    {
         initialized = false;
         LateUpdate();
     }
@@ -39,7 +50,7 @@ public class SwitchToggle : MonoBehaviour
         shown = isOn;
 
         if (knob != null) knob.anchoredPosition = new Vector2(isOn ? onX : offX, knob.anchoredPosition.y);
-        if (stateText != null) stateText.text = isOn ? "ON" : "OFF";
+        if (stateText != null) stateText.text = Localization.Get(isOn ? "ON" : "OFF");
         if (knobGraphic != null) knobGraphic.color = isOn ? onColor : offColor;
     }
 }

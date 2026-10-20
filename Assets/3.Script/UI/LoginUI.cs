@@ -71,12 +71,12 @@ public class LoginUI : MonoBehaviour
 
         if (string.IsNullOrWhiteSpace(nick))
         {
-            messageText.text = "Please enter your nickname.";
+            messageText.text = Localization.Get("Please enter your nickname.");
             return;
         }
         if (string.IsNullOrEmpty(password))
         {
-            messageText.text = "Please enter your password.";
+            messageText.text = Localization.Get("Please enter your password.");
             return;
         }
 
@@ -98,7 +98,7 @@ public class LoginUI : MonoBehaviour
             yield break;
         }
 
-        messageText.text = "Connecting to server...";
+        messageText.text = Localization.Get("Connecting to server...");
 
         // 아직 접속 전이면 접속 시작 (Host로 이미 접속돼 있으면 건너뜀)
         bool startedByUs = false;
@@ -125,7 +125,7 @@ public class LoginUI : MonoBehaviour
                     triedDevHost = true;
                     if (NetworkClient.active) manager.StopClient();
 
-                    messageText.text = "No server found. Starting dev host...";
+                    messageText.text = Localization.Get("No server found. Starting dev host...");
                     manager.StartHostSafely();
                     elapsed = 0f;
                     continue;
@@ -173,7 +173,7 @@ public class LoginUI : MonoBehaviour
             yield return null;
         }
 
-        messageText.text = "Logging in...";
+        messageText.text = Localization.Get("Logging in...");
         Auth.Login(nick, password, OnLoginResult);
     }
 
@@ -190,7 +190,7 @@ public class LoginUI : MonoBehaviour
 
     private void Fail(string msg)
     {
-        messageText.text = msg;
+        messageText.text = Localization.Get(msg);
         SetBusy(false);
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-// 세팅 탭 하나(디스플레이/게임플레이/그래픽/오디오)가 구현하는 약속
+// 세팅 탭 하나(디스플레이/게임플레이/그래픽/오디오)가 구현
 public interface ISettingsSection
 {
     void Reload();          // 저장된 값으로 UI를 되돌림 (적용 안 한 변경은 버림)
@@ -63,6 +63,8 @@ public class SettingsMenuUI : MonoBehaviour
         if (applyBtn != null) applyBtn.onClick.AddListener(OnClickApply);
         if (restoreBtn != null) restoreBtn.onClick.AddListener(OnClickRestore);
 
+        Localization.LanguageChanged += OnLanguageChanged;
+
         ReloadSections(); // 열 때마다 저장된 값으로 초기화
         SelectTab(-1);
     }
@@ -75,6 +77,21 @@ public class SettingsMenuUI : MonoBehaviour
         if (backBtn != null) backBtn.onClick.RemoveListener(OnClickBack);
         if (applyBtn != null) applyBtn.onClick.RemoveListener(OnClickApply);
         if (restoreBtn != null) restoreBtn.onClick.RemoveListener(OnClickRestore);
+        Localization.LanguageChanged -= OnLanguageChanged;
+    }
+
+    // 언어를 바꿔 Apply 하면 헤더(탭 이름)와 가로선 위치도 다시 맞춤.
+    // SETTINGS 글자(LocalizedText)가 먼저 바뀐 뒤 재야 해서 프레임 끝에서 처리
+    private bool relayout;
+
+    private void OnLanguageChanged() { relayout = true; }
+
+    private void LateUpdate()
+    {
+        if (!relayout) return;
+
+        relayout = false;
+        if (current >= 0) SelectTab(current);
     }
 
     // -1 = 탭 선택 없음 (목록 화면)
@@ -90,7 +107,7 @@ public class SettingsMenuUI : MonoBehaviour
         bool open = index >= 0;
         if (headerTabText != null)
         {
-            headerTabText.text = open ? tabs[index].title : string.Empty;
+            headerTabText.text = open ? Localization.Get(tabs[index].title) : string.Empty;
             if (open) LayoutHeaderTab();
         }
         if (headerLine != null)

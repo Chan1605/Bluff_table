@@ -856,6 +856,7 @@ GameObject:
   - component: {fileID: 3100105218591184808}
   - component: {fileID: 1423367072958748144}
   - component: {fileID: 5006634179399710546}
+  - component: {fileID: 18799278203372512}
   m_Layer: 5
   m_Name: PWinfo
   m_TagString: Untagged
@@ -981,6 +982,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &18799278203372512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4932836003234706850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a346d1a8ff45d94c802e1a005c930b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: 
 --- !u!1 &5605119469265768559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,6 +1374,7 @@ GameObject:
   - component: {fileID: 3284520850937339332}
   - component: {fileID: 8006095981190025747}
   - component: {fileID: 9128572429675090862}
+  - component: {fileID: 322150250099210773}
   m_Layer: 5
   m_Name: IDinfo
   m_TagString: Untagged
@@ -1485,6 +1500,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &322150250099210773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862426243645163857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a346d1a8ff45d94c802e1a005c930b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: 
 --- !u!1 &7012574367863171399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,6 +1862,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoginUI
   LoginPanel: {fileID: 8642491487654105048}
   LoginBtn: {fileID: 650132866091432209}
+  nickInput: {fileID: 0}
+  passwordInput: {fileID: 0}
+  messageText: {fileID: 0}
+  devHostFallback: 1
 --- !u!1 &8828834529102292331
 GameObject:
   m_ObjectHideFlags: 0

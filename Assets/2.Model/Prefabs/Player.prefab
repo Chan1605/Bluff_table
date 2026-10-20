@@ -368,23 +368,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &803525390181823009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3367960496955974029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db21705d242e49dfb519b66e685493e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LobbyCameraFraming
-  lookOffset: {x: 0.3, y: 0.15, z: 0}
-  cameraHeight: 0.55
-  sideMargin: 1.2
-  fieldOfView: 40
-  priority: 50
 --- !u!4 &2203205262974604104
 Transform:
   m_ObjectHideFlags: 0
@@ -417,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
   sceneId: 0
-  _assetId: 3649857764
+  _assetId: 0
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
@@ -573,11 +556,29 @@ MonoBehaviour:
   characterNameText: {fileID: 4801247950578337686}
   lineAnimator: {fileID: 6840759336624696599}
   lineState: SelAnimation
+  labelAnchor: {x: 0.24, y: 0.35, z: 0}
   nameplate: {fileID: 2921341237669029963}
   nicknameText: {fileID: 8464469511911837257}
-  labelAnchor: {x: 0.24, y: 0.35, z: 0}
   readyMark: {fileID: 126902794455025753}
-  faceCamera: 1
+  nameplateAnchor: {x: 0, y: -1, z: 0}
+  nameplateMinY: 110
+--- !u!114 &803525390181823009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367960496955974029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db21705d242e49dfb519b66e685493e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyCameraFraming
+  lookOffset: {x: 0.3, y: 0.15, z: 0}
+  cameraHeight: 0.55
+  sideMargin: 1.2
+  fieldOfView: 40
+  priority: 50
 --- !u!1 &3605630605561239610
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +726,7 @@ GameObject:
   - component: {fileID: 6812084938443127528}
   - component: {fileID: 939618092358792253}
   - component: {fileID: 3357081974813558980}
+  - component: {fileID: 3052344452574207869}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -850,6 +852,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3052344452574207869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317862985498700618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a346d1a8ff45d94c802e1a005c930b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: 
 --- !u!1 &5501153235607848692
 GameObject:
   m_ObjectHideFlags: 0
