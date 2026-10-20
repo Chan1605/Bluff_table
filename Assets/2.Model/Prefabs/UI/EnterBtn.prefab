@@ -214,7 +214,6 @@ MonoBehaviour:
   duration: 0.15
   showEase: 6
   hideEase: 5
-  EnterBtn: {fileID: 8263273757261442156}
 --- !u!1 &7064710993974109782
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +225,7 @@ GameObject:
   - component: {fileID: 6264542167975652461}
   - component: {fileID: 2284054344138895333}
   - component: {fileID: 4634051842878553721}
+  - component: {fileID: 1232901233344558651}
   m_Layer: 5
   m_Name: 'EnterText '
   m_TagString: Untagged
@@ -351,3 +351,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1232901233344558651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064710993974109782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a346d1a8ff45d94c802e1a005c930b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: 

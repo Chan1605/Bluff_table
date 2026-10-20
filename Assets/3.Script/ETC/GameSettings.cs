@@ -55,7 +55,7 @@ public static class GameSettings
     public static readonly string[] ShadowNames = { "Off", "Low", "Medium", "High" };
     public static readonly string[] AntiAliasingNames = { "Off", "FXAA", "SMAA", "TAA" };
     public static readonly string[] PresetNames = { "Low", "Medium", "High", "Custom" };
-    public static readonly string[] LanguageNames = { "English", "Korean" };
+    public static readonly string[] LanguageNames = { "English", "한국어" };   // 각 언어 자기 이름으로 표시
     public static readonly string[] ControllerNames = { "Keyboard", "Gamepad" };
     public const int CustomPreset = 3;
 
@@ -150,6 +150,7 @@ public static class GameSettings
         RenderSettings.fog = Fog && sceneFogDefault;
 
         AudioListener.volume = MainVolume;
+        Localization.SetLanguage(Language);
 
         Changed?.Invoke();
     }

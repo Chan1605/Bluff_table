@@ -1,0 +1,116 @@
+﻿# 번역 표: 첫 칸 = 화면에 쓰인 영어 원문(정확히 같은 글자), 둘째 칸 = 한국어. 쉼표가 들어가면 "따옴표"로 감싸기
+en,ko
+# Title
+ENTER THE BAR,바에 입장
+SETTINGS,설정
+TABLE STORIES,테이블 이야기
+VELVET ROOM,벨벳 룸
+EXIT,나가기
+Do you want to leave the game?,게임을 종료하시겠습니까?
+Leave,나가기
+Back,뒤로
+# Login
+ID,아이디
+PW,비밀번호
+Enter your ID,아이디를 입력하세요
+Enter your PW,비밀번호를 입력하세요
+Please enter your nickname.,닉네임을 입력하세요.
+Please enter your password.,비밀번호를 입력하세요.
+Network manager not found.,네트워크 매니저를 찾을 수 없습니다.
+Server is preparing. Please try again shortly.,서버를 준비하는 중입니다. 잠시 후 다시 시도해 주세요.
+Connecting to server...,서버에 연결하는 중...
+No server found. Starting dev host...,서버가 없어 개발용 호스트를 시작합니다...
+Dev host failed. Check DB settings.,개발용 호스트 시작에 실패했습니다. DB 설정을 확인하세요.
+Connection failed. Check the server.,연결에 실패했습니다. 서버를 확인하세요.
+"Connected, but player is not ready.","연결되었지만 플레이어가 준비되지 않았습니다."
+Connection timed out.,연결 시간이 초과되었습니다.
+Logging in...,로그인 중...
+# Play / Host / Lobby list
+PLAY,플레이
+HOST GAME,방 만들기
+LOBBY LIST,로비 목록
+Lobby List,로비 목록
+LOBBY NAME:,로비 이름:
+LOBBY TYPE:,로비 유형:
+Public,공개
+Private,비공개
+Please enter a lobby name.,로비 이름을 입력하세요.
+Creating lobby...,로비를 만드는 중...
+JOIN,입장
+No lobbies found.,로비가 없습니다.
+Not connected to server.,서버에 연결되어 있지 않습니다.
+No available lobby.,입장할 수 있는 로비가 없습니다.
+ID input is not available.,ID 입력창을 사용할 수 없습니다.
+Please enter a lobby ID.,로비 ID를 입력하세요.
+Lobby not found.,로비를 찾을 수 없습니다.
+Joining lobby...,로비에 입장하는 중...
+# Room lobby
+LEAVE,나가기
+READY,준비
+WAITING,대기 중
+START,시작
+Starting...,시작하는 중...
+LOBBY ID,로비 ID
+PRESS ENTET TO CHAT,Enter를 눌러 채팅
+PRESS ENTER TO CHAT,Enter를 눌러 채팅
+ARCADE,아케이드
+CHANGE CHARACTER,캐릭터 변경
+# Loading
+Setting up your table,테이블을 준비하는 중
+Setting up your table...,테이블을 준비하는 중...
+Connecting.Please Wait,접속 중입니다. 잠시만 기다려 주세요
+Loading lobbies,로비를 불러오는 중
+Returning to Lobby,로비로 돌아가는 중
+# Settings - tabs / buttons
+DISPLAY,디스플레이
+GAMEPLAY,게임플레이
+GRAPHICS,그래픽
+AUDIO,오디오
+Apply,적용
+ReStore Defaults,기본값 복원
+Restore Defaults,기본값 복원
+# Settings - rows
+Resolution,해상도
+VSync,수직 동기화
+Max Fps,최대 FPS
+Window Mode,창 모드
+Brightness,밝기
+Language,언어
+Mouse Sensitivity,마우스 감도
+Controller,컨트롤러
+Quality Presets,품질 프리셋
+Quality,품질
+Anti-Aliasing,안티앨리어싱
+Anti-Aliasing Quality,안티앨리어싱 품질
+Texture Quality,텍스처 품질
+Shadow Quality,그림자 품질
+Fog,안개
+Film Grain,필름 그레인
+Panini Projection,파니니 투영
+Vignette,비네트
+Main Volume,전체 볼륨
+Music Volume,음악 볼륨
+Dialogue Volume,대사 볼륨
+# Settings - values
+Off,끔
+On,켬
+ON,켜짐
+OFF,꺼짐
+Low,낮음
+Medium,중간
+High,높음
+Custom,사용자 지정
+Keyboard,키보드
+Gamepad,게임패드
+Unlimited,무제한
+# Settings - graphics hints
+Sets all graphics options below at once.,아래 그래픽 옵션을 한 번에 설정합니다.
+Overall rendering quality level.,전체 렌더링 품질 단계입니다.
+"Smooths jagged edges. TAA looks best, FXAA is fastest.","계단 현상을 부드럽게 합니다. TAA가 가장 깔끔하고, FXAA가 가장 가볍습니다."
+Quality of the anti-aliasing filter.,안티앨리어싱 필터의 품질입니다.
+Changes how sharp and detailed surfaces look.,표면이 얼마나 선명하고 세밀하게 보이는지 바꿉니다.
+Quality of shadows cast by lights. Off disables shadows.,조명이 만드는 그림자의 품질입니다. 끄면 그림자가 사라집니다.
+Atmospheric fog in the scene.,장면의 안개 효과입니다.
+Adds a subtle film grain over the image.,화면에 은은한 필름 질감을 더합니다.
+Reduces stretching at the edges of the screen.,화면 가장자리가 늘어나 보이는 현상을 줄입니다.
+Darkens the corners of the screen.,화면 모서리를 어둡게 합니다.

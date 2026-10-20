@@ -76,7 +76,7 @@ public class LobbyListUI : MonoBehaviour
 
     private void SetMessage(string text)
     {
-        if (messageText != null) messageText.text = text;
+        if (messageText != null) messageText.text = Localization.Get(text);   // 영어 고정 문구만 번역, 서버 메시지는 그대로
     }
 
     // RoomList.Rooms를 줄(row)로 그림. 줄은 재사용하고 남는 줄만 끈다.
@@ -115,7 +115,7 @@ public class LobbyListUI : MonoBehaviour
 
         if (emptyText != null)
         {
-            string empty = connected ? "No lobbies found." : "Not connected to server.";
+            string empty = Localization.Get(connected ? "No lobbies found." : "Not connected to server.");
             emptyText.gameObject.SetActive(shown == 0);
             if (emptyText.text != empty) emptyText.text = empty;
         }
