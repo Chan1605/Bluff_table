@@ -157,6 +157,10 @@ public class PlayerState : NetworkBehaviour
     {
         yield return new WaitForSeconds(GameFlowTiming.TransitionSpectator); // 처형 애니메이션 재생 시간
 
+        if (!TryGetComponent<PlayerProfile>(out PlayerProfile pProfile) ||
+            pProfile.Phase != RoomPhase.Playing)
+            yield break;
+
         if (headController != null && headController.firstPersonCamera != null)
         {
             headController.firstPersonCamera.Priority = 0;
