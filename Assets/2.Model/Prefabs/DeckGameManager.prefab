@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5861158085028410770}
   - component: {fileID: 7656095659767078163}
   - component: {fileID: 197558198556297049}
+  - component: {fileID: -2980974807009924937}
   m_Layer: 0
   m_Name: DeckGameManager
   m_TagString: Untagged
@@ -163,3 +164,25 @@ MonoBehaviour:
     - {fileID: 4300000, guid: 919eb0926eadab04ca503da24d5bbef0, type: 2}
     - {fileID: 4300000, guid: 473422d789114f340ab82279e3d55226, type: 2}
     - {fileID: 4300000, guid: 2061b0df21fc9824495ef05c56c03392, type: 2}
+--- !u!114 &-2980974807009924937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4001995943901237328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d46122b8a410e4ab76d34250c0be9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GamePlayAudio
+  audoSource: {fileID: 0}
+  deck_BGM: {fileID: 8300000, guid: 8b3aa17b273a5f5469867d2363037fa8, type: 3}
+  deck_AMB: {fileID: 8300000, guid: d1542f3fa1d9e1b44af4ee0cdf8091b2, type: 3}
+  gameStart_SFX: {fileID: 8300000, guid: 823225d47c1498246af35dd4319a8b5f, type: 3}
+  cardFlip_SFX: {fileID: 8300000, guid: d14b0b87a586545468751e047712dc65, type: 3}
+  cardCollect_SFX: {fileID: 8300000, guid: aacd1d43f15c42d4aa02034b5cd6d598, type: 3}
+  cardDivide_SFX: {fileID: 8300000, guid: 697b853d4f8f16544a6e57d9574f5218, type: 3}
+  whistle_SFX: {fileID: 0}
+  cardThrow_SFX: {fileID: 8300000, guid: d14b0b87a586545468751e047712dc65, type: 3}
+  hitTable_SFX: {fileID: 0}

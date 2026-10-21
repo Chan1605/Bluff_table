@@ -2130,6 +2130,59 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &995562153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995562155}
+  - component: {fileID: 995562154}
+  m_Layer: 0
+  m_Name: CharacterAudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &995562154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995562153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f9c230f2cf5fd44b523271faede26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAudio
+  gunSource: {fileID: 0}
+  voiceSource: {fileID: 0}
+  emoteClips: []
+  deathClip: {fileID: 0}
+  gunShot: {fileID: 8300000, guid: bd8cef973af0bae45b2d6f1b3ee7796b, type: 3}
+  gunReload: {fileID: 8300000, guid: 35a5497fef500a94f8dd38afb394a762, type: 3}
+  bullet: {fileID: 8300000, guid: 3a897f4dfecf5a64f9a9db803a1ef9d3, type: 3}
+  spin: {fileID: 8300000, guid: 6ff5c2aac8cc03d47b8e00676224956a, type: 3}
+  bloodSFX: {fileID: 8300000, guid: 5fd9d339dd788484889c768abb55d80c, type: 3}
+--- !u!4 &995562155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995562153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.75809, y: 0, z: -3.0234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1017182060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3611,3 +3664,4 @@ SceneRoots:
   - {fileID: 1984967438}
   - {fileID: 283858165}
   - {fileID: 2136457503}
+  - {fileID: 995562155}
