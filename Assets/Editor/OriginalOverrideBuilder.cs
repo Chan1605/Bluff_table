@@ -31,6 +31,8 @@ public static class OriginalOverrideBuilder
         { "Bristle_silah_trigger", "Roulet" },        // 총 집기 → 머리에 대기 → 방아쇠
         { "Bristle_silah_bos_0", "RouletEmpty" },     // 빈 약실 → 안도 → 내려놓기
         { "Bristle_silah_dolu_uzun", "Dead" },        // 발사 → 사망
+        { "bristle_win_deck", "Winner" },             // 마지막 1인 승리
+        { "Bristle_reloadyeni", "ScubyReload" },      // 게임 시작 장전 → 테이블에 내려놓기
     };
 
     [MenuItem("Tools/원작 캐릭터/선택한 Sit 프리팹 Override 만들기")]
