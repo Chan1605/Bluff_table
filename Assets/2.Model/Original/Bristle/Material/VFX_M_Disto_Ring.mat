@@ -198,7 +198,7 @@ Material:
     - _TextureChannel: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &8373969490931297004
+--- !u!114 &6946281094529232725
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
