@@ -8,6 +8,13 @@ public class SeatedPose : MonoBehaviour
     [SerializeField] Transform seatPoint;          
     [SerializeField] Vector3 extraOffset;          // 캐릭터별 미세 보정
 
+    [Header("원작 배치 (켜면 엉덩이 대신 캐릭터 루트를 의자 기준 원작 위치에 둔다)")]
+    [SerializeField] bool useOriginalOffset;
+    [Tooltip("원작 프리팹의 '몸체 위치 − 의자 위치' (원작 단위, 캐릭터 앞 = +z). 캐릭터마다 다름")]
+    [SerializeField] Vector3 originalOffset;
+    [Tooltip("원작 → 우리 크기 비율 (Bristle 0.9 → 1.5)")]
+    [SerializeField] float originalScale = 1.5f / 0.9f;
+
     [Header("발 IK (다리 짧은 캐릭터는 비워 두기)")]
     [SerializeField] Transform leftFootTarget, rightFootTarget;
     [SerializeField] Transform leftKneeHint, rightKneeHint;
@@ -65,6 +72,16 @@ public class SeatedPose : MonoBehaviour
         if (seatPoint.IsChildOf(transform))
         {
             Debug.LogError($"{name}: SeatPoint가 ModelRoot 아래에 있습니다. 의자 쪽으로 옮기세요.", this);
+            return;
+        }
+
+        // 원작 배치: 의자 루트(SitPoint의 부모) 기준으로 캐릭터 루트를 원작과 같은 자리에 둔다.
+        // 의자 · 테이블 높이가 모두 같고 캐릭터별 차이는 원작 데이터에서 오므로, Extra Offset은 모든 캐릭터가 같은 값을 쓴다
+        if (useOriginalOffset)
+        {
+            Transform chair = seatPoint.parent != null ? seatPoint.parent : seatPoint;
+            transform.position = chair.position + transform.rotation * (originalOffset * originalScale + extraOffset);
+            aligned = true;
             return;
         }
 
