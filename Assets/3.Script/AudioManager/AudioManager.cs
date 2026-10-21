@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
 
 
     [SerializeField] private AudioSource bgmAudio;
+    [SerializeField] private AudioSource ambAudio;
     [SerializeField] private AudioSource sfxAudio;
 
     private List<AudioSource> sfxPool = new List<AudioSource>();
@@ -65,6 +66,16 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    public void PlayAMB(AudioClip clip)
+    {
+        if (clip == null || ambAudio == null) return;
+
+        ambAudio.clip = clip;
+        ambAudio.loop = true;
+        ambAudio.Play();
+
+    }
+
     public void StopBGM()
     {
         bgmAudio.Stop();
@@ -80,6 +91,7 @@ public class AudioManager : MonoBehaviour
     {
         if (clip == null || source == null) return;
         source.PlayOneShot(clip);
+        Debug.Log($"[SFX 재생] {clip.name} / Source: {source.GetInstanceID()}");
     }
 
 

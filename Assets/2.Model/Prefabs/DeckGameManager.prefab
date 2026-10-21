@@ -194,6 +194,12 @@ MonoBehaviour:
   whistle_SFX: {fileID: 8300000, guid: ba24271dc9f1abc4fb8149b1f04e6fae, type: 3}
   cardThrow_SFX: {fileID: 8300000, guid: d14b0b87a586545468751e047712dc65, type: 3}
   hitTable_SFX: {fileID: 8300000, guid: bb0cb63b5a157764eac015000cd35373, type: 3}
+  f_divideStart: 0
+  f_flipStart: 1.2
+  f_gether: 1
+  f_tableOpen: 1
+  f_tableClose: 4
+  f_dealt: 1
 --- !u!82 &-1662113126953524403
 AudioSource:
   m_ObjectHideFlags: 0

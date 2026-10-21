@@ -79492,8 +79492,8 @@ GameObject:
   - component: {fileID: 3617142221198991084}
   - component: {fileID: 7451720054844509831}
   - component: {fileID: 1540763985822403984}
-  - component: {fileID: -5773466139200250222}
   - component: {fileID: 3464089929297176114}
+  - component: {fileID: 545006120513125538}
   m_Layer: 0
   m_Name: Foxy_Sit
   m_TagString: Untagged
@@ -79578,27 +79578,6 @@ MonoBehaviour:
   leftKneeHint: {fileID: 0}
   rightKneeHint: {fileID: 0}
   footWeight: 1
---- !u!114 &-5773466139200250222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6000796832067855510}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4f9c230f2cf5fd44b523271faede26f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterAudio
-  gunSource: {fileID: 0}
-  voiceSource: {fileID: 3464089929297176114}
-  emoteClips: []
-  deathClip: {fileID: 0}
-  gunShot: {fileID: 0}
-  gunReload: {fileID: 0}
-  bullet: {fileID: 0}
-  spin: {fileID: 0}
-  bloodSFX: {fileID: 0}
 --- !u!82 &3464089929297176114
 AudioSource:
   m_ObjectHideFlags: 0
@@ -79606,7 +79585,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6000796832067855510}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -79696,6 +79675,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &545006120513125538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000796832067855510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f9c230f2cf5fd44b523271faede26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAudio
+  gunSource: {fileID: 0}
+  voiceSource: {fileID: 3464089929297176114}
+  emoteClips: []
+  deathClip: {fileID: 0}
+  gunShot: {fileID: 0}
+  gunReload: {fileID: 0}
+  bullet: {fileID: 0}
+  spin: {fileID: 0}
+  bloodSFX: {fileID: 0}
 --- !u!1 &6049676966476017906
 GameObject:
   m_ObjectHideFlags: 0

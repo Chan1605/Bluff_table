@@ -51845,8 +51845,8 @@ GameObject:
   - component: {fileID: 5320150068189842218}
   - component: {fileID: 1213719767826725482}
   - component: {fileID: 3195001552008774336}
-  - component: {fileID: -7736927095857943941}
   - component: {fileID: 9026925299706745922}
+  - component: {fileID: -7626647525774252829}
   m_Layer: 0
   m_Name: Dubai_Sit
   m_TagString: Untagged
@@ -51940,27 +51940,6 @@ MonoBehaviour:
   leftKneeHint: {fileID: 0}
   rightKneeHint: {fileID: 0}
   footWeight: 1
---- !u!114 &-7736927095857943941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5538656462777928958}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4f9c230f2cf5fd44b523271faede26f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterAudio
-  gunSource: {fileID: 0}
-  voiceSource: {fileID: 9026925299706745922}
-  emoteClips: []
-  deathClip: {fileID: 0}
-  gunShot: {fileID: 0}
-  gunReload: {fileID: 0}
-  bullet: {fileID: 0}
-  spin: {fileID: 0}
-  bloodSFX: {fileID: 0}
 --- !u!82 &9026925299706745922
 AudioSource:
   m_ObjectHideFlags: 0
@@ -51968,7 +51947,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5538656462777928958}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -52058,6 +52037,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7626647525774252829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5538656462777928958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f9c230f2cf5fd44b523271faede26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAudio
+  gunSource: {fileID: 0}
+  voiceSource: {fileID: 9026925299706745922}
+  emoteClips: []
+  deathClip: {fileID: 0}
+  gunShot: {fileID: 0}
+  gunReload: {fileID: 0}
+  bullet: {fileID: 0}
+  spin: {fileID: 0}
+  bloodSFX: {fileID: 0}
 --- !u!1 &5548675505046853458
 GameObject:
   m_ObjectHideFlags: 0

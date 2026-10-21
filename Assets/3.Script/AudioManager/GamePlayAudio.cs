@@ -27,6 +27,14 @@ public class GamePlayAudio : MonoBehaviour
 
     private List<AudioSource> sfxPool = new List<AudioSource>();
 
+    [Header("딜링 사운드 조절")]
+    [SerializeField] private float f_divideStart = 0f;
+    [SerializeField] private float f_flipStart = 0f;
+    [SerializeField] private float f_gether = 0f;
+    [SerializeField] private float f_tableOpen = 0f;
+    [SerializeField] private float f_tableClose = 0f;
+    [SerializeField] private float f_dealt = 0f;
+
     private AudioSource GetAvailablesource()
     {
         foreach (AudioSource source in sfxPool)
@@ -54,9 +62,7 @@ public class GamePlayAudio : MonoBehaviour
         {
             sfxPool.Add(audioSource);
         }
-    }
-    private void Start()
-    {
+
         InGameEvent.OnEntryInGame += EntrySound;
         InGameEvent.OnDeckListShown += DeckListShownSound;
         InGameEvent.OnCardsSubmitted += SubmitSound;
@@ -80,6 +86,9 @@ public class GamePlayAudio : MonoBehaviour
 
     public void DeckListShownSound(bool b)
     {
+        Debug.Log($"[GamePlayAudio {GetInstanceID()}] DeckListShown: {b}");
+        if (!b) return;
+
         StartCoroutine(cardShuffleSound_co());
     }
 
@@ -105,34 +114,46 @@ public class GamePlayAudio : MonoBehaviour
 
     private IEnumerator cardShuffleSound_co()
     {
+        Debug.Log("카드 섞기 사운드 출력");
+        yield return new WaitForSeconds(f_divideStart);
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardDivide_SFX);
-        AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardThrow_SFX);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(f_flipStart);
 
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardFlip_SFX);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(f_gether);
 
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardCollect_SFX);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(f_tableOpen);
 
-        AudioManager.Instance.Play3DSFX(GetAvailablesource(), whistle_SFX);
+        AudioManager.Instance.PlaySFX(whistle_SFX);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(f_tableClose);
 
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardDivide_SFX);
+        yield return new WaitForSeconds(f_dealt);
+        /*
+        AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardDivide_SFX);
+        yield return new WaitForSeconds(f_dealt);
+
+        AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardDivide_SFX);
+        yield return new WaitForSeconds(f_dealt);
+
+        AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardDivide_SFX);
+        */
     }
 
     private IEnumerator cardOpenSound_co(int cards) 
     {
-        yield return null; // 한번에 뒤집기
+        yield return 0.5; // 한번에 뒤집기
                            // 따로 뒤집을 경우 반복문 추가
 
-        AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardDivide_SFX);
+        AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardFlip_SFX);
     }
 
     #endregion
 
 }
+ 
