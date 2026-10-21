@@ -15,8 +15,8 @@ public static class GameFlowTiming
 
     public const float LiarCallPause = 1f;      // "LIAR!" 선언 후 카드를 뒤집기 전까지
     public const float LierReveal = 2.5f;       // 낸 카드를 뒤집어 초록(맞음) / 빨강(틀림)으로 보여 주는 시간
-    public const float RouletteAnimation = 1f;
-    public const float ResultDisplay = 2f;
+    public const float RouletteAnimation = 4.1f;  // 총 집기 → 머리에 대기 → 방아쇠 (원작 silah_trigger 클립 3.87~4초 + 전환). 이 순간 결과를 반영한다
+    public const float ResultDisplay = 3f;        // 발사 / 빈 약실 이후 (silah_bos 약 2.7초, 사망은 관전 전환 2.5초) → 다음 라운드
     public const float WinnerSeq = 10f;
 
     public const float TransitionSpectator = 2.5f;

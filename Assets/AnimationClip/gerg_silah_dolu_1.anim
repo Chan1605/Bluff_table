@@ -650,7 +650,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xAF257458_PouiQVN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver/Hammer'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1287,7 +1287,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x913DFE4C_qNmRNpL
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1312,7 +1312,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1337,7 +1337,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x66DCE293_UwkNMnN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1362,7 +1362,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x11DBD205_VjMOVtN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart5'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1387,7 +1387,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF8B87730_mSttrTL
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1412,7 +1412,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x8FBF47A6_PwNrQhH
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1437,7 +1437,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x16B6161C_TNkJlNN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart1'
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -2075,7 +2075,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x913DFE4C_qNmRNpL
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2100,7 +2100,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2125,7 +2125,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xAF257458_PouiQVN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver/Hammer'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2150,7 +2150,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x66DCE293_UwkNMnN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2175,7 +2175,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x11DBD205_VjMOVtN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart5'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2200,7 +2200,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF8B87730_mSttrTL
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2225,7 +2225,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x8FBF47A6_PwNrQhH
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2250,7 +2250,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x16B6161C_TNkJlNN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart1'
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -2276,7 +2276,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x16B6161C_TNkJlNN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart1'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2301,7 +2301,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x8FBF47A6_PwNrQhH
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2326,7 +2326,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF8B87730_mSttrTL
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2351,7 +2351,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x66DCE293_UwkNMnN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2376,7 +2376,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x11DBD205_VjMOVtN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar/kart5'
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -2695,7 +2695,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -2716,7 +2716,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -2737,7 +2737,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x94CA18DF_WpkOliH
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/Bullets.001 (1)'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -2776,7 +2776,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x913DFE4C_qNmRNpL
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -2806,7 +2806,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x77777C92_WisnivH
+    path: 'Blood_Hit'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -2827,37 +2827,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x4D17E61A_lOtnUnL
-    classID: 1
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: Infinity
-        tangentMode: 1
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.2
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 1
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
-    path: path_0xE56E82D9_UVSRsjL
+    path: 'Dead'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -2887,7 +2857,37 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xF860A545_UUQvsQL
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/FirSFX (1)'
+    classID: 1
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: Infinity
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.2
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/Fx'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -58098,7 +58098,7 @@ AnimationClip:
     - time: 0.26666668
       value: {fileID: 2100000, guid: f2e8be817c5170e45b82b03b17f9eaad, type: 2}
     attribute: m_Materials.Array.data[0]
-    path: path_0x1DE57B70_oIrtPSN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Neck_/P/HeadPivot/RHINO_Head/gerg_yeni_14'
     classID: 137
     script: {fileID: 0}
     flags: 2
@@ -58136,7 +58136,7 @@ AnimationClip:
     - time: 0.23333333
       value: {fileID: 2100000, guid: a25ede77ec917444bbfc057e6dc0cfda, type: 2}
     attribute: m_Materials.Array.data[0]
-    path: path_0xC3F7AB21_TtWKoTL
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_Neck_/P/HeadPivot/RHINO_Head/rasim_mesh_00'
     classID: 137
     script: {fileID: 0}
     flags: 2

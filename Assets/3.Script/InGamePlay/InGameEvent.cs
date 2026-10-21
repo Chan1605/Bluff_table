@@ -29,6 +29,8 @@ public static class InGameEvent
 
     public static event Action<int, int> OnLiarCalled; // LIAR 호출 (호출한 좌석, 룰렛을 돌릴 좌석) - UI 공지용
 
+    public static event Action<int, bool> OnRouletteStarted; // 러시안 룰렛 시작 (좌석, 생존 여부). 결과는 발사 순간 OnPlayerEliminated / OnPlayerSurvived
+
     public static event Action<int> OnWinnerAnnounced; // 게임 종료, 승자 좌석 (-1 = 없음) - 결과 화면용
 
     public static void TriggerOnEntryInGame()
@@ -84,6 +86,11 @@ public static class InGameEvent
     public static void TriggerOnLiarCalled(int callerSeat, int loserSeat)
     {
         OnLiarCalled?.Invoke(callerSeat, loserSeat);
+    }
+
+    public static void TriggerOnRouletteStarted(int seat, bool survived)
+    {
+        OnRouletteStarted?.Invoke(seat, survived);
     }
 
     public static void TriggerOnWinnerAnnounced(int winnerSeat)

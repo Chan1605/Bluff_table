@@ -2809,7 +2809,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xCAAC0A47_tQjQqHN
+    path: 'headfall'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -2830,7 +2830,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x9A85A863_jVJQmNL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanNeck/HeadPivot/Base HumanHead/Goz'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -2851,7 +2851,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -63425,7 +63425,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 2100000, guid: b8d51c78187439f4dab612592026ec0f, type: 2}
     attribute: m_Materials.Array.data[0]
-    path: path_0x8D4E550B_uSojVLJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanNeck/HeadPivot/Base HumanHead/foxy_mesh_020'
     classID: 137
     script: {fileID: 0}
     flags: 2
@@ -63434,7 +63434,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 2100000, guid: b8d51c78187439f4dab612592026ec0f, type: 2}
     attribute: m_Materials.Array.data[0]
-    path: path_0xC7FB66C0_kUSLHlJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanNeck/HeadPivot/Base HumanHead/foxy_mesh_19'
     classID: 137
     script: {fileID: 0}
     flags: 2

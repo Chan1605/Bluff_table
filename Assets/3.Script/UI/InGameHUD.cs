@@ -3,9 +3,6 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-#if ENABLE_INPUT_SYSTEM
-using UnityEngine.InputSystem;
-#endif
 
 // 인게임 HUD (원작 레이아웃)
 // - 왼쪽 위: "QUEEN'S TABLE" + 초상 + 마지막 선언 (Waiting For First Claim / 이름 CLAIMS 2 x Queens / 이름 CALLED LIAR!)
@@ -58,13 +55,56 @@ public class InGameHUD : MonoBehaviour
     [SerializeField] private float chamberRadiusRatio = 0.28f;
     [SerializeField] private float chamberMarkRatio = 0.36f;
 
+    [Header("Death (내가 총에 맞았을 때 화면 테두리 연출)")]
+    [Tooltip("4.Sprite/UI/Die의 frame_00000~00049. 컴포넌트 ⋮ 메뉴 'Die 프레임 채우기'로 자동 연결")]
+    [SerializeField] private Sprite[] deathFrames;
+    [SerializeField] private float deathFps = 30f;
+
+    public Sprite[] DeathFrames => deathFrames;
+    public float DeathFps => deathFps;
+
+#if UNITY_EDITOR
+    private const string DeathFramesFolder = "Assets/4.Sprite/UI/Die";
+
+    // 50장 × 1920x1080이라 그대로 두면 메모리가 크다 → 1024 · 압축 · 밉맵 끔으로 바꾸고 이름순으로 연결
+    [ContextMenu("Die 프레임 채우기 (+ 텍스처 1024 압축)")]
+    private void FillDeathFrames()
+    {
+        var paths = new System.Collections.Generic.List<string>();
+        foreach (string guid in UnityEditor.AssetDatabase.FindAssets("t:Texture2D", new[] { DeathFramesFolder }))
+            paths.Add(UnityEditor.AssetDatabase.GUIDToAssetPath(guid));
+        paths.Sort(System.StringComparer.Ordinal);
+
+        var sprites = new System.Collections.Generic.List<Sprite>();
+        foreach (string p in paths)
+        {
+            if (UnityEditor.AssetImporter.GetAtPath(p) is UnityEditor.TextureImporter ti)
+            {
+                bool dirty = ti.textureType != UnityEditor.TextureImporterType.Sprite || ti.maxTextureSize != 1024 || ti.mipmapEnabled
+                             || ti.textureCompression == UnityEditor.TextureImporterCompression.Uncompressed;
+                if (dirty)
+                {
+                    ti.textureType = UnityEditor.TextureImporterType.Sprite;
+                    ti.spriteImportMode = UnityEditor.SpriteImportMode.Single;
+                    ti.maxTextureSize = 1024;
+                    ti.mipmapEnabled = false;
+                    ti.textureCompression = UnityEditor.TextureImporterCompression.Compressed;
+                    ti.SaveAndReimport();
+                }
+            }
+            Sprite sp = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(p);
+            if (sp != null) sprites.Add(sp);
+        }
+        UnityEditor.Undo.RecordObject(this, "Fill Death Frames");
+        deathFrames = sprites.ToArray();
+        UnityEditor.EditorUtility.SetDirty(this);
+        Debug.Log($"[HUD] Die 프레임 {deathFrames.Length}장 연결 ({DeathFramesFolder})", this);
+    }
+#endif
+
     [Header("Result")]
     [SerializeField] private TMP_Text resultTimerText;
     [SerializeField] private TMP_Text winnerText;
-
-    [Header("Debug")]
-    [Tooltip("팀원 테스트용 버튼(TempSubmitTest가 붙은 DummyUI)을 숨겨 둔다. F1로 켜고 끔")]
-    [SerializeField] private bool hideDebugButtons = true;
 
     [Header("Colors")]
     [SerializeField] private Color kingColor = new Color(0.86f, 0.22f, 0.2f);
@@ -92,9 +132,6 @@ public class InGameHUD : MonoBehaviour
     private RoomPhase shownPhase = (RoomPhase)255;
     private GameObject[] chamberMarks;
     private int shownFired = -1;
-    private Canvas debugCanvas;
-    private bool debugVisible;
-    private float nextDebugSearch;
 
     private void OnEnable()
     {
@@ -102,8 +139,6 @@ public class InGameHUD : MonoBehaviour
         InGameEvent.OnTurnChanged += HandleTurnChanged;
         InGameEvent.OnCardsSubmitted += HandleCardsSubmitted;
         InGameEvent.OnLiarCalled += HandleLiarCalled;
-        InGameEvent.OnPlayerEliminated += HandleEliminated;
-        InGameEvent.OnPlayerSurvived += HandleSurvived;
         InGameEvent.OnWinnerAnnounced += HandleWinner;
         Localization.LanguageChanged += RedrawTexts;
 
@@ -119,8 +154,6 @@ public class InGameHUD : MonoBehaviour
         InGameEvent.OnTurnChanged -= HandleTurnChanged;
         InGameEvent.OnCardsSubmitted -= HandleCardsSubmitted;
         InGameEvent.OnLiarCalled -= HandleLiarCalled;
-        InGameEvent.OnPlayerEliminated -= HandleEliminated;
-        InGameEvent.OnPlayerSurvived -= HandleSurvived;
         InGameEvent.OnWinnerAnnounced -= HandleWinner;
         Localization.LanguageChanged -= RedrawTexts;
         popupSeq?.Kill(true);
@@ -130,7 +163,6 @@ public class InGameHUD : MonoBehaviour
     private void Update()
     {
         UpdatePhase();
-        UpdateDebugButtons();
 
         if (timerGroup != null && timerGroup.activeSelf && timerText != null)
             timerText.text = Mathf.CeilToInt(Mathf.Max(0f, turnEndTime - Time.time)).ToString();
@@ -250,39 +282,6 @@ public class InGameHUD : MonoBehaviour
         return Mathf.Min(r.width, r.height);
     }
 
-    // 테스트 버튼은 지울 수 없어서(아직 키보드로 카드를 내는 기능이 없음) 숨겨 두고 F1로 토글.
-    // 오브젝트가 아니라 Canvas만 꺼서 TempSubmitTest의 선택 상태는 유지
-    private void UpdateDebugButtons()
-    {
-        if (debugCanvas == null)
-        {
-            if (Time.unscaledTime < nextDebugSearch) return;
-            nextDebugSearch = Time.unscaledTime + 1f;
-
-            TempSubmitTest test = FindAnyObjectByType<TempSubmitTest>(FindObjectsInactive.Include);
-            if (test == null) return;
-
-            debugCanvas = test.GetComponentInParent<Canvas>(true);
-            debugVisible = !hideDebugButtons;
-            if (debugCanvas != null) debugCanvas.enabled = debugVisible;
-            return;
-        }
-
-        if (!F1Pressed()) return;
-
-        debugVisible = !debugVisible;
-        debugCanvas.enabled = debugVisible;
-    }
-
-    private static bool F1Pressed()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return Keyboard.current != null && Keyboard.current.f1Key.wasPressedThisFrame;
-#else
-        return Input.GetKeyDown(KeyCode.F1);
-#endif
-    }
-
     // 테이블 씬이 이벤트보다 늦게 올라올 수 있어서, 화면 전환은 방 단계로 판단
     private void UpdatePhase()
     {
@@ -347,9 +346,6 @@ public class InGameHUD : MonoBehaviour
         SetMyTurn(false);
         RedrawTexts();
     }
-
-    private void HandleEliminated(int seat) { ShowPopup(NameOf(seat), Localization.Get("Eliminated"), false); }
-    private void HandleSurvived(int seat) { ShowPopup(NameOf(seat), Localization.Get("Survived"), false); }
 
     private void HandleWinner(int seat)
     {
