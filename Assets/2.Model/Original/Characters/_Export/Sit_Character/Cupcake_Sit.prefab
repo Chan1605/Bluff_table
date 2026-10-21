@@ -75478,7 +75478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeatedPose
   seatPoint: {fileID: 0}
-  extraOffset: {x: 0, y: 0, z: 0}
+  extraOffset: {x: 0, y: -0.037, z: 0}
   useOriginalOffset: 1
   originalOffset: {x: 0, y: 0.033, z: 0.043}
   originalScale: 1.6666667
