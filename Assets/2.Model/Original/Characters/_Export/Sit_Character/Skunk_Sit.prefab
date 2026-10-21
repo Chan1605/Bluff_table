@@ -75231,7 +75231,7 @@ Transform:
   m_GameObject: {fileID: 5902634800617447153}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.013000011, y: 0.005, z: -0.139}
+  m_LocalPosition: {x: -0.013000011, y: 0.005, z: 0}
   m_LocalScale: {x: 1.6666667, y: 1.6666667, z: 1.6666667}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -75304,7 +75304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeatedPose
   seatPoint: {fileID: 0}
-  extraOffset: {x: 0, y: 0, z: 0}
+  extraOffset: {x: 0, y: -0.025, z: -0.258}
   useOriginalOffset: 1
   originalOffset: {x: 0, y: 0.024, z: 0.132}
   originalScale: 1.6666667
