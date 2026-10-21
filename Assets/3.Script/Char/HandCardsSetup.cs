@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LiarsBar.Server;
@@ -7,9 +7,7 @@ using LiarsBar.Presentation;
 using UnityEditor;
 #endif
 
-// DeckGameManager 프리팹(PlayerVisualSetup 옆)에 붙인다.
-// 손패 연출 지휘: 라운드 시작 배분 → 캐릭터가 집어 듦 → 내 패 앞면 · 선택 시 들기 → 제출 시 테이블로.
-// 카드 한 장 · 손패의 동작은 민규님 CardView · HandView가 하고, 여기서는 팀 이벤트(InGameEvent)를 그쪽 호출로 바꾼다.
+
 public class HandCardsSetup : MonoBehaviour
 {
     [Header("카드 (컴포넌트를 붙이면 자동으로 채워짐 · 우클릭 메뉴로 다시 채우기)")]
@@ -36,8 +34,41 @@ public class HandCardsSetup : MonoBehaviour
     [Tooltip("고른 카드에 덮는 금색 (알파 = 진하기). 비워 두면 Resources/CardSelected 셰이더로 만든다")]
     [SerializeField] Material cardSelectedMaterial;
     [SerializeField] Color cardSelectedColor = new Color(1f, 0.82f, 0.3f, 0.6f);
-    [Tooltip("손 카드 배치(KartsParent/Kartlar · kart1~7) 기준 캐릭터들. 캐릭터와 같은 Animator Controller를 쓰는 기준의 배치를 복사한다 " +
-             "(예: Sit_Table → Cupcake, 뚱뚱이용 컨트롤러 → Bristle). 맞는 기준이 없으면 모델 원래 배치")]
+    [Tooltip("LIAR 판정 때 뒤집은 카드에 덮는 색 (맞음 / 틀림). 알파 = 진하기")]
+    [SerializeField] Color revealMatchColor = new Color(0.2f, 0.95f, 0.35f, 0.55f);
+    [SerializeField] Color revealMissColor = new Color(1f, 0.15f, 0.12f, 0.55f);
+    [Header("LIAR 판정 연출")]
+    [Tooltip("카드 사이 빈틈 (m). 간격 = 카드 폭 + 빈틈. 플레이 중 판정 카드가 놓여 있을 때 바꾸면 바로 다시 배치됨 (일시정지 중에도)")]
+    [SerializeField] float revealGap = 0.025f;
+    [Tooltip("카드 폭을 직접 지정 (m). 0이면 메쉬 크기로 자동 계산")]
+    [SerializeField] float revealCardWidth = 0f;
+    [Tooltip("줄 전체를 내 쪽(+) / 맞은편(-)으로 옮김 (m)")]
+    [SerializeField] float revealForwardOffset = 0f;
+    [Tooltip("더미에서 떠오르는 높이 (m)")]
+    [SerializeField] float revealRiseHeight = 0.3f;
+    [Tooltip("내려놓을 때 테이블 위 높이 (m)")]
+    [SerializeField] float revealHeight = 0.005f;
+    [Tooltip("내려놓은 카드 방향 보정 (글자가 거꾸로면 180, 옆으로 누우면 90)")]
+    [SerializeField] float revealYawOffset = 0f;
+    [SerializeField] float revealRiseSeconds = 0.45f;
+    [Tooltip("떠오른 채로 잠깐 멈추는 시간 (이때 더미가 사라짐)")]
+    [SerializeField] float revealHangSeconds = 0.2f;
+    [SerializeField] float revealLaySeconds = 0.4f;
+
+    public float RevealRise => revealRiseHeight;
+    public float RevealRiseSeconds => revealRiseSeconds;
+    public float RevealHangSeconds => revealHangSeconds;
+    public float RevealCardWidthOverride => revealCardWidth;
+
+#if UNITY_EDITOR
+    // 플레이 중 Inspector 값을 바꾸면 테이블에 놓인 판정 카드를 즉시 다시 배치한다 (간격 · 높이 · 방향 튜닝용)
+    void OnValidate()
+    {
+        if (!Application.isPlaying) return;
+        foreach (var s in seats.Values) if (s != null) s.RelayoutReveal();
+    }
+#endif
+    public float RevealLaySeconds => revealLaySeconds;
     [SerializeField] GameObject[] handLayoutReferences;
 
     [Header("테이블")]
@@ -96,6 +127,23 @@ public class HandCardsSetup : MonoBehaviour
         }
     }
     static readonly int SelectedColorId = Shader.PropertyToID("_Color");
+
+    /// <summary>LIAR 판정 색 (CardSelected 셰이더를 색만 바꿔 재사용)</summary>
+    public Material RevealMatchMaterial => GetTintMaterial(ref revealMatchMaterial, "RevealMatch", revealMatchColor);
+    public Material RevealMissMaterial => GetTintMaterial(ref revealMissMaterial, "RevealMiss", revealMissColor);
+    Material revealMatchMaterial, revealMissMaterial;
+
+    static Material GetTintMaterial(ref Material material, string label, Color color)
+    {
+        if (material == null)
+        {
+            Shader shader = Shader.Find("LiarsBar/CardSelected");
+            if (shader == null) return null;
+            material = new Material(shader) { name = $"{label} (runtime)" };
+        }
+        material.SetColor(SelectedColorId, color);
+        return material;
+    }
     static readonly int OutlineColorId = Shader.PropertyToID("_OutlineColor");
     static readonly int OutlineWidthId = Shader.PropertyToID("_OutlineWidth");
     /// <summary>같은 Animator Controller를 쓰는 기준 캐릭터 (없으면 null = 모델 원래 배치)</summary>
@@ -179,6 +227,8 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnLookRequested += HandleLookRequested;
         InGameEvent.OnCardsOpened += HandleCardsOpened;
         InGameEvent.OnEmotePlayed += HandleEmotePlayed;
+        InGameEvent.OnLiarCardsRevealed += HandleLiarCardsRevealed;
+        InGameEvent.OnLiarCalled += HandleLiarCalled;
     }
 
     void OnDisable()
@@ -195,6 +245,8 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnLookRequested -= HandleLookRequested;
         InGameEvent.OnCardsOpened -= HandleCardsOpened;
         InGameEvent.OnEmotePlayed -= HandleEmotePlayed;
+        InGameEvent.OnLiarCardsRevealed -= HandleLiarCardsRevealed;
+        InGameEvent.OnLiarCalled -= HandleLiarCalled;
     }
 
     void OnDestroy()
@@ -231,6 +283,52 @@ public class HandCardsSetup : MonoBehaviour
     public Mesh GetTypeMesh(int type) =>
         typeMeshes != null && type >= 0 && type < typeMeshes.Length ? typeMeshes[type] : null;
 
+    readonly List<Transform> revealSlots = new();
+
+    /// <summary>판정 카드 자리 Transform과 목표 자세: 테이블 가운데, 내 카메라 기준 좌우 한 줄 (count장 중 index번째)</summary>
+    /// <summary>마지막 RevealSlot 계산의 줄 방향 (카드 폭을 이 방향으로 잴 때 사용)</summary>
+    public Vector3 RevealRight { get; private set; } = Vector3.right;
+
+    public Transform RevealSlot(int index, int count, float cardWidth, out Vector3 position, out Quaternion rotation)
+    {
+        EnsureTableRoot();
+        while (revealSlots.Count <= index)
+        {
+            var t = new GameObject($"RevealSlot_{revealSlots.Count}").transform;
+            t.SetParent(tableRoot.transform, false);
+            revealSlots.Add(t);
+        }
+
+        // 줄 방향은 카메라(고개 · 손패 애니메이션으로 흔들림)가 아니라 내 의자 → 테이블 가운데 방향으로 고정한다
+        Vector3 forward = Vector3.zero;
+        Transform chair = PlayerProfile.Local != null ? SeatAnchors.Get(SeatArea.Table, PlayerProfile.Local.Seat) : null;
+        if (chair != null) forward = Vector3.ProjectOnPlane(deckPoint.position - chair.position, Vector3.up);
+        if (forward.sqrMagnitude < 1e-4f && Camera.main != null) forward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up);
+        if (forward.sqrMagnitude < 1e-4f) forward = Vector3.forward;
+        forward.Normalize();
+        Vector3 right = Vector3.Cross(Vector3.up, forward);
+        RevealRight = right;
+
+        float offset = (index - (count - 1) * 0.5f) * (cardWidth + revealGap);
+        position = deckPoint.position + right * offset - forward * revealForwardOffset + Vector3.up * revealHeight;
+        rotation = Quaternion.LookRotation(forward, Vector3.up) * Quaternion.Euler(0f, revealYawOffset, 0f);
+        return revealSlots[index];
+    }
+
+    /// <summary>판정 때 테이블 더미를 치운다: keep(지목당한 사람이 마지막에 낸 카드)만 남기고 테이블 위 카드를 모두 숨김</summary>
+    public void HideTablePileExcept(ICollection<CardView> keep)
+    {
+        foreach (var s in seats.Values)
+        {
+            if (s == null || s.Hand == null) continue;
+            foreach (var card in s.Hand.Cards)
+                if (card.OnTable && (keep == null || !keep.Contains(card))) card.HideNow();
+            s.RefreshFaces();
+        }
+        CardPlacer placer = FindFirstObjectByType<CardPlacer>();
+        if (placer != null) placer.HideRemainingDeck();
+    }
+
     public Transform NextPileSlot()
     {
         EnsureTableRoot();
@@ -241,8 +339,8 @@ public class HandCardsSetup : MonoBehaviour
 
     // ───── 이벤트 ─────
 
-    void HandleEntryInGame() { myTurn = false; openOnTurn = false; ResetAll(); }
-    void HandleReEntryInLobby() => ResetAll();
+    void HandleEntryInGame() { myTurn = false; openOnTurn = false; judging = false; ResetAll(); }
+    void HandleReEntryInLobby() { judging = false; ResetAll(); }
 
     void ResetAll()
     {
@@ -255,15 +353,34 @@ public class HandCardsSetup : MonoBehaviour
         {
             if (s == null) continue;
             s.Hand.HideAll();
-            s.RefreshFaces();
+            s.ClearReveal();
             s.SetHasCards(false);
         }
+    }
+
+    // LIAR 선언: 판정 카드가 손패에 가리지 않게 내 패를 덮고, 다음 라운드 시작까지 스페이스 · 자동 펼치기를 막는다
+    bool judging;
+
+    void HandleLiarCalled(int callerSeat, int loserSeat)
+    {
+        judging = true;
+        myTurn = false;
+        openOnTurn = false;
+        SeatHandCards me = LocalSeat();
+        if (me != null && me.IsOpen && PlayerState.Local != null) PlayerState.Local.CmdSetCardsOpen(false);
+    }
+
+    // LIAR 판정: 지목당한 사람이 마지막에 낸 카드를 테이블에서 뒤집고 초록(맞음) / 빨강(틀림)
+    void HandleLiarCardsRevealed(int seat, int[] cards, bool[] matches)
+    {
+        if (seats.TryGetValue(seat, out var s) && s != null) s.RevealPlayed(cards, matches);
     }
 
     void HandleRoundStarted(CardType tableCard)
     {
         // 라운드 시작 직후 오는 첫 OnCardDealt = 새 손패. 그 뒤로 오는 것 = 제출 후 남은 패
         awaitingDealFaces = true;
+        judging = false;
         if (roundRoutine != null) StopCoroutine(roundRoutine);
         roundRoutine = StartCoroutine(RoundIntro());
     }
@@ -394,7 +511,7 @@ public class HandCardsSetup : MonoBehaviour
     // 스페이스: 패를 다 받았으면 펼치기 ↔ 덮기 토글을 서버에 알린다 → 모든 클라이언트에서 애니메이션
     void HandleLookRequested()
     {
-        if (myTurn) return;   // 내 차례에는 펼친 상태 고정
+        if (myTurn || judging) return;   // 내 차례에는 펼친 상태 고정, 판정 중에는 덮은 상태 고정
         SeatHandCards me = LocalSeat();
         if (me == null || !me.CanToggle || PlayerState.Local == null) return;
         PlayerState.Local.CmdSetCardsOpen(!me.IsOpen);

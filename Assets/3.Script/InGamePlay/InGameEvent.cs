@@ -11,6 +11,8 @@ public static class InGameEvent
 
     public static event Action<CardType> OnRoundStarted; // 라운드 시작 시 뽑힌 테이블 카드 공지
 
+    public static event Action<bool> OnDeckListShown; // 20장 공개 연출 중 덱 구성 UI 표시 / 숨김 (클라이언트 연출 전용, CardPlacer → DeckListUI)
+
     public static event Action<List<CardType>> OnCardDealt; // 플레이어 카드 불출 받음
 
     public static event Action<int> OnTurnChanged; // 턴 변경
@@ -93,7 +95,13 @@ public static class InGameEvent
     public static event Action OnLookRequested; // 로컬: 스페이스(Look) 입력 → 패 펼치기 / 덮기 요청
     public static event Action<int> OnHandCursorChanged; // 내 손패에서 지금 가리키는 카드 (손패 인덱스, -1 = 없음) - 아웃라인용
     public static event Action<int, bool> OnCardsOpened; // seat번 플레이어가 패를 펼침(true) / 덮음(false) (모든 클라이언트)
+    public static event Action<int, int[], bool[]> OnLiarCardsRevealed; // LIAR 판정: 지목당한 좌석이 마지막에 낸 카드 (CardType 값, 카드별 맞음 여부)
     public static event Action<int, int> OnEmotePlayed; // seat번 플레이어 감정표현 (번호 1~5) (모든 클라이언트)
+
+    public static void TriggerOnLiarCardsRevealed(int seat, int[] cards, bool[] matches)
+    {
+        OnLiarCardsRevealed?.Invoke(seat, cards, matches);
+    }
 
     public static void TriggerOnEmotePlayed(int seat, int emote)
     {
@@ -123,5 +131,10 @@ public static class InGameEvent
     public static void TriggerOnHandCursorChanged(int index)
     {
         OnHandCursorChanged?.Invoke(index);
+    }
+
+    public static void TriggerOnDeckListShown(bool show)
+    {
+        OnDeckListShown?.Invoke(show);
     }
 }

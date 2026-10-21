@@ -35,6 +35,7 @@ namespace LiarsBar.Presentation
         Vector3 fromPos;
         Quaternion fromRot;
         Transform target;
+        bool follow;   // true면 travel 곡선 없이 target에 그대로 붙는다 (Follow)
 
         /// <summary>손패 슬롯 번호 0~4. UI가 Raycast로 선택할 때 쓰는 값 (기획서 23쪽 CardView.Index).</summary>
         public int Index { get; set; }
@@ -104,6 +105,14 @@ namespace LiarsBar.Presentation
             animator.SetTrigger(AnimIds.Card.CollectId);
         }
 
+        /// <summary>연출 코드가 Transform을 직접 움직일 때 (LIAR 판정 등): 상태 · 트리거는 그대로 두고 그 Transform에 붙는다</summary>
+        public void Follow(Transform t)
+        {
+            target = t;
+            follow = t != null;
+            arc = 0f;
+        }
+
         /// <summary>로비 복귀 등 즉시 초기화</summary>
         public void HideNow()
         {
@@ -111,6 +120,7 @@ namespace LiarsBar.Presentation
             SetClickable(false);
             ClearFace();
             target = null;
+            follow = false;
             animator.Rebind();   // 기본 상태(Hidden)로 되돌린다
             animator.Update(0f);
         }
@@ -125,6 +135,7 @@ namespace LiarsBar.Presentation
             fromPos = transform.position;
             fromRot = transform.rotation;
             target = to;
+            follow = false;
             // Animator가 새 상태에 들어가기 전 한 프레임 동안 도착점으로 튀지 않게
             travel = 0f;
             arc = 0f;
@@ -134,6 +145,7 @@ namespace LiarsBar.Presentation
         void LateUpdate()
         {
             if (target == null) return;
+            if (follow) { transform.SetPositionAndRotation(target.position, target.rotation); return; }
             transform.SetPositionAndRotation(
                 Vector3.LerpUnclamped(fromPos, target.position, travel) + Vector3.up * arc,
                 Quaternion.SlerpUnclamped(fromRot, target.rotation, travel));
