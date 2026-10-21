@@ -73,6 +73,12 @@ public class CardPlacer : MonoBehaviour
         cards[--deckRemaining].gameObject.SetActive(false);
     }
 
+    /// <summary>남은 덱 더미를 모두 숨긴다 (LIAR 판정 때 테이블에 지목당한 카드만 남기려고). 다음 라운드 ResetToDeck이 다시 켠다</summary>
+    public void HideRemainingDeck()
+    {
+        while (cards != null && deckRemaining > 0) PopDeckCard();
+    }
+
     // 배분 · 내 손패
     private readonly List<CardViewer> myFrontCards = new List<CardViewer>(); // 내 자리 앞 카드 (슬롯 순서)
     private List<CardType> pendingHand;   // 아직 입히지 못한 내 손패

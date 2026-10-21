@@ -539,16 +539,30 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         }
 
 
+        // 판정 연출용: 지목당한 사람이 마지막에 낸 카드와 카드별 맞음 여부 (조커는 항상 맞음)
+        int[] revealCards = new int[lastSubmittedcards];
+        bool[] revealMatches = new bool[lastSubmittedcards];
+        for (int k = 0; k < lastSubmittedcards; k++)
+        {
+            CardType card = previousCards[startIndex + k];
+            revealCards[k] = (int)card;
+            revealMatches[k] = card == tableCard || card == CardType.Joker;
+        }
+
         StopTurnTimer();   // LIAR 연출 중에는 턴 타이머 정지
-        StartCoroutine(ResolveLiarSequence_co(callerSeat, loserSeat));
+        StartCoroutine(ResolveLiarSequence_co(callerSeat, loserSeat, lastSubmittedSeat, revealCards, revealMatches));
     }
 
+    // LIAR! 선언 → 잠깐 뒤 지목당한 사람의 카드를 뒤집어 판정 표시 → 룰렛 → 결과 → 다음 라운드
     [Server]
-    private IEnumerator ResolveLiarSequence_co(int callerSeat, int loserSeat)
+    private IEnumerator ResolveLiarSequence_co(int callerSeat, int loserSeat, int accusedSeat, int[] revealCards, bool[] revealMatches)
     {
         bool isBullet;
         RpcAnnounceLiar(callerSeat, loserSeat);
-        yield return new WaitForSeconds(GameFlowTiming.RouletteAnimation);
+        yield return new WaitForSeconds(GameFlowTiming.LiarCallPause);
+
+        RpcRevealLiarCards(accusedSeat, revealCards, revealMatches);
+        yield return new WaitForSeconds(GameFlowTiming.LierReveal);
 
         // 룰렛을 돌릴 사람이 연출 중에 나갔으면 룰렛 없이 다음 라운드 (남은 인원은 StartRound가 다시 셈)
         if (Players[loserSeat] == null)
@@ -559,7 +573,7 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         }
 
         isBullet = ResolveRoulette(loserSeat);
-        yield return new WaitForSeconds(GameFlowTiming.LierReveal);
+        yield return new WaitForSeconds(GameFlowTiming.RouletteAnimation);
 
         if (isBullet)
         {
@@ -635,6 +649,12 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     {
         // 해당 유저 총 드는 이벤트 or 연출
         InGameEvent.TriggerOnLiarCalled(callerSeat, seat);
+    }
+
+    [ClientRpc]
+    private void RpcRevealLiarCards(int seat, int[] cards, bool[] matches)
+    {
+        InGameEvent.TriggerOnLiarCardsRevealed(seat, cards, matches);
     }
 
     [ClientRpc]
