@@ -21,9 +21,39 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
     [SerializeField] private AudioSource bgmAudio;
     [SerializeField] private AudioSource sfxAudio;
 
+    private List<AudioSource> sfxPool = new List<AudioSource>();
+    private void OnEnable()
+    {
+        if (sfxPool != null)
+        {
+            sfxPool.Add(sfxAudio);
+        }
+    }
+    private AudioSource GetAvailablesource()
+    {
+        foreach (AudioSource source in sfxPool)
+        {
+            if (!source.isPlaying)
+            {
+                return source;
+            }
+        }
+
+        AudioSource newSource = gameObject.AddComponent<AudioSource>();
+
+        newSource.spatialBlend = sfxAudio.spatialBlend;
+        newSource.rolloffMode = sfxAudio.rolloffMode;
+        newSource.minDistance = sfxAudio.minDistance;
+        newSource.maxDistance = sfxAudio.maxDistance;
+        newSource.volume = sfxAudio.volume;
+
+        sfxPool.Add(newSource);
+        return newSource;
+    }
 
     public void PlayBGM(AudioClip clip)
     {
@@ -42,8 +72,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
-        if (clip == null || sfxAudio == null) return;
-        sfxAudio.PlayOneShot(clip);
+        if (clip == null || sfxPool == null) return;
+        GetAvailablesource().PlayOneShot(clip);
+    }
+
+    public void Play3DSFX(AudioSource source, AudioClip clip)
+    {
+        if (clip == null || source == null) return;
+        source.PlayOneShot(clip);
     }
 
 

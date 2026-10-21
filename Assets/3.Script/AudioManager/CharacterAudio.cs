@@ -19,6 +19,7 @@ public class CharacterAudio : MonoBehaviour
 
     [SerializeField] private AudioClip bloodSFX;
 
+    private List<AudioSource> gunSound;
 
     private void Awake()
     {
@@ -32,18 +33,9 @@ public class CharacterAudio : MonoBehaviour
 
     private void PlayGunshot()
     {
-        if(gunSource != null && gunShot!= null)
-        {
-            gunSource.PlayOneShot(gunShot);
-        }
-
     }
     public void PlayGunLoad()
     {
-        if (gunSource != null && gunShot != null)
-        {
-            gunSource.PlayOneShot(gunReload);
-        }
     }
 
     public void PlayVoice(AudioClip voiceClip)
@@ -56,7 +48,7 @@ public class CharacterAudio : MonoBehaviour
 
     #region 연출용
 
-    private IEnumerator gunLoadSound_co()
+    private IEnumerator StartgunLoadSound_co() // 시작시 리볼버 장전 연출용
     {
         yield return null;
     }
@@ -65,8 +57,6 @@ public class CharacterAudio : MonoBehaviour
     {
         yield return null;
     }
-
-
 
     public IEnumerator UserDieSound_co()
     {
