@@ -21,6 +21,9 @@ public class InGameHUD : MonoBehaviour
 
     [Header("Table (왼쪽 위)")]
     [SerializeField] private TMP_Text tableTitle;
+
+    /// <summary>"KING'S TABLE" 제목 글자. 다른 UI(DeckListUI 등)가 같은 폰트 · 머티리얼 · 스타일을 쓰려고 참조</summary>
+    public TMP_Text TitleText => tableTitle;
     [SerializeField] private Image portrait;
     [Tooltip("CardType 순서: King, Queen, Ace, Joker. 비워 두면 기본 색 상자")]
     [SerializeField] private Sprite[] cardPortraits = new Sprite[4];

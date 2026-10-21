@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using LiarsBar.Presentation;
 
@@ -70,6 +71,9 @@ public class SeatHandCards : MonoBehaviour
     readonly float[] dealtAt = new float[HandView.HandSize];
     readonly bool[] lifted = new bool[HandView.HandSize];
     readonly Dictionary<CardView, CardFace> faces = new();
+    readonly List<CardView> lastPlayed = new();                // 마지막으로 테이블에 낸 카드 (서버 previousCards와 같은 순서)
+    readonly Dictionary<CardView, bool> revealed = new();      // LIAR 판정으로 공개된 카드 → 맞음 여부
+    bool revealTinted;                                         // 뒤집힌 뒤 초록 / 빨강을 칠했는지
     readonly HashSet<int> characterParams = new();
 
     public bool Build(HandCardsSetup owner, int seat, bool isLocal, PlayerState playerState)
@@ -289,6 +293,7 @@ public class SeatHandCards : MonoBehaviour
 
     public void ResetRound()
     {
+        ClearReveal();
         dealFinished = false;
         opened = false;
         if (character != null && characterParams.Contains(LookId)) character.SetBool(LookId, false);
@@ -324,8 +329,10 @@ public class SeatHandCards : MonoBehaviour
     public void PlayCards(int count, int[] listIndices, HandCardsSetup table)
     {
         int[] slotIndices = ListToSlots(listIndices).ToArray();   // 꺼내기 전에 계산해야 순서가 맞다
+        lastPlayed.Clear();
         foreach (var card in Hand.TakeForPlay(count, slotIndices))
         {
+            lastPlayed.Add(card);
             card.ClearFace();                    // 테이블에는 뒷면으로
             card.PlayTo(table.NextPileSlot());
             lifted[card.Index] = false;
@@ -350,7 +357,131 @@ public class SeatHandCards : MonoBehaviour
         RefreshFaces();
     }
 
-    /// <summary>날아가는 카드의 앞면 (CardViewer와 같은 방식: 메쉬 · 재질 교체)</summary>
+    // ───── LIAR 판정 ─────
+
+    /// <summary>마지막에 낸 카드를 뒤집는다 (모든 클라이언트에 앞면 공개). 뒤집기가 반쯤 지나면 초록 / 빨강을 덮는다</summary>
+    public void RevealPlayed(IReadOnlyList<int> cardTypes, IReadOnlyList<bool> matches)
+    {
+        if (cardTypes == null || matches == null) return;
+
+        int n = Mathf.Min(lastPlayed.Count, Mathf.Min(cardTypes.Count, matches.Count));
+        if (n != cardTypes.Count)
+            Debug.LogWarning($"[손패] 좌석 {Seat}: 공개할 카드 {cardTypes.Count}장 ≠ 테이블에 낸 카드 {lastPlayed.Count}장");
+
+        revealTinted = false;
+        for (int i = 0; i < n; i++)
+        {
+            CardView card = lastPlayed[i];
+            Hand.ApplyFace(card, (CardRank)cardTypes[i]);
+            revealed[card] = matches[i];
+
+            // 카드 애니메이터는 테이블 위(OnTable)에서 다시 날아가는 상태가 없다. PlayTo는 travel을 0으로 되돌려
+            // 카드가 더미에 붙어 버리므로, 자리(slot)를 지금 카드 위치에 놓고 Follow로 붙인 뒤 그 자리를 DOTween으로 옮긴다
+            Transform slot = RevealSlotFor(card, i, n, out Vector3 pos, out Quaternion rot);
+            slot.DOKill();
+            slot.SetPositionAndRotation(card.transform.position, card.transform.rotation);
+            card.Follow(slot);
+
+            // ① 더미에서 떠오름 → ② 한 줄로 내려놓음
+            Vector3 up = card.transform.position + Vector3.up * setup.RevealRise;
+            DOTween.Sequence()
+                .Append(slot.DOMove(up, setup.RevealRiseSeconds).SetEase(Ease.OutCubic))
+                .AppendInterval(setup.RevealHangSeconds)
+                .Append(slot.DOMove(pos, setup.RevealLaySeconds).SetEase(Ease.InOutCubic))
+                .Join(slot.DORotateQuaternion(rot, setup.RevealLaySeconds).SetEase(Ease.InOutCubic))
+                .SetTarget(slot);
+        }
+        RefreshFaces();
+
+        if (revealRoutine != null) StopCoroutine(revealRoutine);
+        revealRoutine = StartCoroutine(RevealSequence(n));
+    }
+
+    Coroutine revealRoutine;
+
+    // ① 떠오름 → 더미 사라짐 → ② 내려놓음 → ③ 뒤집기 → 뒤집기가 반쯤 지나면 초록 / 빨강
+    System.Collections.IEnumerator RevealSequence(int count)
+    {
+        yield return new WaitForSeconds(setup.RevealRiseSeconds);
+        setup.HideTablePileExcept(lastPlayed);
+        yield return new WaitForSeconds(setup.RevealHangSeconds);
+
+        yield return new WaitForSeconds(setup.RevealLaySeconds);
+        for (int i = 0; i < count && i < lastPlayed.Count; i++)
+        {
+            CardView card = lastPlayed[i];
+            if (revealed.TryGetValue(card, out bool match)) card.Reveal(match);   // Card.controller: Reveal → RevealMatch / RevealMiss
+        }
+
+        yield return new WaitForSeconds(PresentationTimings.CardReveal * 0.6f);
+        revealTinted = true;
+        RefreshFaces();
+        revealRoutine = null;
+    }
+
+    // 줄 자리 계산: 먼저 놓일 회전을 구하고 → 그 회전으로 놓였을 때 줄 방향으로 카드가 차지하는 폭을 재서 → 겹치지 않게 간격을 잡는다
+    Transform RevealSlotFor(CardView card, int index, int count, out Vector3 pos, out Quaternion rot)
+    {
+        setup.RevealSlot(index, count, 0f, out _, out rot);
+        float width = CardWidth(card, rot, setup.RevealRight);
+        return setup.RevealSlot(index, count, width, out pos, out rot);
+    }
+
+    // 카드 한 장이 layRot으로 놓였을 때 right 방향으로 차지하는 폭 (m).
+    // 메쉬가 X 90° 회전 · 큰 스케일로 들어 있어서 축 하나만 보면 두께를 폭으로 잘못 잴 수 있음 → 메쉬 꼭짓점 8개를 실제로 투영해서 잰다
+    float CardWidth(CardView card, Quaternion layRot, Vector3 right)
+    {
+        if (setup != null && setup.RevealCardWidthOverride > 0f) return setup.RevealCardWidthOverride;
+        if (faces.TryGetValue(card, out CardFace f) && f.filter != null && f.filter.sharedMesh != null)
+        {
+            Bounds b = f.filter.sharedMesh.bounds;
+            Transform mesh = f.filter.transform;
+            Transform root = card.transform;
+            Quaternion toLay = layRot * Quaternion.Inverse(root.rotation);
+            float min = float.MaxValue, max = float.MinValue;
+            for (int k = 0; k < 8; k++)
+            {
+                Vector3 corner = b.center + Vector3.Scale(b.extents, new Vector3((k & 1) == 0 ? -1f : 1f, (k & 2) == 0 ? -1f : 1f, (k & 4) == 0 ? -1f : 1f));
+                Vector3 offset = toLay * (mesh.TransformPoint(corner) - root.position);
+                float d = Vector3.Dot(offset, right);
+                if (d < min) min = d;
+                if (d > max) max = d;
+            }
+            float w = max - min;
+            if (w > 0.005f && w < 1f) return w;
+        }
+        return 0.07f;
+    }
+
+    /// <summary>판정 표시를 지운다 (새 라운드 · 로비 복귀)</summary>
+    /// <summary>판정 카드를 지금 Inspector 값으로 즉시 다시 놓는다 (HandCardsSetup.OnValidate · 에디터 튜닝용)</summary>
+    public void RelayoutReveal()
+    {
+        if (revealed.Count == 0) return;
+        int n = 0;
+        foreach (var c in lastPlayed) if (revealed.ContainsKey(c)) n++;
+        for (int i = 0; i < n; i++)
+        {
+            CardView card = lastPlayed[i];
+            Transform slot = RevealSlotFor(card, i, n, out Vector3 pos, out Quaternion rot);
+            slot.DOKill();
+            slot.SetPositionAndRotation(pos, rot);
+            card.Follow(slot);
+            card.transform.SetPositionAndRotation(pos, rot);   // 일시정지 중에도 바로 보이게
+        }
+    }
+
+    public void ClearReveal()
+    {
+        if (revealRoutine != null) StopCoroutine(revealRoutine);
+        revealRoutine = null;
+        revealed.Clear();
+        lastPlayed.Clear();
+        revealTinted = false;
+        RefreshFaces();
+    }
+
+    /// <summary>날아가는 카드의 앞면 (CardViewer와 같은 방식: 메쉬 · 재질 교체). 판정으로 공개된 카드는 누구에게나 앞면</summary>
     public void RefreshFaces()
     {
         foreach (var kv in faces)
@@ -359,16 +490,19 @@ public class SeatHandCards : MonoBehaviour
             if (f.renderer == null || f.filter == null) continue;
 
             CardRank? rank = kv.Key.Rank;
-            Mesh faceMesh = IsLocal && rank.HasValue ? setup.GetTypeMesh((int)rank.Value) : null;
+            bool isRevealed = revealed.TryGetValue(kv.Key, out bool match);
+            Mesh faceMesh = rank.HasValue && (IsLocal || isRevealed) ? setup.GetTypeMesh((int)rank.Value) : null;
             if (faceMesh != null)
             {
                 f.filter.sharedMesh = faceMesh;
-                f.renderer.sharedMaterial = setup.ShownMat;
+                Material tint = isRevealed && revealTinted ? (match ? setup.RevealMatchMaterial : setup.RevealMissMaterial) : null;
+                if (tint != null) f.renderer.sharedMaterials = new[] { setup.ShownMat, tint };
+                else f.renderer.sharedMaterials = new[] { setup.ShownMat };   // sharedMaterial(단수)는 0번만 바꿔서 판정 색이 남는다
             }
             else
             {
                 if (f.defaultMesh != null) f.filter.sharedMesh = f.defaultMesh;
-                f.renderer.sharedMaterial = setup.HiddenMat;
+                f.renderer.sharedMaterials = new[] { setup.HiddenMat };
             }
         }
     }
