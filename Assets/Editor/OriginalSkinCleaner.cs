@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 // 선택한 원작 Sit 프리팹에서 우리 게임에 안 쓰는 것을 지운다.
-// 1) 'Stylized Revolver ' (허리 리볼버, 켜져 있음) · kartucan (날아가는 카드) · 오른손 kart1
+// 1) kartucan (날아가는 카드) · 오른손 kart1. 'Stylized Revolver '(테이블 위 총)는 Sit에는 남기고 Stand에서만 지운다
 // 2) 꺼져 있는 스킨: 이름에 christmas · halloween · scifi · cultural · gozluk(안경) · snowhat · kanat(날개) · drone · WrapMaster · gomlek(셔츠) · baslik(모자) 포함
 // 남기는 것: 손 카드(KartsParent), 오른손 총(ElRevolver) · 총구 이펙트(Fx), 사망 피(Blood_Hit), 소리 오브젝트, 얼굴(Yuz) · 표정 메쉬
 // 메뉴: Tools / 원작 캐릭터 / 선택한 Sit 프리팹 스킨 정리
@@ -29,15 +29,8 @@ public static class OriginalSkinCleaner
             GameObject root = PrefabUtility.LoadPrefabContents(path);
             try
             {
-                var targets = new List<Transform>();
-                Collect(root.transform, root.transform, targets);
                 var names = new List<string>();
-                foreach (Transform t in targets)
-                {
-                    if (t == null) continue;   // 이미 지운 부모 밑
-                    names.Add(t.name.Trim());
-                    Object.DestroyImmediate(t.gameObject);
-                }
+                Clean(root, true, names);
                 PrefabUtility.SaveAsPrefabAsset(root, path);
                 log.AppendLine($"  {asset.name}: {names.Count}개 삭제 → {string.Join(", ", names)}");
             }
@@ -49,21 +42,36 @@ public static class OriginalSkinCleaner
         Debug.Log(log.ToString());
     }
 
-    private static void Collect(Transform root, Transform t, List<Transform> targets)
+    // keepTableGun: Sit은 true (테이블 총 유지), Stand는 false
+    public static int Clean(GameObject root, bool keepTableGun, List<string> removed)
+    {
+        var targets = new List<Transform>();
+        Collect(root.transform, root.transform, keepTableGun, targets);
+        foreach (Transform t in targets)
+        {
+            if (t == null) continue;   // 이미 지운 부모 밑
+            removed.Add(t.name.Trim());
+            Object.DestroyImmediate(t.gameObject);
+        }
+        return removed.Count;
+    }
+
+    private static void Collect(Transform root, Transform t, bool keepTableGun, List<Transform> targets)
     {
         foreach (Transform child in t)
         {
             string name = child.name.Trim();
             if (System.Array.IndexOf(Protected, name) >= 0) continue;   // 이 밑은 통째로 보존
 
-            if (ShouldDelete(root, child, name)) { targets.Add(child); continue; }
-            Collect(root, child, targets);
+            if (ShouldDelete(root, child, name, keepTableGun)) { targets.Add(child); continue; }
+            Collect(root, child, keepTableGun, targets);
         }
     }
 
-    private static bool ShouldDelete(Transform root, Transform t, string name)
+    private static bool ShouldDelete(Transform root, Transform t, string name, bool keepTableGun)
     {
-        if (t.parent == root && (name == "Stylized Revolver" || name == "kartucan")) return true;
+        if (t.parent == root && name == "kartucan") return true;
+        if (t.parent == root && name == "Stylized Revolver" && !keepTableGun) return true;
         if (name == "kart1" && t.parent != null && t.parent.name.EndsWith("RPalm") && !t.gameObject.activeSelf) return true;
         if (t.gameObject.activeSelf) return false;   // 스킨은 꺼져 있는 것만
 
