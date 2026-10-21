@@ -109,6 +109,12 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
+    // 연출 쪽(승자 고개 → 커서)에서 고개 각도 동기화 (로컬 플레이어만)
+    public void SendHeadRotation(float pitch, float yaw)
+    {
+        if (isLocalPlayer) CmdSyncHeadRotation(pitch, yaw);
+    }
+
     // TODO 최적화 체크
     [Command]
     private void CmdSyncHeadRotation(float pitch, float yaw)

@@ -91,6 +91,10 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         RpcEntryInGame();
         yield return new WaitForSeconds(GameFlowTiming.GameEntry);
 
+        // 장전 연출 (게임 시작 1회) → 끝나면 첫 라운드
+        RpcGunReload();
+        yield return new WaitForSeconds(GameFlowTiming.GunReload);
+
         StartRound();
     }
 
@@ -612,6 +616,12 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     private void RpcEntryInGame()
     {
         InGameEvent.TriggerOnEntryInGame();
+    }
+
+    [ClientRpc]
+    private void RpcGunReload()
+    {
+        InGameEvent.TriggerOnGunReload();
     }
 
     [ClientRpc]

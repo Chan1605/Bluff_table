@@ -9,6 +9,8 @@ using UnityEngine;
 //   Any State ─Roulette→ Roulette(Bristle_silah_trigger)
 //                          ├ 끝나면 & Survived  → RouletteEmpty(Bristle_silah_bos_0) → 끝나면 NoCards
 //                          └ 끝나면 & !Survived → RouletteDead(Bristle_silah_dolu_uzun)   (쓰러진 채 유지)
+//   Any State ─Winner→ Victory(bristle_win_deck)   (마지막 1인 승리)
+//   Any State ─Reload→ GunReload(Bristle_reloadyeni) → 끝나면 NoCards   (게임 시작: 탄 넣고 테이블에 내려놓기)
 //
 // 다른 캐릭터 클립은 OriginalOverrideBuilder가 원작 Blorf 컨트롤러의 Roulet / RouletEmpty / Dead 상태에서 가져온다.
 // 메뉴: Tools / 원작 캐릭터 / 룰렛 상태 추가 (Bristle_OG)
@@ -27,12 +29,16 @@ public static class RouletteAnimatorSetup
     public const string AimState = "Roulette";
     public const string EmptyState = "RouletteEmpty";
     public const string DeadState = "RouletteDead";
+    public const string WinnerParam = "Winner";
+    public const string VictoryState = "Victory";
+    public const string ReloadParam = "Reload";
+    public const string ReloadState = "GunReload";
     private const string IdleState = "NoCards";
 
     // 다시 만들 때 지울 상태 (이전에 손으로 넣은 Cupcake 상태 포함)
     private static readonly string[] ReplacedStates =
     {
-        AimState, EmptyState, DeadState, "Cupcake_beforefire", "Cupcake_silah_bos", "Cupcake_silah_dolu",
+        AimState, EmptyState, DeadState, VictoryState, ReloadState, "Cupcake_beforefire", "Cupcake_silah_bos", "Cupcake_silah_dolu",
     };
 
     [MenuItem(MenuRoot + "룰렛 상태 추가 (Bristle_OG)")]
@@ -44,7 +50,9 @@ public static class RouletteAnimatorSetup
         AnimationClip aim = LoadClip("Bristle_silah_trigger");
         AnimationClip empty = LoadClip("Bristle_silah_bos_0");
         AnimationClip dead = LoadClip("Bristle_silah_dolu_uzun");
-        if (aim == null || empty == null || dead == null) return;
+        AnimationClip win = LoadClip("bristle_win_deck");   // 마지막 1인 승리 (원작 Blorf: Winner 상태)
+        AnimationClip reload = LoadClip("Bristle_reloadyeni"); // 게임 시작 장전 (원작 Blorf: ScubyReload 상태)
+        if (aim == null || empty == null || dead == null || win == null || reload == null) return;
 
         AnimatorStateMachine sm = controller.layers[0].stateMachine;
 
@@ -59,12 +67,18 @@ public static class RouletteAnimatorSetup
         // 2) 파라미터
         AddParameter(controller, RouletteParam, AnimatorControllerParameterType.Trigger);
         AddParameter(controller, SurvivedParam, AnimatorControllerParameterType.Bool);
+        AddParameter(controller, WinnerParam, AnimatorControllerParameterType.Trigger);
+        AddParameter(controller, ReloadParam, AnimatorControllerParameterType.Trigger);
 
         // 3) 상태 (Animator 창에서 NoCards 왼쪽 위에 세로로 배치)
         Vector3 basePos = sm.states.First(s => s.state == idle).position;
         AnimatorState aimState = sm.AddState(AimState, basePos + new Vector3(-260f, -200f, 0f));
         AnimatorState emptyState = sm.AddState(EmptyState, basePos + new Vector3(-420f, -100f, 0f));
         AnimatorState deadState = sm.AddState(DeadState, basePos + new Vector3(-100f, -100f, 0f));
+        AnimatorState victoryState = sm.AddState(VictoryState, basePos + new Vector3(260f, -200f, 0f));
+        victoryState.motion = win;
+        AnimatorState reloadState = sm.AddState(ReloadState, basePos + new Vector3(260f, -100f, 0f));
+        reloadState.motion = reload;
         aimState.motion = aim;
         emptyState.motion = empty;
         deadState.motion = dead;
@@ -87,12 +101,29 @@ public static class RouletteAnimatorSetup
         AnimatorStateTransition backToIdle = emptyState.AddTransition(idle);
         SetExit(backToIdle, 0.2f);
 
+        // 승리: 어느 상태에서든 바로 (끝나면 마지막 자세 유지 → 대기실 복귀 때 캐릭터가 지워짐)
+        AnimatorStateTransition toVictory = sm.AddAnyStateTransition(victoryState);
+        toVictory.hasExitTime = false;
+        toVictory.duration = 0.25f;
+        toVictory.canTransitionToSelf = false;
+        toVictory.AddCondition(AnimatorConditionMode.If, 0f, WinnerParam);
+
+        // 장전: 어느 상태에서든 바로 → 끝나면 NoCards (총은 테이블에 놓인 자세로 끝남)
+        AnimatorStateTransition toReload = sm.AddAnyStateTransition(reloadState);
+        toReload.hasExitTime = false;
+        toReload.duration = 0.25f;
+        toReload.canTransitionToSelf = false;
+        toReload.AddCondition(AnimatorConditionMode.If, 0f, ReloadParam);
+
+        AnimatorStateTransition reloadToIdle = reloadState.AddTransition(idle);
+        SetExit(reloadToIdle, 0.2f);
+
         // 5) 기본 상태는 NoCards
         sm.defaultState = idle;
 
         EditorUtility.SetDirty(controller);
         AssetDatabase.SaveAssets();
-        Debug.Log($"[룰렛 애니메이터] {controller.name}: 상태 {AimState} / {EmptyState} / {DeadState}, 파라미터 {RouletteParam} / {SurvivedParam} 추가, 기본 상태 {IdleState}");
+        Debug.Log($"[룰렛 애니메이터] {controller.name}: 상태 {AimState} / {EmptyState} / {DeadState} / {VictoryState} / {ReloadState}, 파라미터 {RouletteParam} / {SurvivedParam} / {WinnerParam} / {ReloadParam} 추가, 기본 상태 {IdleState}");
     }
 
     [MenuItem(MenuRoot + "Sit 프리팹 전체 Override 다시 만들기")]
