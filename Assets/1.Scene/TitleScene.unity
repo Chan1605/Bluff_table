@@ -2339,6 +2339,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7746381434423044877, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
+      propertyPath: tableScene
+      value: InGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746381434423044877, guid: c62493b1138adb34e8f34d10229e8968, type: 3}
       propertyPath: waitingRoomScene
       value: LobbyScene
       objectReference: {fileID: 0}
