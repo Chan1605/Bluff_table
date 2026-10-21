@@ -9,6 +9,8 @@ public static class InGameEvent
 
     public static event Action OnReEntryInLobby; // 인게임에서 로비 들어갈 때 실행됨
 
+    public static event Action OnGunReload; // 게임 시작 직후 1회: 모든 캐릭터가 리볼버에 탄을 넣고 테이블에 내려놓음 (첫 라운드 전)
+
     public static event Action<CardType> OnRoundStarted; // 라운드 시작 시 뽑힌 테이블 카드 공지
 
     public static event Action<bool> OnDeckListShown; // 20장 공개 연출 중 덱 구성 UI 표시 / 숨김 (클라이언트 연출 전용, CardPlacer → DeckListUI)
@@ -41,6 +43,11 @@ public static class InGameEvent
     public static void TriggerOnReEntryInLobby()
     {
         OnReEntryInLobby?.Invoke();
+    }
+
+    public static void TriggerOnGunReload()
+    {
+        OnGunReload?.Invoke();
     }
 
     public static void TriggerOnRoundStarted(CardType card)

@@ -6,6 +6,7 @@ public static class GameFlowTiming
 {
     // 코루틴 시간 제어
     public const float GameEntry = 1f;
+    public const float GunReload = 5.3f;        // 게임 시작 장전 연출 (원작 reload 클립 5.1초 + 전환) → 끝나면 첫 라운드(덱 공개)
     public const float TableSetting = 1f;
     public const float DividingDeck = 1f;
     public const float TurnTimer = 30f;
