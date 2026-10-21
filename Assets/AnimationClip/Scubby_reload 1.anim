@@ -200,7 +200,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xB2785257_JuWWlhJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -439,7 +439,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x3CF5F560_owKjRjH
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver/cylinderpivot'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2199,7 +2199,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2224,7 +2224,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xBBE41892_vpVplPN
+    path: 'MasaKart/Kartlar'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2249,7 +2249,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF7906C19_ROHkkuL
+    path: 'MasaKart/Kartlar/kart1'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2274,7 +2274,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x6E993DA3_wkpOOkJ
+    path: 'MasaKart/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2299,7 +2299,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x199E0D35_LowjROH
+    path: 'MasaKart/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2324,7 +2324,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x87FA9896_qmJvloN
+    path: 'MasaKart/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2349,7 +2349,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF0FDA800_LJQWMQJ
+    path: 'MasaKart/Kartlar/kart5'
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -2393,7 +2393,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x6A548905_JVPuniL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver/cylinderpivot/Cylinder (Magazine)/Bullets.001'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2589,7 +2589,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xB2785257_JuWWlhJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4376,7 +4376,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6039,7 +6039,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xBBE41892_vpVplPN
+    path: 'MasaKart/Kartlar'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6064,7 +6064,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF7906C19_ROHkkuL
+    path: 'MasaKart/Kartlar/kart1'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6089,7 +6089,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x6E993DA3_wkpOOkJ
+    path: 'MasaKart/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6114,7 +6114,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x199E0D35_LowjROH
+    path: 'MasaKart/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6139,7 +6139,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x87FA9896_qmJvloN
+    path: 'MasaKart/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6164,7 +6164,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF0FDA800_LJQWMQJ
+    path: 'MasaKart/Kartlar/kart5'
   m_ScaleCurves: []
   m_FloatCurves:
   - serializedVersion: 2
@@ -11455,7 +11455,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xB2785257_JuWWlhJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -11494,7 +11494,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x6A548905_JVPuniL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver/cylinderpivot/Cylinder (Magazine)/Bullets.001'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -11533,7 +11533,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xCCE0C9BD_tITrrVN
+    path: 'FistSfx'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -11572,7 +11572,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -11632,7 +11632,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xA514CB63_kTWorkL
+    path: 'Reload'
     classID: 1
     script: {fileID: 0}
     flags: 0

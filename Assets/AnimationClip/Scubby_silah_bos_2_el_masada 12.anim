@@ -56,7 +56,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xB2785257_JuWWlhJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -621,7 +621,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x15EFEB72_kuoikuN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver/Hammer'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1186,7 +1186,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x6B1190B5_LvLQIRJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver/Trigger'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1751,7 +1751,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1826,7 +1826,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x9E02C68A_nLmTIKN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1851,7 +1851,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xE905F61C_UHkPNLN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1876,7 +1876,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x776163BF_oUHvhpL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1926,7 +1926,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x3CF5F560_owKjRjH
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver/cylinderpivot'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1995,7 +1995,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xB2785257_JuWWlhJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2560,7 +2560,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2635,7 +2635,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x9E02C68A_nLmTIKN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2660,7 +2660,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xE905F61C_UHkPNLN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2685,7 +2685,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x776163BF_oUHvhpL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2735,7 +2735,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x15EFEB72_kuoikuN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver/Hammer'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2760,7 +2760,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x3CF5F560_owKjRjH
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver/cylinderpivot'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4653,7 +4653,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xB2785257_JuWWlhJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/ElRevolver'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -4692,7 +4692,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x5F71CF26_QNPwRUL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm1/Base HumanRForearm2/Base HumanRPalm/EmptySfx'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -4722,7 +4722,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xCCE0C9BD_tITrrVN
+    path: 'FistSfx'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -4752,7 +4752,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0

@@ -74,7 +74,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x4E6A4C63_IOJnHtN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/kart1'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -864,7 +864,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x4F46FD7E_LhMpjkJ
+    path: 'kartucan'
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -926,7 +926,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x4E6A4C63_IOJnHtN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/kart1'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1716,7 +1716,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x4F46FD7E_LhMpjkJ
+    path: 'kartucan'
   m_ScaleCurves: []
   m_FloatCurves:
   - serializedVersion: 2
@@ -4784,7 +4784,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x4E6A4C63_IOJnHtN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/kart1'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -4823,7 +4823,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x4F46FD7E_LhMpjkJ
+    path: 'kartucan'
     classID: 1
     script: {fileID: 0}
     flags: 0

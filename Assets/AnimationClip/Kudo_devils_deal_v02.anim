@@ -38,7 +38,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xCD6D1364_SjwUlOL
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_LCollarbone/YAKUZA_LUpperarm/YAKUZA_LForearm1/YAKUZA_LForearm2/YAKUZA_LPalm/KartsParent'
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -64,7 +64,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xCD6D1364_SjwUlOL
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_LCollarbone/YAKUZA_LUpperarm/YAKUZA_LForearm1/YAKUZA_LForearm2/YAKUZA_LPalm/KartsParent'
   m_ScaleCurves: []
   m_FloatCurves:
   - serializedVersion: 2
@@ -2259,7 +2259,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xCCE0C9BD_tITrrVN
+    path: 'FistSfx'
     classID: 1
     script: {fileID: 0}
     flags: 0

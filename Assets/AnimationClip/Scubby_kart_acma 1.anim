@@ -333,7 +333,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x9E02C68A_nLmTIKN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -493,7 +493,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xE905F61C_UHkPNLN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -653,7 +653,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x776163BF_oUHvhpL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1159,7 +1159,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x9E02C68A_nLmTIKN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1319,7 +1319,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xE905F61C_UHkPNLN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1479,7 +1479,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x776163BF_oUHvhpL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
