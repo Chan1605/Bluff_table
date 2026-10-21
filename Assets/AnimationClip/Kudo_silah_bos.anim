@@ -47,7 +47,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x24240F1B_vtIVwNJ
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_RCollarbone/YAKUZA_RUpperarm/YAKUZA_RForearm1/YAKUZA_RForearm2/YAKUZA_RPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -72,7 +72,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x439C73E4_vQNTivH
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_RCollarbone/YAKUZA_RUpperarm/YAKUZA_RForearm1/YAKUZA_RForearm2/YAKUZA_RPalm/ElRevolver/Hammer'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -97,7 +97,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xCD6D1364_SjwUlOL
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_LCollarbone/YAKUZA_LUpperarm/YAKUZA_LForearm1/YAKUZA_LForearm2/YAKUZA_LPalm/KartsParent'
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -132,7 +132,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x24240F1B_vtIVwNJ
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_RCollarbone/YAKUZA_RUpperarm/YAKUZA_RForearm1/YAKUZA_RForearm2/YAKUZA_RPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -157,7 +157,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xCD6D1364_SjwUlOL
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_LCollarbone/YAKUZA_LUpperarm/YAKUZA_LForearm1/YAKUZA_LForearm2/YAKUZA_LPalm/KartsParent'
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -183,7 +183,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x24240F1B_vtIVwNJ
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_RCollarbone/YAKUZA_RUpperarm/YAKUZA_RForearm1/YAKUZA_RForearm2/YAKUZA_RPalm/ElRevolver'
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -400,7 +400,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x77777C92_WisnivH
+    path: 'Blood_Hit'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -430,7 +430,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -460,7 +460,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x24240F1B_vtIVwNJ
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_RCollarbone/YAKUZA_RUpperarm/YAKUZA_RForearm1/YAKUZA_RForearm2/YAKUZA_RPalm/ElRevolver'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -481,7 +481,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x40C9A97B_OjiPolN
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_RCollarbone/YAKUZA_RUpperarm/YAKUZA_RForearm1/YAKUZA_RForearm2/YAKUZA_RPalm/FirSFX'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -502,7 +502,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x721520E5_nrWhUIN
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_RCollarbone/YAKUZA_RUpperarm/YAKUZA_RForearm1/YAKUZA_RForearm2/YAKUZA_RPalm/Fx'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -532,7 +532,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xAF95AA91_mhksVwN
+    path: 'YAKUZA_Pelvis/YAKUZA_Spine_1/YAKUZA_Spine_2/YAKUZA_Spine_3/YAKUZA_Ribcage/YAKUZA_RCollarbone/YAKUZA_RUpperarm/YAKUZA_RForearm1/YAKUZA_RForearm2/YAKUZA_RPalm/EmptySfx'
     classID: 1
     script: {fileID: 0}
     flags: 0

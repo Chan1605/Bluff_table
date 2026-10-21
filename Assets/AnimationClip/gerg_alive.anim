@@ -2149,7 +2149,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xE78DCEAF_kVomhtH
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Neck_/P/HeadPivot/RHINO_Head/GerkGoz'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -2170,7 +2170,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -57050,7 +57050,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 2100000, guid: f2e8be817c5170e45b82b03b17f9eaad, type: 2}
     attribute: m_Materials.Array.data[0]
-    path: path_0x1DE57B70_oIrtPSN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Neck_/P/HeadPivot/RHINO_Head/gerg_yeni_14'
     classID: 137
     script: {fileID: 0}
     flags: 2

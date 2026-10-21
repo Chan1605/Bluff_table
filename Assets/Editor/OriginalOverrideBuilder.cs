@@ -9,7 +9,7 @@ using UnityEngine;
 // 메뉴: Tools / 원작 캐릭터 / 선택한 Sit 프리팹 Override 만들기
 public static class OriginalOverrideBuilder
 {
-    private const string BaseControllerPath = "Assets/Art/Anim/Bristle_OG.controller";
+    private const string BaseControllerPath = "Assets/Art/Anim/OG_Override/Bristle_OG.controller";
     private const string OutputFolder = "Assets/Art/Anim/OG_Override";
 
     // Bristle_OG에 들어 있는 Bristle 클립 → 원작 컨트롤러의 상태 이름
@@ -26,6 +26,11 @@ public static class OriginalOverrideBuilder
         { "bristle_fuck_you_sag", "Emote1-Right" },
         { "bristle_you_are_dead", "Emote2" },
         { "bristle_grr_v02", "Emote3" },
+
+        // 러시안 룰렛 (원작 Blorf 컨트롤러: Roulet → Dead / RouletEmpty)
+        { "Bristle_silah_trigger", "Roulet" },        // 총 집기 → 머리에 대기 → 방아쇠
+        { "Bristle_silah_bos_0", "RouletEmpty" },     // 빈 약실 → 안도 → 내려놓기
+        { "Bristle_silah_dolu_uzun", "Dead" },        // 발사 → 사망
     };
 
     [MenuItem("Tools/원작 캐릭터/선택한 Sit 프리팹 Override 만들기")]

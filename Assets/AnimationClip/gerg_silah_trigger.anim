@@ -74,7 +74,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1179,7 +1179,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xAF257458_PouiQVN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver/Hammer'
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -1277,7 +1277,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1302,7 +1302,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xAF257458_PouiQVN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver/Hammer'
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -1328,7 +1328,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -7104,7 +7104,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -7152,7 +7152,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x6F10CBF3_plORvvN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/GunSfx'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -7182,7 +7182,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0

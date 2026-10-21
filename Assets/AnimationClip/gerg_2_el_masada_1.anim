@@ -4414,7 +4414,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x913DFE4C_qNmRNpL
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_LCollarbone/RHINO_LUpperarm/RHINO_LForearm1/RHINO_LForearm2/RHINO_LPalm/KartsParent/Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -4435,7 +4435,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xD1F6197A_WlVuJRN
+    path: 'MasaKart (3)/Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -4456,7 +4456,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x3E347244_TqKpHSH
+    path: 'MasaKart (2)/Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -4477,7 +4477,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0

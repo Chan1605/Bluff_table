@@ -19,6 +19,8 @@ public class SeatHandCards : MonoBehaviour
         Animator.StringToHash("Emote1"), Animator.StringToHash("Emote2"), Animator.StringToHash("Emote3"),
         Animator.StringToHash("Emote4"), Animator.StringToHash("Emote5")
     };
+    static readonly int RouletteId = Animator.StringToHash("Roulette");           // 룰렛 시작 (Bristle_OG: Any State → Roulette)
+    static readonly int SurvivedId = Animator.StringToHash("Survived");           // true = RouletteEmpty, false = RouletteDead
     static readonly int LookId = Animator.StringToHash("Look");                   // 원작 방식: true = 꺼내 보기, false = 덮기 (있으면 OpenCards · CloseCards 대신 사용)
     static readonly int PlayCardsId = AnimIds.Character.PlayCardsId;
 
@@ -293,6 +295,7 @@ public class SeatHandCards : MonoBehaviour
 
     public void ResetRound()
     {
+        roulettePlaying = false;
         ClearReveal();
         dealFinished = false;
         opened = false;
@@ -315,7 +318,28 @@ public class SeatHandCards : MonoBehaviour
     /// <summary>감정표현 (1~5). 캐릭터 Animator에 EmoteN 트리거가 없으면 무시</summary>
     public void PlayEmote(int emote)
     {
+        if (roulettePlaying || shotDead) return;   // 이모트(Any State)가 룰렛 · 사망 자세를 끊지 않게
         if (emote >= 1 && emote <= EmoteIds.Length) TriggerCharacter(EmoteIds[emote - 1]);
+    }
+
+    // ───── 러시안 룰렛 ─────
+
+    bool roulettePlaying;   // 이번 라운드 룰렛 연출 중 (다음 라운드 ResetRound에서 해제)
+    bool shotDead;          // 발사로 사망 (로비 복귀까지 유지)
+
+    /// <summary>결과를 먼저 넣고 시작한다. 분기는 Animator가 Roulette 클립이 끝난 뒤 Survived로 한다</summary>
+    public void PlayRoulette(bool survived)
+    {
+        roulettePlaying = true;
+        if (!survived) shotDead = true;
+        if (character != null && characterParams.Contains(SurvivedId)) character.SetBool(SurvivedId, survived);
+        TriggerCharacter(RouletteId);
+    }
+
+    public void ClearRoulette()
+    {
+        roulettePlaying = false;
+        shotDead = false;
     }
 
     public void SetCardsOpen(bool open)

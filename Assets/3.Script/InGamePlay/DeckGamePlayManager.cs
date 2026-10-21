@@ -572,8 +572,14 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
             yield break;
         }
 
-        isBullet = ResolveRoulette(loserSeat);
+        // 결과는 지금 정하지만 SyncVar(isDead · currentChamber)는 방아쇠를 당기는 순간에 반영한다
+        // (먼저 바꾸면 HUD (n/6) · 이름표가 총을 들기도 전에 결과를 알려 버림)
+        PlayerState loser = Players[loserSeat];
+        isBullet = loser.currentChamber == loser.bulletPosition;
+        RpcRouletteStart(loserSeat, !isBullet);   // 클라이언트: 캐릭터 Animator가 집기 → 겨누기 → 발사 / 불발 순서로 재생
         yield return new WaitForSeconds(GameFlowTiming.RouletteAnimation);
+
+        if (loser != null) ApplyRoulette(loser, isBullet);
 
         if (isBullet)
         {
@@ -592,20 +598,10 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
     }
 
     [Server]
-    private bool ResolveRoulette(int seat)
+    private void ApplyRoulette(PlayerState loserState, bool isBullet)
     {
-        PlayerState loserState = Players[seat];
-
-        if (loserState.currentChamber == loserState.bulletPosition)
-        {
-            loserState.isDead = true;
-            return true;
-        }
-        else
-        {
-            loserState.currentChamber++;
-            return false;
-        }
+        if (isBullet) loserState.isDead = true;
+        else loserState.currentChamber++;
     }
 
     #endregion 
@@ -663,6 +659,13 @@ public class DeckGamePlayManager : NetworkBehaviour, IGameFlow
         // 유저 처형 이벤트 실행
         Debug.Log($" [인게임] : {seat} 번째 유저 처형");
         InGameEvent.TriggerOnPlayerEliminated(seat);
+    }
+
+    [ClientRpc]
+    private void RpcRouletteStart(int seat, bool survived)
+    {
+        // 결과를 먼저 받아 Animator가 분기 (한 번의 RPC로 연출 전체가 끊기지 않게)
+        InGameEvent.TriggerOnRouletteStarted(seat, survived);
     }
 
     [ClientRpc]

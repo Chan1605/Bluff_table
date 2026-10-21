@@ -4942,7 +4942,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x9A85A863_jVJQmNL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanNeck/HeadPivot/Base HumanHead/Goz'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -5029,7 +5029,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -5059,7 +5059,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xCAAC0A47_tQjQqHN
+    path: 'headfall'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -5116,7 +5116,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x1328C662_QJsQVLL
+    path: 'MasaKart (1)'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -5173,7 +5173,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x9CFEBEEC_uWjsWtH
+    path: 'MasaKart'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -5230,7 +5230,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x722E06AB_vqMoQWH
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -5287,7 +5287,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xD503C947_PKIUprN
+    path: 'MasaKart (1)/Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -5344,7 +5344,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xBBE41892_vpVplPN
+    path: 'MasaKart/Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -5410,7 +5410,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0xE1748DF2_RKHHJVN
+    path: 'MasaKart (1)/Kartlar/kart7'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -5476,7 +5476,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x9673BD64_sOWhoUJ
+    path: 'MasaKart (1)/Kartlar/kart6'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -5608,7 +5608,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x787DDC48_RsUkvRH
+    path: 'MasaKart (1)/Kartlar/kart4'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -5674,7 +5674,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0xE61949EB_QRNjLOJ
+    path: 'MasaKart (1)/Kartlar/kart3'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -5740,7 +5740,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x911E797D_SHHTpLH
+    path: 'MasaKart (1)/Kartlar/kart2'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -5872,7 +5872,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x1EF3C92C_uSSwThJ
+    path: 'MasaKart/Kartlar/kart7'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -5938,7 +5938,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x69F4F9BA_TQqqOrH
+    path: 'MasaKart/Kartlar/kart6'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -6004,7 +6004,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0xF0FDA800_LJQWMQJ
+    path: 'MasaKart/Kartlar/kart5'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -6070,7 +6070,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x87FA9896_qmJvloN
+    path: 'MasaKart/Kartlar/kart4'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -6136,7 +6136,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x199E0D35_LowjROH
+    path: 'MasaKart/Kartlar/kart3'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -6202,7 +6202,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x6E993DA3_wkpOOkJ
+    path: 'MasaKart/Kartlar/kart2'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -6268,7 +6268,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0xF7906C19_ROHkkuL
+    path: 'MasaKart/Kartlar/kart1'
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -6307,7 +6307,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0xE61949EB_QRNjLOJ
+    path: 'MasaKart (1)/Kartlar/kart3'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6346,7 +6346,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x911E797D_SHHTpLH
+    path: 'MasaKart (1)/Kartlar/kart2'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6424,7 +6424,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0xE1748DF2_RKHHJVN
+    path: 'MasaKart (1)/Kartlar/kart7'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6463,7 +6463,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x9673BD64_sOWhoUJ
+    path: 'MasaKart (1)/Kartlar/kart6'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6541,7 +6541,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x787DDC48_RsUkvRH
+    path: 'MasaKart (1)/Kartlar/kart4'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6580,7 +6580,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x1EF3C92C_uSSwThJ
+    path: 'MasaKart/Kartlar/kart7'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6619,7 +6619,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x69F4F9BA_TQqqOrH
+    path: 'MasaKart/Kartlar/kart6'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6658,7 +6658,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0xF0FDA800_LJQWMQJ
+    path: 'MasaKart/Kartlar/kart5'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6697,7 +6697,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x87FA9896_qmJvloN
+    path: 'MasaKart/Kartlar/kart4'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6736,7 +6736,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x199E0D35_LowjROH
+    path: 'MasaKart/Kartlar/kart3'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6775,7 +6775,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0x6E993DA3_wkpOOkJ
+    path: 'MasaKart/Kartlar/kart2'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -6814,7 +6814,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: path_0xF7906C19_ROHkkuL
+    path: 'MasaKart/Kartlar/kart1'
     classID: 114
     script: {fileID: 11500000, guid: 13af5225c2060e3eaf697d087bf3f83d, type: 3}
     flags: 0
@@ -97310,7 +97310,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 2100000, guid: b8d51c78187439f4dab612592026ec0f, type: 2}
     attribute: m_Materials.Array.data[0]
-    path: path_0x8D4E550B_uSojVLJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanNeck/HeadPivot/Base HumanHead/foxy_mesh_020'
     classID: 137
     script: {fileID: 0}
     flags: 2
@@ -97319,7 +97319,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 2100000, guid: b8d51c78187439f4dab612592026ec0f, type: 2}
     attribute: m_Materials.Array.data[0]
-    path: path_0xC7FB66C0_kUSLHlJ
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanNeck/HeadPivot/Base HumanHead/foxy_mesh_19'
     classID: 137
     script: {fileID: 0}
     flags: 2

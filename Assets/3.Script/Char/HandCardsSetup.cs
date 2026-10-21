@@ -229,6 +229,7 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnEmotePlayed += HandleEmotePlayed;
         InGameEvent.OnLiarCardsRevealed += HandleLiarCardsRevealed;
         InGameEvent.OnLiarCalled += HandleLiarCalled;
+        InGameEvent.OnRouletteStarted += HandleRouletteStarted;
     }
 
     void OnDisable()
@@ -247,6 +248,7 @@ public class HandCardsSetup : MonoBehaviour
         InGameEvent.OnEmotePlayed -= HandleEmotePlayed;
         InGameEvent.OnLiarCardsRevealed -= HandleLiarCardsRevealed;
         InGameEvent.OnLiarCalled -= HandleLiarCalled;
+        InGameEvent.OnRouletteStarted -= HandleRouletteStarted;
     }
 
     void OnDestroy()
@@ -354,6 +356,7 @@ public class HandCardsSetup : MonoBehaviour
             if (s == null) continue;
             s.Hand.HideAll();
             s.ClearReveal();
+            s.ClearRoulette();
             s.SetHasCards(false);
         }
     }
@@ -368,6 +371,13 @@ public class HandCardsSetup : MonoBehaviour
         openOnTurn = false;
         SeatHandCards me = LocalSeat();
         if (me != null && me.IsOpen && PlayerState.Local != null) PlayerState.Local.CmdSetCardsOpen(false);
+    }
+
+    // 러시안 룰렛: 캐릭터 Animator가 집기 → 겨누기 → 발사(RouletteDead) / 불발(RouletteEmpty → NoCards).
+    // 총 바꿔 들기 · 소리 · 섬광 · 피는 원작 클립이 직접 켜고 끈다
+    void HandleRouletteStarted(int seat, bool survived)
+    {
+        if (seats.TryGetValue(seat, out var s) && s != null) s.PlayRoulette(survived);
     }
 
     // LIAR 판정: 지목당한 사람이 마지막에 낸 카드를 테이블에서 뒤집고 초록(맞음) / 빨강(틀림)

@@ -56,7 +56,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -108,7 +108,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x6A6269A0_HMTiOKJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver/cylinderpivot'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -133,7 +133,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xBBCF7114_wnKhknN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver/cylinderpivot/Cylinder (Magazine)'
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -177,7 +177,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -211,7 +211,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xDC414652_JqvjNVN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver/cylinderpivot/Cylinder (Magazine)/Bullets.001'
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -237,7 +237,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -7033,7 +7033,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xF4FE1983_uOwkljJ
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -7072,7 +7072,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xDC414652_JqvjNVN
+    path: 'RHINO_Pelvis/RHINO_Spine_1/RHINO_Spine_2/RHINO_Spine_3/RHINO_Ribcage/RHINO_RCollarbone/RHINO_RUpperarm/RHINO_RForearm1/RHINO_RForearm2/RHINO_RPalm/ElRevolver/cylinderpivot/Cylinder (Magazine)/Bullets.001'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -7120,7 +7120,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x7E00D958_twLmVqN
+    path: 'Stylized Revolver '
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -7168,7 +7168,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xA2B8CE55_IMkPpKH
+    path: 'reload'
     classID: 1
     script: {fileID: 0}
     flags: 0

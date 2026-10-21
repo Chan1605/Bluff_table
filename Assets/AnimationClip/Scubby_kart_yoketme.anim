@@ -227,7 +227,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF0FDA800_LJQWMQJ
+    path: 'MasaKart/Kartlar/kart5'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -441,7 +441,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x87FA9896_qmJvloN
+    path: 'MasaKart/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -646,7 +646,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x199E0D35_LowjROH
+    path: 'MasaKart/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -851,7 +851,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x6E993DA3_wkpOOkJ
+    path: 'MasaKart/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1047,7 +1047,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF7906C19_ROHkkuL
+    path: 'MasaKart/Kartlar/kart1'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1162,7 +1162,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xBBE41892_vpVplPN
+    path: 'MasaKart/Kartlar'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1237,7 +1237,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x9E02C68A_nLmTIKN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1262,7 +1262,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xE905F61C_UHkPNLN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1287,7 +1287,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x776163BF_oUHvhpL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1527,7 +1527,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF0FDA800_LJQWMQJ
+    path: 'MasaKart/Kartlar/kart5'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1741,7 +1741,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x87FA9896_qmJvloN
+    path: 'MasaKart/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1946,7 +1946,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x199E0D35_LowjROH
+    path: 'MasaKart/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2151,7 +2151,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x6E993DA3_wkpOOkJ
+    path: 'MasaKart/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2356,7 +2356,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xF7906C19_ROHkkuL
+    path: 'MasaKart/Kartlar/kart1'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2471,7 +2471,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xBBE41892_vpVplPN
+    path: 'MasaKart/Kartlar'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2546,7 +2546,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x9E02C68A_nLmTIKN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart2'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2571,7 +2571,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xE905F61C_UHkPNLN
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart3'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2596,7 +2596,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0x776163BF_oUHvhpL
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent/Kartlar/kart4'
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3478,7 +3478,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xBBE41892_vpVplPN
+    path: 'MasaKart/Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -3517,7 +3517,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xA8E343EE_ILWPVpH
+    path: 'CardYoket'
     classID: 1
     script: {fileID: 0}
     flags: 0

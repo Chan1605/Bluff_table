@@ -1153,7 +1153,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x722E06AB_vqMoQWH
+    path: 'Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm1/Base HumanLForearm2/Base HumanLPalm/KartsParent'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1213,7 +1213,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x9CFEBEEC_uWjsWtH
+    path: 'MasaKart'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1243,7 +1243,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xBBE41892_vpVplPN
+    path: 'MasaKart/Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1273,7 +1273,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0x1328C662_QJsQVLL
+    path: 'MasaKart (1)'
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1303,7 +1303,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xD503C947_PKIUprN
+    path: 'MasaKart (1)/Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0

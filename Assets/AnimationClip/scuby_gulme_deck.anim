@@ -47,7 +47,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xFCA7DED4_iRNKlRH
+    path: 'Kartlar'
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -82,7 +82,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: path_0xFCA7DED4_iRNKlRH
+    path: 'Kartlar'
   m_ScaleCurves: []
   m_FloatCurves:
   - serializedVersion: 2
@@ -9108,7 +9108,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: path_0xFCA7DED4_iRNKlRH
+    path: 'Kartlar'
     classID: 1
     script: {fileID: 0}
     flags: 0
