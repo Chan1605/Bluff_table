@@ -93,9 +93,9 @@ public class GamePlayAudio : MonoBehaviour
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), hitTable_SFX);
     }
 
-    public void CardFlipSound(int i, int[] j, bool[] k)
+    public void CardFlipSound(int i, int[] card, bool[] k)
     {
-        AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardFlip_SFX);
+        StartCoroutine(cardOpenSound_co(card.Length));
     }
 
 
@@ -108,26 +108,27 @@ public class GamePlayAudio : MonoBehaviour
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardDivide_SFX);
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardThrow_SFX);
 
-        yield return 0.5f;
+        yield return new WaitForSeconds(0.5f);
 
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardFlip_SFX);
 
-        yield return 0.5f;
+        yield return new WaitForSeconds(0.5f);
 
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardCollect_SFX);
 
-        yield return 0.5f;
+        yield return new WaitForSeconds(0.5f);
 
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), whistle_SFX);
 
-        yield return 2f;
+        yield return new WaitForSeconds(2f);
 
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardDivide_SFX);
     }
 
-    private IEnumerator cardOpenSound_co()
+    private IEnumerator cardOpenSound_co(int cards) 
     {
-        yield return null;
+        yield return null; // 한번에 뒤집기
+                           // 따로 뒤집을 경우 반복문 추가
 
         AudioManager.Instance.Play3DSFX(GetAvailablesource(), cardDivide_SFX);
     }
