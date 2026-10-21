@@ -11,6 +11,8 @@ public static class InGameEvent
 
     public static event Action<CardType> OnRoundStarted; // 라운드 시작 시 뽑힌 테이블 카드 공지
 
+    public static event Action<bool> OnDeckListShown; // 20장 공개 연출 중 덱 구성 UI 표시 / 숨김 (클라이언트 연출 전용, CardPlacer → DeckListUI)
+
     public static event Action<List<CardType>> OnCardDealt; // 플레이어 카드 불출 받음
 
     public static event Action<int> OnTurnChanged; // 턴 변경
@@ -129,5 +131,10 @@ public static class InGameEvent
     public static void TriggerOnHandCursorChanged(int index)
     {
         OnHandCursorChanged?.Invoke(index);
+    }
+
+    public static void TriggerOnDeckListShown(bool show)
+    {
+        OnDeckListShown?.Invoke(show);
     }
 }

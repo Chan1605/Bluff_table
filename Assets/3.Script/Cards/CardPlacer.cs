@@ -116,6 +116,16 @@ public class CardPlacer : MonoBehaviour
         InGameEvent.OnCardDealt -= HandleCardDealt;
         if (sequence_co != null) { StopCoroutine(sequence_co); sequence_co = null; }
         IsIntroPlaying = false;
+        SetDeckListShown(false);
+    }
+
+    bool deckListShown;
+
+    void SetDeckListShown(bool show)
+    {
+        if (deckListShown == show) return;
+        deckListShown = show;
+        InGameEvent.TriggerOnDeckListShown(show);
     }
 
     void Start()
@@ -128,6 +138,7 @@ public class CardPlacer : MonoBehaviour
     void HandleRoundStarted(CardType tableCard)
     {
         if (sequence_co != null) StopCoroutine(sequence_co);
+        SetDeckListShown(false);
         Table_cur = tableCard;
         pendingHand = null;
         IsIntroPlaying = true;
@@ -213,7 +224,8 @@ public class CardPlacer : MonoBehaviour
         for (int i = 0; i < n; i++)
             cards[i].SetFace(TypeOf(i));
 
-        // 2) 덱 → 격자 (뒷면 상태)
+        // 2) 덱 → 격자 (뒷면 상태). 펼치기 시작과 함께 덱 구성 UI(Deck Contains)를 계단식으로 띄운다
+        SetDeckListShown(true);
         for (int i = 0; i < n; i++)
         {
             Transform t = cards[i].transform;
@@ -237,7 +249,8 @@ public class CardPlacer : MonoBehaviour
         // 4) 잠깐 보여주기
         yield return new WaitForSeconds(holdDuration);
 
-        // 5) 한꺼번에 다시 뒷면으로 → 다 덮인 뒤 앞면 정보 지우기
+        // 5) 한꺼번에 다시 뒷면으로 → 다 덮인 뒤 앞면 정보 지우기. 덮기 시작과 함께 덱 구성 UI도 사라진다
+        SetDeckListShown(false);
         for (int i = 0; i < n; i++)
         {
             Transform t = cards[i].transform;
