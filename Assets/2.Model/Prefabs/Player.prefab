@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
   sceneId: 0
-  _assetId: 3649857764
+  _assetId: 0
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
@@ -492,47 +492,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LobbyCharacterView
   characters:
   - displayName: Scubby
-    standModel: {fileID: 5609143187346561459, guid: 6cd9414a2e22ee040a66e7f7b3aa78c7, type: 3}
+    standModel: {fileID: 6239617174683934358, guid: 0bdf9c082343bc144b704321c1f5c964, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Cupcake
-    standModel: {fileID: 899665496377922071, guid: ac757d127c453604283d2a1d787f9de4, type: 3}
+    standModel: {fileID: 4850966490681295631, guid: b0485e6b7e84efc44be6077f0bd09f0c, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Foxy
-    standModel: {fileID: 2832648346372732354, guid: faaacdcb21b200040972d1900c0a5fb7, type: 3}
+    standModel: {fileID: 7076185758791261444, guid: b7d804d3f74961741a7f1cfc23555aa4, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Gerk
-    standModel: {fileID: 7860167276534072212, guid: 151f7b54ad7037b42af6e8600b0eba88, type: 3}
+    standModel: {fileID: 3753142814205682734, guid: ef4c25e18e549964693f2414c514decf, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Bristle
-    standModel: {fileID: 6263471318176179523, guid: 79314e8ae7dfe844fa5123fb9f2ec584, type: 3}
+    standModel: {fileID: 2619092967116433932, guid: 6b6c006c32692784da328303e44beed7, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Kudo
-    standModel: {fileID: 5159573660380122207, guid: 50d06d3a7b467184799b588c383cef67, type: 3}
+    standModel: {fileID: 4672870032552936682, guid: 7ad40888db9f59443b0fda4c8733066a, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Skunk
-    standModel: {fileID: 8652104147910005207, guid: b7ec9a689e38e7c42942dbb2929b668c, type: 3}
+    standModel: {fileID: 2947426744197952153, guid: 13300f2039c68f54f9fc5dd824fef8b1, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Toar
-    standModel: {fileID: 2667999908975078908, guid: fa0d5cb354556e44fb91295500b4da40, type: 3}
+    standModel: {fileID: 4977749520194558529, guid: 1b079b8b721f3624e818a1fc554153b3, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Tigre
-    standModel: {fileID: 6947915463980446117, guid: ae05889e04c0ffa44873280a114ca2ce, type: 3}
+    standModel: {fileID: 6264458164441455521, guid: 100f6d829504aac4b9e7e530b53fa6b8, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Tusk
-    standModel: {fileID: 1308005376918243378, guid: accfc9cf75bc30d4fa2e1171d629a7f6, type: 3}
+    standModel: {fileID: 8414974550865262462, guid: d1eb86b5c9e71874f97253e6d9c58c0a, type: 3}
     yOffset: 0
     labelOffsetY: 0
   - displayName: Dubai
-    standModel: {fileID: 780396040182590110, guid: 0e7cfa9891c66364fb8661470913a774, type: 3}
+    standModel: {fileID: 8745855181012764094, guid: 2b66ec8292e0fbd469e776b0b4c5300d, type: 3}
     yOffset: 0
     labelOffsetY: 0
   modelRoot: {fileID: 5788156069107882607}
@@ -1095,7 +1095,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2203205262974604104}
