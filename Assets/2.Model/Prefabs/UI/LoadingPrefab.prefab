@@ -75,6 +75,18 @@ MonoBehaviour:
   sortingOrder: 100
   coverBackground: {fileID: 3616409587916800349}
   coverSolid: {fileID: 2500626385442505892}
+  gameLoadingClips:
+  - {fileID: 32900000, guid: 07065a3dea2c02b4eb07fdbcfd32108d, type: 3}
+  - {fileID: 32900000, guid: 02b0002f4e11cc745a44cf7b80648f35, type: 3}
+  - {fileID: 32900000, guid: a4c407fb00e1d9248be0c5a921a29b64, type: 3}
+  gameLoadingMessage: Setting up your table
+  videoResolution: {x: 1920, y: 1080}
+  videoMinSeconds: 5
+  loadingIconController: {fileID: 9100000, guid: 50ea99abe0c8988418e7f5908fc660e5, type: 2}
+  loadingIconAnchor: {x: 0.5, y: 0}
+  loadingIconPivot: {x: 1, y: 0}
+  loadingIconPosition: {x: 47.2, y: 161.77}
+  loadingIconSize: {x: 100, y: 100}
 --- !u!222 &3262153688009715611
 CanvasRenderer:
   m_ObjectHideFlags: 0
