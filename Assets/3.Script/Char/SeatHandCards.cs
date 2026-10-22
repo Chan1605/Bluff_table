@@ -344,7 +344,10 @@ public class SeatHandCards : MonoBehaviour
         shotDead = false;
     }
 
-    // 캐릭터 모델마다 kart 재질이 섞여 있다 (playingCards_Mat / playingCards_Mat normal_blur) → 손패를 한 재질로 통일
+    // 다른 캐릭터 kart의 렌더링 레이어 (Default 포함). Kudo · Tigre 모델은 Default가 빠져 있어 조명을 다르게 받는다
+    const uint HandCardRenderingLayers = 265u;
+
+    // 캐릭터 모델마다 kart 재질이 섞여 있다 (playingCards_Mat / playingCards_Mat normal_blur) → 손패를 한 재질 · 같은 렌더링 레이어로 통일
     void UnifyKartMaterials()
     {
         Material face = setup.HandCardMat;
@@ -352,6 +355,8 @@ public class SeatHandCards : MonoBehaviour
             foreach (var k in karts)
                 if (k != null && k.defaultMaterials.Length > 0 && k.defaultMaterials[0] != null && !k.defaultMaterials[0].name.Contains("blur"))
                 { face = k.defaultMaterials[0]; break; }
+        foreach (var k in karts)
+            if (k != null) k.renderer.renderingLayerMask |= HandCardRenderingLayers;
         if (face == null) return;
 
         foreach (var k in karts)
