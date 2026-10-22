@@ -130,6 +130,7 @@ MonoBehaviour:
   cardController: {fileID: 9100000, guid: af2ecf10831e9fa438cdc5f9566abfb5, type: 2}
   shownMat: {fileID: 2100000, guid: 53b3b5dfa5f17c24f9294cb23fb34136, type: 2}
   hiddenMat: {fileID: 2100000, guid: db04cb5163596f0408c248e96cb57d08, type: 2}
+  handCardMat: {fileID: 2100000, guid: 6d0f31756af82264d93045eeca0a571d, type: 2}
   typeMeshes:
   - {fileID: -1274990148272603108, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
   - {fileID: 8473271436477100802, guid: 9445d20f5121b2a4997c7af6701957bc, type: 3}
@@ -156,7 +157,8 @@ MonoBehaviour:
   revealRiseSeconds: 0.45
   revealHangSeconds: 0.2
   revealLaySeconds: 0.4
-  handLayoutReferences: []
+  handLayoutReferences:
+  - {fileID: 0}
   deckPointName: DeckPoint
   fallbackDeckHeight: 0.8
   pileCapacity: 24

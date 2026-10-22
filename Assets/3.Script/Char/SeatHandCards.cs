@@ -139,6 +139,8 @@ public class SeatHandCards : MonoBehaviour
             slots[n - 1] = slot;
         }
 
+        UnifyKartMaterials();
+
         // 2) 캐릭터 Animator 파라미터 캐시
         character = GetComponent<Animator>();
         if (character == null) character = GetComponentInChildren<Animator>();
@@ -340,6 +342,27 @@ public class SeatHandCards : MonoBehaviour
     {
         roulettePlaying = false;
         shotDead = false;
+    }
+
+    // 캐릭터 모델마다 kart 재질이 섞여 있다 (playingCards_Mat / playingCards_Mat normal_blur) → 손패를 한 재질로 통일
+    void UnifyKartMaterials()
+    {
+        Material face = setup.HandCardMat;
+        if (face == null)
+            foreach (var k in karts)
+                if (k != null && k.defaultMaterials.Length > 0 && k.defaultMaterials[0] != null && !k.defaultMaterials[0].name.Contains("blur"))
+                { face = k.defaultMaterials[0]; break; }
+        if (face == null) return;
+
+        foreach (var k in karts)
+        {
+            if (k == null) continue;
+            var mats = (Material[])k.defaultMaterials.Clone();
+            for (int i = 0; i < mats.Length; i++)
+                if (mats[i] != null && mats[i].name.StartsWith("playingCards")) mats[i] = face;
+            k.defaultMaterials = mats;
+            k.renderer.sharedMaterials = mats;
+        }
     }
 
     public void SetCardsOpen(bool open)
