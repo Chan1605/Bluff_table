@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad47e14c1c0a3014d87bf759d71f92ac, type: 3}
   m_Name: ServerConfig
   m_EditorClassIdentifier: Assembly-CSharp::ServerConfig
-  networkAddress: localhost
+  networkAddress: 3.104.43.123
   port: 7777
   maxPlayers: 16
   maxSeats: 4
@@ -21,7 +21,7 @@ MonoBehaviour:
   maxRooms: 4
   roomTitleMaxLength: 18
   characterCount: 11
-  useDatabase: 0
+  useDatabase: 1
   nicknameMinLength: 2
   nicknameMaxLength: 12
   passwordMinLength: 4

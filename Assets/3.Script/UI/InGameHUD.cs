@@ -8,7 +8,7 @@ using UnityEngine.UI;
 // - 왼쪽 위: "QUEEN'S TABLE" + 초상 + 마지막 선언 (Waiting For First Claim / 이름 CLAIMS 2 x Queens / 이름 CALLED LIAR!)
 // - 가운데: 다른 사람이 낸 선언 팝업
 // - 내 차례: 위 가운데 타이머, 오른쪽 위 Your Bid + 조작 안내 / 내 차례 아닐 때: 오른쪽 아래 Look 안내
-// - 결과: RETURNING TO LOBBY 카운트다운 + 승자
+// - 결과: RETURNING TO LOBBY 카운트다운 + 승자 + 승자 전적 (이번 승리 반영: 13W 5L · WIN RATE 72.2%)
 // 게임 로직은 건드리지 않고 InGameEvent만 듣는다. 화면 전환은 내 방 단계(PlayerProfile.Phase)를 따른다.
 public class InGameHUD : MonoBehaviour
 {
@@ -105,6 +105,7 @@ public class InGameHUD : MonoBehaviour
     [Header("Result")]
     [SerializeField] private TMP_Text resultTimerText;
     [SerializeField] private TMP_Text winnerText;
+    [SerializeField] private TMP_Text winnerStatsText;   // 비워 두면 winnerText 아래에 자동 생성
 
     [Header("Colors")]
     [SerializeField] private Color kingColor = new Color(0.86f, 0.22f, 0.2f);
@@ -351,6 +352,14 @@ public class InGameHUD : MonoBehaviour
     {
         winnerSeat = seat;
         RedrawTexts();
+
+        TMP_Text stats = EnsureWinnerStats();
+        if (stats != null && stats.text.Length > 0)
+        {
+            stats.transform.DOKill(true);
+            stats.transform.localScale = Vector3.one;
+            stats.transform.DOPunchScale(Vector3.one * 0.12f, 0.5f, 6).SetDelay(0.6f);
+        }
     }
 
     // ---------------------------------------------------------------- 표시
@@ -453,6 +462,42 @@ public class InGameHUD : MonoBehaviour
         }
 
         if (winnerText != null) winnerText.text = winnerSeat >= 0 ? NameOf(winnerSeat) : string.Empty;
+
+        TMP_Text stats = EnsureWinnerStats();
+        if (stats != null) stats.text = winnerSeat >= 0 ? WinnerRecord(winnerSeat) : string.Empty;
+    }
+
+    // 게임 시작 때 찍어 둔 전적(PrevWins · PrevGamesPlayed) + 이번 승리
+    // DB 저장 · 재조회는 결과 화면 중에 늦게 도착하므로 기다리지 않고 바로 계산한다. DB 없는 계정이면 빈칸
+    private string WinnerRecord(int seat)
+    {
+        PlayerProfile p = FindProfile(seat);
+        if (p == null || p.PrevGamesPlayed < 0) return string.Empty;
+
+        int wins = p.PrevWins + 1;
+        int games = p.PrevGamesPlayed + 1;
+        string hex = ColorUtility.ToHtmlStringRGB(accentColor);
+        return $"<color=#{hex}>{RecordFormat.Short(wins, games)}</color>   ·   {Localization.Get("WIN RATE")} <color=#{hex}>{RecordFormat.RateText(wins, games)}</color>";
+    }
+
+    private TMP_Text EnsureWinnerStats()
+    {
+        if (winnerStatsText != null || winnerText == null) return winnerStatsText;
+
+        winnerStatsText = Instantiate(winnerText, winnerText.transform.parent);
+        winnerStatsText.name = "[Gen] WinnerStats";
+        if (winnerStatsText.TryGetComponent(out LocalizedText localized)) Destroy(localized);
+        for (int i = winnerStatsText.transform.childCount - 1; i >= 0; i--)
+            Destroy(winnerStatsText.transform.GetChild(i).gameObject);
+
+        RectTransform rt = winnerStatsText.rectTransform;
+        rt.anchoredPosition = winnerText.rectTransform.anchoredPosition - new Vector2(0f, winnerText.fontSize * 1.1f);
+        winnerStatsText.enableAutoSizing = false;
+        winnerStatsText.fontSize = winnerText.fontSize * 0.42f;
+        winnerStatsText.fontStyle = FontStyles.Normal;
+        winnerStatsText.color = new Color(0.85f, 0.8f, 0.72f);
+        winnerStatsText.text = string.Empty;
+        return winnerStatsText;
     }
 
     private void SetClaim(string name, string verb, string value)
@@ -484,13 +529,19 @@ public class InGameHUD : MonoBehaviour
 
     private static string NameOf(int seat)
     {
+        PlayerProfile p = FindProfile(seat);
+        return p != null ? p.Nickname : $"{Localization.Get("Player")} {seat + 1}";
+    }
+
+    private static PlayerProfile FindProfile(int seat)
+    {
         PlayerProfile me = PlayerProfile.Local;
         foreach (PlayerProfile p in PlayerProfile.All)
         {
             if (p == null || !p.IsInRoom || p.Seat != seat) continue;
             if (me != null && p.RoomId != me.RoomId) continue;
-            return p.Nickname;
+            return p;
         }
-        return $"{Localization.Get("Player")} {seat + 1}";
+        return null;
     }
 }

@@ -121,7 +121,7 @@ public class LobbyCharacterLabelUI : MonoBehaviour
         if (nameplate != null) nameplate.gameObject.SetActive(lobby);
         if (lobby)
         {
-            if (nicknameText != null) nicknameText.text = profile.Nickname;
+            if (nicknameText != null) nicknameText.text = NicknameWithRecord();
             if (readyMark != null) readyMark.SetActive(profile.IsReady);
         }
 
@@ -133,6 +133,13 @@ public class LobbyCharacterLabelUI : MonoBehaviour
         if (characterNameText != null) characterNameText.text = view.GetDisplayName(shownCharacter);
         if (lineAnimator != null) lineAnimator.Play(lineState, 0, 0f);   // 지시선 처음부터 다시 그리기
         LateUpdate();   // 켜진 첫 프레임부터 제자리에 보이게
+    }
+
+    // 대기실 이름표: "닉네임 12W 5L" (전적 없는 계정은 닉네임만)
+    private string NicknameWithRecord()
+    {
+        if (!profile.HasStats) return profile.Nickname;
+        return $"{profile.Nickname} <size=65%><color=#D9CDB8>{RecordFormat.Short(profile.Wins, profile.GamesPlayed)}</color></size>";
     }
 
     private void SetLabelVisible(bool visible)
