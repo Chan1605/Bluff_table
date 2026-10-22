@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using UnityEditor;
 using UnityEditor.Animations;
@@ -12,27 +13,28 @@ public static class OriginalOverrideBuilder
     private const string BaseControllerPath = "Assets/Art/Anim/OG_Override/Bristle_OG.controller";
     private const string OutputFolder = "Assets/Art/Anim/OG_Override";
 
-    // Bristle_OG에 들어 있는 Bristle 클립 → 원작 컨트롤러의 상태 이름
-    private static readonly Dictionary<string, string> ClipToState = new()
+    // Bristle_OG에 들어 있는 Bristle 클립(파일 이름) → 원작 컨트롤러의 상태 이름 (앞에서부터 찾음)
+    // 리핑 클립은 파일 이름과 클립 내부 이름이 다를 수 있다 (Bristle_silah_bos_0.anim 안의 이름 = Bristle_silah_bos)
+    private static readonly Dictionary<string, string[]> ClipToState = new()
     {
-        { "bristle_2_elmasada", "NoCard" },
-        { "Bristle_el_masada_Yeni", "blorfidle_scubby" },
-        { "bristle_kart_gecis", "Kart_Gecis" },
-        { "bristle_kart_tutma_Yeni", "blorfidle_look" },
-        { "Bristle_kart_kapatma_0", "kartkapama" },
-        { "bristle_kart_atma", "blorfthrow_scubby" },
-        { "bristle_fuck_you_sol", "Emote1-Left" },
-        { "bristle_taunt", "Emote1-Mid" },
-        { "bristle_fuck_you_sag", "Emote1-Right" },
-        { "bristle_you_are_dead", "Emote2" },
-        { "bristle_grr_v02", "Emote3" },
+        { "bristle_2_elmasada", new[] { "NoCard" } },
+        { "Bristle_el_masada_Yeni", new[] { "blorfidle_scubby" } },
+        { "bristle_kart_gecis", new[] { "Kart_Gecis" } },
+        { "bristle_kart_tutma_Yeni", new[] { "blorfidle_look" } },
+        { "Bristle_kart_kapatma_0", new[] { "kartkapama", "Kart_Geciskapa" } },
+        { "bristle_kart_atma", new[] { "blorfthrow_scubby" } },
+        { "bristle_fuck_you_sol", new[] { "Emote1-Left" } },
+        { "bristle_taunt", new[] { "Emote1-Mid" } },
+        { "bristle_fuck_you_sag", new[] { "Emote1-Right" } },
+        { "bristle_you_are_dead", new[] { "Emote2" } },
+        { "bristle_grr_v02", new[] { "Emote3" } },
 
         // 러시안 룰렛 (원작 Blorf 컨트롤러: Roulet → Dead / RouletEmpty)
-        { "Bristle_silah_trigger", "Roulet" },        // 총 집기 → 머리에 대기 → 방아쇠
-        { "Bristle_silah_bos_0", "RouletEmpty" },     // 빈 약실 → 안도 → 내려놓기
-        { "Bristle_silah_dolu_uzun", "Dead" },        // 발사 → 사망
-        { "bristle_win_deck", "Winner" },             // 마지막 1인 승리
-        { "Bristle_reloadyeni", "ScubyReload" },      // 게임 시작 장전 → 테이블에 내려놓기
+        { "Bristle_silah_trigger", new[] { "Roulet" } },        // 총 집기 → 머리에 대기 → 방아쇠
+        { "Bristle_silah_bos_0", new[] { "RouletEmpty" } },     // 빈 약실 → 안도 → 내려놓기
+        { "Bristle_silah_dolu_uzun", new[] { "Dead" } },        // 발사 → 사망
+        { "bristle_win_deck", new[] { "Winner" } },             // 마지막 1인 승리
+        { "Bristle_reloadyeni", new[] { "ScubyReload" } },      // 게임 시작 장전 → 테이블에 내려놓기
     };
 
     [MenuItem("Tools/원작 캐릭터/선택한 Sit 프리팹 Override 만들기")]
@@ -77,13 +79,17 @@ public static class OriginalOverrideBuilder
         for (int i = 0; i < pairs.Count; i++)
         {
             AnimationClip baseClip = pairs[i].Key;
-            if (!ClipToState.TryGetValue(baseClip.name, out string stateName)) continue;
-            if (states.TryGetValue(stateName, out Motion motion) && motion is AnimationClip clip)
+            string fileName = Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(baseClip));
+            if (!ClipToState.TryGetValue(fileName, out string[] stateNames)
+                && !ClipToState.TryGetValue(baseClip.name, out stateNames)) continue;
+
+            AnimationClip clip = FindClip(states, stateNames);
+            if (clip != null)
             {
                 pairs[i] = new KeyValuePair<AnimationClip, AnimationClip>(baseClip, clip);
                 replaced++;
             }
-            else missing.Add(stateName);
+            else missing.Add(string.Join("/", stateNames));
         }
         overrideController.ApplyOverrides(pairs);
 
@@ -120,6 +126,13 @@ public static class OriginalOverrideBuilder
             while (c is AnimatorOverrideController o) c = o.runtimeAnimatorController;
             if (c is AnimatorController ac) return ac;
         }
+        return null;
+    }
+
+    private static AnimationClip FindClip(Dictionary<string, Motion> states, string[] stateNames)
+    {
+        foreach (string stateName in stateNames)
+            if (states.TryGetValue(stateName, out Motion motion) && motion is AnimationClip clip) return clip;
         return null;
     }
 
