@@ -15,6 +15,7 @@ public class HandCardsSetup : MonoBehaviour
     [SerializeField] RuntimeAnimatorController cardController;
     [SerializeField] Material shownMat;
     [SerializeField] Material hiddenMat;
+    [SerializeField] Material handCardMat;   // 손패 앞면 재질 통일 (캐릭터 모델마다 kart 재질이 달라서). 비우면 모델 재질 중 하나로
     [Tooltip("CardType 순서: King, Queen, Ace, Joker")]
     [SerializeField] Mesh[] typeMeshes = new Mesh[4];
 
@@ -89,6 +90,7 @@ public class HandCardsSetup : MonoBehaviour
     public RuntimeAnimatorController CardController => cardController;
     public Material ShownMat => shownMat;
     public Material HiddenMat => hiddenMat;
+    public Material HandCardMat => handCardMat;
     public Vector3 SlotPositionOffset => slotPositionOffset;
     public Vector3 SlotEulerOffset => slotEulerOffset;
     public float CardScale => cardScale;
@@ -341,7 +343,7 @@ public class HandCardsSetup : MonoBehaviour
 
     // ───── 이벤트 ─────
 
-    void HandleEntryInGame() { myTurn = false; openOnTurn = false; judging = false; ResetAll(); }
+    void HandleEntryInGame() { myTurn = false; judging = false; ResetAll(); }
     void HandleReEntryInLobby() { judging = false; ResetAll(); }
 
     void ResetAll()
@@ -368,7 +370,6 @@ public class HandCardsSetup : MonoBehaviour
     {
         judging = true;
         myTurn = false;
-        openOnTurn = false;
         SeatHandCards me = LocalSeat();
         if (me != null && me.IsOpen && PlayerState.Local != null) PlayerState.Local.CmdSetCardsOpen(false);
     }
@@ -485,15 +486,16 @@ public class HandCardsSetup : MonoBehaviour
 
     // 원작처럼: 내 차례가 되면 패를 자동으로 펼치고(배분이 끝난 뒤), 차례가 끝나면(내고 나면) 다시 덮는다.
     // 내 차례 동안은 스페이스로 덮을 수 없다 → 덮은 채로 내는 경우가 없다
-    bool openOnTurn;
+    const float OpenRetrySeconds = 0.5f;
     bool myTurn;
+    float nextOpenRequest;
 
     void HandleTurnChanged(int seat)
     {
         bool mine = PlayerProfile.Local != null && seat == PlayerProfile.Local.Seat;
         bool wasMine = myTurn;
         myTurn = mine;
-        openOnTurn = mine;
+        nextOpenRequest = 0f;
         if (mine || !wasMine) return;
 
         SeatHandCards me = LocalSeat();
@@ -505,15 +507,15 @@ public class HandCardsSetup : MonoBehaviour
         UpdateOpenOnTurn();
     }
 
+    // 한 번만 펼치면, 차례 직전에 누른 스페이스(덮기)가 늦게 도착해 덮인 채 남는다 (그 뒤 스페이스는 카드 고르기라 다시 못 펼침)
+    // → 내 차례 동안은 덮여 있으면 계속 다시 펼친다 (응답을 기다리도록 간격을 둠)
     void UpdateOpenOnTurn()
     {
-        if (!openOnTurn) return;
+        if (!myTurn || judging || Time.time < nextOpenRequest) return;
         SeatHandCards me = LocalSeat();
-        if (me == null || PlayerState.Local == null) { openOnTurn = false; return; }
-        if (!me.CanToggle) return;   // 배분이 끝날 때까지 기다림
+        if (me == null || PlayerState.Local == null || !me.CanToggle || me.IsOpen) return;   // 배분 중 · 이미 펼침
 
-        openOnTurn = false;
-        if (me.IsOpen) return;
+        nextOpenRequest = Time.time + OpenRetrySeconds;
         PlayerState.Local.CmdSetCardsOpen(true);
     }
 
@@ -620,6 +622,7 @@ public class HandCardsSetup : MonoBehaviour
     const string CardPrefabPath = "Assets/2.Model/Prefabs/Card.prefab";
     const string HandLayoutPath = "Assets/2.Model/Prefabs/Characters/Sit Model/Cupcake.prefab";
     const string CardControllerPath = "Assets/LiarsBar/Presentation/Animators/Card.controller";
+    const string HandCardMatPath = "Assets/2.Model/Original/Bristle/Material/playingCards_Mat.mat";
 
     void Reset() => AutoFill();
 
@@ -629,6 +632,7 @@ public class HandCardsSetup : MonoBehaviour
     {
         if (cardVisualPrefab == null) cardVisualPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CardPrefabPath);
         if (cardController == null) cardController = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(CardControllerPath);
+        if (handCardMat == null) handCardMat = AssetDatabase.LoadAssetAtPath<Material>(HandCardMatPath);
         if (handLayoutReferences == null || handLayoutReferences.Length == 0)
             handLayoutReferences = new[] { AssetDatabase.LoadAssetAtPath<GameObject>(HandLayoutPath) };
 
