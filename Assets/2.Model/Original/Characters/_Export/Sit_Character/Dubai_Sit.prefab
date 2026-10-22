@@ -24421,7 +24421,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 90
+    FieldOfView: 65
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -24459,6 +24459,7 @@ MonoBehaviour:
   maxPitch: 45
   minYaw: -60
   maxYaw: 60
+  remoteSmoothing: 12
 --- !u!1 &2245123740491320057
 GameObject:
   m_ObjectHideFlags: 0
