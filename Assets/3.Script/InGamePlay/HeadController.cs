@@ -15,6 +15,12 @@ public class HeadController : MonoBehaviour
     private float currentPitch = 0f;
     private float currentYaw = 0f;
 
+    [SerializeField] private float remoteSmoothing = 12f;   // 남의 고개가 받은 각도를 따라가는 속도 (클수록 빠름)
+
+    private float targetPitch;
+    private float targetYaw;
+    private bool remote;   // 서버에서 받은 각도로 움직이는 남의 캐릭터
+
     // 원작 리그 본은 기본 회전이 0이 아니다 → 처음 회전(부모 기준)을 기억해 두고 그 위에 고개 각도를 더한다
     private Quaternion baseLocalRotation;
     private bool hasBase;
@@ -39,6 +45,7 @@ public class HeadController : MonoBehaviour
 
     public void AddLookInput(Vector2 mouseDelta) // 로컬 플레이어 고개 움직임
     {
+        remote = false;   // 내 입력은 보간 없이 바로
         currentYaw += mouseDelta.x * lookSensitivity;
         currentPitch -= mouseDelta.y * lookSensitivity;
 
@@ -48,12 +55,22 @@ public class HeadController : MonoBehaviour
 
     public void SetAbsoluteRotation(float pitch, float yaw) // 타 플레이어 고개 움직임. 서버에서 호출
     {
-        currentPitch = pitch;
-        currentYaw = yaw;
+        targetPitch = pitch;
+        targetYaw = yaw;
+        remote = true;
     }
 
     // 애니메이터 등이 본을 덮어써도 프레임 마지막에 다시 적용
-    private void LateUpdate() => ApplyRotation();
+    private void LateUpdate()
+    {
+        if (remote)
+        {
+            float t = 1f - Mathf.Exp(-remoteSmoothing * Time.deltaTime);   // 프레임레이트와 무관한 보간
+            currentPitch = Mathf.Lerp(currentPitch, targetPitch, t);
+            currentYaw = Mathf.Lerp(currentYaw, targetYaw, t);
+        }
+        ApplyRotation();
+    }
 
     public void ApplyRotation()
     {
