@@ -13,6 +13,8 @@ public class SceneTransitionMgr : MonoBehaviour
     private string preloadScene;
     private bool isLoading;             // 전환이 겹치지 않게
 
+    private const float PreloadTimeout = 10f;   // 미리 읽기가 0.9에서 안 넘어가면 그냥 활성화
+
     private void Awake()
     {
         if (Instance == null)
@@ -74,8 +76,10 @@ public class SceneTransitionMgr : MonoBehaviour
         if (preloadOp != null && preloadScene == sceneName)
         {
             op = preloadOp;
-            while (op.progress < 0.9f) yield return null;
-         
+            float limit = Time.unscaledTime + PreloadTimeout;
+            while (op.progress < 0.9f && Time.unscaledTime < limit) yield return null;
+            if (op.progress < 0.9f)
+                Debug.LogWarning($"[SceneTransition] '{sceneName}' 미리 읽기가 {PreloadTimeout}초 안에 끝나지 않아 바로 활성화합니다 (progress {op.progress:0.00})");
         }
         else if (preloadOp != null)
         {
