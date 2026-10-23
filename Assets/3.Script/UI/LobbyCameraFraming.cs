@@ -96,6 +96,15 @@ public class LobbyCameraFraming : MonoBehaviour
 
     private void Place()
     {
+        // 대기실 씬에 원작 카메라 자리(LobbyCameraAnchor)가 있으면 그대로 사용
+        LobbyCameraAnchor anchor = LobbyCameraAnchor.Current;
+        if (anchor != null)
+        {
+            lobbyCam.transform.SetPositionAndRotation(anchor.transform.position, anchor.transform.rotation);
+            ApplyFieldOfView(anchor.FieldOfView);
+            return;
+        }
+
         GetSeatRow(out Vector3 center, out Quaternion rot, out float halfSpan);
 
         // 좌석 줄 전체 + 여유가 화면 가로에 들어오는 거리
@@ -108,12 +117,16 @@ public class LobbyCameraFraming : MonoBehaviour
         Vector3 pos = center + rot * new Vector3(lookOffset.x, cameraHeight, -distance);   // 캐릭터 정면(-Z) 쪽
         lobbyCam.transform.SetPositionAndRotation(pos, Quaternion.LookRotation(look - pos, Vector3.up));
 
-        if (!Mathf.Approximately(lobbyCam.Lens.FieldOfView, fieldOfView))
-        {
-            LensSettings lens = lobbyCam.Lens;
-            lens.FieldOfView = fieldOfView;   // 플레이 중 Inspector 조정 반영
-            lobbyCam.Lens = lens;
-        }
+        ApplyFieldOfView(fieldOfView);   // 플레이 중 Inspector 조정 반영
+    }
+
+    private void ApplyFieldOfView(float fov)
+    {
+        if (Mathf.Approximately(lobbyCam.Lens.FieldOfView, fov)) return;
+
+        LensSettings lens = lobbyCam.Lens;
+        lens.FieldOfView = fov;
+        lobbyCam.Lens = lens;
     }
 
     // 대기실 좌석들의 중심과 방향. 좌석이 없으면 내 위치 기준

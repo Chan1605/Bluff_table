@@ -46,8 +46,11 @@ public class HeadController : MonoBehaviour
     public void AddLookInput(Vector2 mouseDelta) // 로컬 플레이어 고개 움직임
     {
         remote = false;   // 내 입력은 보간 없이 바로
-        currentYaw += mouseDelta.x * lookSensitivity;
-        currentPitch -= mouseDelta.y * lookSensitivity;
+
+        // 옵션 > 마우스 감도 (50 = 1배, 0 ~ 100). 슬라이더를 움직이면 바로 반영
+        float sensitivity = lookSensitivity * GameSettings.MouseSensitivityMultiplier;
+        currentYaw += mouseDelta.x * sensitivity;
+        currentPitch -= mouseDelta.y * sensitivity;
 
         currentYaw = Mathf.Clamp(currentYaw, minYaw, maxYaw);
         currentPitch = Mathf.Clamp(currentPitch, minPitch, maxPitch);
