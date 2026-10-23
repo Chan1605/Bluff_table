@@ -23,6 +23,8 @@ public class IntroSequence : MonoBehaviour
     [SerializeField] private GameObject loadingIcon;
     [SerializeField] private float loadingLeadSeconds = 3f;
 
+    private const float VideoStallLimit = 1.5f;   // 영상 시간이 이만큼 안 흐르면 멈춘 것으로 보고 넘어간다
+
     private bool skipRequested;
 
     private void Start()
@@ -103,7 +105,9 @@ public class IntroSequence : MonoBehaviour
             if (isVideo) video.Stop();
         }
 
-        SceneTransitionMgr.Instance.LoadScene(titleSceneName);
+        Debug.Log("[Intro] 타이틀로 전환");
+        if (SceneTransitionMgr.Instance != null) SceneTransitionMgr.Instance.LoadScene(titleSceneName);
+        else UnityEngine.SceneManagement.SceneManager.LoadScene(titleSceneName);
     }
 
     private IEnumerator StartVideo()
@@ -138,9 +142,14 @@ public class IntroSequence : MonoBehaviour
         if (video == null) yield break;
 
         // 영상이 실제로 재생을 시작할 때까지 아주 잠시 대기
-        yield return new WaitForEndOfFrame();
+        yield return null;
 
         // 영상이 끝나거나, (일반 영상 슬라이드에서) 사용자가 클릭할 때까지 대기
+        // 영상이 끝까지 안 가는 경우(되감기 직후 멈춤 등)를 대비해 시간 제한을 둔다
+        float deadline = Time.unscaledTime + (float)video.length + 2f;
+        double lastTime = video.time;
+        float stalled = 0f;
+
         while (video.isPlaying)
         {
             if (skipRequested)
@@ -150,6 +159,23 @@ public class IntroSequence : MonoBehaviour
                 // 로딩 슬라이드: 끝내지 않고 경고 구간으로 점프해서 끝까지 재생
                 skipRequested = false;
                 JumpToWarning();
+                deadline = Time.unscaledTime + loadingLeadSeconds + 2f;
+                lastTime = video.time;
+                stalled = 0f;
+            }
+
+            if (System.Math.Abs(video.time - lastTime) > 0.0001)
+            {
+                lastTime = video.time;
+                stalled = 0f;
+            }
+            else stalled += Time.unscaledDeltaTime;
+
+            if (stalled > VideoStallLimit || Time.unscaledTime > deadline)
+            {
+                Debug.LogWarning($"[Intro] 영상이 끝나지 않아 넘어갑니다 (time {video.time:0.00} / {video.length:0.00}, 멈춤 {stalled:0.0}s)");
+                if (slide.showLoadingNearEnd) ShowLoading();
+                yield break;
             }
 
             // 끝나기 loadingLeadSeconds초 전부터 로딩 아이콘 (경고 문구 구간)
@@ -189,7 +215,7 @@ public class IntroSequence : MonoBehaviour
         while (elapsed < duration)
         {
             if (skipRequested) break;
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             cg.alpha = Mathf.Lerp(from, to, elapsed / duration);
             yield return null;
         }
@@ -203,7 +229,7 @@ public class IntroSequence : MonoBehaviour
         while (elapsed < duration)
         {
             if (skipRequested) yield break;
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
     }

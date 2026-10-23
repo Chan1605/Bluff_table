@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 /// <summary>
 /// 라운드 테이블 카드 선언 연출.
@@ -18,7 +19,7 @@ public class TableCardAnnouncer : MonoBehaviour
     [SerializeField] private CardViewer card;
     [SerializeField] private Transform labelRoot;
     [SerializeField] private CanvasGroup labelGroup;
-    [SerializeField] private Text labelText;
+    [SerializeField] private TMP_Text labelText;
     [SerializeField] private Transform deckRoot;
 
     [Header("위치 · 크기")]
