@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 // 인게임 하단 UI (원작 배치) - InGameUI 프리팹에 넣는다.
 // - 왼쪽 아래: 채팅 (로비 RoomLobbyCanvas의 입력창 · 로그를 복사 + RoomChatUI)
-// - 가운데 아래: 마이크 + [V]
+// - 가운데 아래: 퀵챗 말풍선 + [V] (QuickChatHudBuilder)
 // - 오른쪽 아래(내 차례가 아닐 때, IdleHints): 감정 표현 마름모 3개 + [1][2][3] [4] [5], Look [SPACE]
 // 처음 한 번은 에디터가 켜질 때 자동으로 만들고, 다시 만들려면 Tools > LiarsBar > Build InGame Bottom UI
 // "[Gen] "으로 시작하는 오브젝트만 지우고 다시 만들므로 다른 수정은 그대로 남는다.
@@ -56,11 +56,11 @@ public static class InGameBottomUIBuilder
             RemoveGenerated(idle);
 
             BuildChat(playing);
-            BuildVoice(playing);
+            QuickChatHudBuilder.BuildHud(playing);
             BuildEmotes(idle);
 
             PrefabUtility.SaveAsPrefabAsset(root, PrefabPath);
-            Debug.Log("[InGame Bottom UI] InGameUI 프리팹에 하단 UI(채팅 · 마이크 · 감정 표현 · Look)를 만들었습니다.");
+            Debug.Log("[InGame Bottom UI] InGameUI 프리팹에 하단 UI(채팅 · 퀵챗 · 감정 표현 · Look)를 만들었습니다.");
         }
         finally
         {
@@ -119,15 +119,6 @@ public static class InGameBottomUIBuilder
         {
             PrefabUtility.UnloadPrefabContents(lobby);
         }
-    }
-
-    // ---------------------------------------------------------------- 마이크 (가운데 아래)
-
-    private static void BuildVoice(RectTransform playing)
-    {
-        RectTransform group = Group(playing, "[Gen] Voice", new Vector2(0.5f, 0f));
-        Img(group, "Mic", Icon + "icon_microphone.png", new Vector2(-16f, 36f), new Vector2(24f, 34f));
-        Img(group, "Key_V", Key + "key_V.png", new Vector2(18f, 36f), new Vector2(30f, 30f));
     }
 
     // ---------------------------------------------------------------- 감정 표현 · Look (오른쪽 아래)

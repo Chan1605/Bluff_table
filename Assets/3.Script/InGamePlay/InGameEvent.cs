@@ -111,6 +111,7 @@ public static class InGameEvent
     public static event Action<int, bool> OnCardsOpened; // seat번 플레이어가 패를 펼침(true) / 덮음(false) (모든 클라이언트)
     public static event Action<int, int[], bool[]> OnLiarCardsRevealed; // LIAR 판정: 지목당한 좌석이 마지막에 낸 카드 (CardType 값, 카드별 맞음 여부)
     public static event Action<int, int> OnEmotePlayed; // seat번 플레이어 감정표현 (번호 1~5) (모든 클라이언트)
+    public static event Action<int, int> OnQuickChat; // seat번 플레이어 퀵챗 (대사 번호 0~4) (모든 클라이언트)
 
     public static void TriggerOnLiarCardsRevealed(int seat, int[] cards, bool[] matches)
     {
@@ -120,6 +121,11 @@ public static class InGameEvent
     public static void TriggerOnEmotePlayed(int seat, int emote)
     {
         OnEmotePlayed?.Invoke(seat, emote);
+    }
+
+    public static void TriggerOnQuickChat(int seat, int line)
+    {
+        OnQuickChat?.Invoke(seat, line);
     }
 
     public static void TriggerOnLookRequested()
