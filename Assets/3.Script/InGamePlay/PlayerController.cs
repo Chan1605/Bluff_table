@@ -193,12 +193,21 @@ public class PlayerController : NetworkBehaviour
 
     private void OnEmotePerformed(InputAction.CallbackContext context)
     {
-        if (PlayerState.Local == null || PlayerState.Local.isTurn) return;
+        if (PlayerState.Local == null) return;
+        if (!int.TryParse(context.control.name, out int index)) return;
 
-        string keyName = context.control.name;
+        // 퀵챗 목록이 열려 있으면 숫자키는 대사 선택 (내 차례에도 가능)
+        if (QuickChatUI.IsOpen)
+        {
+            if (index >= 1 && index <= PlayerState.QuickChatCount) QuickChatUI.Say(index - 1);
+            else QuickChatUI.Close();
+            return;
+        }
 
-        if (int.TryParse(keyName, out int emoteIndex) && emoteIndex >= 1 && emoteIndex <= PlayerState.EmoteCount)
-            PlayerState.Local.CmdPlayEmote(emoteIndex);   // 1 · 2 · 3 = 뻐큐 좌 · 정면 · 우, 4 = 목 긋기, 5 = 브이
+        if (PlayerState.Local.isTurn) return;
+
+        if (index >= 1 && index <= PlayerState.EmoteCount)
+            PlayerState.Local.CmdPlayEmote(index);   // 1 · 2 · 3 = 뻐큐 좌 · 정면 · 우, 4 = 목 긋기, 5 = 브이
     }
 
     // E: 고른 카드 내기. 선택은 서버가 확정(OnCardsSubmitted)하면 비운다 (거절되면 그대로 남음)
@@ -234,9 +243,11 @@ public class PlayerController : NetworkBehaviour
         InGameEvent.TriggerOnLookRequested();   // 패 펼치기 (HandCardsSetup이 가능 여부 판단)
     }
 
+    // V: 퀵챗 목록 열기 / 닫기
     private void OnVoicePerformed(InputAction.CallbackContext context)
     {
-        if (PlayerState.Local == null) return;
+        if (PlayerState.Local == null || PlayerState.Local.isDead) return;
+        QuickChatUI.Toggle();
     }
 
     private void OnEscapePerformed(InputAction.CallbackContext context)

@@ -167,3 +167,14 @@ PATRON,손님
 REGULAR,단골
 HIGH ROLLER,큰손
 LEGEND OF THE BAR,바의 전설
+# 퀵챗 (V → 1~5)
+QUICK CHAT,퀵챗
+1-5 to say  ·  V to close,1~5 말하기  ·  V 닫기
+You,나
+Trust me.,믿어 봐.
+Liar...,거짓말 같은데...
+Not a chance.,어림없지.
+Hurry up!,빨리 좀 해!
+Good luck.,행운을 빌어.
+CONTROLS,조작법
+Quick Chat,퀵챗

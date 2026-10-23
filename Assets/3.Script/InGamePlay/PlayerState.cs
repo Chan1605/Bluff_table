@@ -150,6 +150,26 @@ public class PlayerState : NetworkBehaviour
         InGameEvent.TriggerOnEmotePlayed(seat, emote);
     }
 
+    // 퀵챗 (V → 1~5). 대사 번호만 보내고 글자는 받는 쪽 언어로 표시. 연타 방지는 서버에서
+    public const int QuickChatCount = 5;
+    private const float QuickChatCooldown = 2f;
+    private float nextQuickChatTime;
+
+    [Command]
+    public void CmdQuickChat(int line)
+    {
+        if (line < 0 || line >= QuickChatCount || isDead || Time.time < nextQuickChatTime) return;
+        nextQuickChatTime = Time.time + QuickChatCooldown;
+        Debug.Log($"[QuickChat] 서버 수신 - 좌석 {SeatNum}, 대사 {line}");
+        RpcQuickChat(SeatNum, line);
+    }
+
+    [ClientRpc]
+    private void RpcQuickChat(int seat, int line)
+    {
+        InGameEvent.TriggerOnQuickChat(seat, line);
+    }
+
     #region 플레이어 고개 움직임
     public void AssignHeadController(HeadController _headController)
     {
