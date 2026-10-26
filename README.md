@@ -2,7 +2,7 @@
 
 **술집 테이블의 네 사람이 카드로 블러핑하고, 거짓말이 들키면 러시안 룰렛을 돌리는 Unity 3D 온라인 멀티플레이 카드 게임 (Liar's Bar 모작)**
 
-![인게임 화면](Docs/Images/ingame_ace.jpg)
+![인게임 화면](Docs/Images/myturn.jpg)
 
 ![Unity](https://img.shields.io/badge/Unity-6000.2.8f1-000000?logo=unity&logoColor=white) ![C#](https://img.shields.io/badge/C%23-239120?logo=csharp&logoColor=white) ![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white) ![Mirror](https://img.shields.io/badge/Network-Mirror-4A90E2) ![MariaDB](https://img.shields.io/badge/DB-MariaDB-003545?logo=mariadb&logoColor=white) ![AWS](https://img.shields.io/badge/Server-AWS-232F3E?logo=amazonwebservices&logoColor=white) ![DOTween](https://img.shields.io/badge/DOTween-Tween-8A2BE2)
 
@@ -24,8 +24,8 @@
 | 이름 | 담당 |
 |---|---|
 | **김종찬** | UI 전반, 인게임 연출, 전적 UI · 퀵챗, 원작 에셋 이식 · 에디터 도구 |
-| **박지은**  | 전반적인 게임 로직,플레이어 기능,라이팅 작업 |
-| **박진호**  | 전반적인 서버 담당 로직,레벨 디자인,원작 에셋 이식 · 에디터 도구 |
+| 팀원 | (담당 파트) |
+| 팀원 | (담당 파트) |
 
 ## 🎮 조작법 (Controls)
 
@@ -66,62 +66,103 @@ flowchart LR
 
 서버가 결과와 타이밍을 정하고, UI와 연출은 `InGameEvent`의 정적 이벤트를 구독해서 보여 주기만 합니다. 네 플레이어가 같은 장면을 같은 순서로 보고, UI를 고쳐도 팀원의 게임 로직은 건드리지 않습니다. 연출 컴포넌트는 `RuntimeInitializeOnLoadMethod`로 스스로 생성되어 같은 씬을 여러 명이 고쳐도 충돌이 나지 않습니다.
 
-### 02. 인게임 HUD · `InGameHUD`
+### 02. 타이틀 · 대기실 UI · `RoomLobbyUI` / `LobbyCharacterView` / `LobbyTutorialUI`
 
-![인게임 HUD](Docs/Images/ingame_king.jpg)
+<p align="center">
+  <img src="Docs/Images/lobby.gif" width="49%" alt="대기실 캐릭터 변경 · 준비"/>
+  <img src="Docs/Images/lobby_tutorial.jpg" width="49%" alt="룰 안내 팝업"/>
+</p>
 
-원작 배치를 따른 HUD입니다. 라운드 테이블 카드, 앞사람의 주장("2 x Kings"), 내 차례 조작 안내, 턴 타이머, 리볼버 잔탄을 표시합니다.
+대기실에서 캐릭터에 마우스를 올리면 아웃라인과 "캐릭터 변경" 라벨이 뜨고, 클릭할 때마다 다음 캐릭터로 바뀌어 다른 플레이어에게도 동기화됩니다. `?` 버튼의 룰 안내는 DOTween으로 위에서 떨어지며 등장하고, 하단 바에는 채팅 · 모드 · 로비 ID(복사) · 방 이름이 있습니다.
 
-### 03. 머리 위 이름판 · `NamePlateSync` / `NamePlateBoard`
+### 03. 인게임 HUD · `InGameHUD`
 
-<!-- TODO: Docs/Images/nameplate.gif -->
+<p align="center">
+  <img src="Docs/Images/table_card.jpg" width="49%" alt="라운드 테이블 카드 공지"/>
+  <img src="Docs/Images/myturn.gif" width="49%" alt="내 차례 카드 고르기 · 내기"/>
+</p>
+
+원작 배치를 따른 HUD입니다. 라운드 시작에 테이블 카드("QUEEN'S TABLE")를 공지하고, 좌측 상단에 앞사람의 선언("2 x 퀸"), 내 차례에는 우측 상단에 조작 안내 · 리볼버 잔탄 · 턴 타이머를 표시합니다. 내 차례가 아닐 때는 우측 하단에 감정 표현과 "패 보기" 안내가 나옵니다.
+
+### 04. 머리 위 이름판 · `NamePlateSync` / `NamePlateBoard`
+
+<p align="center">
+  <img src="Docs/Images/nameplate.jpg" width="60%" alt="머리 위 이름판"/>
+</p>
 
 이름과 당긴 횟수(n/6)를 머리 위에 띄우고, 애니메이션 뒤 `LateUpdate`에서 머리를 부드럽게 따라갑니다. 높이는 테이블 크기에 비례하고, 내 이름판과 결과 화면에서는 숨깁니다.
 
-### 04. LIAR 판정 연출 · `OnLiarCardsRevealed`
-
-<!-- TODO: Docs/Images/liar.gif -->
-
-지목된 카드를 펼쳐 카드마다 맞음(초록) / 틀림(빨강)을 표시한 뒤 룰렛으로 넘어갑니다. 카드를 펼치는 기준을 카메라가 아닌 "의자 → 테이블 중앙" 방향으로 잡아, 네 플레이어 모두 같은 모양을 봅니다.
-
 ### 05. 게임 시작 장전 연출 · `GunReloadPresenter`
 
-<!-- TODO: Docs/Images/reload.gif -->
+<p align="center">
+  <img src="Docs/Images/reload.gif" width="80%" alt="리볼버 장전 → 덱 공개"/>
+</p>
 
 로딩 직후 모든 캐릭터가 리볼버에 탄을 넣고 테이블에 내려놓은 뒤 덱 공개로 넘어갑니다. 서버가 `RpcGunReload`를 보내고 연출 시간(`GameFlowTiming.GunReload`)만큼 기다립니다.
 
-### 06. 승리 연출 · `WinnerPresenter`
+### 06. LIAR 판정 연출 · `OnLiarCardsRevealed`
 
-<!-- TODO: Docs/Images/winner.gif -->
+<p align="center">
+  <img src="Docs/Images/liar.gif" width="80%" alt="LIAR 판정"/>
+</p>
 
-승자의 고개가 마우스 커서를 따라 움직입니다(원작의 재미 요소). 각도는 0.1초 간격으로 서버에 동기화되어 다른 플레이어에게도 보입니다. 승자 이름 아래에는 전적과 승률을 표시합니다.
+LIAR가 외쳐지면 좌측 상단에 "거짓말!"을 띄우고, 지목된 카드를 펼쳐 카드마다 맞음(초록) / 틀림(빨강)을 표시한 뒤 룰렛으로 넘어갑니다. 카드를 펼치는 기준을 카메라가 아닌 "의자 → 테이블 중앙" 방향으로 잡아, 네 플레이어 모두 같은 모양을 봅니다.
 
-### 07. 전적 UI (MariaDB 연동) · `TitleStatsUI` / `RecordFormat`
+### 07. 승리 연출 · `WinnerPresenter`
 
-<!-- TODO: Docs/Images/stats.png -->
+<p align="center">
+  <img src="Docs/Images/winner.gif" width="80%" alt="승리 연출"/>
+</p>
 
-타이틀 우측 하단 패널에 승 · 패 · 승률과 칭호(새내기 → 바의 전설, 5단계)를 카운트업 연출로 보여 주고, 대기실 이름표와 승리 화면에도 표시합니다. DB 저장 · 재조회가 승리 화면보다 늦게 오므로, 게임 시작 때 찍어 둔 전적에 이번 승리를 더해 바로 계산합니다.
+승자의 고개가 마우스 커서를 따라 움직입니다(원작의 재미 요소). 각도는 0.1초 간격으로 서버에 동기화되어 다른 플레이어에게도 보입니다. 승자 이름 아래에는 이번 승리를 반영한 전적과 승률을, 우측 상단에는 로비 복귀 카운트다운을 표시합니다.
 
-### 08. 퀵챗 · `QuickChatUI`
+### 08. 전적 UI (MariaDB 연동) · `TitleStatsUI` / `RecordFormat`
 
-<!-- TODO: Docs/Images/quickchat.gif -->
+<p align="center">
+  <img src="Docs/Images/title_stats.gif" width="49%" alt="로그인 후 전적 패널 카운트업"/>
+  <img src="Docs/Images/lobby.jpg" width="49%" alt="대기실 이름표 전적"/>
+</p>
+
+타이틀 우측 하단 패널에 승 · 패 · 판 수 · 승률 막대와 칭호(새내기 → 바의 전설, 5단계)를 카운트업 연출로 보여 주고, 대기실 이름표와 승리 화면에도 표시합니다. DB 저장 · 재조회가 승리 화면보다 늦게 오므로, 게임 시작 때 찍어 둔 전적에 이번 승리를 더해 바로 계산합니다.
+
+### 09. 퀵챗 · `QuickChatUI`
+
+<p align="center">
+  <img src="Docs/Images/quickchat.gif" width="49%" alt="퀵챗 목록 → 대사 선택"/>
+  <img src="Docs/Images/quickchat_bubble.jpg" width="49%" alt="상대 머리 위 말풍선"/>
+</p>
 
 음성 채팅 대신 넣은 기능입니다. `V`로 목록을 열고 `1` ~ `5`로 대사를 고르면 말한 사람의 이름판 위에 말풍선이 뜹니다. 네트워크로는 대사 번호만 보내 받는 사람의 언어로 표시되고, 서버가 범위와 2초 쿨다운을 검사해 임의 문장은 보낼 수 없습니다.
 
-### 09. 사망 화면 · 관전 · `DeathScreenUI` / `PlayerSpectator`
+### 10. 사망 화면 · 관전 · `DeathScreenUI` / `PlayerSpectator`
 
-<!-- TODO: Docs/Images/death.gif -->
+<p align="center">
+  <img src="Docs/Images/death.gif" width="80%" alt="러시안 룰렛 → 사망 → 관전"/>
+</p>
 
-룰렛에서 탈락하면 사망 화면 후 관전 모드로 바뀌고, `A` `D`로 남은 플레이어를 돌아가며 봅니다.
+LIAR 판정에서 지면 리볼버를 머리에 대고 방아쇠를 당기고, 실탄이면 사망 연출 후 관전 모드로 바뀌어 `A` `D`로 남은 플레이어를 돌아가며 봅니다.
 
-### 10. 설정 · 현지화 · 해상도 · 커서
+### 11. 설정 · 현지화 · 해상도 · 커서
 
-<!-- TODO: Docs/Images/settings.png -->
+<p align="center">
+  <img src="Docs/Images/settings_gameplay_ko.jpg" width="49%" alt="설정 - 한국어"/>
+  <img src="Docs/Images/settings_gameplay_en.jpg" width="49%" alt="설정 - 영어"/>
+</p>
 
-- `SettingsMenuUI`: 사운드 · 디스플레이 · 그래픽 · 게임플레이(마우스 감도) 탭
-- `Localization`: `Strings.csv`(en, ko) 한 파일로 한국어 / 영어 전환
+- `SettingsMenuUI`: 디스플레이 · 게임플레이 · 그래픽 · 오디오 탭, 인게임 ESC 메뉴에서도 같은 패널 사용
+- `Localization`: `Strings.csv`(en, ko) 한 파일로 한국어 / 영어 전환 (위: 같은 화면의 한국어 · 영어)
 - `ResolutionAdapter`: CanvasScaler 방식을 실행 중 하나로 통일하고, 1920x1080 고정 배경 26개를 화면을 덮도록 키움
 - `CustomCursor`: 원작 커서 적용, 게임 중에는 잠금 · ESC 메뉴에서만 창 밖으로 이동 가능 (듀얼 모니터 대응)
+
+<details>
+<summary>설정 화면 더 보기 (디스플레이 · 그래픽)</summary>
+
+<p align="center">
+  <img src="Docs/Images/settings_display.jpg" width="49%" alt="디스플레이 설정"/>
+  <img src="Docs/Images/settings_graphics.jpg" width="49%" alt="그래픽 설정"/>
+</p>
+
+</details>
 
 ## 🏗️ 설계 포인트 : "UI는 판단하지 않는다"
 
