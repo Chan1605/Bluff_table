@@ -1,6 +1,7 @@
 # Bluff Table
 
-**술집 테이블의 네 사람이 카드로 블러핑하고, 거짓말이 들키면 러시안 룰렛을 돌리는 Unity 3D 온라인 멀티플레이 카드 게임 (Liar's Bar 모작)**
+**술집 테이블의 네 사람이 카드로 블러핑하고, 거짓말이 들키면 러시안 룰렛을 돌리는 Unity 3D 온라인 멀티플레이 카드 게임 <br/>
+원작 : Liar's Bar(Steam)**
 
 ![인게임 화면](Docs/Images/myturn.jpg)
 
